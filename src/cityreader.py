@@ -2,6 +2,22 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+import csv
+
+class City():
+    def __init__(self,city,state_name,county_name,lat,lng,population,density,timezone,zips):
+        self.name = city
+        self.state_name = state_name
+        self.county_name = county_name
+        self.latitude = lat
+        self.longitude = lng
+        self.population = population
+        self.density = density
+        self.timezone = timezone
+        self.zips = zips.split(' ')
+
+    def __repr__(self):
+        return "<City: %s, %f, %f>" % (self.name, self.latitude, self.longitude)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,10 +35,20 @@
 cities = []
 
 # TODO
+with open('cities.csv', newline='\n') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=',')
+    my_arr = [row for row in spamreader]
+    # remove the top row from the list
+    my_arr.pop(0)
+    for city in my_arr:
+        cities.append(City(city[0],city[1],city[2],float(city[3]),float(city[4]),city[5],city[6],city[7],city[8]))
+
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+city_list = [''.join(['Name:' + city.name, '\nLat: '+ str(city.latitude), '\tLon: '+ str(city.longitude)+'\n'+'-'*40]) for city in cities]
+print('\n'.join(city_list))
 
 # *** STRETCH GOAL! ***
 #
