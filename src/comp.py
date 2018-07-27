@@ -1,3 +1,5 @@
+import string
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -23,21 +25,23 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [human for human in humans if human.name[0] == "D"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [human for human in humans if human.name[-1] == "e"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+c_g = string.ascii_uppercase[2:7]
+
+r = [human for human in humans if human.name[0] in c_g]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
