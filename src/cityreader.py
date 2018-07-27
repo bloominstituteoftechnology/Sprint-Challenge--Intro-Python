@@ -27,6 +27,7 @@ cities = []
 import csv
 with open("cities.csv") as f:
     reader = csv.reader(f)
+    header = next(reader) # removes first line from CSV header
     cities = [City(r[0], r[3], r[4]) for r in reader]
 
 # Print the list of cities (name, lat, lon), 1 record per line.
