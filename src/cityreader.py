@@ -2,6 +2,11 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude 
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,10 +24,17 @@
 cities = []
 
 # TODO
+import csv
+with open("cities.csv") as f:
+    reader = csv.reader(f)
+    header = next(reader) # removes first line from CSV header
+    cities = [City(r[0], r[3], r[4]) for r in reader]
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+for city in cities:
+    print(city.name + " - " + city.latitude + " - " + city.longitude)
 
 # *** STRETCH GOAL! ***
 #
@@ -49,3 +61,15 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+lat1, lon1 = [float(v) for v in input("Enter lat1,lon1: ").split(',')]
+lat2, lon2 = [float(v) for v in input("Enter lat2,lon2: ").split(',')]
+
+if lat2 < lat1:
+    lat1, lat2 = lat2, lat1 # swap
+
+if lon2 < lon1:
+    lon1, lon2 = lon2, lon1 # swap
+
+for c in cities:
+    if c.latitude >= lat1 and c.latitude <= lat2 and c.longitude >= lon1 and c.longitude <= lon2:
+        print("{}: ({},{})".format(c.name, c.latitude, c.longitude))
