@@ -69,4 +69,25 @@ readCSV(open("cities.csv"))
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+print("")
+
+choice1 = input("Enter lat1,lon1: ")
+choice1 = choice1.split(',')
+choice2 = input("Enter lat2,lon2: ")
+choice2 = choice2.split(',')
+
+lat1, lon1 = float(choice1[0]), float(choice1[1])
+lat2, lon2 = float(choice2[0]), float(choice2[1])
+
+if lat1 < lat2:  # switch if user entered other start corner
+    lat1, lat2 = lat2, lat1
+    lon1, lon2 = lon2, lon1
+
+c = [city for city in cities if (lat1 > float(city.latitude) > lat2)
+     and (lon1 > float(city.longitude) > lon2)]
+
+print("")
+
+for city in c:
+    city = "{}: ({},{})".format(city.name, city.latitude, city.latitude)
+    print(city)
