@@ -62,3 +62,23 @@ for each in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+print('\n\n\n\nEnter Lat and Lon separated by coma')
+# remove whitespace, separate string by comma
+coord1 = input('\nEnter the first set of coordinates >').replace(' ', '').split(",")
+coord2 = input('enter 2nd set of coordinates >').replace(' ', '').split(",")
+
+if coord1[0] <= coord2[0]:
+  bigCoord = (coord2[0])
+  smallCoord = (coord1[0])
+else:
+  bigLatLon = (coord1[0])
+  smallCoord = (coord2[0])
+
+if coord1[1] <= coord2[0]:
+  bigCoord.append()
+  
+
+
+
+  print(bigCoord, smallCoord)
