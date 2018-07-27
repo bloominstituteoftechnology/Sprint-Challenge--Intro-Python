@@ -38,7 +38,6 @@ header = next(reader)
 lines = [line for line in file]
 cities.append(lines)
 
-
 # Print the list of cities (name, lat, lon), 1 record per line.
 # TODO
 print(f'{cities}\n')
