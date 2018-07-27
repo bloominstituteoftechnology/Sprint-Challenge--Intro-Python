@@ -42,7 +42,7 @@ print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [human.age + 10 for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
