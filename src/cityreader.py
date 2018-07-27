@@ -17,43 +17,45 @@
 # should not be loaded into a City object.
  
 import csv
-import io
-import numpy as np
+
+class City():
+    def __init__(self,city,state_name,county_name,lat,lng,population,density,timezone,zips):
+        self.name = city
+        self.state_name = state_name
+        self.county_name = county_name
+        self.latitude = lat
+        self.longitude = lng
+        self.population = population
+        self.density = density
+        self.timezone = timezone
+        self.zips = zips.split(' ')
+
+    def __repr__(self):
+        return "<City: %s, %f, %f>" % (self.name, self.latitude, self.longitude)
 
 
-with open('cities.csv', 'rb') as f:
-    reader = csv.DictReader(f)
-    fieldnames = reader.fieldnames
-
-    class City:
-        def __init__(self, **fields):
-            self.__dict__.update(**fields)
-            self.name = name 
-            self.lat = lat
-            self.lng = lng
-
-        def __repr__(self):  # Added to make printing instances show their contents.
-            fields = ', '.join(('{}={!r}'.format(fieldname, getattr(self, fieldname))
-                                   for fieldname in fieldnames))
-            return('{}({})'.format(self.__class__.__name__, fields))
-
-    cities = [city(**row) for row in reader]
-
-print(cities)
             
 # for row in reader:
 #     print(row['city'], row['lat'], row['lng'])
 
+cities = []
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-        def print_city_info():
-            input = np.genfromtxt(open("cities.csv","rb"),delimiter=",", skip_header=1)
-            cities = np.delete(input, [1,2,5,6,7,8], 1)
+with open('cities.csv', newline='\n') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    my_arr = [row for row in reader]
+    # remove the top row from the list
+    my_arr.pop(0)
+    for city in my_arr:
+        cities.append(City(city[0],city[1],city[2],float(city[3]),float(city[4]),city[5],city[6],city[7],city[8]))
 
-            print(cities)
+
 # TODO
+
+city_list = [''.join(['Name:' + city.name, '\nLat: '+ str(city.latitude), '\tLon: '+ str(city.longitude)+'\n']) for city in cities]
+print('\n'.join(city_list))
 
 # *** STRETCH GOAL! ***
 #
