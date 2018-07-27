@@ -41,8 +41,7 @@ print(r)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = [human.name for human in humans if human.name[0]
-     >= "C" and human.name[0] <= "G"]  # TODO
+r = [human.name for human in humans if "G" >= human.name[0] >= "C"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -61,14 +60,14 @@ print(r)
 # inclusive.
 print("Names and ages between 27 and 32:")
 r = [(human.name, human.age)
-     for human in humans if human.age <= 32 and human.age >= 27]  # TODO
+     for human in humans if 27 <= human.age <= 32]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = [[human.name.upper(), human.age + 5] for human in humans]  # TODO
+r = [Human(human.name.upper(), human.age + 5) for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
