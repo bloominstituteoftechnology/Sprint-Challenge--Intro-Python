@@ -2,6 +2,17 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+import csv
+class City():
+    def __init__(self,name,stateName,countynName,latitude,longitude):
+        self.name =name
+        self.state =stateName
+        self.county =countynName
+        self.lat =latitude
+        self.lon = longitude
+
+    def __repr__(self):
+        return("City: {} State:{}\n,County:{},\nLatitude: {},\nLongitude: {}".format(self.name,self.state,self.county,self.lat,self.lon))
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,11 +30,18 @@
 cities = []
 
 # TODO
+with open('cities.csv') as csvfile:
+    readFile = csv.reader(csvfile,delimiter=",")
+    myCities =[line for line in readFile]
+    myCities.pop(0)
+    for city in myCities:
+        cities.append(City(city[0],city[1],city[2],float(city[3]),float(city[4])))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
-
+    city_list = [' '.join(['Nameitude: ' + city.name +",", '\nLatitude: '+ str(city.lat), '\nLongitude: '+ str(city.lon) + "\n"]) for city in cities]
+    print('\n'.join(city_list)) 
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.

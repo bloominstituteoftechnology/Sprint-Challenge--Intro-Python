@@ -1,13 +1,16 @@
-# To the GroundVehicle class, add method drive() that prints "vroooom".
+# To the GroundVehicle class, add method drive() that prints "vroooom". 
 #
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
+    def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
 
     # TODO
+    # changed this to upper for funsies, and so it would all kinda match up better inside of the console
+    def drive(self):
+        print("\nvroooom".upper())
 
 
 # Subclass Motorcycle from Vehicle.
@@ -18,6 +21,13 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 # TODO
+
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        super().__init__(num_wheels=2)
+
+    def drive(self):
+        print("\nBRAAAP!!")
 
 vehicles = [
     GroundVehicle(),
@@ -30,3 +40,5 @@ vehicles = [
 # Go through the vehicles list and call drive() on each.
 
 # TODO
+for ride in vehicles:
+    ride.drive()
