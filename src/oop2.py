@@ -3,30 +3,53 @@
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
+
 class GroundVehicle():
+
     def __init__(self, num_wheels):
         self.num_wheels = num_wheels
 
-    # TODO
+    def drive(self):
+        print('"vroooom"')
+        if self.num_wheels == None:
+            self.num_wheels = 4
+            return self.num_wheels
+
+        # Subclass Motorcycle from Vehicle.
+        #
+        # Make it so when you instantiate a Motorcycle, it automatically sets the number
+        # of wheels to 2 by passing that to the constructor of its superclass.
+        #
+        # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 
-# Subclass Motorcycle from Vehicle.
-#
-# Make it so when you instantiate a Motorcycle, it automatically sets the number
-# of wheels to 2 by passing that to the constructor of its superclass.
-#
-# Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        super().__init__(2)
 
-# TODO
+    def drive(self):
+        print('"BRAAAP!!"')
+        return self.num_wheels
+
+
+        # TODO
+b = GroundVehicle(None)
+c = Motorcycle()
+
+# print(b.drive())
+# print(c.drive())
+
 
 vehicles = [
-    GroundVehicle(),
-    GroundVehicle(),
+    GroundVehicle(None),
+    GroundVehicle(None),
     Motorcycle(),
-    GroundVehicle(),
+    GroundVehicle(None),
     Motorcycle(),
 ]
 
 # Go through the vehicles list and call drive() on each.
+
+p = [i.drive() for i in vehicles]
 
 # TODO

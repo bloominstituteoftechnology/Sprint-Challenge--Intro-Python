@@ -1,7 +1,17 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+
+
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -15,14 +25,26 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-
+# file = csv.reader('cities.csv')
 cities = []
+with open('cities.csv', newline='') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    for row in spamreader:
+        cities.append(' '.join(row))
 
-# TODO
+newArray = []
 
-# Print the list of cities (name, lat, lon), 1 record per line.
+# # TODO
+for i in cities[1:]:
+    print(i.split('\n')[0].split(',')[0], i.split('\n')[
+          0].split(',')[3], i.split('\n')[0].split(',')[4])
+    newArray.append(i.split('\n')[0].split(',')[0] + "," + i.split('\n')[
+        0].split(',')[3] + "," + i.split('\n')[0].split(',')[4])
 
-# TODO
+# # Print the list of cities (name, lat, lon), 1 record per line.
+print(newArray)
+# # TODO
+
 
 # *** STRETCH GOAL! ***
 #
