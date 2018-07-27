@@ -25,34 +25,34 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 
-print("Starts with D:")
+print("\nStarts with D:")
 r = [human.name for human in humans if human.name[0] is "D"]
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
-print("Ends with e:")
+print("\nEnds with e:")
 r = [human.name for human in humans if human.name[-1] is "e"]
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
-print("Starts between C and G, inclusive:")
+print("\nStarts between C and G, inclusive:")
 r = [human.name for human in humans if human.name[0] in ascii_uppercase[2:7]]
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 
-print("Ages plus 10:")
+print("\nAges plus 10:")
 r = [human.age + 10 for human in humans]
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 
-print("Name hyphen age:")
+print("\nName hyphen age:")
 r = ["%s-%d" % (human.name, human.age) for human in humans]
 print(r)
 
@@ -60,7 +60,7 @@ print(r)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 
-print("Names and ages between 27 and 32:")
+print("\nNames and ages between 27 and 32:")
 r = [(human.name, human.age) for human in humans if human.age in range(27, 33)]
 print(r)
 
@@ -68,12 +68,12 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 
-print("All names capitalized:")
+print("\nAll names capitalized:")
 r = [Human(human.name.upper(), (human.age + 5)) for human in humans]
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 
-print("Square root of ages:")
+print("\nSquare root of ages:")
 r = [sqrt(human.age) for human in humans]
 print(r)
