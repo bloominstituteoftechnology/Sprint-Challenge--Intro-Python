@@ -28,9 +28,10 @@ cities = []
 
 with open('cities.csv', newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    for line in reader:
-        newCity = City(line[0], line[3], line[4])
-        cities.append(newCity)
+    for i, line in enumerate(reader):
+        if i > 0:
+            newCity = City(line[0], line[3], line[4])
+            cities.append(newCity)
 
 
 # Print the list of cities (name, lat, lon), 1 record per line.
