@@ -1,7 +1,13 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+class City:
+  def __init__(self, name, latitude, longitude):
+    self.name = name
+    self.latitude = latitude
+    self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,13 +22,17 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+
 cities = []
 
-# TODO
+with open("cities.csv") as csvfile:
+  readCSV = csv.DictReader(csvfile)
+  [cities.append(City(x["city"], x["lat"], x["lng"])) for x in readCSV]
+
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+# [print(x.name, x.latitude, x.longitude) for x in cities]
 
 # *** STRETCH GOAL! ***
 #
@@ -48,4 +58,26 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+print("\nSeperate lat/long numbers with [, ] (comma + space)")
+
+
+lat1, long1 = [x for x in input("\n\tEnter first set of latitude/longitude coordinates (lat, lng): ").split(", ")]
+lat2, long2 = [x for x in input("\n\tEnter second set of latitude/longitude coordinates (lat, lng): ").split(", ")]
+
+
+lats = [lat1, lat2]
+longs = [long1, long2]
+
+
+def validateData(city):
+  if city.latitude > max(lats) or city.latitude < min(lats): None
+  
+  elif city.longitude > max(longs) or city.longitude < min(longs): None
+
+  else: print(city.name, city.latitude, city.longitude)
+
+
+print() # for terminal aesthetics
+
+
+[validateData(city) for city in cities]
