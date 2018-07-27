@@ -33,8 +33,6 @@ with open('cities.csv') as city_csv:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
-
 for city in cities:
     print(city.name)
     print(city.latitude)
