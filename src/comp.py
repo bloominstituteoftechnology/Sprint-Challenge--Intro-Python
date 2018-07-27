@@ -1,3 +1,5 @@
+import math
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -67,5 +69,5 @@ print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [math.sqrt(h.age) for h in humans]  # TODO
 print(r)
