@@ -63,5 +63,27 @@ for city in cities:
 # Phoenix: (33.5722,-112.0891)
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
+print("Please enter two lat/lon pairs like this:\n'45, -100' or '32, 120'")
+first = input("lat1/lon1:").strip().split(', ')
+second = input("lat2/lon2:").strip().split(', ')
 
-# TODO
+if first[0]<second[0]:
+    lowlat = first[0]
+    hilat = second[0]
+else:
+    lowlat = second[0]
+    hilat = first[0]
+
+if first[1]<second[1]:
+    lowlong = first[1]
+    hilong = second[1]
+else:
+    lowlong = second[1]
+    hilong = first[1]
+
+print(hilat)
+
+for city in cities:
+    if (city.lat>lowlat) and (city.lat<hilat):
+        if (city.lon>lowlong) and (city.lon<hilong):
+            print("{}: ({}, {})".format(city.name, city.lat, city.lon))
