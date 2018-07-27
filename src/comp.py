@@ -6,6 +6,7 @@ class Human:
     def __repr__(self):
         return "<Human: %s, %d>" % (self.name, self.age)
 
+
 humans = [
     Human("Alice", 29),
     Human("Bob", 32),
@@ -23,21 +24,24 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [person for person in humans if person.name[0] == 'D']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [person for person in humans if person.name[-1] == 'e']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [
+    person for person in humans
+    if person.name[0] >= 'C' and person.name[0] <= 'G'
+]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
