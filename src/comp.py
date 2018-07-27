@@ -22,17 +22,14 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 
-# for name in humans[0]:
-#     if name.startswith('g'):
-#         print(name)
+for name in humans:
+    #print(name.name)
+    if name.name.startswith('D'):
+        print(name.name)
 
-# test1 = for n in humans:
-    
-
-# print(test1)
 
 # print("Starts with D:")
-# r = [name for name in humans[0] if name.starswith('D')]  # TODO
+# r = [name for name in humans if name.starswith('D')]  # TODO
 # print(r)
 
 # Write a list comprehension that creates a list of names of everyone
