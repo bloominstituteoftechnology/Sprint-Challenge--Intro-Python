@@ -27,6 +27,6 @@ vehicles = [
     Motorcycle(),
 ]
 
-# Go through the vechicles list and call drive() on each.
+# Go through the vehicles list and call drive() on each.
 
 # TODO
