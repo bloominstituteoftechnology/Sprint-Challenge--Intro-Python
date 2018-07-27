@@ -1,7 +1,22 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
-
+import csv
+# with open('cities.csv') as csvfile:
+#     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+# for row in spamreader:
+#     print(', '.join(row))
+# csvreader = csv.reader(file("cities.csv"))
+# for row in csvreader:
+#     process(row)
 # TODO
+
+
+
+class City():
+    def __init__(self, city_name, latitude, longitude):
+        self.city_name = city_name
+        self.latitude = latitude
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,9 +34,25 @@
 cities = []
 
 # TODO
+with open('cities.csv', 'rt') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        city = row[0]
+        state = row[1]
+        county = row[2]
+        lat = row[3]
+        lng = row[4]
+        population = row[5]
+        #etc
+        if city != 'city':
+            # print(city)
+            print('name', city, 'lat: ', lat, 'long: ', lng)
+            new_city = City(city, lat, lng)
+            cities.append(new_city)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+for each in cities:
+    print(each.city_name, each.latitude, each.longitude)
 # TODO
 
 # *** STRETCH GOAL! ***
