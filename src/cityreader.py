@@ -68,17 +68,22 @@ print('\n\n\n\nEnter Lat and Lon separated by coma')
 coord1 = input('\nEnter the first set of coordinates >').replace(' ', '').split(",")
 coord2 = input('enter 2nd set of coordinates >').replace(' ', '').split(",")
 
+# separate them into coordinates with big values and small values
 if coord1[0] <= coord2[0]:
-  bigCoord = (coord2[0])
-  smallCoord = (coord1[0])
+  bigCoord = [coord2[0]]
+  smallCoord = [coord1[0]]
 else:
-  bigLatLon = (coord1[0])
-  smallCoord = (coord2[0])
+  bigCoord = [coord1[0]]
+  smallCoord = [coord2[0]]
 
-if coord1[1] <= coord2[0]:
-  bigCoord.append()
-  
+if coord1[1] <= coord2[1]:
+  bigCoord.append(coord2[1])
+  smallCoord.append(coord1[1])
+else:
+  bigCoord.append(coord1[1])
+  smallCoord.append(coord2[1])
 
-
-
-  print(bigCoord, smallCoord)
+for each in cities:
+  # each[3] = lat, each[4] = lon
+  if smallCoord[0] <= each[3] <= bigCoord[0] and smallCoord[1] <= each[4] <= bigCoord[1]
+# print(bigCoord, smallCoord)
