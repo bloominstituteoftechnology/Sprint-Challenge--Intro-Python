@@ -21,7 +21,7 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 class MotorCycle(GroundVehicle):
-    def __init__(self, 2):
+    def __init__(self, numwheels=2):
         self.num_wheels = num_wheels
     
     def drive():
