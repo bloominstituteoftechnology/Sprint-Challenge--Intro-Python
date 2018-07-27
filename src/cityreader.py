@@ -26,21 +26,42 @@ class City:
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 # file = csv.reader('cities.csv')
+
 cities = []
-with open('cities.csv', newline='') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-    for row in spamreader:
-        cities.append(' '.join(row))
 
-newArray = []
+file = open("cities.csv", newline='')
+
+# read file
+reader = csv.reader(file)
+# remove header
+header = next(reader)
+# get city data
+data = [row for row in reader]
+
+# loop over data and create city for each line
+for city in data:
+    newCity = City(city[0], city[3], city[4])
+    cities.append(newCity)
+# Print the list of cities (name, lat, lon), 1 record per line.
+for city in cities:
+    print(city.name, city.latitude, city.longitude)
 
 
-# # TODO
-for i in cities[1:]:
-    print(i.split('\n')[0].split(',')[0], i.split('\n')[
-          0].split(',')[3], i.split('\n')[0].split(',')[4])
-    # newArray.append(i.split('\n')[0].split(',')[0] + "," + i.split('\n')[
-    #     0].split(',')[3] + "," + i.split('\n')[0].split(',')[4])
+# cities = []
+# with open('cities.csv', newline='') as csvfile:
+#     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+#     for row in spamreader:
+#         cities.append(' '.join(row))
+
+# newArray = []
+
+
+# # # TODO
+# for i in cities[1:]:
+#     print(i.split('\n')[0].split(',')[0], i.split('\n')[
+#           0].split(',')[3], i.split('\n')[0].split(',')[4])
+# newArray.append(i.split('\n')[0].split(',')[0] + "," + i.split('\n')[
+#     0].split(',')[3] + "," + i.split('\n')[0].split(',')[4])
 
 # # Print the list of cities (name, lat, lon), 1 record per line.
 
