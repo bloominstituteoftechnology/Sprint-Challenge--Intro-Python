@@ -11,7 +11,7 @@ class City:
         self.longitude = longitude
 
     def __repr__(self):
-        return "\n(%s, %.2f, %.2f)" % (self.name, self.latitude, self.longitude)
+        return "(%s, %.2f, %.2f)" % (self.name, self.latitude, self.longitude)
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -45,7 +45,7 @@ with open("./cities.csv", newline ="\n") as cities_file:
 #print(cities_list)
 #print(cities)
 for city in cities:
-    print(cities)
+    print(city)
 
 # *** STRETCH GOAL! ***
 #
