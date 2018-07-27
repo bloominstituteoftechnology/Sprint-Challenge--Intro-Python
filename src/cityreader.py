@@ -63,10 +63,26 @@ for each in cities:
 
 # TODO
 
-print('\n\n\n\nEnter Lat and Lon separated by coma')
-# remove whitespace, separate string by comma
-coord1 = input('\nEnter the first set of coordinates >').replace(' ', '').split(",")
-coord2 = input('enter 2nd set of coordinates >').replace(' ', '').split(",")
+parseCode = 'first'
+
+print('\n\n\n\nEnter Lat and Lon separated by coma:\n')
+while parseCode == 'first':
+  # remove whitespace, separate string by comma
+  coord1 = input('Enter the FIRST set of coordinates\n> ').replace(' ', '').split(",")
+  # check for errors in input
+  if len(coord1) != 2 or any(each in coord1 for each in {'', ','}) or any(each.isnumeric() for each in coord1) == False:
+    print("\nEnter proper coordinates.")
+  else:
+    # move to next while loop
+    parseCode = 'second'
+    break
+
+while parseCode == 'second':
+  coord2 = input('enter SECOND set of coordinates\n> ').replace(' ', '').split(",")
+  if len(coord2) != 2 or any(each in coord2 for each in {'', ','}) or any(each.isnumeric() for each in coord2) == False:
+    print('Enter proper coordinates\n')
+  else:
+    break
 
 # separate them into coordinates with big values and small values
 if coord1[0] <= coord2[0]:
