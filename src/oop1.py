@@ -19,3 +19,26 @@
 # Put a comment noting which class is the base class
 
 # Master Vehicle Class
+class Vehicle():
+    pass
+
+# Vehicles
+class GroundVehicle(Vehicle):
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+
+# Ground Vehicles
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
+
+# Flight Vehicles
+class Airplane(FlightVehicle):
+    pass
+
+class Starship(FlightVehicle):
+    pass
