@@ -61,3 +61,15 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+lat1, lon1 = [float(v) for v in input("Enter lat1,lon1: ").split(',')]
+lat2, lon2 = [float(v) for v in input("Enter lat2,lon2: ").split(',')]
+
+if lat2 < lat1:
+    lat1, lat2 = lat2, lat1 # swap
+
+if lon2 < lon1:
+    lon1, lon2 = lon2, lon1 # swap
+
+for c in cities:
+    if c.latitude >= lat1 and c.latitude <= lat2 and c.longitude >= lon1 and c.longitude <= lon2:
+        print("{}: ({},{})".format(c.name, c.latitude, c.longitude))
