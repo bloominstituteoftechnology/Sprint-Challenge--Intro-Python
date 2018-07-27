@@ -17,3 +17,29 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+#   Land travel
+class Vehicle: # Base class
+  pass
+
+class GroundVehicle(Vehicle): # subclass of vehicle
+  pass
+
+class Car(GroundVehicle):  # subclass of GroundVehicle
+  pass
+
+class Motorcycle(GroundVehicle):  # subclass of GroundVehicle
+  pass
+
+
+#   Air travel
+class FlightVehicle: # Base class
+  pass
+
+class Airplane(FlightVehicle): # subclass of FlightVehicle
+  pass
+
+
+#   Space travel
+class Starship: # Base class
+  pass
