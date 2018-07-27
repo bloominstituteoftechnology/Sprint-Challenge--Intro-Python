@@ -15,8 +15,18 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
+# open cities.csv file then read from it.
+with open('cities.csv', newline='') as f:
+  reader = csv.reader(f, delimiter=',', quotechar='|')
 
-cities = []
+  # skip a line then print line for every single city
+  next(f)
+  cities = [line for line in reader]
+  
+# close file
+f.close()
+
 
 # TODO
 
