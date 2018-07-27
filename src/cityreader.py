@@ -27,20 +27,22 @@ class City:
 
 cities = []
 
-# TODO
 file = open("cities.csv", newline='')
 
+# read file
 reader = csv.reader(file)
+# remove header
 header = next(reader)
+# get city data
 data = [row for row in reader]
 
+# loop over data and create city for each line
 for city in data:
     newCity = City(city[0], city[3], city[4])
     cities.append(newCity)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
     print(city.name, city.latitude, city.longitude)
-# TODO
 
 # *** STRETCH GOAL! ***
 #
