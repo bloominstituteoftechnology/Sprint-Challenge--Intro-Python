@@ -15,13 +15,44 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+ 
+import csv
+import io
+import numpy as np
 
-cities = []
+
+with open('cities.csv', 'rb') as f:
+    reader = csv.DictReader(f)
+    fieldnames = reader.fieldnames
+
+    class City:
+        def __init__(self, **fields):
+            self.__dict__.update(**fields)
+            self.name = name 
+            self.lat = lat
+            self.lng = lng
+
+        def __repr__(self):  # Added to make printing instances show their contents.
+            fields = ', '.join(('{}={!r}'.format(fieldname, getattr(self, fieldname))
+                                   for fieldname in fieldnames))
+            return('{}({})'.format(self.__class__.__name__, fields))
+
+    cities = [city(**row) for row in reader]
+
+print(cities)
+            
+# for row in reader:
+#     print(row['city'], row['lat'], row['lng'])
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+        def print_city_info():
+            input = np.genfromtxt(open("cities.csv","rb"),delimiter=",", skip_header=1)
+            cities = np.delete(input, [1,2,5,6,7,8], 1)
 
+            print(cities)
 # TODO
 
 # *** STRETCH GOAL! ***
