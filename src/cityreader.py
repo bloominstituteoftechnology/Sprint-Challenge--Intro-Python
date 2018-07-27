@@ -32,7 +32,7 @@ with open("cities.csv") as csvfile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# [print(x.name, x.latitude, x.longitude) for x in cities]
+[print(x.name, x.latitude, x.longitude) for x in cities]
 
 # *** STRETCH GOAL! ***
 #
@@ -59,6 +59,7 @@ with open("cities.csv") as csvfile:
 # Salt Lake City: (40.7774,-111.9301)
 
 print("\nSeperate lat/long numbers with [, ] (comma + space)")
+
 
 user_input_1 = input("\n\tEnter first set of latitude/longitude coordinates (lat, lng): ")
 user_input_2 = input("\n\tEnter second set of latitude/longitude coordinates (lat, lng): ")
