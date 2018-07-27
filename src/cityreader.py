@@ -38,6 +38,8 @@ with open('cities.csv', newline='') as csvfile:
 
 # TODO
 
+[print(f'{city.name}: {city.latitude}, {city.longitude}') for city in cities]
+
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
