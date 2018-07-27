@@ -12,22 +12,34 @@ class GroundVehicle():
 
 
 # Subclass Motorcycle from Vehicle.
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels):
+        self.num_wheels = num_wheels
+        super().__init__(num_wheels = 2)
+
+    def drive(self):
+        print("BRAAAP!!")
+
 #
 # Make it so when you instantiate a Motorcycle, it automatically sets the number
 # of wheels to 2 by passing that to the constructor of its superclass.
 #
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
-# TODO
 
 vehicles = [
-    GroundVehicle(),
-    GroundVehicle(),
-    Motorcycle(),
-    GroundVehicle(),
-    Motorcycle(),
+    GroundVehicle(0),
+    GroundVehicle(0),
+    Motorcycle(0),
+    GroundVehicle(0),
+    Motorcycle(0),
 ]
 
 # Go through the vehicles list and call drive() on each.
 
-# TODO
+
+#TESTING BELOW
+
+# for car in vehicles:
+#     car.drive()
+#     print(car.num_wheels)
