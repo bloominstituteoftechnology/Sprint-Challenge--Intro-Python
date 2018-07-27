@@ -22,9 +22,18 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 
-print("Starts with D:")
-r = []  # TODO
-print(r)
+# for name in humans[0]:
+#     if name.startswith('g'):
+#         print(name)
+
+# test1 = for n in humans:
+    
+
+# print(test1)
+
+# print("Starts with D:")
+# r = [name for name in humans[0] if name.starswith('D')]  # TODO
+# print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
