@@ -48,7 +48,7 @@ print(r)
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
+r = [human.name + '-' + str(human.age) for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
