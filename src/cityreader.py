@@ -68,3 +68,12 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+userInput1 = input('Enter lat1, lon1: ')
+userInput2 = input('Enter lat2, lon2: ')
+
+temp = userInput1.split(',') + userInput2.split(',')
+result = []
+[result.append(int(i)) for i in temp]
+print(result)
+
+print((city.name, city.latitude, city.longitude) for city in cities if (city.latitude in range(min(result), max(result))))
