@@ -17,3 +17,34 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+# base class
+class Vehicle:
+  def __init__():
+    pass
+
+# Class hiearchy for ground vehicle
+class GroundVehicle(Vehicle):
+  def __init__():
+  pass
+
+class Car(GroundVehicle):
+  def __init__():
+  pass
+
+class Motorcycle(GroundVehicle):
+  def __init__():
+  pass
+
+# Class hiearchy for aerial vehicle
+class FlightVehicle(Vehicle):
+    def __init__():
+  pass
+
+class Starship(FlightVehicle):
+  def __init__():
+  pass
+
+class Airplane(FlightVehicle):
+  def __init__():
+  pass
