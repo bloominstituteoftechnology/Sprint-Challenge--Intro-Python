@@ -32,7 +32,7 @@ with open("cities.csv") as csvfile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-[print(x.name, x.latitude, x.longitude) for x in cities]
+# [print(x.name, x.latitude, x.longitude) for x in cities]
 
 # *** STRETCH GOAL! ***
 #
@@ -61,16 +61,12 @@ with open("cities.csv") as csvfile:
 print("\nSeperate lat/long numbers with [, ] (comma + space)")
 
 
-user_input_1 = input("\n\tEnter first set of latitude/longitude coordinates (lat, lng): ")
-user_input_2 = input("\n\tEnter second set of latitude/longitude coordinates (lat, lng): ")
+lat1, long1 = [x for x in input("\n\tEnter first set of latitude/longitude coordinates (lat, lng): ").split(", ")]
+lat2, long2 = [x for x in input("\n\tEnter second set of latitude/longitude coordinates (lat, lng): ").split(", ")]
 
 
-parse_input_1 = user_input_1.split(", ")
-parse_input_2 = user_input_2.split(", ")
-
-
-lats = [parse_input_1[0], parse_input_2[0]]
-longs = [parse_input_1[1], parse_input_2[1]]
+lats = [lat1, lat2]
+longs = [long1, long2]
 
 
 def validateData(city):
