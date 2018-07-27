@@ -3,6 +3,15 @@
 
 # TODO
 
+import csv
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = City
+        self.lat = lat
+        self.lon = lon
+
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
