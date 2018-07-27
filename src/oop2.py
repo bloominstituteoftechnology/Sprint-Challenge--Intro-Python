@@ -9,6 +9,13 @@ class GroundVehicle():
 
     # TODO
 
+    def drive(self):
+        print("vroooom")
+
+    def default_wheels(self, num_wheels):
+        if num_wheels == None:
+            num_wheels = 4
+
 
 # Subclass Motorcycle from Vehicle.
 #
@@ -19,14 +26,27 @@ class GroundVehicle():
 
 # TODO
 
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        super().__init__(2)
+
+    def drive(self):
+            print("BRAAAP!!")
+
 vehicles = [
-    GroundVehicle(),
-    GroundVehicle(),
+    GroundVehicle(4),
+    GroundVehicle(4),
     Motorcycle(),
-    GroundVehicle(),
+    GroundVehicle(4),
     Motorcycle(),
 ]
 
 # Go through the vehicles list and call drive() on each.
 
 # TODO
+print(vehicles[0].drive())
+print(vehicles[1].drive())
+print(vehicles[2].drive())
+print(vehicles[3].drive())
+print(vehicles[4].drive())
+print(vehicles[5].drive())

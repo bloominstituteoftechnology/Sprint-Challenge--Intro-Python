@@ -19,7 +19,7 @@
 # Put a comment noting which class is the base class
 
 #main class named Vehicle
-class Vehicle(object):
+class Vehicle:
     def __init__(self, type, terrain):
         self.type = type
         self.terrain = terrain
@@ -34,8 +34,9 @@ class Vehicle(object):
         return "%s is a %s vehicle" % (self.type, self.terrain)
 
 #Ground vehicle subclass of vehicle class
-class GroundVehicle:
+class GroundVehicle(Vehicle):
     def __init__(self, type, color):
+        super().__init__("ground")
         self.type = type
         self.color = color
 
@@ -45,8 +46,9 @@ class GroundVehicle:
         GroundVehicle("motorcycle", "Orange")
 
 #flightVehicle sub class of vehicle class
-class FlightVehicle:
+class FlightVehicle(Vehicle):
     def __init__(self, type, wingsAmount):
+        super().__init__("air")
         self.type = type
         self.wingsAmount = wingsAmount
 
@@ -56,8 +58,9 @@ class FlightVehicle:
         FlightVehicle("Helicopter", 0)
 
 #star ship sub class of vehicle class. 
-class StarShip:
+class StarShip(Vehicle):
     def __init__(self, type, capacity):
+        super().__init__("air")
         self.type = type
         self.capacity = capacity
 
