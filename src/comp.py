@@ -1,4 +1,4 @@
-from decimal import Decimal
+from decimal import Decimal  #used at the end for decimal place management
 
 class Human:
     def __init__(self, name, age):
@@ -70,4 +70,4 @@ print(r)
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 r = [str(Decimal(person.age ** 0.5).quantize(Decimal('0.01'))) for person in humans]  # TODO
-print(r)
+print(r)  #wrap in a string the Decimal of sqrt(person.age) which is limited to 2 decimal places
