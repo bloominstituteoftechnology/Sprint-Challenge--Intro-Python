@@ -32,7 +32,7 @@ with open("cities.csv") as csvfile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+[print(x.name, x.latitude, x.longitude) for x in cities]
 
 # *** STRETCH GOAL! ***
 #
