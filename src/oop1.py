@@ -37,8 +37,9 @@ class Airplane(FlightVehicle):
 
 # sub-class of FlightVehicle
 class Starship(FlightVehicle):
-	super().__init__()
-	pass
+	def __init__(self):
+		super().__init__()
+		pass
 
 # sub-class of Vehicle
 class GroundVehicle(Vehicle):
@@ -46,6 +47,18 @@ class GroundVehicle(Vehicle):
 		super().__init__()
 		pass
 
+# sub-class of GroundVehicle
+class Car(GroundVehicle):
+	def __init__(self):
+		super().__init__()
+		pass
+
+# sub-class of GroundVehicle
+class Motorcycle(GroundVehicle):
+	def __init__(self):
+		super().__init__()
+		pass
+	
 
 
 
