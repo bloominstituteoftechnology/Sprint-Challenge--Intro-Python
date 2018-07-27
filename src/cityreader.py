@@ -36,10 +36,9 @@ with open ('cities.csv', newline='') as csvfile:
 	for index, row in enumerate(csvreader,0):
 		if index != 0:
 			# each row after the first row represents a city's data
-			print("city: {0}\tlatitude: {1}\tlongitude: {2}\n".format(row[0], row[3], row[4])) 
-			
-
-# print(cities)
+			# print("city: {0}\tlatitude: {1}\tlongitude: {2}\n".format(row[0], row[3], row[4])) 	
+			city = City(row[0], row[3], row[4])
+			cities.push(city)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
