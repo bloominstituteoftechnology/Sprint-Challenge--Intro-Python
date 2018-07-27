@@ -21,6 +21,13 @@ class GroundVehicle():
 
 # TODO
 
+class Motorcycle(Vehicle):
+    def __init__(self):
+        super().__init__(2)
+
+    def drive(self):
+        print("BRAAAP!!")
+
 vehicles = [
     GroundVehicle(),
     GroundVehicle(),
@@ -32,3 +39,5 @@ vehicles = [
 # Go through the vehicles list and call drive() on each.
 
 # TODO
+
+
