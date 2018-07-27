@@ -35,3 +35,19 @@ print(repr(s))
 print(repr(2.0/11.0))
 print(str(s))
 print(str(2.0/11.0))
+
+list = [1, 3, 4, 5, 6, 6]
+l = list.__len__()
+print(l)
+d = list.__repr__()
+print(d)
+
+
+class Foo():
+    def __init__(self):
+        self.l = 4
+
+
+foo = Foo()
+repr(foo.__init__)
+# print(foo)

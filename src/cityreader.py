@@ -34,19 +34,34 @@ with open('cities.csv', newline='') as csvfile:
 
 newArray = []
 
+
 # # TODO
 for i in cities[1:]:
     print(i.split('\n')[0].split(',')[0], i.split('\n')[
           0].split(',')[3], i.split('\n')[0].split(',')[4])
-    newArray.append(i.split('\n')[0].split(',')[0] + "," + i.split('\n')[
-        0].split(',')[3] + "," + i.split('\n')[0].split(',')[4])
+    # newArray.append(i.split('\n')[0].split(',')[0] + "," + i.split('\n')[
+    #     0].split(',')[3] + "," + i.split('\n')[0].split(',')[4])
 
 # # Print the list of cities (name, lat, lon), 1 record per line.
-print(newArray)
+
+
+# print
+# print(newArray)
 # # TODO
 
 
 # *** STRETCH GOAL! ***
+# c = input('please type 2  cordinats for the 1st point  :')
+# d = input('please type 2  cordinats for the 2st point  :')
+
+
+# a = c.split(' ')
+# b = d.split(' ')
+# print('point a is===>', a)
+# print('point b is ===>', b)
+
+# length= a[0] -
+
 #
 # Allow the user to input two points, each specified by latitude and longitude.
 # These points form the corners of a lat/lon square. Output the cities that fall
