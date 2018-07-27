@@ -71,3 +71,9 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+lat1, lon1 = input("Please type in a latitude and a longitude separated by a comma: ").split(",")
+lat2, lon2 = input("Please type in another latitude and another longitude separated by a comma:").split(",")
+
+
+
