@@ -37,8 +37,6 @@ with open("cities.csv") as f:
 
 for city in cities:
     print(city.name + " - " + city.latitude + " - " + city.longitude)
-    
-
 
 # *** STRETCH GOAL! ***
 #

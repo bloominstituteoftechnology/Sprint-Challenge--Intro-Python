@@ -33,7 +33,7 @@ class Motorcycle(GroundVehicle):  # subclass of GroundVehicle
 
 
 #   Air travel
-class FlightVehicle: # Base class
+class FlightVehicle(Vehicle): # subclass 
   pass
 
 class Airplane(FlightVehicle): # subclass of FlightVehicle
@@ -41,5 +41,5 @@ class Airplane(FlightVehicle): # subclass of FlightVehicle
 
 
 #   Space travel
-class Starship: # Base class
+class Starship(FlightVehicle): # subclass of FlightVehicle
   pass
