@@ -1,6 +1,8 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
+import csv
+
 # TODO
 
 # We have a collection of US cities with population over 750,000 stored in the
