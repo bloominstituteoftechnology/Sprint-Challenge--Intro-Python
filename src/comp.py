@@ -64,6 +64,7 @@ print(r)
 print("All names capitalized:")
 r = [list(map(lambda x: Human(x.name.upper(), x.age+5), humans))]  # TODO 
 print(r)
+# `[Human(human.name.upper(), human.age+5) for human in humans]`
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")

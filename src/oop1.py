@@ -31,9 +31,9 @@ class Airplane(FlightVehicle):
     pass
 class Starship(FlightVehicle):
     pass
-        #ask ? about this one.. 
+ 
 
 
 
 
-# can the car, motorcycle be types or made into more subclasses ?? 
+
