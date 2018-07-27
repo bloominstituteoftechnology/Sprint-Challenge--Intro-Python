@@ -8,8 +8,18 @@ import csv
 class City:
   def __init__(self, name, latitude, longitude):
     self.name = name
-    self.latitude = latitude
-    self.longitude = longitude
+    self.latitude = float(latitude)
+    self.longitude = float(longitude)
+
+  def in_range(self, p_1, p_2):
+    min_lat, max_lat = int(min(p_1[0], p_2[0])), int(max(p_1[0], p_2[0]))
+    min_lon, max_lon = int(min(p_1[1], p_2[1])), int(max(p_1[1], p_2[1]))
+
+    lat_in_range = self.latitude >= min_lat and self.latitude <= max_lat
+    lon_in_range = self.longitude <= min_lon and self.longitude >= max_lon
+
+    return lat_in_range and lon_in_range
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -65,3 +75,13 @@ with open('cities.csv', newline='') as csvfile:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+## Hard coded test case
+# p_1 = '45,-100'.split(',')
+# p_2 = '32,-120'.split(',')
+
+p_1 = input('Please input a latitude and longitude value pair seperated by a comma: ').split(',')
+p_2 = input('Please input another latitude and longitude value pair seperated by a comma: ').split(',')
+
+# Moved logic into city class for more concise evaluation
+[print(f'{city.name}: {city.latitude}, {city.longitude}') for city in cities if city.in_range(p_1, p_2)]
