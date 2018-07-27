@@ -34,10 +34,6 @@ class Starship(FlightVehicle):
         #ask ? about this one.. 
 
 
-Vehicle = base class
-GroundVehicle = sub class of vehicle
 
-FlightVehicle = base class
-Airplane = subclass
 
 # can the car, motorcycle be types or made into more subclasses ?? 
