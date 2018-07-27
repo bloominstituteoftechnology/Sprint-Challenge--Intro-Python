@@ -85,5 +85,8 @@ else:
 
 for each in cities:
   # each[3] = lat, each[4] = lon
-  if smallCoord[0] <= each[3] <= bigCoord[0] and smallCoord[1] <= each[4] <= bigCoord[1]
-# print(bigCoord, smallCoord)
+  if smallCoord[0] <= each[3] <= bigCoord[0] and smallCoord[1] <= each[4] <= bigCoord[1]:
+    print('\nCity: {} \nState: {}'.format(each[0], each[1]))
+
+# try 40, -130 and 50,-120
+# should produce Seattle and Portland
