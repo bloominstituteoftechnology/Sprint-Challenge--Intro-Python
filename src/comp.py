@@ -37,12 +37,12 @@ print(r)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [human for human in humans if human.name[0] in [chr(letter) for letter in range(67, 72)]]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [human.age + 10 for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
