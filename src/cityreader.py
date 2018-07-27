@@ -1,6 +1,4 @@
 import csv
-import re
-# from string import split
 
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
