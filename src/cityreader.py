@@ -75,3 +75,37 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+condition_met = False
+while not condition_met:
+    lat_lng1 = input("\nPlease enter a Latitude and Longitude in XX -YYY format: \n\n").split(" ")
+    lat_lng2 = input("\nPlease enter a second Latitude and Longitude in XX -YYY format: \n\n").split(" ")
+    if len(lat_lng1) == 2 and len(lat_lng2) == 2:
+        condition_met = True
+    else:
+        print('\nIncorrect Number of Lat/Long coordinates')
+
+
+# if lat_lng1[0] < lat_lng2[0]:  #will determine range of latitude
+#     lowlat = lat_lng1[0]
+#     highlat = lat_lng2[0]
+# else:
+#     lowlat = lat_lng2[0]
+#     highlat = lat_lng1[0]
+
+# if lat_lng1[1] < lat_lng2[1]:  #will determine range of longitude
+#     lowlng = lat_lng1[1]
+#     highlng = lat_lng2[1]
+# else:
+#     lowlng = lat_lng2[1]
+    # highlng = lat_lng1[1]
+
+lowlat = min(lat_lng1[0], lat_lng2[0])  #will determine range of latitude
+highlat = max(lat_lng1[0], lat_lng2[0])
+
+lowlng = min(lat_lng1[1], lat_lng2[1])  #will determine range of longitude
+highlng = max(lat_lng1[1], lat_lng2[1])
+
+requested = [city for city in cities if lowlat <= city.latitude <= highlat and lowlng <= city.longitude <= highlng]
+
+for city in requested:
+    print(city)
