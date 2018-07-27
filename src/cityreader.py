@@ -1,7 +1,16 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+    def __repr__(self):
+        return f"{self.name}: {self.lat} / {self.lon}"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -17,12 +26,15 @@
 # should not be loaded into a City object.
 
 cities = []
-
-# TODO
+with open("cities.csv", newline="") as csvfile:
+    cityreader = csv.reader(csvfile)
+    for row in list(cityreader)[1:]: # First line is cruft
+        city = City(row[0], float(row[3]), float(row[4])) # Name, lat, lon from the data
+        cities.append(city)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+[print(city) for city in cities]
 
 # *** STRETCH GOAL! ***
 #
@@ -48,4 +60,21 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+points = [
+    input("Input a lat/lon pair separated by a comma: "),
+    input("Input a second lat/lon pair separated by a comma: ")
+]
+
+points = [[int(c) for c in point.split(",")] for point in points]
+lats = [point[0] for point in points]
+lons = [point[1] for point in points]
+
+def city_in_bounds(city, points):
+    if city.lat > max(lats) or city.lat < min(lats):
+        return False
+    if city.lon > max(lons) or city.lon < min(lons):
+        return False
+
+    return True
+
+[print(city) for city in cities if city_in_bounds(city, points)]
