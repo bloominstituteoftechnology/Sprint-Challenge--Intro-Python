@@ -27,9 +27,20 @@ class City:
 
 cities = []
 
+with open('cities.csv', newline='\n') as csvfile:
+  reader = csv.reader(csvfile, delimiter=",")
+  for column in reader:
+    city = column[0]
+    lat = column[3]
+    lon = column[4]
+    
+    cities.append(City(city,lat,lon))
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+for city in cities:
+  print(city.name + " - " + city.latitude + " - " + city.longitude)
 
 # TODO
 
