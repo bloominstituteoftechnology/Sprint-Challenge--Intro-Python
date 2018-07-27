@@ -28,7 +28,7 @@ cities = []
 
 # TODO
 
-with open('cities.csv', newline='') as file:
+with open('cities.csv') as file:
   reader = csv.reader(file)
   city = [City(i[0], i[3], i[4]) for i in reader]
 
