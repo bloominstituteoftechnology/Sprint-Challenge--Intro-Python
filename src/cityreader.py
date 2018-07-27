@@ -75,5 +75,16 @@ for city in cities:
 lat1, lon1 = input("Please type in a latitude and a longitude separated by a comma: ").split(",")
 lat2, lon2 = input("Please type in another latitude and another longitude separated by a comma:").split(",")
 
+lat1, lon1 = float(lat1), float(lon1)
+lat2, lon2 = float(lat2), float(lon2)
+
+# determine which of the lattitudes and which of the longitudes are larger
+if lat1 < lat2:
+	# we are forcing lat1, lon1 to hold the larger values
+	lat1, lat2 = lat2, lat1
+	lon1, lon2 = lon2, lon1
+
+# find which cities are inside the region described by the coordinate pair
+matched_cities = [city for city in cities if (lat1 > city.latitude > lat2) and (lon1 > city.longitude > lon2)]
 
 
