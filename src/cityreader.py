@@ -40,8 +40,8 @@ with open('cities.csv', newline='') as csvfile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-for city in cities:
-    print(city)
+# for city in cities:
+#     print(city)
 
 # *** STRETCH GOAL! ***
 #
@@ -67,4 +67,25 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+firstCoords = input("First Coordinates | Enter a latitude and longitude:\n")
+x1, y1 = [coordinate for coordinate in firstCoords.split()]
+x1 = float(x1)
+y1 = float(y1)
+print("\nYour first coordinates are %.2f,%.2f\n" % (float(x1), float(y1)))
+
+secondCoords = input("Second Coordinates | Enter a latitude and longitude:\n")
+x2, y2 = [coordinate for coordinate in secondCoords.split()]
+x2 = float(x2)
+y2 = float(y2)
+print("\nYour second coordinates are %.2f,%.2f\n" % (float(x2), float(y2)))
+
+print("Your Encompassed Cities are:\n")
+encompassedCities = [city for city in cities 
+if city.latitude > min(x1, x2) 
+and city.latitude < max(x1, x2) 
+and city.longitude > min(y1, y2) 
+and city.longitude < max (y1, y2)]
+
+for city in encompassedCities:
+    print (city)
+print("")
