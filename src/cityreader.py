@@ -1,7 +1,17 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+	def __init__(self, name, latitude, longitude):
+		self.name = name
+		self.latitude = latitude
+		self.longitude = longitude
+
+	# def __repr__(self):
+	# 	return "city name is {0}. city latitude is {1}. city longitude is {2}\n".format(self.name, self.latitude, self.longitude)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -20,9 +30,28 @@ cities = []
 
 # TODO
 
+latitudes = []
+longitudes = []
+
+with open ('cities.csv', newline='') as csvfile:
+	# csvreader contains rows of lists of strings
+	# each row is a line form the csvfile
+	csvreader = csv.reader(csvfile, delimiter=',')
+	for index, row in enumerate(csvreader,0):
+		if index != 0:
+			# each row after the first row represents a city's data
+			city = City(row[0], row[3], row[4])
+			cities.append(city)
+			# collect latitudes and longitudes
+			latitudes.append(float(row[3]))
+			longitudes.append(float(row[4]))
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+
+for city in cities:
+	print("CITY_NAME: {0}\tLATITUDE: {1}\tLONGITUDE: {2}\n".format(city.name, city.latitude, city.longitude)) 	
 
 # *** STRETCH GOAL! ***
 #
@@ -49,3 +78,31 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# show user max/min latitudes and longitudes to easily create regions containing cities listed
+print("latitudes of all cities in csvfile: {}".format(latitudes))
+print("longitudes of all cities in csvfile: {}".format(longitudes))
+
+print("largest latitude is: {}".format(max(latitudes)))
+print("smallest latitude is: {}".format(min(latitudes)))
+
+print("largest longitude is: {}".format(max(longitudes)))
+print("smallest longitude is: {}".format(min(longitudes)))
+
+lat1, lon1 = input("Please type in a latitude and a longitude separated by a comma: ").split(",")
+lat2, lon2 = input("Please type in another latitude and another longitude separated by a comma:").split(",")
+
+lat1, lon1 = float(lat1), float(lon1)
+lat2, lon2 = float(lat2), float(lon2)
+
+# determine which of the lattitudes and which of the longitudes are larger
+if lat1 < lat2:
+	# we are forcing lat1, lon1 to hold the larger values
+	lat1, lat2 = lat2, lat1
+	lon1, lon2 = lon2, lon1
+
+# find which cities are inside the region described by the coordinate pair
+matched_cities = [city for city in cities if (lat1 > float(city.latitude) > lat2) and (lon1 > float(city.longitude) > lon2)]
+
+for city in matched_cities:
+	print("{}: lon{}, lat{}\n".format(city.name, city.longitude, city.latitude))
