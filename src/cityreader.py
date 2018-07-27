@@ -12,11 +12,17 @@ class City:
     self.longitude = float(longitude)
 
   def in_range(self, p_1, p_2):
-    min_lat, max_lat = int(min(p_1[0], p_2[0])), int(max(p_1[0], p_2[0]))
-    min_lon, max_lon = int(min(p_1[1], p_2[1])), int(max(p_1[1], p_2[1]))
+    # Account for string input
+    p_1 = [int(val) for val in p_1]
+    p_2 = [int(val) for val in p_2]
 
+    # Normalize input values
+    min_lat, max_lat = min(p_1[0], p_2[0]), max(p_1[0], p_2[0])
+    min_lon, max_lon = min(p_1[1], p_2[1]), max(p_1[1], p_2[1])
+
+    # Test range boundaries
     lat_in_range = self.latitude >= min_lat and self.latitude <= max_lat
-    lon_in_range = self.longitude <= min_lon and self.longitude >= max_lon
+    lon_in_range = self.longitude >= min_lon and self.longitude <= max_lon
 
     return lat_in_range and lon_in_range
 
