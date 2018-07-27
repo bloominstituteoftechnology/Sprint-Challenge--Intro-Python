@@ -29,10 +29,21 @@ class FlightVehicle(Vehicle):
 		super().__init__()
 		pass 
 
+# sub-class of FlightVehicle
+class Airplane(FlightVehicle):
+	def __init__(self):
+		super().__init__()
+		pass
+
+# sub-class of FlightVehicle
+class Starship(FlightVehicle):
+	super().__init__()
+	pass
+
 # sub-class of Vehicle
 class GroundVehicle(Vehicle):
 	def __init__(self):
-		super().__init__():
+		super().__init__()
 		pass
 
 
