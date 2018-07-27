@@ -85,6 +85,7 @@ if lat1 < lat2:
 	lon1, lon2 = lon2, lon1
 
 # find which cities are inside the region described by the coordinate pair
-matched_cities = [city for city in cities if (lat1 > city.latitude > lat2) and (lon1 > city.longitude > lon2)]
+matched_cities = [city for city in cities if (lat1 > float(city.latitude) > lat2) and (lon1 > float(city.longitude) > lon2)]
 
-
+for city in matched_cities:
+	print("{}: lon{}, lat{}\n".format(city.name, city.longitude, city.latitude))
