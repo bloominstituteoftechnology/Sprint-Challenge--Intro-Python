@@ -29,6 +29,10 @@ class City:
 cities = []
 
 # TODO
+
+latitudes = []
+longitudes = []
+
 with open ('cities.csv', newline='') as csvfile:
 	# csvreader contains rows of lists of strings
 	# each row is a line form the csvfile
@@ -38,6 +42,9 @@ with open ('cities.csv', newline='') as csvfile:
 			# each row after the first row represents a city's data
 			city = City(row[0], row[3], row[4])
 			cities.append(city)
+			# collect latitudes and longitudes
+			latitudes.append(float(row[3]))
+			longitudes.append(float(row[4]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
@@ -71,6 +78,16 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# show user max/min latitudes and longitudes to easily create regions containing cities listed
+print("latitudes of all cities in csvfile: {}".format(latitudes))
+print("longitudes of all cities in csvfile: {}".format(longitudes))
+
+print("largest latitude is: {}".format(max(latitudes)))
+print("smallest latitude is: {}".format(min(latitudes)))
+
+print("largest longitude is: {}".format(max(longitudes)))
+print("smallest longitude is: {}".format(min(longitudes)))
 
 lat1, lon1 = input("Please type in a latitude and a longitude separated by a comma: ").split(",")
 lat2, lon2 = input("Please type in another latitude and another longitude separated by a comma:").split(",")
