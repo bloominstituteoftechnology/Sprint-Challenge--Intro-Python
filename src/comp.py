@@ -66,10 +66,11 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+#r = [list(map(lambda human: (human.name.upper(), human.age + 5), humans))]  # TODO
+r = [(human.name.upper(), human.age + 5) for human in humans] # [] is already a new list?
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [human.age ** 0.5 for human in humans]  # TODO
 print(r)
