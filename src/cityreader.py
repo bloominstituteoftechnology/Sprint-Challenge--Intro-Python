@@ -2,6 +2,11 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude 
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,10 +24,16 @@
 cities = []
 
 # TODO
+import csv
+with open("cities.csv") as f:
+    reader = csv.reader(f)
+    cities = [City(r[0], r[3], r[4]) for r in reader]
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+for city in cities:
+    print(city.name + " - " + city.latitude + " - " + city.longitude)
 
 # *** STRETCH GOAL! ***
 #
