@@ -18,25 +18,25 @@
 #
 # Put a comment noting which class is the base class
 
-# Master Vehicle Class
+# Base Vehicle Class
 class Vehicle():
     pass
 
-# Vehicles
+# Sub Class of Vehicles
 class GroundVehicle(Vehicle):
     pass
 
 class FlightVehicle(Vehicle):
     pass
 
-# Ground Vehicles
+# Sub Class of Ground Vehicles
 class Car(GroundVehicle):
     pass
 
 class Motorcycle(GroundVehicle):
     pass
 
-# Flight Vehicles
+# Sub Class Flight Vehicles
 class Airplane(FlightVehicle):
     pass
 
