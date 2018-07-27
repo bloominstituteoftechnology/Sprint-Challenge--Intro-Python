@@ -54,7 +54,7 @@ with open('cities.csv', newline='\n') as csvfile:
 
 # TODO
 
-city_list = [''.join(['Name:' + city.name, '\nLat: '+ str(city.latitude), '\tLon: '+ str(city.longitude)+'\n']) for city in cities]
+city_list = [''.join(['Name:   ' + city.name, '\nLat: '+ str(city.latitude), '\tLon: '+ str(city.longitude)+'\n']) for city in cities]
 print('\n'.join(city_list))
 
 # *** STRETCH GOAL! ***
