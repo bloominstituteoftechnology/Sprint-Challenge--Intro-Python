@@ -78,10 +78,8 @@ print("\nYour second coordinates are %.2f,%.2f\n" % (float(x2), float(y2)))
 
 print("Your Encompassed Cities are:\n")
 encompassedCities = [city for city in cities 
-if city.latitude > min(x1, x2) 
-and city.latitude < max(x1, x2) 
-and city.longitude > min(y1, y2) 
-and city.longitude < max (y1, y2)]
+if min(x1, x2) < city.latitude < max(x1, x2) 
+and min(y1, y2) < city.longitude < max (y1, y2)]
 
 for city in encompassedCities:
     print (city)
