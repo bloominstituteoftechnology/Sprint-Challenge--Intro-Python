@@ -15,14 +15,47 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+ 
+import csv
+
+class City():
+    def __init__(self,city,state_name,county_name,lat,lng,population,density,timezone,zips):
+        self.name = city
+        self.state_name = state_name
+        self.county_name = county_name
+        self.latitude = lat
+        self.longitude = lng
+        self.population = population
+        self.density = density
+        self.timezone = timezone
+        self.zips = zips.split(' ')
+
+    def __repr__(self):
+        return "<City: %s, %f, %f>" % (self.name, self.latitude, self.longitude)
+
+
+            
+# for row in reader:
+#     print(row['city'], row['lat'], row['lng'])
 
 cities = []
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+with open('cities.csv', newline='\n') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    my_arr = [row for row in reader]
+    # remove the top row from the list
+    my_arr.pop(0)
+    for city in my_arr:
+        cities.append(City(city[0],city[1],city[2],float(city[3]),float(city[4]),city[5],city[6],city[7],city[8]))
+
 
 # TODO
+
+city_list = [''.join(['Name:   ' + city.name, '\nLat: '+ str(city.latitude), '\tLon: '+ str(city.longitude)+'\n']) for city in cities]
+print('\n'.join(city_list))
 
 # *** STRETCH GOAL! ***
 #
