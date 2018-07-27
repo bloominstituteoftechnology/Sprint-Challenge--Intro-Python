@@ -1,7 +1,18 @@
+import csv
+import sys
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+
+class City:
+    def __init__(self, name="", latitude=0, longitude=0):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def __repr__(self):
+        return "{} is located at {}, {}".format(self.name, self.latitude, self.longitude)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,11 +27,26 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
-
 # TODO
 
+file = open("cities.csv", "r")
+data = csv.reader(file)
+cities = []
+
+for city in data:
+    if 'city' in city:
+        city_index = city.index('city')
+        lat_index = city.index('lat')
+        lng_index = city.index('lng')
+    else:
+        cities = cities + [City(city[city_index], city[lat_index], city[lng_index])]
+    
+file.close()
+
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+for city in cities:
+    print(city)
 
 # TODO
 
@@ -49,3 +75,22 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+condition_met = False
+while not condition_met:
+    lat_lng1 = input("\nPlease enter a Latitude and Longitude in XX -YYY format: \n\n").split(" ")
+    lat_lng2 = input("\nPlease enter a second Latitude and Longitude in XX -YYY format: \n\n").split(" ")
+    if len(lat_lng1) == 2 and len(lat_lng2) == 2:
+        condition_met = True
+    else:
+        print('\nIncorrect Number of Lat/Long coordinates')
+
+lowlat = min(lat_lng1[0], lat_lng2[0])  #will determine range of latitude
+highlat = max(lat_lng1[0], lat_lng2[0])
+
+lowlng = min(lat_lng1[1], lat_lng2[1])  #will determine range of longitude
+highlng = max(lat_lng1[1], lat_lng2[1])
+
+requested = [city for city in cities if lowlat <= city.latitude <= highlat and lowlng <= city.longitude <= highlng]
+
+for city in requested:
+    print(city)
