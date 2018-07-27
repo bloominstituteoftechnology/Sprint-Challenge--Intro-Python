@@ -29,19 +29,16 @@ with open('cities.csv', newline='') as csvfile:
     citiesreader = csv.reader(csvfile, delimiter=',')
     cities = []
     for city in citiesreader:
-      if (city[3] == 'lat'):
-        city[0] = '0'
-        city[3] = '0'
-        city[4] = '0'
-      newCity = City(city[0], float(city[3]), float(city[4]))
-      cities.append(newCity)
+        try:
+            newCity = City(city[0], float(city[3]), float(city[4]))
+            cities.append(newCity)
+        except ValueError:
+            continue
     
-    cities.pop(0)
-
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# for city in cities:
-#     print(city)
+for city in cities:
+    print(city)
 
 # *** STRETCH GOAL! ***
 #
