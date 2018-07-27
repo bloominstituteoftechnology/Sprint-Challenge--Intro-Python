@@ -25,10 +25,12 @@ import csv
 
 cities = []
 
-with open('cities.csv') as city_csv:
-    csv_line = csv.reader(city_csv, delimiter=',')
+with open('cities.csv', newline='') as city_csv:
+    csv_line = csv.DictReader(city_csv, delimiter=',')
+    next(csv_line)
+    # csv_line = csv.reader(city_csv, delimiter=',')
     for row in csv_line:
-        cities.append(City(row[0], row[3], row[4]))
+        cities.append(City(row['city'], row['lat'], row['lng']))
 
 
 # Print the list of cities (name, lat, lon), 1 record per line.

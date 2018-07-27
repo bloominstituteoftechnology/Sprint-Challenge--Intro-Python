@@ -61,13 +61,13 @@ print(r)
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
-def capitalize(human):
+def capitalize_and_age(human):
     human.name = human.name.capitalize()
     human.age += 5
     return human
 
 print("All names capitalized:")
-r = [capitalize(human) for human in humans]
+r = [capitalize_and_age(human) for human in humans]
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
