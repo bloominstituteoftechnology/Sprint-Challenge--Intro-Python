@@ -36,15 +36,16 @@ with open ('cities.csv', newline='') as csvfile:
 	for index, row in enumerate(csvreader,0):
 		if index != 0:
 			# each row after the first row represents a city's data
-			# print("city: {0}\tlatitude: {1}\tlongitude: {2}\n".format(row[0], row[3], row[4])) 	
 			city = City(row[0], row[3], row[4])
-			cities.push(city)
+			cities.append(city)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
-# for city in cities:
-# 	print("city name: {0}\tcity latitude: {1}\tcity longitude: {2}\n".format(city.name, city.latitude, city.longitude))
+
+for city in cities:
+	print("CITY_NAME: {0}\tLATITUDE: {1}\tLONGITUDE: {2}\n".format(city.name, city.latitude, city.longitude)) 	
+
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
