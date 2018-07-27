@@ -20,6 +20,13 @@ class GroundVehicle():
 
 # TODO
 
+class Motorcycle(GroundVehicle):
+	def __init__(self, num_wheels):
+		super().__init__(2)
+
+	def drive():
+		print("BRAAAP!!")
+
 vehicles = [
     GroundVehicle(),
     GroundVehicle(),
