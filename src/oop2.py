@@ -4,9 +4,7 @@
 # object is constructed.
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
-        if (num_wheels <= 0):
-            num_wheels = 4
+    def __init__(self, num_wheels = 4):
         self.num_wheels = num_wheels
 
     def drive(self):
@@ -21,21 +19,22 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, num_wheels):
-        GroundVehicle.__init__(self, 2)
+    def __init__(self, num_wheels=2):
+        super().__init__(2)
 
     def drive(self):
         print("BRAAP!!")
 
 vehicles = [
-    GroundVehicle(4),
-    GroundVehicle(4),
-    Motorcycle(2),
-    GroundVehicle(4),
-    Motorcycle(2),
+    GroundVehicle(),
+    GroundVehicle(),
+    Motorcycle(),
+    GroundVehicle(),
+    Motorcycle(),
 ]
 
 # Go through the vehicles list and call drive() on each.
 
 for x in vehicles:
   x.drive()
+  print(x.num_wheels)
