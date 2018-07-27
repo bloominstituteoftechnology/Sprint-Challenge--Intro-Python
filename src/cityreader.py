@@ -27,8 +27,13 @@ cities = []
 
 # TODO
 with open('cities.csv') as csvfile:
+    firstline = True
     datareader = csv.reader(csvfile)
     for line in datareader:
+        if firstline:
+            firstline = False
+            continue
+            
         city = line[0]
         lat = line[3]
         lon = line[4]
