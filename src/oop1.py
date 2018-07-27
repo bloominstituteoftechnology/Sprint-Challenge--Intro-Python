@@ -34,7 +34,7 @@ class Motorcycle(GroundVehicle):
 #Other tree
 
 class FlightVehicle(Vehicle):
-    pass:
+    pass
 
 class Starship(FlightVehicle): 
     pass
