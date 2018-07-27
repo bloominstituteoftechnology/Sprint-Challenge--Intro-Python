@@ -83,6 +83,7 @@ else:
   bigCoord.append(coord1[1])
   smallCoord.append(coord2[1])
 
+# Print each city and its respective state if it's within the grid.
 for each in cities:
   # each[3] = lat, each[4] = lon
   if smallCoord[0] <= each[3] <= bigCoord[0] and smallCoord[1] <= each[4] <= bigCoord[1]:
