@@ -60,7 +60,8 @@ print(r)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+# TODO
+r = [each for each in humans if each.age >= 27 and each.age <= 32]
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
