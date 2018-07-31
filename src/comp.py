@@ -23,26 +23,26 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [ego for ego in humans if ego.name[0] == "D"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [ego for ego in humans if ego.name[-1] == "e"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [ego for ego in humans if ego.name[0] >="C" and ego.name[0] <="G"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [ego.age + 10 for ego in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -55,7 +55,7 @@ print(r)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [ego for ego in humans if ego.age >=27 and ego.age <=32]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -67,5 +67,5 @@ print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [ego.age**0.5 for ego in humans]  # TODO
 print(r)
