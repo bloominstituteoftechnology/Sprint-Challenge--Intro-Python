@@ -75,3 +75,8 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+lat1 = float(input("Enter First Latitude Coordinate: "))
+lat2 = float(input("Enter Second Latitude Coordinate: "))
+lon1 = float(input("Enter First Longitude Coordinate: "))
+lon2 = float(input("Enter Second Longitude Coordinate: "))
+
