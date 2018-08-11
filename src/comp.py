@@ -21,6 +21,13 @@ humans = [
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
+# **speaking in Smeagle's voice**
+# stupid smart peoples!!!!11 we hates them and their stupid list comprehensions!!!
+# **rant over**
+
+stupid_list_comprehension = [i.name for i in humans if i.name[0] == 'D']
+print(stupid_list_comprehension)
+
 
 print("Starts with D:")
 r = []  # TODO
