@@ -2,7 +2,7 @@
 # fields for name, latitude, and longitude.
 
 # TODO
-
+# Here we go
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
