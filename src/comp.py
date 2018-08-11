@@ -19,50 +19,49 @@ humans = [
     Human("David", 31),
 ]
 
+# for i in range(len(humans)):
+#     print(type(i))
+
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 # **speaking in Smeagle's voice**
 # stupid smart peoples!!!!11 we hates them and their stupid list comprehensions!!!
 # **rant over**
 
-stupid_list_comprehension = [i.name for i in humans if i.name[0] == 'D']
-print(stupid_list_comprehension)
-
-
 print("Starts with D:")
-r = []  # TODO
+r = [i.name for i in humans if i.name[0] == 'D']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [i.name for i in humans if i.name[-1] == 'e']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [i.name for i in humans if i.name[0] in ['C', 'D', 'E', 'F', 'G']]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [i.age + 10 for i in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
+r = [(i.name + '-' + str(i.age)) for i in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [tuple([i.name, i.age]) for i in humans if i.age >= 27 and i.age <= 32]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
