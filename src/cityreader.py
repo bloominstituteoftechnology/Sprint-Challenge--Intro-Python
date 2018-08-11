@@ -8,7 +8,17 @@ class City:
         self.longitude = longitude
 # TODO
 
+with open('cities.csv', 'r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    cities = [
+        City(row['city'], row['lat'], row['lng'])
+        for row in csv_reader
+    ]
 
+for city in cities:
+    print(city.name, city.latitude, city.longitude)
+
+# TODO
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -20,23 +30,10 @@ class City:
 # Store the instances in the "cities" list, below.
 #
 # Note that the first line of the CSV is header that describes the fields--this
-# should not be loaded into a 
+# should not be loaded into a
 # City object.
-cities = []
-
-with open('cities.csv', 'r') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter = ',')
-    line_count = 0
-    for row in csv_reader:
-        if line_count == 0:
-            pass
-        else:
-            cities.append(City(row[0], row[3], row[4]))    
 
 
-
-print(cities)
-# TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
