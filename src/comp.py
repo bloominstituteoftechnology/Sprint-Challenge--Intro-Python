@@ -1,3 +1,5 @@
+import math
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -18,6 +20,7 @@ humans = [
     Human("Igon", 41),
     Human("David", 31),
 ]
+
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 
@@ -68,6 +71,9 @@ print(r)
 # inclusive.
 print("Names and ages between 27 and 32:")
 r = []  # TODO
+for human in humans:
+    if human.age > 27 and human.age < 32:
+        r.append((human.name, human.age))
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -75,9 +81,13 @@ print(r)
 # The "humans" list should be unmodified.
 print("All names capitalized:")
 r = []  # TODO
+for human in humans:
+    r.append(Human(human.name.upper(), human.age + 5))
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 r = []  # TODO
+for human in humans:
+    r.append(math.sqrt(human.age))
 print(r)
