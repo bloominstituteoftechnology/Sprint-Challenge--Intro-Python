@@ -1,3 +1,7 @@
+import csv
+# city,state_name,county_name,lat,lng,population,density,timezone,zips
+with open('cities.csv', '')
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
