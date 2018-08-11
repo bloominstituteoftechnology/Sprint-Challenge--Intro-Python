@@ -1,3 +1,5 @@
+from string import ascii_uppercase
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -23,29 +25,30 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
-for name in humans:
-    if name.startswith('D'):
-        r.append(name)
+# TODO
+r = [human.name for human in humans if human.name.startswith('D')]
+
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [human.name for human in humans if human.name.endswith('e')]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+letters = list(ascii_uppercase[2:7])
+# print(letters)
+r = [human.name for human in humans if human.name[0] in letters]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [human.age + 10 for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
