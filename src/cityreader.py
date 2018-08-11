@@ -6,17 +6,26 @@ class City:
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
+        
 # TODO
-
+cities = []
 with open('cities.csv', 'r') as csv_file:
-    csv_reader = csv.DictReader(csv_file)
-    cities = [
-        City(row['city'], row['lat'], row['lng'])
-        for row in csv_reader
-    ]
+    reader = csv.reader(csv_file, delimiter=',')
+    for city in reader:
+        city = City(city[0], city[3], city[4])
+        cities.append(city)
 
 for city in cities:
-    print(city.name, city.latitude, city.longitude)
+    print(f"{city.name} {city.latitude} {city.longitude}")
+# with open('cities.csv', 'r') as csv_file:
+#     csv_reader = csv.DictReader(csv_file)
+#     cities = [
+#         City(row['city'], row['lat'], row['lng'])
+#         for row in csv_reader
+#     ]
+
+# for city in cities:
+#     print(city.name, city.latitude, city.longitude)
 
 # TODO
 # We have a collection of US cities with population over 750,000 stored in the
