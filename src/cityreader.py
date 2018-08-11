@@ -29,7 +29,10 @@ with open('cities.csv') as csvfile:
     csvCityData = csv.reader(csvfile, delimiter=',')
     next(csvCityData)
     for data in csvCityData:
-        print(data)
+        print(data[0], "city")
+        print(data[3], "lat")
+        print(data[4], "lon")
+        # city = City()
 
 # TODO
 
