@@ -3,6 +3,8 @@
 * Complete the programs in the `src/` directory in any order.
 
   * `oop1.py`: class hierarchies
+  <!-- Done -->
   * `oop2.py`: subclassing and method overriding
+  <!-- Done -->
   * `comp.py`: list comprehensions
   * `cityreader.py`: modules and CSV file reading
