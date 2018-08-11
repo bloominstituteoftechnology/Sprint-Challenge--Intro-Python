@@ -23,21 +23,22 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [ i.name for i in humans if i.name[0] == 'D' ]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+# Need to split the string. If i.name[:-2] is last two character, then i.name[-1 is last character of string?]
+r = [ i.name for i in humans if i.name[-1] == 'e' ]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [ i.name for i in humans if i.name[0] == 'C' or 'D' or 'E' or 'F' or 'G' ]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
