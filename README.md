@@ -7,4 +7,6 @@
   * `oop2.py`: subclassing and method overriding
   <!-- Done -->
   * `comp.py`: list comprehensions
+  <!-- Done except for the letters of the alphabet one --> 
   * `cityreader.py`: modules and CSV file reading
+
