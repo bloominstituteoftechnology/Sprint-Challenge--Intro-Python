@@ -1,4 +1,5 @@
 import csv
+import math
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 # TODO
@@ -35,10 +36,18 @@ with open('cities.csv') as csvfile:
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+
 def city_print(city_list):
     for i in city_list:
         print(str(i))
 
+# def city_print_coords(city_list):
+#     for i in city_list:
+#         print(f'{i.latitude}, {i.longitude}')
+
+def city_print_coords(city):
+    print(str(city))
 city_print(cities)
 # TODO
 
@@ -65,5 +74,55 @@ city_print(cities)
 # Phoenix: (33.5722,-112.0891)
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
-
 # TODO
+coordinates = ''
+while not coordinates == 'q':
+
+    print('Welcome to city square location finder program thing that does stuff\n')
+    print('Please have two points designated by proper longitude and latitude values available before continuing. Press q at any time to exit program \n')
+
+    coordinates = input('Please enter a valid (latitude(-90 to +90) longitude(-180 to +180)) for point 1: ')
+    coordinate_split = coordinates.split()
+    if coordinate_split[0].isdigit():
+        if -90 <= int(coordinate_split[0]) <= 90 and -180 <= int(coordinate_split[1]) <= 180:
+            latitude1 = float(coordinate_split[0])
+            longitude1 = float(coordinate_split[1])
+            coordinates = input('Please enter a valid (latitude(-90 to +90) longitude(-180 to +180)) for point 2: ')
+            coordinate_split = coordinates.split()
+        if coordinate_split[0].isdigit():
+            if -90 <= int(coordinate_split[0]) <= 90 and -180 <= int(coordinate_split[1]) <= 180:
+                latitude2 = float(coordinate_split[0])
+                longitude2 = float(coordinate_split[1])
+                if latitude1 > latitude2:
+                    latitude1, latitude2 = latitude2, latitude1
+                    if longitude1 > longitude2:
+                        longitude1, longitude2 = longitude2, longitude1
+                        for i in cities:
+                            if latitude1 <= math.floor(float(i.latitude)) <= latitude2:
+                                if longitude1 <= math.floor(float(i.longitude)) <= longitude2:
+                                    print(f'\t{i}')
+
+                    else:
+                        for i in cities:
+                            if latitude1 <= math.floor(float(i.latitude)) <= latitude2:
+                                if longitude1 <= math.floor(float(i.longitude)) <= longitude2:
+                                    print(f'\t{i}')
+
+                else:
+                    if longitude1 > longitude2:
+                        longitude1, longitude2 = longitude2, longitude1
+                        for i in cities:
+                            if latitude1 <= math.floor(float(i.latitude)) <= latitude2:
+                                if longitude1 <= (math.floor(float(i.longitude))) <= longitude2:
+                                    print(f'\t{i}')
+
+                    else:
+                        for i in cities:
+                            if latitude1 <= math.floor(float(i.latitude)) <= latitude2:
+                                if longitude1 <= (math.floor(float(i.longitude))) <= longitude2:
+                                    print(f'\t{i}')
+
+    else:
+        print('please enter valid numbers')
+
+
