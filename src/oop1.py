@@ -19,6 +19,9 @@
 # Put a comment noting which class is the base class
 
 class Vehicle(object):
+    """
+    Base class; subclass it
+    """
     pass
 
 class FlightVehicle(Vehicle):

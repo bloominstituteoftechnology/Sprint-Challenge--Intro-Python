@@ -51,7 +51,7 @@ print("Ages plus 10:")
 r = [i.age + 10 for i in humans]  # TODO
 print(r)
 
-# Write a list comprehension that creates a list of strings which are the name
+# Write a list comprehension that creates a liust of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
 r = [(i.name + '-' + str(i.age)) for i in humans]  # TODO
@@ -68,10 +68,10 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [Human(i.name[0].upper() + i.name[1:], i.age + 5) for i in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [int(x.age ** 0.5) for x in humans]  # TODO
 print(r)
