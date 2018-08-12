@@ -2,7 +2,27 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+from csv import DictReader
+# # this stores my cities in an ordered dictionary
+reader = DictReader(open('cities.csv', 'r'))
 
+
+
+class City(object):
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def __str(self):
+        return "Class object for city: {}".format(self.name)
+
+
+
+
+
+
+# Here we go
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -17,10 +37,15 @@
 # should not be loaded into a City object.
 
 cities = []
+for i in reader:
+    cities.append(City(i['city'], i['lat'], i['lng']))
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for i in range(len(cities)):
+    print(cities[i].name, cities[i].latitude, cities[i].longitude)
 
 # TODO
 
