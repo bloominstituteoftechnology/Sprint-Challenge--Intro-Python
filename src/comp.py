@@ -44,6 +44,7 @@ print(r)
 print("Starts between C and G, inclusive:")
 letters = list(ascii_uppercase[2:7])
 # print(letters)
+#if human.name[0] >= "C" and h.name[0] <= "G":
 r = [human.name for human in humans if
 human.name[0] in letters]  # TODO
 print(r)
@@ -71,7 +72,7 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = [(human.name.capitalize(), human.age + 5) for human in humans]  # TODO
+r = [Human(human.name.upper(), human.age + 5) for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.

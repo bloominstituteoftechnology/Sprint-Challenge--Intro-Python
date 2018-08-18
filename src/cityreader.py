@@ -1,31 +1,6 @@
 import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
-class City:
-    def __init__ (self, name, latitude, longitude):
-        self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
-        
-# TODO
-cities = []
-with open('cities.csv', 'r') as csv_file:
-    reader = csv.reader(csv_file, delimiter=',')
-    for city in reader:
-        city = City(city[0], city[3], city[4])
-        cities.append(city)
-
-for city in cities:
-    print(f"{city.name} {city.latitude} {city.longitude}")
-# with open('cities.csv', 'r') as csv_file:
-#     csv_reader = csv.DictReader(csv_file)
-#     cities = [
-#         City(row['city'], row['lat'], row['lng'])
-#         for row in csv_reader
-#     ]
-
-# for city in cities:
-#     print(city.name, city.latitude, city.longitude)
 
 # TODO
 # We have a collection of US cities with population over 750,000 stored in the
@@ -43,8 +18,35 @@ for city in cities:
 # City object.
 
 
-
 # Print the list of cities (name, lat, lon), 1 record per line.
+class City:
+    def __init__ (self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def __str__ (self):
+        return self.name + ' (' + str(self.latitude) + ', ' + str(self.longitude) + ')'    
+        
+# TODO
+cities = []
+with open('cities.csv', 'r') as csv_file:
+    reader = csv.reader(csv_file, delimiter=',')
+    first = True
+
+    for city in reader:
+        if first:
+            first = False
+            continue
+        name = city[0]
+        latitude = city[3]
+        longitude = city[4]
+        
+        cities.append(City(name, float(latitude), float(longitude)))
+
+for city in cities:
+    print(city)
+
 
 # TODO
 
@@ -71,5 +73,16 @@ for city in cities:
 # Phoenix: (33.5722,-112.0891)
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
+print('\n\n')
+lat1, lon1 = [float(v) for v in input(' Enter lat1,lon1: ').split(',')]
+lat2, lon2 = [float(v) for v in input(' Enter lat2,lon2: ').split(',')]
 
-# TODO
+#make lat1 always be smaller
+if lat2 < lat1:
+    lat2, lat1 = lat1, lat2
+if lon2 < lon1:
+    lon2, lon1 = lon1, lon2
+
+for city in cities:
+    if city.latitude >= lat1 and city.longitude >= lon1 and city.latitude <= lat2 and city.longitude <= lon2:
+        print(city)
