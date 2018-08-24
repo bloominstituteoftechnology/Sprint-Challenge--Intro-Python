@@ -26,18 +26,18 @@ class Motorcycle(GroundVehicle):
         GroundVehicle.__init__(self, num_wheels)
 
     def drive(self):
-        GroundVehicle.drive(self)
         print("BRAAP!!")
 
 vehicles = [
     GroundVehicle(),
     GroundVehicle(),
-    Motorcycle(),
+    Motorcycle('2'),
     GroundVehicle(),
-    Motorcycle(),
+    Motorcycle('2'),
 ]
 
 # Go through the vehicles list and call drive() on each.
 
 # TODO
-print(vehicles)
+for i in vehicles:
+    print(i.drive())
