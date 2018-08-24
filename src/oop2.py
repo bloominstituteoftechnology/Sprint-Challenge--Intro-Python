@@ -4,15 +4,12 @@
 # object is constructed.
 
 class GroundVehicle():
-    DEFAULTS = {'num_wheels':4}
-
-    def __init__(self, **kwargs):
-       kwargs.update(self.DEFAULTS)
-       self.info = kwargs
+    def __init__(self, num_wheels=4):
+        self.num_wheels = num_wheels
 
     # TODO
     def drive(self):
-        print ("vroooom")
+          print("vroom")
 
 # Subclass Motorcycle from Vehicle.
 #
@@ -22,12 +19,15 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 # TODO
+
 class Motorcycle(GroundVehicle):
-    DEFAULTS = {'num_wheels':2}
-    
+
+    def __init__(self, num_wheels):
+        GroundVehicle.__init__(self, num_wheels)
+
     def drive(self):
-        print ("BRAAAP!!")
-        
+        GroundVehicle.drive(self)
+        print("BRAAP!!")
 
 vehicles = [
     GroundVehicle(),
@@ -40,3 +40,4 @@ vehicles = [
 # Go through the vehicles list and call drive() on each.
 
 # TODO
+print(vehicles)
