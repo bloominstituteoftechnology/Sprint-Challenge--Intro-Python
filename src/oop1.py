@@ -1,3 +1,6 @@
+#First Commit, Beginning Sprint: 1115 hours
+
+
 # Write classes for the following class hierarchy:
 #
 #  [Vehicle]->[FlightVehicle]->[Starship]
