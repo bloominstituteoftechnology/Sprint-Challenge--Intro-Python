@@ -29,8 +29,8 @@ class City:
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-with open("cities.csv", newline="\n") as csvf:
-    read = csv.reader(csvf, delimiter=",")
+with open("cities.csv", newline="\n") as csvfile:
+    read = csv.reader(csvfile, delimiter=",")
     field = [row for row in read]
 
     for row in field:
