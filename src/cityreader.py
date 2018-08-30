@@ -3,6 +3,15 @@
 
 # TODO
 
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+    
+    def printCustom(self):
+        return "%s - %s - %s" % (self.name, self.lat, self.lon)
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -11,6 +20,10 @@
 # class if you wish, but this is not necessary.) Google "python 3 csv" for
 # references and use your Google-fu for other examples.
 #
+
+import csv
+csvFile = open('cities.csv', 'r')
+citiesData = csv.reader(csvFile, delimiter=',')
 # Store the instances in the "cities" list, below.
 #
 # Note that the first line of the CSV is header that describes the fields--this
@@ -19,8 +32,13 @@
 cities = []
 
 # TODO
+for index, row in enumerate(citiesData):
+    if index > 0:
+        cities.append(City(row[0], row[3], row[4]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for c in cities:
+    print(c.printCustom())
 
 # TODO
 
