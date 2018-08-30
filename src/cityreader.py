@@ -16,11 +16,24 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
+import csv
+# open cities.csv file then read from it.
+with open('cities.csv', newline='') as f:
+  reader = csv.reader(f, delimiter=',', quotechar='|')
+
+  # skip a line then print line for every single city
+  next(f)
+  cities = [line for line in reader]
+
+# close file
+f.close()
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for each in cities:
+  print('{}, {}, {}'.format(each[0], each[3], each[4]))
 
 # TODO
 
@@ -49,3 +62,50 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+parseCode = 'first'
+
+print('\n\n\n\nEnter Lat and Lon separated by coma:\n')
+while parseCode == 'first':
+  # remove whitespace, separate string by comma
+  coord1 = input('Enter the FIRST set of coordinates\n> ').replace(' ', '').split(",")
+  # check for errors in input
+  if len(coord1) != 2 or any(each in coord1 for each in {'', ','}) or any(each.isnumeric() == False for each in coord1):
+    print("\nEnter proper coordinates.\n")
+  else:
+    # move to next while loop
+    parseCode = 'second'
+    print('')
+    break
+
+while parseCode == 'second':
+  coord2 = input('enter SECOND set of coordinates\n> ').replace(' ', '').split(",")
+  if len(coord2) != 2 or any(each in coord2 for each in {'', ','}) or any(each.isnumeric() for each in coord2) == False:
+    print('\nEnter proper coordinates\n')
+  else:
+    print('')
+    break
+
+# separate them into coordinates with big values and small values
+if coord1[0] <= coord2[0]:
+  bigCoord = [coord2[0]]
+  smallCoord = [coord1[0]]
+else:
+  bigCoord = [coord1[0]]
+  smallCoord = [coord2[0]]
+
+if coord1[1] <= coord2[1]:
+  bigCoord.append(coord2[1])
+  smallCoord.append(coord1[1])
+else:
+  bigCoord.append(coord1[1])
+  smallCoord.append(coord2[1])
+
+# Print each city and its respective state if it's within the grid.
+for each in cities:
+  # each[3] = lat, each[4] = lon
+  if smallCoord[0] <= each[3] <= bigCoord[0] and smallCoord[1] <= each[4] <= bigCoord[1]:
+    print('City: {} \nState: {} \nCoordinate: {}, {}\n'.format(each[0], each[1], each[3], each[4]))
+
+# try 40, -130 and 50,-120
+# should produce Seattle and Portland
