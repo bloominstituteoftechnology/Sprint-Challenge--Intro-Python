@@ -2,6 +2,17 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, state_name=None, county_name=None, lat=None, lng=None, population=None, density=None, timezone=None, zips=None):
+        self.name = name
+        self.state_name = state_name
+        self.county_name = county_name
+        self.latitude = lat
+        self.longitude = lng
+        self.population = population
+        self.density = density
+        self.timezone = timezone
+        self.zips = zips
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,10 +30,20 @@
 cities = []
 
 # TODO
+with open('cities.csv', 'r') as f:
+    next(f)
+    for line in f:
+        cities.append(line.split(','))
+
+for city in cities:
+    city = City(city[0], city[3], city[4])
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+print('\nPrint the list of cities (name, lat, lon), 1 record per line.')
+for city in cities:
+    print(f'({city[0]}, {city[3]}, {city[4]})')
 
 # *** STRETCH GOAL! ***
 #
@@ -49,3 +70,15 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+input_1 = input('\nEnter lat1, lon1: ')
+input_2 = input('Enter lat2, lon2: ')
+inputs_1 = [int(n) for n in input_1.split(',')]
+inputs_2 = [int(n) for n in input_2.split(',')]
+x1 = inputs_1[0] if inputs_1[0] < inputs_2[0] else inputs_2[0]
+x2 = inputs_2[0] if inputs_2[0] > inputs_1[0] else inputs_1[0]
+y1 = inputs_1[1] if inputs_1[1] < inputs_2[1] else inputs_2[1]
+y2 = inputs_2[1] if inputs_2[1] > inputs_1[1] else inputs_1[1]
+print('\nCities that match coordinates.')
+for city in cities:
+     if (int(float(city[3])) in range(x1, x2 + 1) and int(float(city[4])) in range(y1, y2 + 1)):
+        print(f'{city[0]}: ({city[3]}, {city[4]})')
