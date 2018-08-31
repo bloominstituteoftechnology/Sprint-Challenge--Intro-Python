@@ -9,9 +9,9 @@ class City:
         self.latitude = latitude
         self.longitude = longitude
     def __str__(self):
-        return "{}. Lat: ({}), Long: ({})\n".format(self.name,self.latitude,self.longitude)
+        return "{}: Lat: ({}), Long: ({})\n".format(self.name,self.latitude,self.longitude)
     def __repr__(self):
-        return "{}. Lat: ({}), Long: ({})\n".format(self.name,self.latitude,self.longitude)
+        return "{}: Lat: ({}), Long: ({})\n".format(self.name,self.latitude,self.longitude)
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -35,7 +35,6 @@ for row in readCSV:
 
 
 # TODO
-
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 for i in cities:
