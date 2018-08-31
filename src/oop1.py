@@ -25,29 +25,29 @@ class Vehicle:
         pass
 
 class FlightVehicle(Vehicle):
-    def __init__(self):
+    # def __init__(self):
         pass
 
 class Starship(FlightVehicle):
-    def __init__(self):
+    # def __init__(self):
         pass
 
 class Airplane(FlightVehicle):
-    def __init__(self):
+    # def __init__(self):
         pass
 
 class GroundVehicle(Vehicle): 
-    def __init__(self):
+    # def __init__(self):
         pass
 
 class Car(GroundVehicle):
-    def __init__(self):
+    # def __init__(self):
         pass
 
 class Motorcycle(GroundVehicle):
-    def __init__(self):
+    # def __init__(self):
         pass
 
 
-vehicle1 = Vehicle
-print(vehicle1)
+# vehicle1 = Motorcycle
+# print(vehicle1)
