@@ -26,16 +26,17 @@ class Motorcycle():
         super().__init__(num_wheels=2)
 
     def drive(self):
-        super().drive(print('BRAAAP!!'))
+        super().drive():
+            print('BRAAAP!!')
 
 # TODO
 
 vehicles = [
-    GroundVehicle(),
-    GroundVehicle(),
-    Motorcycle(),
-    GroundVehicle(),
-    Motorcycle(),
+    GroundVehicle(drive()),
+    GroundVehicle(drive()),
+    Motorcycle(drive()),
+    GroundVehicle(drive()),
+    Motorcycle(drive()),
 ]
 
 # Go through the vehicles list and call drive() on each.

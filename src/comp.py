@@ -23,26 +23,26 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [r for r in humans if Humans.name[0]=="D"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [r for r in humans if len(Humans.name)-1=="e"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [r for r in humans if Humans.name[0]== 'C'or 'D' or 'E' or 'F' or 'G']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [r+10 for r in humans if Humans.age.isdigit()]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -55,17 +55,17 @@ print(r)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [r for tuple((Humans.name, Humans.age))  in humans if Humans.age>=27 and Humans.age<=32]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [r.upper() for r in humans.name s+5 for s in humans.age]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [r**(1/2) for r in humans if Humans.age.isdigit()]  # TODO
 print(r)
