@@ -59,4 +59,10 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+inp1 = input("\nEnter lat1,lon1: ").split(",")
+inp2 = input("\nEnter lat2,lon2: ").split(",")
+
+in_square = [city for city in cities if float(city.latitude) < float(inp1[0]) and float(city.latitude) > float(inp2[0]) and float(city.longitude) > float(inp1[1]) and float(city.longitude) < float(inp2[1])]
+
+for city in in_square:
+    print("{}: ({}, {})".format(city.name, city.latitude, city.longitude))
