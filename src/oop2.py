@@ -39,5 +39,5 @@ vehicles = [
 
 # TODO
 for item in vehicles:
-    print(item.num_wheels)
+    print(item.num_wheels) # for testing purpose
     item.drive()
