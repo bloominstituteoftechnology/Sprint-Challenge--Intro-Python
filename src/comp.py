@@ -48,24 +48,24 @@ print(r)
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
+r = [f"{i.name}-{i.age}" for i in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [f"({i.name}, {i.age}" for i in humans if i.age > 26 and i.age < 33   ]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [i.name.upper() for i in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [i.age**2 for i in humans]  # TODO
 print(r)
