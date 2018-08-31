@@ -1,3 +1,4 @@
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -62,7 +63,7 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [name.upper(name) for name in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
