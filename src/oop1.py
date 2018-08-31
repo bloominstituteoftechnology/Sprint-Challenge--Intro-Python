@@ -20,39 +20,35 @@
 
 # Base Class
 class Vehicle:
-    def __init__(self, name, description):
+    def __init__(self, name=None, description=None, num_wheels=None):
         self.name = name
         self.description = description
+        self.num_wheels = num_wheels
 
 # Vehicle subclasses
 class FlightVehicle(Vehicle):
-    def __init__(self, name, description):
-        Vehicle.__init__(self, name, description)
-        pass
+    def __init__(self, name=None, description=None, num_wheels=None):
+        Vehicle.__init__(self, name, description, num_wheels)
 
 class GroundVehicle(Vehicle):
-    def __init__(self, name, description):
-        Vehicle.__init__(self, name, description)
-        pass
+    def __init__(self, name=None, description=None, num_wheels=None):
+        Vehicle.__init__(self, name, description, num_wheels)
+
 
 # FlightVehicle subclasses
 class Airplane(FlightVehicle):
-    def __init__(self, name, description):
-        FlightVehicle.__init__(self, name, description)
-        pass
+    def __init__(self, name=None, description=None, num_wheels=None):
+        FlightVehicle.__init__(self, name, description, num_wheels)
 
 class Starship(FlightVehicle):
-    def __init__(self, name, description):
-        FlightVehicle.__init__(self, name, description)
-        pass
+    def __init__(self, name=None, description=None, num_wheels=None):
+        FlightVehicle.__init__(self, name, description, num_wheels)
 
 # GroundVehicle subclasses
 class Car(GroundVehicle):
-    def __init__(self, name, description):
-        GroundVehicle.__init__(self, name, description)
-        pass
+    def __init__(self, name=None, description=None, num_wheels=None):
+        GroundVehicle.__init__(self, name, description, num_wheels)
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, name, description):
-        GroundVehicle.__init__(self, name, description)
-        pass
+    def __init__(self, name=None, description=None, num_wheels=None):
+        GroundVehicle.__init__(self, name, description, num_wheels)
