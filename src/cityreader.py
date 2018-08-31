@@ -24,7 +24,7 @@ cities = []
 
 # TODO
 
-# *** STRETCH GOAL! ***
+# ** STRETCH GOAL! **
 #
 # Allow the user to input two points, each specified by latitude and longitude.
 # These points form the corners of a lat/lon square. Output the cities that fall
