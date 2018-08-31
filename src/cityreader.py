@@ -72,3 +72,17 @@ for i in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+lat1 = input('Enter lat1: ')
+lon1 = input('Enter lon1: ')
+lat2 = input('Enter lat2: ')
+lon2 = input('Enter lon2: ')
+
+result = []
+if lat1 > lat2:
+    lat1, lat2 = lat2, lat1
+if lon1 > lon2:
+    lon1, lon2 = lon2, lon1
+
+result = [c for c in cities if lat1<=c.lat<=lat2 and lon1<=c.lon<=lon2]
+for i in result:
+    print(i.name, i.lat, i.lon)
