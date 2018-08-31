@@ -19,39 +19,35 @@
 # Put a comment noting which class is the base class
 
 class Vehicle: #base class
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         pass
 
 class FlightVehicle(Vehicle):
-    def __init__(self, *args, **kwargs):
-        Vehicle.init(self, *args, **kwargs)
+    def __init__(self):
+        Vehicle.init(self)
         pass
 
-class Airplane(Vehicle, FlightVehicle):
-    def __init__(self, *args, **kwargs):
-        Vehicle.init(self, *args, **kwargs)
-        FlightVehicle.init(self, *args, **kwargs)
+class Airplane(FlightVehicle):
+    def __init__(self):
+        FlightVehicle.init(self)
         pass
 
-class Starship(Vehicle, FlightVehicle):
-    def __init__(self, *args, **kwargs):
-        Vehicle.init(self, *args, **kwargs)
-        FlightVehicle.init(self, *args, **kwargs)
+class Starship(FlightVehicle):
+    def __init__(self):
+        FlightVehicle.init(self)
         pass
 
 class GroundVehicle(Vehicle):
-    def __init__(self, *args, **kwargs):
-        Vehicle.init(self, *args, **kwargs)
+    def __init__(self):
+        Vehicle.init(self)
         pass
 
-class Car(Vehicle, GroundVehicle):
-    def __init__(self, *args, **kwargs):
-        Vehicle.init(self, *args, **kwargs)
-        GroundVehicle(self, *args, **kwargs)
+class Car(GroundVehicle):
+    def __init__(self):
+        GroundVehicle(self)
         pass
 
-class Motorcycle(Vehicle, GroundVehicle):
-    def __init__(self, *args, **kwargs):
-        Vehicle.init(self, *args, **kwargs)
-        GroundVehicle(self, *args, **kwargs)
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        GroundVehicle(self)
         pass
