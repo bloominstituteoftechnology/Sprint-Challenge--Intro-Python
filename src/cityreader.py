@@ -3,6 +3,13 @@
 
 # TODO
 
+class City(object):
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.latitude = lat
+        self.longitude = lon
+
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -15,12 +22,27 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-
 cities = []
 
 # TODO
 
+import csv
+
+with open('cities.csv') as csvfile:
+    next(csvfile)
+    readCSV = csv.reader(csvfile, delimiter=',')
+
+    for row in readCSV:
+        name = row[0]
+        lat = row[3]
+        lng = row[4]
+
+        cities.append(City(name, lat, lng))
+
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+for city in cities:
+    print(city.name, city.latitude, city.longitude)
 
 # TODO
 
