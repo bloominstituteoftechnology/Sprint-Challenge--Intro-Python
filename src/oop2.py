@@ -18,8 +18,8 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, num_wheels = 2):
-        super()__init__()
+    def __init__(self):
+        super()__init__(2)
     def drive(self):
         print("BRAAAP!!")
 
