@@ -6,10 +6,15 @@
 class GroundVehicle():
     def __init__(self, num_wheels):
         self.num_wheels = num_wheels
+    def drive(self):
+        print("vroooom")    
 
     # TODO
-
-
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels):
+        GroundVehicle.__init__(self, 2 )
+    def drive(self):
+        print("BRAAAP!!")
 # Subclass Motorcycle from Vehicle.
 #
 # Make it so when you instantiate a Motorcycle, it automatically sets the number
