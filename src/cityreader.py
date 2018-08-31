@@ -1,7 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = float(lat)
+    self.lon = float(lon)
+  def __str__(self):
+    return f'{self.name}, {self.lat}, {self.lon}'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,11 +24,18 @@
 
 cities = []
 
-# TODO
+import csv
+with open('cities.csv', newline='') as csvfile:
+  next(csvfile, None)
+  cityreader = csv.reader(csvfile, delimiter=',')
+  for row in cityreader:
+    cities.append(City(row[0], row[3], row[4]))
+
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+for city in cities:
+  print(f"Name: {city.name}\n Latitude: {city.lat}\n Longitude: {city.lon}")
 
 # *** STRETCH GOAL! ***
 #
@@ -49,4 +62,12 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+latN = float(input("Please enter northmost latitude: "))
+latS = float(input("Please enter southmost latitude: "))
+lonE = float(input("Please enter eastmost longitude: "))
+lonW = float(input("Please enter westmost longitude: "))
+
+citiesInRange = [city for city in cities if city.lat <= latN and city.lat >= latS and city.lon <= lonE and city.lon >= lonW]
+
+for city in citiesInRange:
+  print(f"{city.name}: ({city.lat}, {city.lon})")
