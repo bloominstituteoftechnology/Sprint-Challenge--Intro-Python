@@ -29,8 +29,13 @@ with open('cities.csv', newline='\n') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=', ')
     next(reader)
     for row in reader:
-        cities.append(City(row['city'], row['lat'], row['lon']))
+        cities.append(City(row['city'], row['lat'], row['lng']))
 
+for city in cities:
+    print(city.name)
+    print(city.latitude)
+    print(city.longitude)
+    print()
 
 # *** STRETCH GOAL! ***
 #
