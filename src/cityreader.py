@@ -28,13 +28,11 @@ with open('cities.csv', newline='') as csvfile:
     city_reader = csv.reader(csvfile, delimiter='\n', quotechar='|')
     city_list = [city[0].split(',') for city in city_reader] #Stores each city as a list of relevant values for easier access
 
-cities = [City(city_info[0], city_info[3], city_info[4]) for city_info in city_list]
-cities = cities[1:] #truncates header data from city list
+cities = [City(city_info[0], float(city_info[3]), float(city_info[4])) for city_info in city_list[1:]]
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
     print(city)
-    print(city.lat)
 
 # *** STRETCH GOAL! ***
 #
@@ -48,8 +46,8 @@ for city in cities:
 #
 # Example I/O:
 #
-# Enter lat1,lon1: 45,-100
-# Enter lat2,lon2: 32,-120
+# Enter lat1,lon1: 45,-100 upper/right
+# Enter lat2,lon2: 32,-120 lower/left
 # Albuquerque: (35.1055,-106.6476)
 # Riverside: (33.9382,-117.3949)
 # San Diego: (32.8312,-117.1225)
@@ -62,24 +60,29 @@ for city in cities:
 
 
 coordinates_1 = input("Enter lat1, lon1: ").split(',')
-coordinates_2 = input("Enter lat2, lon2: ").split(', ')
-#
-coordinates = coordinates_1 + coordinates_2
-#"""
-#if coordinates[0] > coordinates[2]:
-#    shallow_copy = coordinates
-#    coordinates[2] = shallow_copy[0]
-#    coordinates[0] = shallow_copy[2]
-#
-#if coordinates[1] > coordinates[3]:
-#    shallow_copy_2 = coordinates
-#    coordinates[3] = shallow_copy_2[1]
-#    coordinates[1] = shallow_copy_2[3]
-#"""
-print(coordinates)
+coordinates_2 = input("Enter lat2, lon2: ").split(',')
 
-#locatedCities = [city for city in cities if city.lat in range(coordinates[0], coordinates[2]) and city.lon in range(coordinates[1], coordinates[3])]
-locatedCities = [city for city in cities if coordinates[2] < city.lat < coordinates[0] and coordinates[1] < city.lon < coordinates[3]]
+#convert inputs to floats
+coordinates_1 = list(map(lambda x: float(x), coordinates_1))
+coordinates_2 = list(map(lambda x: float(x), coordinates_2))
+
+#normalize data to lower-left/upper-right
+if coordinates_1[0] > coordinates_2[0]:
+    lat_one = coordinates_1[0]
+    lon_one = coordinates_1[1]
+    lat_two = coordinates_2[0]
+    lon_two = coordinates_2[1]
+    coordinates_2[0] = lat_one
+    coordinates_2[1] = lon_one
+    coordinates_1[0] = lat_two
+    coordinates_1[1] = lon_two
+
+
+coordinates = coordinates_1 + coordinates_2
+
+#finds cities within coordinate square
+locatedCities = [city for city in cities if coordinates[0] <= city.lat <= coordinates[2] and coordinates[1] < city.lon < coordinates[3]]
+
 
 for city in locatedCities:
     print(city)
