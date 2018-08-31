@@ -26,7 +26,7 @@ class City:
 with open('cities.csv') as target:
     reader = csv.reader(target, delimiter=",")
     next(reader, None)
-    cities = [City(city[0], city[3], city[4]) for city in reader]
+    cities = [City(city[0], float(city[3]), float(city[4])) for city in reader]
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
@@ -57,4 +57,11 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+coordinates1 = list(map(float, input("Enter lat1,lon1: ").strip().split(",")))
+coordinates2 = list(map(float, input("Enter lat2,lon2: ").strip().split(",")))
+
+latitudes = sorted([coordinates1[0], coordinates2[0]])
+longitudes = sorted([coordinates1[1], coordinates2[1]])
+
+result = [print(f"{city.name}: ({city.latitude},{city.longitude})\n") for city in cities if latitudes[0] <= city.latitude
+          <= latitudes[1] and longitudes[0] <= city.longitude <= longitudes[1]]
