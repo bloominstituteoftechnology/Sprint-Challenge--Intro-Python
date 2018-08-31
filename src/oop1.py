@@ -28,27 +28,19 @@ class Vehicle:
   def __init__(self, name, description):
     pass
 
-class FlightVehicle:
- def __init__(self, name, description):
-    pass
+# Vehicle type classes
 
-class Starship:
-  def __init__(self, name, description):
-    pass
-
-# Inherited from base classes
+class FlightVehicle(Vehicle):
+ def __init__(self, name, description, type):
+  super().__init__(name, description)
+  pass
 
 class GroundVehicle(Vehicle):
   def __init__(self, name, description, type):
     super().__init__(name, description)
     pass
 
-class Airplane(FlightVehicle):
-  def __init__(self, name, description, type):
-    super().__init__(name, description)
-    pass
-
-# Inherited from Ground Vehicle
+# Ground Vehicles
 
 class Car(GroundVehicle):
   def __init__(self, name, description, type, make, model):
@@ -56,6 +48,18 @@ class Car(GroundVehicle):
     pass
 
 class Motorcycle(GroundVehicle):
+  def __init__(self, name, description, type, make, model):
+    super().__init__(name, description, type)
+    pass
+
+# Flight Vehicles
+
+class Airplane(FlightVehicle):
+  def __init__(self, name, description, type, make, model):
+    super().__init__(name, description, type)
+    pass
+
+class Starship(FlightVehicle):
   def __init__(self, name, description, type, make, model):
     super().__init__(name, description, type)
     pass
