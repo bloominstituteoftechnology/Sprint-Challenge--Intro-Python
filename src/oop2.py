@@ -8,7 +8,8 @@ class GroundVehicle():
         self.num_wheels = num_wheels
 
     # TODO
-
+    def drive(self):
+        print("vroooom")
 
 # Subclass Motorcycle from Vehicle.
 #
@@ -30,3 +31,5 @@ vehicles = [
 # Go through the vehicles list and call drive() on each.
 
 # TODO
+for vehicle in vehicles:
+    print(vehicle.drive())
