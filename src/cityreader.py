@@ -1,5 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City(object):
+    def __init__(self,name,latitude,longitude):
+        super(City, self).__init__()
+        
+
+
+    
+
+
+
 
 # TODO
 

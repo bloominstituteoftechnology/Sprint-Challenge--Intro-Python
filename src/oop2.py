@@ -25,9 +25,6 @@ class Motorcycle(GroundVehicle):
              super(Motorcycle, self).__init__(name,num_wheels)
     def drive(self):
         print("BRAAAP")
-    
-    
-
 vehicles = [
     GroundVehicle(),
     GroundVehicle(),
