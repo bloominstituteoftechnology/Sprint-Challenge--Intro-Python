@@ -35,13 +35,26 @@ for city in raw_cities[1:]:
     name, lat, lon = city_info[0], city_info[3], city_info[4]
     cities.append(City(name, lat, lon))
 
-# TODO
-
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
     print(city)
 
-# TODO
+# Assumes that user enters only valid lats and lons, no strings
+def getLocations():
+    lat1, lon1 = input("Enter lat1, lon1: ").split(",")
+    print(lat1, lon1)
+    
+    lat2, lon2 = input("Enter lat2, lon2: ").split(",")
+    print(lat2, lon2)
+
+    lat_min, lat_max = min(lat1, lat2), max(lat1, lat2)
+    lon_min, lon_max = min(lon1, lon2), max(lon1, lon2)
+
+    cities_within_square = [city for city in cities if lat_min <= city.lat <= lat_max and lon_min <= city.lon <= lon_max]
+    
+    for city in cities_within_square:
+        print(city)
+
 
 # *** STRETCH GOAL! ***
 #
