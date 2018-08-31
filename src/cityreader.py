@@ -1,8 +1,22 @@
+import csv
+filePath = "/Users/sibhattemelso/Documents/WebDev/lambda/fullstack/41-Sprint-Challenge/Sprint-Challenge--Intro-Python/src/cities.csv"
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+# todo
+class City:
+    def __init__(self, name, state_name, lat, longt, population):
+        self.name = name
+        self.state_name = state_name
+        self.lat = lat
+        self.longt = longt
+        self.population = population
 
+    def __str__(self):
+        return f"\n{self.name} : {self.state_name} : {self.lat } : {self.longt } : {self.population }"
+    def __repr__(self):
+        return f"{self.name}, {self.state_name}. Lat ({self.lat}), Long ({self.longt}), Population - {self.population }\n"
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -15,13 +29,16 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-
-cities = []
-
+city = []
+with open (filePath, newline="") as csvfile:
+    filereader = csv.reader(csvfile)
+    for row in filereader:
+        city.append(City(row[0],row[1], row[3], row[4], row[5]))
 # TODO
 
-# Print the list of cities (name, lat, lon), 1 record per line.
-
+city.pop(0)
+# Print the list of cities (name, lat, lon), 1 record per line.p
+print(city)
 # TODO
 
 # *** STRETCH GOAL! ***
