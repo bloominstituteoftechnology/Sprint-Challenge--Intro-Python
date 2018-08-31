@@ -35,7 +35,7 @@ with open('cities.csv') as csvfile:
 # Print the list of cities (name, lat, lon), 1 record per line.
 for i in cities:
     print(f'{i.name}: ({i.latitude}, {i.longitude})')
-    
+
 # TODO
 
 # *** STRETCH GOAL! ***
@@ -63,3 +63,15 @@ for i in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+userInput1 = input('Enter lat1 lon1 for the first point: ').split()
+# userInput2 = input('Enter lat2 lon2 for the second point: ').split()
+print(int(userInput1[0]), int(userInput1[2]))
+firstPoints
+
+# if(int(userInput1[0]) > int(userInput2[0])):
+
+
+# for city in cities:
+#     if(city.latitude in range(int(userInput1[0]), int(userInput2[0])) and city.longitude in range(int(userInput1[1]), int(userInput2[1]))):
+#         print(city)
