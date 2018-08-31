@@ -82,3 +82,9 @@ for city_list in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+'''upperLeft = input("please enter lower left coordinates for city seach ").split(',')
+lowerRight = input("please enter upper right coordinates for city search ").split(',')
+long_range = int(upperLeft[0]) - int(lowerRight[0])
+for city_list in cities:
+    if city_list.longitude in range(int(upperLeft[0]), int(lowerRight[0])) and city_list.latitude in range(int(upperLeft[1], int(lowerRight[1])):
+        print(city_list.name)'''
