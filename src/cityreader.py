@@ -2,6 +2,17 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, state_name=None, county_name=None, lat=None, lng=None, population=None, density=None, timezone=None, zips=None):
+        self.name = name
+        self.state_name = state_name
+        self.county_name = county_name
+        self.latitude = lat
+        self.longitude = lng
+        self.population = population
+        self.density = density
+        self.timezone = timezone
+        self.zips = zips
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,10 +30,17 @@
 cities = []
 
 # TODO
+with open('cities.csv', 'r') as f:
+    next(f)
+    for line in f:
+        cities.append(line.split(','))
 
-# Print the list of cities (name, lat, lon), 1 record per line.
+for city in cities:
+    city = City(city[0], city[3], city[4])
 
 # TODO
+for city in cities:
+    print(f'({city[0]}, {city[3]}, {city[4]})')
 
 # *** STRETCH GOAL! ***
 #
