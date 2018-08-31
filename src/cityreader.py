@@ -8,6 +8,7 @@ class City:
         self.lat = lat
         self.lon = lon
 
+
 # TODO
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -40,7 +41,9 @@ with open('cities.csv', 'r') as f:
         lon = row[lonIndex]
         cities.append(City(name, lat, lon))
 
-print(cities)
+for city in cities:
+    print(city.name, city.lat, city.lon)
+
 # TODO
 
 # *** STRETCH GOAL! ***
