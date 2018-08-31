@@ -25,9 +25,10 @@ class City:
 cities = []
 
 # TODO
-with open("cities.csv", newline='') as csv_file:
-    csv_read = csv.reader(csv_file, delimiter=',')
+with open('cities.csv', newline = '') as csv_file:
+    csv_read = csv.reader(csv_file, delimiter = ',')
     values = [row for row in csv_read]
+    values.pop(0)
     for row in values:
         cities.append(City(row[0], row[3], row[4]))
 
