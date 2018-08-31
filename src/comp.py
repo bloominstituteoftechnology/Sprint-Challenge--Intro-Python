@@ -66,8 +66,9 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 def capitalize_plus_five(human):
-    human.name = human.name.capitalize()
+    human.name = human.name.upper()
     human.age += 5
+    return f'{human}'
 
 print("All names capitalized:")
 r = [capitalize_plus_five(human) for human in humans]
