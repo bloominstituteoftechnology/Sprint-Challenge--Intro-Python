@@ -1,4 +1,4 @@
-import math
+from math import *
 
 class Human:
     def __init__(self, name, age):
