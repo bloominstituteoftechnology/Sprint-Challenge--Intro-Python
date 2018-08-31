@@ -2,6 +2,12 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -15,16 +21,43 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+f = open('cities.csv', 'r')
+data = f.read()
+rows = data.split('\n')
+rows = rows[1:-1]
+final_data = []
+
+for row in rows:
+    split_list = row.split(',')
+    final_data.append(split_list)
+
+
+
 
 cities = []
+
+for city_Info in final_data:
+    #city_name = city_Info[0]
+    #city_long = city_Info[3]
+    #city_lat =  city_Info[4]
+    new_list = City(city_Info[0], city_Info[3], city_Info[4])
+    cities.append(new_list)
+    
+
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
+for city_list in cities:
+    print(city_list.name, city_list.longitude, city_list.latitude)
+
+
+
 # TODO
 
-# ** STRETCH GOAL! **
+# *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
 # These points form the corners of a lat/lon square. Output the cities that fall
