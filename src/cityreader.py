@@ -38,7 +38,10 @@ with open('cities.csv', 'r') as f:
 for city in cities:
     city = City(city[0], city[3], city[4])
 
+# Print the list of cities (name, lat, lon), 1 record per line.
+
 # TODO
+print('\nPrint the list of cities (name, lat, lon), 1 record per line.')
 for city in cities:
     print(f'({city[0]}, {city[3]}, {city[4]})')
 
@@ -67,3 +70,15 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+input_1 = input('\nEnter lat1, lon1: ')
+input_2 = input('Enter lat2, lon2: ')
+inputs_1 = [int(n) for n in input_1.split(',')]
+inputs_2 = [int(n) for n in input_2.split(',')]
+x1 = inputs_1[0] if inputs_1[0] < inputs_2[0] else inputs_2[0]
+x2 = inputs_2[0] if inputs_2[0] > inputs_1[0] else inputs_1[0]
+y1 = inputs_1[1] if inputs_1[1] < inputs_2[1] else inputs_2[1]
+y2 = inputs_2[1] if inputs_2[1] > inputs_1[1] else inputs_1[1]
+print('\nCities that match coordinates.')
+for city in cities:
+     if (int(float(city[3])) in range(x1, x2 + 1) and int(float(city[4])) in range(y1, y2 + 1)):
+        print(f'{city[0]}: ({city[3]}, {city[4]})')
