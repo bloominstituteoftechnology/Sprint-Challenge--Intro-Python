@@ -6,12 +6,15 @@
 class GroundVehicle():
     def __init__(self, num_wheels):
         self.num_wheels = num_wheels
+        # if num_wheels is None:
+        # num_wheels = 4
     def drive(self):
         print("vroooom")    
+        
 
     # TODO
 class Motorcycle(GroundVehicle):
-    def __init__(self, num_wheels):
+    def __init__(self):
         GroundVehicle.__init__(self, 2 )
     def drive(self):
         print("BRAAAP!!")
@@ -25,13 +28,15 @@ class Motorcycle(GroundVehicle):
 # TODO
 
 vehicles = [
-    GroundVehicle(),
-    GroundVehicle(),
+    GroundVehicle(4),
+    GroundVehicle(5),
     Motorcycle(),
-    GroundVehicle(),
+    GroundVehicle(6),
     Motorcycle(),
 ]
 
 # Go through the vehicles list and call drive() on each.
 
+r = [i.drive() for i in vehicles]  
+print(r)
 # TODO
