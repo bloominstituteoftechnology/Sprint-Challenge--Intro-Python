@@ -38,6 +38,20 @@ cities.pop(0)
 for city in cities:
     print(city.name, city.latitude, city.longitude)
 
+endpoints = input('Enter Lat1, Lon1: ')
+endpoints2 = input('Enter Lat2, Lon2: ')
+new_endpoints = endpoints.split(', ')
+new_endpoints2 = endpoints2.split(', ')
+
+print(type(float(city.latitude)))
+"""range(min(int(new_endpoints[0]), int(new_endpoints2[0])), max(int(new_endpoints[0]), int(new_endpoints2[0]))) and city.longitude in range(min(int(new_endpoints[1]), int(new_endpoints2[1])), max(int(new_endpoints[1]), int(new_endpoints2[1])))"""
+
+for city in cities:
+    # >= min(35, 45):
+    if float(city.latitude) >= min(int(new_endpoints[0]), int(new_endpoints2[0])) and float(city.latitude) <= max(int(new_endpoints[0]), int(new_endpoints2[0])) and float(city.longitude) >= min(int(new_endpoints[1]), int(new_endpoints2[1])) and float(city.longitude) <= max(int(new_endpoints[1]), int(new_endpoints2[1])):
+        print(city.name, (float(city.latitude), float(city.longitude)))
+
+
 # TODO
 
 # *** STRETCH GOAL! ***
