@@ -53,9 +53,8 @@ class Airplane(FlightVehicle):
         super().__init__(fVId)
         self.aId = aId
 
-
-class Starship(Vehicle):
-    def __init__(self, sId, vId):
-        super().__init__(vId)
+class Starship(FlightVehicle):
+    def __init__(self, sId, fVId):
+        super().__init__(fVId)
         self.sId
 
