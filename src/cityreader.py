@@ -34,6 +34,7 @@ cities = cities[1:] #truncates header data from city list
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
     print(city)
+    print(city.lat)
 
 # *** STRETCH GOAL! ***
 #
@@ -59,10 +60,26 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-print('SPE', cities[0].lat)
-coordinates = input("Enter lat1, lon1: ").split(',') + input("Enter lat2, lon2: ").split(', ')
-coordinates = list(map(lambda str: int(str), coordinates)) #converts coordinates into an interger list
+
+coordinates_1 = input("Enter lat1, lon1: ").split(',')
+coordinates_2 = input("Enter lat2, lon2: ").split(', ')
+#
+coordinates = coordinates_1 + coordinates_2
+#"""
+#if coordinates[0] > coordinates[2]:
+#    shallow_copy = coordinates
+#    coordinates[2] = shallow_copy[0]
+#    coordinates[0] = shallow_copy[2]
+#
+#if coordinates[1] > coordinates[3]:
+#    shallow_copy_2 = coordinates
+#    coordinates[3] = shallow_copy_2[1]
+#    coordinates[1] = shallow_copy_2[3]
+#"""
 print(coordinates)
 
-locatedCities = [city for city in cities if city.lat in range(coordinates[0],coordinates[3])]
-print(locatedCities)
+#locatedCities = [city for city in cities if city.lat in range(coordinates[0], coordinates[2]) and city.lon in range(coordinates[1], coordinates[3])]
+locatedCities = [city for city in cities if coordinates[2] < city.lat < coordinates[0] and coordinates[1] < city.lon < coordinates[3]]
+
+for city in locatedCities:
+    print(city)
