@@ -4,8 +4,8 @@
 class City:
   def __init__(self, name, lat, lon):
     self.name = name
-    self.lat = lat
-    self.lon = lon
+    self.lat = float(lat)
+    self.lon = float(lon)
   def __str__(self):
     return f'{self.name}, {self.lat}, {self.lon}'
 
@@ -61,4 +61,13 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+latN = float(input("Please enter northmost latitude: "))
+latS = float(input("Please enter southmost latitude: "))
+lonE = float(input("Please enter eastmost longitude: "))
+lonW = float(input("Please enter westmost longitude: "))
+
+withinLatRange = [city for city in cities if city.lat <= latN and city.lat >= latS]
+citiesInRange = [city for city in withinLatRange if city.lon <= lonE and city.lon >= lonW]
+
+for city in citiesInRange:
+  print(f"{city.name}: ({city.lat}, {city.lon})")
