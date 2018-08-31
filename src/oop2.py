@@ -5,15 +5,13 @@
 
 class GroundVehicle():
     def __init__(self, num_wheels = 4):
-        if num_wheels == 4:
-            num_wheels = 4
         self.num_wheels = num_wheels
     
     def drive(self):
         print('vrooom')
 
-# vehicle1 = GroundVehicle()
-# print(vehicle1.drive())
+# vehicle1 = GroundVehicle(7)
+# print(vehicle1.num_wheels)
 
 
 
@@ -27,16 +25,15 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, num_wheels = 2):
-        if num_wheels == 2:
-            num_wheels = 2
+    def __init__(self, num_wheels =2 ):
         self.num_wheels = num_wheels
 
     def drive(self):
         print('BRAAAP!!')
 
-vehicle2 = Motorcycle()
-print(vehicle2.drive())
+# vehicle2 = Motorcycle(3)
+# print(vehicle2.drive())
+# print(vehicle2.num_wheels)
 
 
 
