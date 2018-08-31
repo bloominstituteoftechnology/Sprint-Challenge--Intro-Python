@@ -1,4 +1,4 @@
-import csv 
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
@@ -7,8 +7,8 @@ import csv
 class City:
     def __init__(self, name, latitude, longitude):
         self.name = name 
-        self.lat = latitude 
-        self.lon = longitude 
+        self.latitude = latitude 
+        self.longitude = longitude 
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -27,21 +27,23 @@ class City:
 cities = []
 
 # TODO
+import csv 
 with open("cities.csv", newline="\n") as csvfile:
     readCSV = csv.reader(csvfile, delimiter=",")
-    fields = [row for row in readCSV]
+    passedHeader = False 
 
-    for row in fields:
-        newCity = City(row[0], row[3], row[4])
-        
-        cities.append(newCity)
+    for row in readCSV:
+        if passedHeader:
+            cities.append(City(row[0], row[3], row[4]))
+        else:
+            passedHeader = True 
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
 
 for city in cities: 
-    print(city.name + " - " + city.lat + " - " + city.lon)
+    print(city.name + " - " + city.latitude + " - " + city.longitude)
 
 # *** STRETCH GOAL! ***
 #
@@ -68,3 +70,15 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+lat1, lon1 = [float(v) for v in input("Please enter a valid lat1,lon1: ").split(",")]
+lat2, lon2 = [float(v) for v in input("Please enter a valid lat2,lon2: ").split(",")]
+
+if lat2 < lat1:
+    lat1, lat2 = lat2, lat1
+if lon2 < lon1:
+    lon1, lon2 = lon2, lon1
+
+for c in cities:
+    if c.latitude >= lat1 and c.latitude <= lat2 and c.longitude >= lon1 and c.longitude <= lon2:
+        print("{}: ({},{})".format(c.name, c.latitude, c.longitude))
