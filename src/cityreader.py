@@ -6,10 +6,11 @@ import csv
 # TODO
 
 class City:
-    def __init__(self, name, lat, lon):
+    def __init__(self, name, lat, lon, pop):
         self.name = name
         self.lat = lat
         self.lon = lon
+        self.pop = pop
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -33,12 +34,12 @@ cities = []
 with open('src/cities.csv', 'r') as f:
     reader = csv.reader(f)
     for row in reader:
-        cities.append(City(row[0], row[3], row[4]))
+        cities.append(City(row[0], row[3], row[4], row[5]))
 
 # TODO
 
 for city in cities:
-    print(city.name + ':' + ' ' + str(city.lat) + ', ' + str(city.lon))
+    print('\n' + city.name + ' is located at the following coordinates:' + ' ' + str(city.lat) + ', ' + str(city.lon) + ' and has a population of ' + str(city.pop) + '.')
 
 # *** STRETCH GOAL! ***
 #
@@ -65,3 +66,34 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+while True:
+
+    print("\nEnter two points on the map, each specified by latitude\nand longitude. These points will form a square, and\nthe cities with 750,000 or more people will be listed.")
+    pt1 = (input('\nEnter first coordinates (ex. 45, -100): '))
+    pt2 = (input('Enter second coordinates (ex. 32, -120): '))
+
+    if len(pt1) or len(pt2) != 2:
+
+        print ("\nPlease enter latitude and longitude (ex. 35, -107 or 41, -112).")
+
+    lat1 = pt1.split(", ")[0]
+    lon1 = pt1.split(", ")[1]
+    lat2 = pt2.split(", ")[0]
+    lon2 = pt2.split(", ")[1]
+
+    # if lat2 < lat1:
+    #     lat1, lat2 = lat2, lat1
+    #     lat2 = lat1
+    # if lon2 < lon1:
+    #     lon1, lon2 = lon2, lon1
+
+    print(lat1)
+    print(lon1)
+    print(lat2)
+    print(lon2)
+        
+    print("\nThe following cities with 750,000 or more people are in the specified area.\n")
+    for city in cities:
+        if city.lat >= lat1 and city.lat <= lat2 and city.lon >= lon1 and city.lon <= lon2:
+            print(city.name + ':' + ' ' + str(city.lat) + ', ' + str(city.lon))
