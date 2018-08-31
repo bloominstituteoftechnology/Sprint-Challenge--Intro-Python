@@ -27,10 +27,15 @@ class City:
 cities = []
 
 # TODO
+f = open('cities.csv')
+csv_f = csv.reader(f)
+
+for row in csv_f:
+  print (row)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-print('city name is {}, latitude is {:.4f}, longitude is "{:.4f}"'.format(
-    name, lat, lon))
+#print('city name is {}, latitude is {:.4f}, longitude is "{:.4f}"'.format(
+#    name, lat, lon))
 # TODO
 
 # *** STRETCH GOAL! ***
