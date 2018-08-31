@@ -32,7 +32,8 @@ cities = []
 #
 # Be aware that the user could specify either a lower-left/upper-right pair of
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
-# the input data so that it's always one or the other, then search for cities.
+# the input data so that it's always one or the other (what is latMin, latMax?)
+# then search for cities.
 #
 # Example I/O:
 #

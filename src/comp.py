@@ -60,7 +60,7 @@ print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
-# The "humans" list should be unmodified.
+# The `humans` list should be unmodified.
 print("All names capitalized:")
 r = []  # TODO
 print(r)
