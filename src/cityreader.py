@@ -60,9 +60,9 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 print('SPE', cities[0].lat)
-#coordinates = input("Enter lat1, lon1: ").split(',') + input("Enter lat2, lon2: ").split(', ')
-#coordinates = list(map(lambda str: int(str), coordinates)) #converts coordinates into an interger list
-#print(coordinates)
-#
-#locatedCities = [city for city in cities if city.lat in range(coordinates[0],coordinates[3])]
-#print(locatedCities)
+coordinates = input("Enter lat1, lon1: ").split(',') + input("Enter lat2, lon2: ").split(', ')
+coordinates = list(map(lambda str: int(str), coordinates)) #converts coordinates into an interger list
+print(coordinates)
+
+locatedCities = [city for city in cities if city.lat in range(coordinates[0],coordinates[3])]
+print(locatedCities)
