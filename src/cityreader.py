@@ -1,7 +1,15 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -20,12 +28,23 @@ cities = []
 
 # TODO
 
+with open('cities.csv', 'r') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        cities.append(City(row[0], row[3], row[4]))
+
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
 
+for city in cities:
+    print(city.name + ', ' + str(city.lat) + ', ' + str(city.lon))
+
 # *** STRETCH GOAL! ***
 #
+# Beginning Stretch: 1315 hours
+
 # Allow the user to input two points, each specified by latitude and longitude.
 # These points form the corners of a lat/lon square. Output the cities that fall
 # within this square.
