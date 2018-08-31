@@ -17,6 +17,7 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
 class Vehicle: #base class here
     def __init__(self, name, description):
         self.name = name
@@ -24,6 +25,20 @@ class Vehicle: #base class here
     def __repr__(self):
         return f"{self.name}"
     def __str__(self):
-        return f"{self.name}"     
+        return f"{self.name}"
 
 
+class GroundVehicle(Vehicle):
+    def __init__(self, name, description, tires):
+        Vehicle.__init__(self, name, description)
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+class Starship(FlightVehicle):
+    pass
+class Airplane(FlightVehicle):
+    pass        
