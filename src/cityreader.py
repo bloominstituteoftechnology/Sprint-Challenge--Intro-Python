@@ -66,8 +66,7 @@ latS = float(input("Please enter southmost latitude: "))
 lonE = float(input("Please enter eastmost longitude: "))
 lonW = float(input("Please enter westmost longitude: "))
 
-withinLatRange = [city for city in cities if city.lat <= latN and city.lat >= latS]
-citiesInRange = [city for city in withinLatRange if city.lon <= lonE and city.lon >= lonW]
+citiesInRange = [city for city in cities if city.lat <= latN and city.lat >= latS and city.lon <= lonE and city.lon >= lonW]
 
 for city in citiesInRange:
   print(f"{city.name}: ({city.lat}, {city.lon})")
