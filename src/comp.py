@@ -30,19 +30,19 @@ print(r)
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [i for i in humans if i.name[-1] == 'e']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [i for i in humans if i.name[0] in 'CDEFG']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [i.age + 10 for i in humans ]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
