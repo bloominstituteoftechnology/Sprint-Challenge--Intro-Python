@@ -15,13 +15,20 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
 
 cities = []
+
+with open('cities.csv', newline='') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        cities.append(row)
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+for entry in cities:
+    print(entry)
 # TODO
 
 # *** STRETCH GOAL! ***
