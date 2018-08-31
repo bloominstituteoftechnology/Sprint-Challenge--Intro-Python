@@ -1,7 +1,6 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
-
-# TODO
+import csv, os
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,13 +15,37 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
+#Get current working directory
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-# TODO
+#open csv file and save content into csvContent
+with open(os.path.join(__location__, 'cities.csv'), newline='') as f:
+    content = csv.reader(f, delimiter=',')
+    csvContent = list(content)
+
+
+#Define class City
+class City:
+    def __init__(self, name, lat, lon, population):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+        self.population = population
+
+#Find index of city name, latitude, longitude, population
+nameIdx = csvContent[0].index('city')
+latIdx = csvContent[0].index('lat')
+lonIdx = csvContent[0].index('lng')
+populationIdx = csvContent[0].index('population')
+
+#Create list of City objects
+cities = [City(row[nameIdx], row[latIdx], row[lonIdx], row[populationIdx]) for row in csvContent[1:]]
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for i in cities:
+    print(i.name, i.lat, i.lon, i.population)
 
-# TODO
 
 # *** STRETCH GOAL! ***
 #
