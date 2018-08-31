@@ -31,6 +31,7 @@ with open('cities.csv') as csvfile:
         longitude = row[4]
         cities.append(City(cityName, latitude, longitude))
 
+cities.sort(key=lambda city: city.name)
 # TODO
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
