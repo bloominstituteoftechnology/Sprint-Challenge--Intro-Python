@@ -1,7 +1,13 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,13 +22,19 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+
 cities = []
 
-# TODO
+with open('cities.csv') as f:
+    reader = csv.reader(f)
+    next(reader)  # skips the first row
+    for row in reader:
+        cities.append(row)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
-# TODO
+for c in cities:
+    #      city  lat   lon
+    print((c[0], c[3], c[4]))
 
 # *** STRETCH GOAL! ***
 #
@@ -50,3 +62,32 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+# lat is n/s; lon is e/w
+firstCorner = input("Enter lat1, lon1: ")
+secondCorner = input("Enter lat2, lon2: ")
+lat1 = tuple(map(float, firstCorner.split(',')))
+lat2 = tuple(map(float, secondCorner.split(',')))
+# normalize for top of rectangle
+if lat1[0] > lat2[0]:
+    top = lat1[0]
+    bottom = lat2[0]
+else:
+    top = lat2[0]
+    bottom = lat1[0]
+
+# normalize for left of rectangle
+if lat1[1] < lat2[1]:
+    left = lat1[1]
+    right = lat2[1]
+else:
+    left = lat2[1]
+    right = lat1[1]
+
+citiesContained = []
+for c in cities:
+    if float(c[3]) > bottom and float(c[3]) < top:
+        if float(c[4]) > left and float(c[4]) < right:
+            citiesContained.append(f'{c[0]}: ({c[3]},{c[4]})')
+
+for c in citiesContained:
+    print(c)
