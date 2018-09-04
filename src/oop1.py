@@ -33,3 +33,7 @@ class Car(GroundVehicle):
 
 class Motorcycle(GroundVehicle):
     pass
+
+
+class FlightVehicle(Vehicle):
+    pass
