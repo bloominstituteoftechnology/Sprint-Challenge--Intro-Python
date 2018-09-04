@@ -6,6 +6,7 @@ class Human:
     def __repr__(self):
         return "<Human: %s, %d>" % (self.name, self.age)
 
+
 humans = [
     Human("Alice", 29),
     Human("Bob", 32),
@@ -23,7 +24,7 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [h.name for h in humans if h.name.startswith("D")]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
