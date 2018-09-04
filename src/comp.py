@@ -68,5 +68,5 @@ print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = [x.age ** (1/2) for x in humans]  # TODO
+r = [x.age ** 0.5 for x in humans]  # TODO
 print(r)
