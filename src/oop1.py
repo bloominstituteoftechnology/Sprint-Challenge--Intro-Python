@@ -29,3 +29,7 @@ class GroundVehicle(Vehicle):
 
 class Car(GroundVehicle):
     pass
+
+
+class Motorcycle(GroundVehicle):
+    pass
