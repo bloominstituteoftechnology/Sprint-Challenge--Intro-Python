@@ -13,7 +13,7 @@ class GroundVehicle:
 
     
 
-# Subclass Motorcycle from GroundVehicle.
+# Subclass Motorcycle from Vehicle.
 #
 # Make it so when you instantiate a Motorcycle, it automatically sets the number
 # of wheels to 2 by passing that to the constructor of its superclass.
