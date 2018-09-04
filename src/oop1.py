@@ -41,3 +41,7 @@ class FlightVehicle(Vehicle):
 
 class Starship(FlightVehicle):
     pass
+
+
+class Airplane(FlightVehicle):
+    pass
