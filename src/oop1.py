@@ -18,23 +18,43 @@
 #
 # Put a comment noting which class is the base class
 
-class Vehicle: #base class
-  pass
+class Vehicle: #baseclass
+  def __init__(self):
+    pass
 
-class GroundVehicle(Vehicle):
-  pass
+class GroundVehicle(Vehicle): #subclass
+  def __init__(self):
+    super().__init__()
+    pass
+
+class FlightVehicle(Vehicle): #subclass
+  def __init__(self):
+    super().__init__()
+    pass
 
 class Car(GroundVehicle):
-  pass
+  def __init__(self):
+    super().__init__()
+    pass
 
-class Motorcycle(GroundVehicle):
-  pass
-
-class FlightVehicle(Vehicle):
-  pass
+class Motorcycle(GroundVehicle): 
+  def __init__(self):
+    super().__init__()
+    pass
 
 class Starship(FlightVehicle):
-  pass
+  def __init__(self):
+    super().__init__()
+    pass
 
 class Airplane(FlightVehicle):
-  pass
+  def __init__(self):
+    super().__init__()
+    pass
+
+print(issubclass(GroundVehicle, Vehicle))
+print(issubclass(FlightVehicle, Vehicle))
+print(issubclass(Car, GroundVehicle))
+print(issubclass(Motorcycle, GroundVehicle))
+print(issubclass(Starship, FlightVehicle))
+print(issubclass(Airplane, FlightVehicle))
