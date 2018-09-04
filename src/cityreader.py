@@ -1,7 +1,13 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+class City():
+    def __init__(self,name, lat, lon):
+        self.name = name
+        self.lat = float(lat)
+        self.lon = float(lon)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,11 +24,15 @@
 
 cities = []
 
-# TODO
+with open('cities.csv', newline='') as f:
+    reader = csv.reader(f)
+    header = next(reader)
+    for row in reader:
+        cities.append(City(row[0], row[3], row[4]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
-# TODO
+for c in cities:
+    print(f"{c.name}, {c.lat}, {c.lon}")
 
 # *** STRETCH GOAL! ***
 #
@@ -49,4 +59,21 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+ul_lat_lon = input("\n\nEnter the Upper Left lat,lon: ").split(",")
+lr_lat_lon = input("\nEnter the Lower Right lat,lon: ").split(",")
+
+lat1 = float(ul_lat_lon[0])
+lon1 = float(ul_lat_lon[1])
+lat2 = float(lr_lat_lon[0])
+lon2 = float(lr_lat_lon[1])
+
+cities_in_square = [f"{c.name}: ({c.lat},{c.lon})" for c in cities 
+                        if (c.lat >= lat1 and c.lat <= lat2 
+                            and c.lon >= lon1 and c.lon <= lon2) ]
+
+print("\n\nCities in square:")
+for cs in cities_in_square:
+    if len(cs) == 0:
+        print('sorry no cities found in that square')
+    else:
+        print(cs)
