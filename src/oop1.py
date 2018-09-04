@@ -21,3 +21,7 @@
 
 class Vehicle():
     pass
+
+
+class GroundVehicle(Vehicle):
+    pass
