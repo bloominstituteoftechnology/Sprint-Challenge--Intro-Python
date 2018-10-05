@@ -1,7 +1,12 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+import csv
 
-# TODO
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,6 +24,11 @@
 cities = []
 
 # TODO
+with open("cities.csv") as csvfile:
+    readCSV = csv.reader(csvfile, delimiter = ',')
+    
+    for row in readCSV:
+        print (row[0],row[3],row[4])
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
@@ -50,3 +60,25 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+with open("cities.csv") as csvfile:
+    readCSV = csv.reader(csvfile, delimiter = ',')
+
+    lats = []
+    longs = []
+
+    for row in readCSV:
+        lat = row[3]
+        lon = row[4]
+
+        lats.append(lat)
+        longs.append(lon)
+
+    print(lats)
+    print(longs)
+
+    whatLat = input("What lat do you wish to see?:")
+    whatLon = input("what lon do you wish to see?:")
+    latidex = lats.index(whatLat)
+    longidex = lons.index(whatLon)
+    print(f"the lat/lon is:", whatLat, whatLon)
