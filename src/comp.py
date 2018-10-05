@@ -1,3 +1,4 @@
+import re 
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -22,15 +23,16 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 
+
 print("Starts with D:")
-r = []  # TODO
+r = [ human.name for human in humans if human.name[0].lower() == 'd' ]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [human.name for human in humans if human.name[len(human.name)-1].lower() == 'e']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
