@@ -3,6 +3,9 @@
 
 # TODO
 
+class City:
+    def __init__()
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
