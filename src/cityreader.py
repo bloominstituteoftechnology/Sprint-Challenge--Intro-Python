@@ -33,7 +33,7 @@ with open('src/cities.csv', newline="") as csvfile:
     for row in cityReader:
         if count > 0: 
             print(row[0], row[3], row[4])
-            cities.append( City([row[0], row[3], row[4]]) )
+            cities.append( City(row[0],float(row[3]), float(row[4])) )
         count+= 1 
 # TODO
 
@@ -47,6 +47,8 @@ with open('src/cities.csv', newline="") as csvfile:
 # These points form the corners of a lat/lon square. Output the cities that fall
 # within this square.
 #
+
+
 # Be aware that the user could specify either a lower-left/upper-right pair of
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
 # the input data so that it's always one or the other (what is latMin, latMax?)
