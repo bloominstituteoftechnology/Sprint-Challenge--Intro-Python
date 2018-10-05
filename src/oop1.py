@@ -10,7 +10,7 @@
 
 
 # Parent/Base Super Class
-class Vehicle():
+class Vehicle:
     def __init__(self):
         pass
 
@@ -55,15 +55,3 @@ class Motorcycle(GroundVehicle):
     def __init__(self):
         GroundVehicle.__init__(self)
         pass
-
-
-# Each class can simply "pass" for its body. The exercise is about setting up
-# the hierarchy.
-#
-# e.g.
-#
-# class Whatever:
-#     pass
-#
-# Put a comment noting which class is the base class
-``
