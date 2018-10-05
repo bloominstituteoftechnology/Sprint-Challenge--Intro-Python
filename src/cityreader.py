@@ -1,7 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
+import csv 
+
 # TODO
+class CityLocation():
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,7 +24,13 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
+with open('cities.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader: 
+        print(row['city'], row['lat'], row['lng'])
+
+
+# cities = [city.name for city in 'cities.csv']
 
 # TODO
 
@@ -50,3 +64,50 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+global maxLat
+global maxLng
+global minLng
+global maxLng
+
+class Point():
+    def __init__(self, lat, lng):
+        self.lat = lat
+        self.lng = lng
+
+# inputA = input('insert lat1, lng1:   ') # kept for notes
+modA = [x.strip() for x in input('\ninsert lat1, lng1: ').split(',')]
+
+if 2 < len(modA) < 1:
+    print('invalid input, please use comma to seperate')
+else: 
+    # inputB = input('insert lat2, lng2:   ') # kept as reminder
+    modB = [x.strip() for x in input('insert lat2, lng2: ').split(',')]
+    if 2 < len(modB) < 1:
+        print('invalid input, please use comma to seperate')
+    else: 
+        modA = Point(modA[0], modA[1])
+        modB = Point(modB[0], modB[1])
+        if modB.lat > modA.lat: 
+            maxLat = modB.lat
+            minLat = modA.lat
+        else: 
+            maxLat = modA.lat
+            minLat = modB.lat
+        if modB.lng > modA.lng: 
+            maxLng = modB.lng
+            minLng = modA.lng
+        else: 
+            maxLng = modA.lng
+            minLng = modB.lng
+        with open('cities.csv', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            print(f"\nList of Cities located within ({maxLat},{maxLng}) & ({minLat},{minLng})\n")
+            for row in reader:
+                if (minLat < row['lat'] < maxLat) and (minLng < row['lng'] < maxLng):
+                    print(f"    {row['city']}: ({row['lat']}, {row['lng']})")
+
+'''
+45,-100
+32, -120
+'''
