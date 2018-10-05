@@ -23,64 +23,49 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
-for human.name in humans:
-    name = list(human.name)
-    if name[0] == 'D':
-        r.append(name)
+r = [name for (name, age) in humans if name.startswith("D")]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
-for human.name in humans:
-    name = list(human.name)
-    reverseName = reverse(name)
-    if name[0] == 'e':
-        r.append(reverseName)
+r = [name for (name, age) in humans if name.endswith("e")]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
-
+r = [name for (name, age) in humans if name.startswith("C", "D", "E", "F", "G")]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
-for human.age in humans:
-    r.append(human.age + 10)
+r = [age + 10 for (name, age) in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
-for human in humans:
-    hyphenate = (f"{human.name}-{human.age})
-    r.append(hyphenate)
+r = [(name-str(age)) for (name, age) in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [(name, age) for (name, age) in humans if age >= 27 and age <= 32]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The `humans` list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [(name.upper(), age) for (name, age) in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [sqrt(age) for (name, age) in humans]  # TODO
 print(r)
