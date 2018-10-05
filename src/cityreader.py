@@ -2,6 +2,20 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+import csv
+filePath = "C:/999_Lambda_Python/Sprint-Challenge--Intro-Python/src/cities.csv"
+class City:
+    def __init__(self, name, state_name, lat, lon, population):
+        self.name = name
+        self.state_name = state_name
+        self.lat = lat
+        self.lon = lon
+        self.population = population
+    def __str__(self):
+        return f"\n{self.name} : {self.state_name} : {self.lat } : {self.lon } : {self.population }"
+    def __repr__(self):
+        return f"{self.name}, {self.state_name}. Lat ({self.lat}), Lon ({self.lon}), Population - {self.population }\n"
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,14 +30,23 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
+city = []
+#city,state_name,county_name,lat,lng,population,density,timezone,zips
+with open (filePath, newline="") as csvfile:
+	#print('file will be opened')
+	filereader = csv.reader(csvfile)
+	for row in filereader:
+		city.append(City(row[0],row[1], row[3], row[4], row[5]))
 
 # TODO
-
-# Print the list of cities (name, lat, lon), 1 record per line.
-
+city.pop(0)
+ # Print the list of cities (name, lat, lon), 1 record per line.p
+print(city)
 # TODO
+for City in city:
+    print(City.name + ":" + " " + City.lat + " " + City.lon)
 
+# was done in cs11 :-D
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -50,3 +73,19 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+input1=input('\nEnter lat1, lon1 separated by comma:').split(",")
+input2=input('\nEnter lat2, lon2 separated by comma:').split(",") 
+if len(input1) ==1 and len(input2)==1:
+    print('\n input values should be separated by a comma') 
+else:
+    lat=[int(input1[0]),int(input2[0])]
+    lon=[int(input1[1]),int(input2[1])]
+    lat.sort()
+    lon.sort()
+
+    result=[f'{c.name}: ({c.latitude}, {c.longitude})' for c in cities if float(c.latitude) > lat[0] and float(c.latitude) < lat[1] and float(c.longitude) > lon[0] and float(c.longitude) < lon[1]] 
+    for row in result:
+        print(row) 
+
+
