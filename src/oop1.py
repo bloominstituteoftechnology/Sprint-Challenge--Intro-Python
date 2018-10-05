@@ -22,7 +22,8 @@
 
 
 class Vehicle():
-    pass
+    def __init__(self, name):
+        self.name = name
 
 
 class GroundVehicle(Vehicle):
