@@ -19,7 +19,7 @@
 # Put a comment noting which class is the base class
 
 # Base vehicle
-class Vehicle():
+class Vehicle:
     pass
 
 # Flight vehicles
