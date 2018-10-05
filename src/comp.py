@@ -39,7 +39,7 @@ print(r)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-letters = ["C", "D", "E", "F". "G"]
+letters = ["C", "D", "E", "F", "G"]
 r = [human.name for human in humans if human.name[0] in letters ]  # TODO
 print(r)
 
