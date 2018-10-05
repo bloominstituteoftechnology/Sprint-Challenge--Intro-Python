@@ -35,8 +35,8 @@ with open('cities.csv') as csv_file:
         line_count += 1
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for city in cities:
-    print(city.name, city.latitude, city.longitude)
+# for city in cities:
+#     print(city.name, city.latitude, city.longitude)
 
 # *** STRETCH GOAL! ***
 #
@@ -63,4 +63,35 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+def find_city():
+    latitude_1 = input('Please enter first latitude:  ')
+    longitude_1 = input('Please enter first longitude:  ')
+    latitude_2 = input('Please enter second latitude:  ')
+    longitude_2 = input('Please enter second longitude:  ')
+
+    if latitude_1 > latitude_2:
+        latitude_max = latitude_1 
+        latitude_min = latitude_2
+    else:
+        latitude_max = latitude_2
+        latitude_min = latitude_1
+
+    if longitude_1 > longitude_2:
+        longitude_max = longitude_1 
+        longitude_min = longitude_2
+    else:
+        longitude_max = longitude_2
+        longitude_min = longitude_1
+
+    def __check_latitude__(latitude):
+        return latitude <= latitude_max and latitude >= latitude_min
+
+    def __check_longitude__(longitude):
+        return longitude <= longitude_max and longitude >= longitude_min
+
+    for city in cities:
+        if __check_latitude__(city.latitude) and __check_longitude__(city.longitude):
+            print(f"{ city.name }: ({ city.latitude }, { city.longitude })")
+
+
+find_city()
