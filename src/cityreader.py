@@ -1,7 +1,12 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,12 +23,15 @@
 
 cities = []
 
-# TODO
+with open('cities.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        cities.append(City(row['city'], row['lat'], row['lng']))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
-
+for city in cities:
+    print(f'City: {city.name}, lat: {city.latitude}, lon: {city.longitude}')
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -49,4 +57,15 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+point1 = input('Enter lat1,lon1: ').split(',')
+point2 = input('Enter lat2,lon2: ').split(',')
+
+latMax = max(point1[0], point2[0])
+latMin = min(point1[0], point2[0])
+
+lonMax = max(point1[1], point2[1])
+lonMin = min(point1[1], point2[1])
+
+filteredCities = [city for city in cities if city.latitude >= latMin and city.latitude <= latMax and city.longitude >= lonMin and city.longitude <= lonMax]
+for city in filteredCities:
+    print(f'{city.name}: ({city.latitude}, {city.longitude})')
