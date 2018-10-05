@@ -19,38 +19,35 @@
 # Put a comment noting which class is the base class
 
 class Vehicle: #base class
-    def __init__(self, wheels, steering):
-        self.wheels = wheels
-        self.steering = steering
+    def __init__(self):
+        pass
 
-class FlightVehicle: # base class
-    def __init__(self, engineType):
-        self.engineType = engineType
+class FlightVehicle(Vehicle):
+    def __init__(self)
+        super().__init__()
+        pass
 
-class Starship: # base class
-    def __init__(self, typeOf, speed):
-        self.typeOf = typeOf
-        self.speed = speed
+class StarShip(Vehicle):
+    def __init__(self)
+        super().__init__()
+        pass
 
-class GroundVehicle(Vehicle): 
-    def __init__(self, engine):
-        self.engine = engine
-        super().__init__(wheels, steering)
+class GroundVehicle(Vehicle):
+    def __init__(self)
+        super().__init__()
+        pass
 
 class Car(GroundVehicle):
-    def __init__(self, brand, mpg):
-        self.brand = brand
-        self.mpg = mpg
-        super().__init__(wheels, steering, engine)
+    def __init__(self)
+        super().__init__()
+        pass
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, brand, mpg):
-        self.brand = brand
-        self.mpg = mpg
-        super().__init__(wheels, steering, engine)
+    def __init__(self)
+        super().__init__()
+        pass
 
 class Airplane(FlightVehicle):
-    def __init__(self, capacity)
-        self.capacity = capacity
-        super().__init__(engineType)
-
+    def __init__(self)
+        super().__init__()
+        pass
