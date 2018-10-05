@@ -3,15 +3,22 @@
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
-class GroundVehicle():
-    def __init__(self, num_wheels):
+class GroundVehicle:
+    def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
+    def drive(self):
+        print('vroooom')
 
     # TODO
 
 
 # Subclass Motorcycle from GroundVehicle.
 #
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels = 2):
+        GroundVehicle.__init__(self, num_wheels)
+    def drive(self):
+        print('BRAAAP!!')
 # Make it so when you instantiate a Motorcycle, it automatically sets the number
 # of wheels to 2 by passing that to the constructor of its superclass.
 #
@@ -28,5 +35,8 @@ vehicles = [
 ]
 
 # Go through the vehicles list and call drive() on each.
+
+for item in vehicles:
+    item.drive()
 
 # TODO
