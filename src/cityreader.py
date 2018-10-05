@@ -25,8 +25,8 @@ class City:
 # should not be loaded into a City object.
 
 cities = []
-with open('src/cities.csv', newline='') as csvfile:
-    cityreader = csv.reader(csvfile, delimiter= ' ', quotechar='|')
+with open('cities.csv', newline='') as csvfile:
+    cityreader = csv.reader(csvfile, delimiter= ',', quotechar='|')
     headers = next(cityreader)
     for row in cityreader:
         next(cityreader)
@@ -63,4 +63,22 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+citiesInBox = []
+def findCitiesInBox():
+    point1 = input("Enter lat1, lon1: ")
+    point1 = point1.split(",")
+    point2 = input("Enter lat2, lon2: ")
+    point2 = point2.split(",")
+    for city in cities:
+        if float(point1[0]) < float(point2[0]):
+            if float(city[3]) >= float(point1[0]) and float(city[3]) <= float(point2[0]) and float(city[4]) >= float(point1[1]) and float(city[4]) <= float(point2[1]):
+                citiesInBox.append(city)
+        else:
+            if float(city[3]) <= float(point1[0]) and float(city[3]) >= float(point2[0]) and float(city[4]) <= float(point1[1]) and float(city[4]) >= float(point2[1]):
+                citiesInBox.append(city)
+
+findCitiesInBox()
+
+for city in citiesInBox:
+    print(city)
 # TODO
