@@ -34,7 +34,7 @@ r = []  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
-# whose name starts with any letter between 'C' and 'G' inclusive.
+# whose name starts with any letter between 'C' and 'G' inclusive..
 
 print("Starts between C and G, inclusive:")
 r = []  # TODO
