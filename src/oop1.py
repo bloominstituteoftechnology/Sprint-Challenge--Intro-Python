@@ -29,12 +29,12 @@ class GroundVehicle(Vehicle):
         Vehicle.__init__(self, name, color)
         self.numberOfTires = numberOfTires
 
-class Car(GroundVehicle:)
+class Car(GroundVehicle):
     def __init__(self, name, color, numberOfTires, numberOfDoors):
         GroundVehicle.__init__(self, name, color, numberOfTires)
         self.numberOfDoors = numberOfDoors
 
-class Motorcycle(GroundVehicle:)
+class Motorcycle(GroundVehicle):
     def __init__(self, name, color, numberOfTires, numberOfDoors, typeOfMotorcycle):
         GroundVehicle.__init__(self, name, color, numberOfTires)
         self.typeOfMotorcycle = typeOfMotorcycle
