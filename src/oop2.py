@@ -1,5 +1,4 @@
 # To the GroundVehicle class, add method drive() that prints "vroooom".
-#
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
