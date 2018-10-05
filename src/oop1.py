@@ -27,7 +27,8 @@ class Vehicle():
 
 
 class GroundVehicle(Vehicle):
-    pass
+    def __init__(self, name):
+        Vehicle.__init__(self, name)
 
 
 class Car(GroundVehicle):
