@@ -14,7 +14,7 @@ class City():
 with open('cities.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
     for line in csv_reader:
-        print(line)
+        print(line[0], line[3], line[4])
 
 #
 # Use Python's built-in "csv" module to read this file so that each record is
