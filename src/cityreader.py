@@ -2,8 +2,10 @@
 # fields for name, latitude, and longitude.
 
 # TODO
+
+
 class City():
-    def __init__(self,name,latitude,longitude):
+    def __init__(self, name, latitude, longitude):
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
@@ -21,6 +23,7 @@ class City():
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+
 cities = []
 
 
@@ -30,7 +33,7 @@ c = open('cities.csv', 'r')
 with c:
     reader = csv.DictReader(c)
     for x in reader:
-        cities.append(City(x["city"],x["lat"],x["lng"]))
+        cities.append(City(x["city"], x["lat"], x["lng"]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
@@ -65,3 +68,15 @@ for x in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# TODO
+first = input("Enter lat1, lon1: ")
+second = input ("Enter lat2, lon2: ")
+lat1 = int(first[:first.find(',')])
+lon1 = int(first[first.find(',')+1:])
+lat2 = int(second[:second.find(',')])
+lon2 = int(second[second.find(',')+1:])
+for x in cities:
+    if float(x.latitude) < lat1 and float(x.latitude)  > lat2:
+        if float(x.longitude) < lon1 and float(x.longitude) > lon2:
+            print(f"{x.name}: ({x.latitude},{x.longitude})")
