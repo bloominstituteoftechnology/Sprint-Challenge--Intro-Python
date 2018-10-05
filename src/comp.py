@@ -64,7 +64,7 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The `humans` list should be unmodified.
 print("All names capitalized:")
-r = [Human(i.name.capitalize(), i.age+ 5) for i in humans]  # TODO
+r = [Human(i.name.capitalize(), i.age+5) for i in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
