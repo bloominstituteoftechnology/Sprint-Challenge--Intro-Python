@@ -10,7 +10,7 @@ class City():
         self.longitude = longitude  
 
     def __repr__(self):
-        return f"Name: {self.name}, Coordinates: {self.latitude}:{self.longitude}"       
+        return f"Name: {self.name}, Coordinates: {self.latitude}:{self.longitude}\n"       
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -35,10 +35,12 @@ cities = []
 with open('cities.csv' ,'r') as csvfile:
     reader = csv.DictReader(csvfile)
     for line in reader:
-        # cities.append((line[0], line[3], line[4])
-        # print(line['city'], line['lat'], line['lng'])
-        cities.append(f"{line['city']} {line['lat']} {line['lng']}")
-        print(cities)
+        #Gives what I need:
+        print(line['city'], line['lat'], line['lng'])
+        #pushes to the cities list:
+        cities.append(City(line['city'], line['lat'], line['lng']))
+        # Shows the cities list if you uncomment
+        # print(cities)
 
 
 # Print the list of cities (name, lat, lon), 1 record per line.
