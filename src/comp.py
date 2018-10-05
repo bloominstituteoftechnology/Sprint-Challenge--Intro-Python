@@ -72,3 +72,5 @@ import math
 print("Square root of ages:")
 r = [math.sqrt(h.age) for h in humans]  # TODO
 print(r)
+
+# Completed
