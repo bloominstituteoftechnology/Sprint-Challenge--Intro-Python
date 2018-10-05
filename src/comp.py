@@ -1,3 +1,5 @@
+import math
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -23,14 +25,14 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = [human.name for human in humans if (human.name[0] == "D")]  # TODO
+r = [human.name for human in humans if (human.name[0] == "D")]  
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = [human.name for human in humans if (human.name[-1] == "e")]  # TODO
+r = [human.name for human in humans if (human.name[-1] == "e")]  
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -38,35 +40,35 @@ print(r)
 
 print("Starts between C and G, inclusive:")
 startLetters = ["C", "D", "E", "F", "G"]
-r = [human.name for human in humans if (human.name[0] in startLetters)]  # TODO
+r = [human.name for human in humans if (human.name[0] in startLetters)]  
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = [human.age +10 for human in humans]  # TODO
+r = [human.age +10 for human in humans]  
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
+r = [f"{human.name}-{human.age}" for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [f"({human.name}, {human.age})" for human in humans if (27<=human.age and human.age<=32)]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The `humans` list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [human.name.upper() for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [math.sqrt(human.age) for human in humans]  # TODO
 print(r)
