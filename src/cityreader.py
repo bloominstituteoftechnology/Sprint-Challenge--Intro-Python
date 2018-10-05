@@ -46,7 +46,7 @@ print(city)
 for City in city:
     print(City.name + ":" + " " + City.lat + " " + City.lon)
 
-
+# was done in cs11 :-D
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
