@@ -69,18 +69,13 @@ r = []  # TODO
 for hum in humans:
     s = list(hum.name)
     for i in s[0]:
-        if "C" <= str(s[0]) <= "G" in s:
+        if "C" <= s[0] <= "G":
             r.append(hum.name)
             # print(r)
+# print(r)
 
 
 print(f"{r}\n")
-
-
-
-# print(f"{r}\n")
-
-
 
 
 
@@ -93,8 +88,6 @@ for hum in humans:
 
 
 print(f"{r}\n")
-
-
 
 
 
