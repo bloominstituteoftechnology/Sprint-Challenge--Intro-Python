@@ -21,12 +21,14 @@ class City():
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-with open('cities.csv', 'r') as csv_file:
-    csv_reader = csv.reader(csv_file)
-    cities = [City(line[0], line[3], line[4]) for index, line in enumerate(csv_reader)]
-
 # TODO
 
+cities = []
+
+with open('cities.csv', 'r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    for line in csv_reader:
+        cities.append(City(line[0], line[3], line[4]))
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 for city in cities:
