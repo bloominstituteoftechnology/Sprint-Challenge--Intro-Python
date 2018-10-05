@@ -42,7 +42,8 @@ class Motorcycle(GroundVehicle):
 
 
 class FlightVehicle(Vehicle):
-    pass
+    def __init__(self, name):
+        Vehicle.__init__(self, name)
 
 
 class Starship(FlightVehicle):
