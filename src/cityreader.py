@@ -23,9 +23,8 @@ class City():
 
 cities = []
 
-with open('cities.csv', newline='') as Data:
+with open('cities.csv', 'r') as Data:
     reader = csv.reader(Data)
-    next(reader)
     for row in reader:
         cities.append(City(row[0:3], row[3], row[4]))
 
