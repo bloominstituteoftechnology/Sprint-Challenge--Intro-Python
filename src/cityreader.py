@@ -10,8 +10,8 @@ class City:
         self.latitude = lat
         self.longitude = lon
         self.density = density
-    def __str__(self):
-        print("\n {city} has a population density of {density}\n".format(city=self.name, density=self.density))
+    # def __str__(self):
+    #     print("\n {city} has a population density of {density}\n".format(city=self.name, density=self.density))
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -44,9 +44,9 @@ with open('./src/cities.csv') as cityFile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
 for city in cities:
-    print(city)
+    print("{} has a population density of {}\n".format(city.name, city.density))
+# TODO
 
 # *** STRETCH GOAL! ***
 #
