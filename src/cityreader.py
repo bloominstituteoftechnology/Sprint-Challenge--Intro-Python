@@ -3,6 +3,14 @@
 
 # TODO
 
+
+class City():
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -16,11 +24,26 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+
 cities = []
+
+import csv
+
+with open("cities.csv", newline="") as csvfile:
+    cityreader = csv.reader(csvfile, delimiter=",", quotechar="|")
+    for row in cityreader:
+        passedHeader = False
+        if passedHeader:
+            cities.append(City(row[0], row[3], row[4]))
+        else:
+            passedHeader = True
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for city in cities:
+    print(f"{city.name}, {city.lat}, {city.lon}")
 
 # TODO
 
@@ -50,3 +73,4 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+# Completed
