@@ -26,30 +26,32 @@ class Vehicle:
 #secondary classes
 
 class GroundVehicle(Vehicle):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, name, num_wheels):
+         Vehicle.__init__(self, name):
+             self.name = name
 
 class FlightVehicle(Vehicle):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, name, engine_power):
+        Vehicle.__init__(self, name):
+            self.name = name
 
 #children of the secondary classes
 #Ground Vehicle Children
 
 class Car(GroundVehicle):
-    def __init__(self, name):
+    def __init__(self):
         self.name = name
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, name):
+    def __init__(self):
         self.name = name
 
 #Flight Vehicle Children
 
 class Airplane(FlightVehicle):
-    def __init__(self, name):
+    def __init__(self):
         self.name = name
 
 class Starship(FlightVehicle):
-    def __init__(self, name):
+    def __init__(self):
         self.name = name
