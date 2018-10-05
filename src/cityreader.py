@@ -22,9 +22,9 @@ class City:
 import csv
 cities = []
 with open('cities.csv') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            cities.append(City(row['city'], row['lat'],row['lng']))
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        cities.append(City(row['city'], row['lat'],row['lng']))
 #            print(row)
 
 
@@ -61,3 +61,13 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+coordinate1=input('Enter lat1,lon1:\n').split()
+coordinate2=input('Enter lat1,lon2\n').split()
+latmin=min(float(coordinate1[0]),float(coordinate2[0]))
+latmax=max(float(coordinate1[0]),float(coordinate2[0]))
+lonmin=min(float(coordinate1[1]),float(coordinate2[1]))
+lonmax=max(float(coordinate1[1]),float(coordinate2[1]))
+
+places=[city.name for city in cities if float(city.latitude)>=latmin and float(city.latitude)<=latmax and float(city.longitude)>=lonmin and float(city.longitude)<=lonmax]
+for place in places:
+    print(place)
