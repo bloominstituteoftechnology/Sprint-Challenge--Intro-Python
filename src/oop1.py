@@ -16,4 +16,5 @@
 # class Whatever:
 #     pass
 #
+#
 # Put a comment noting which class is the base class
