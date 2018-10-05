@@ -66,4 +66,23 @@ for city in cityList:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+#LAT(MIN) < city.lat < LAT(MAX)
+#LON(MIN) < city.lng < LON(MAX)
+
+cmd1 = input("Enter lat1,lon1:").split(",")
+cmd2 = input("Enter lat2,lon2:").split(",")
+
+lats = [cmd1[0], cmd2[0]]
+lons = [cmd1[1], cmd2[1]]
+
+minLat = min(lats)
+maxLat = max(lats)
+
+minLon = min(lons)
+maxLon = max(lons)
+
+citySquare = [city.name + ': ' + '(' + str(city.latitude) + ',' + str(city.longitude) + ')' for city in cities if (minLat < city.latitude < maxLat) and (minLon < city.longitude < maxLon)]
+for city in citySquare:
+    print(city)
+
 # TODO
