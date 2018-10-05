@@ -23,26 +23,27 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [human.name for human in humans if (human.name[0] == "D")]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [human.name for human in humans if (human.name[-1] == "e")]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+startLetters = ["C", "D", "E", "F", "G"]
+r = [human.name for human in humans if (human.name[0] in startLetters)]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [human.age +10 for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
