@@ -28,7 +28,6 @@ cities = []
 f = open('cities.csv')
 city_file = csv.reader(f)
 
-
 citiesAll=[City(row[0], row[3], row[4]) for row in city_file]
 
 cities=citiesAll[2:]
@@ -69,3 +68,21 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+input1=input('\nEnter lat1, lon1 separated by comma:').split(",")
+input2=input('\nEnter lat2, lon2 separated by comma:').split(",")
+
+
+if len(input1) ==1 and len(input2)==1:
+    print('\n input values should be separated by a comma')
+else:
+    lat=[int(input1[0]),int(input2[0])]
+    lon=[int(input1[1]),int(input2[1])]
+
+    lat.sort()
+    lon.sort()
+
+    result=[f'{c.name}: ({c.latitude}, {c.longitude})' for c in cities if float(c.latitude) > lat[0] and float(c.latitude) < lat[1] and float(c.longitude) > lon[0] and float(c.longitude) < lon[1]]
+
+    for row in result:
+        print(row)
