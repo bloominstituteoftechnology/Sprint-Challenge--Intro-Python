@@ -69,7 +69,7 @@ r = []  # TODO
 for hum in humans:
     s = list(hum.name)
     for i in s[0]:
-        if str(s[0]) is "C" or "D" or "E" in s:
+        if "C" <= str(s[0]) <= "G" in s:
             r.append(hum.name)
             # print(r)
 
