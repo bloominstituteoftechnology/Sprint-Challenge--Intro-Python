@@ -1,4 +1,5 @@
 import csv
+# import numpy as pynum
 
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
@@ -77,25 +78,26 @@ while True:
     coordinates_2 = input("Enter lat2,lon2: ")
     if coordinates_2 == "q":
         break
-    # print(coordinates_1.split())
-    # print(coordinates_2.split())
-    # lat1 = float(coordinates_1[0])
-    # lon1 = float(coordinates_1[3])
-    # if lat1 in range(-90, 91) and lon1 in range(-180, 180):
-    #     print(coordinates_1, coordinates_2)
     else:
-        # print(coordinates_1.split(" "))
-        # print(coordinates_2.split(" "))
-        coordinates_1 = coordinates_1.replace(",", "").split()
-        coordinates_2 = coordinates_2.replace(",", "").split()
-        lat1 = float(coordinates_1[0])
-        lon1 = float(coordinates_1[1])
-        lat2 = float(coordinates_2[0])
-        lon2 = float(coordinates_2[1])
+        coordinates_1 = coordinates_1.replace(",", " ").split()
+        coordinates_2 = coordinates_2.replace(",", " ").split()
+        lat1 = int(coordinates_1[0])
+        lon1 = int(coordinates_1[1])
+        lat2 = int(coordinates_2[0])
+        lon2 = int(coordinates_2[1])
         if lat1 in range(-90, 91) and lat2 in range(-90, 91) and lon1 in range(-180, 181) and lon2 in range(-180, 181):
-            print(lat1)
-            print(lon1)
-            print(lat2)
-            print(lon2)
+            # print(lat1)
+            # print(lon1)
+            # print(lat2)
+            # print(lon2)
+            # continue
+            for city in cities:
+                if city.latitude in range(lat1, lat2 + 1) and city.longitude in range(lon1, lon2 + 1):
+                    #problem installing numpy due to this errorh ttps://github.com/pypa/pipenv/issues/2871
+                    # if can find a fix it will let me do range with floats and print what i want
+                    print(
+                        f'{city.name}, Latitude: {city.latitude}, Longitude: {city.longitude} ')
+                else:
+                    print("No cities found within coordinates.")
         else:
-            print("wrong!")
+            print("Invalid. Please enter valid coordinates.")

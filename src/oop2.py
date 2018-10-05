@@ -23,7 +23,7 @@ class GroundVehicle():
 class Motorcycle(GroundVehicle):
     def __init__(self):
         super().__init__(num_wheels=2)
-
+        #for future use super().__init__(2) instead, works fine
     @classmethod
     def drive(Motorcycle):
         print("BRAAAP!")
