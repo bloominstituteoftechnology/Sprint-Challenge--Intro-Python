@@ -1,7 +1,16 @@
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+
+class City():
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+    def __str__(self):
+        return f"[{self.name}, {self.latitude}, {self.longitude}]"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -10,17 +19,44 @@
 # imported into a City instance. (You're free to add more attributes to the City
 # class if you wish, but this is not necessary.) Google "python 3 csv" for
 # references and use your Google-fu for other examples.
-#
+
+# print(cityList)
 # Store the instances in the "cities" list, below.
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+import csv
+cities = []
+
+with open("cities.csv", "r") as csvfile:
+    cityList = csv.reader(csvfile, delimiter=",", quotechar="|")
+    header = False
+    for city in cityList: 
+        if header:
+            cities.append(City(city[0], city[3], city[4]))
+        else:
+            header = True
+for city in cities:
+    print(f"{city.name}, {city.latitude}, {city.longitude}")
+
+
+
+    # print(cities)
+# print(cities)
+
+
+
+
+
+
+
+# above is MVP
 
 # TODO
 
