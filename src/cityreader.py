@@ -16,12 +16,29 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+import csv
+
+class City:
+    def _init_(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
+
 cities = []
+
+with open('cities.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        cities.append(City(row[0], row[3], row[4]))
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+for city in cities:
+    print (city.name, city.latitude, city.longitude)
+    
 # TODO
 
 # *** STRETCH GOAL! ***
