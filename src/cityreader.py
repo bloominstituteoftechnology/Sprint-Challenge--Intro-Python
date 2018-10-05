@@ -59,4 +59,30 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+latLon1 = input("Enter lat1, lon1: ")
+latLon2 = input("Enter lat2, lon2: ")
+latLon1 = latLon1.replace(" ", "").split(',')
+latLon2 = latLon2.replace(" ", "").split(',')
+
+lat1 = 0
+lat2 = 0
+lon1 = 0
+lon2 = 0
+
+if int(latLon1[0]) > int(latLon2[0]):
+    lat1 = int(latLon2[0])
+    lat2 = int(latLon1[0])
+else:
+    lat1 = int(latLon1[0])
+    lat2 = int(latLon2[0])
+
+if int(latLon1[1]) > int(latLon2[1]):
+    lon1 = int(latLon2[1])
+    lon2 = int(latLon1[1])
+else:
+    lon1 = int(latLon1[1])
+    lon2 = int(latLon2[1])
+
+for c in cities:
+    if  float(c.latitude) >= lat1 and float(c.latitude) <= lat2 and float(c.longitude) >= lon1 and float(c.longitude) <= lon2:
+        print(f"{c.name}: {( c.latitude,c.longitude)}")
