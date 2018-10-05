@@ -73,3 +73,4 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+# Completed
