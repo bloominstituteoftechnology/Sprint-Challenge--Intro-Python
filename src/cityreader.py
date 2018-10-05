@@ -1,6 +1,7 @@
-import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+import csv
+
 class City():
     def __init__(self, name, latitude, longitude):
         self.name = name
@@ -22,7 +23,10 @@ class City():
 # should not be loaded into a City object.
 
 cities = []
-with open('cities.csv', newline='') as f:
+
+
+
+with open("cities.csv", newline='') as f:
     reader = csv.reader(f)
     header = next(reader)
     # city = [row for row in reader]
@@ -31,9 +35,10 @@ with open('cities.csv', newline='') as f:
         latitude = str(row[2])
         longitude = str(row[3])
 
-        cities.append(name, latitude, longitude)
+        cities.append(City(name, latitude, longitude))
 
-print(cities[0])
+for city in cities:
+    print (city.name, city.latitude, city.longitude)
 
 # TODO
 
