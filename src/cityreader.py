@@ -20,15 +20,20 @@ class City:
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 import csv
-lines=csv.reader('cities.csv')
-print(lines[0].name)
 cities = []
+with open('cities.csv') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            cities.append(City(row['city'], row['lat'],row['lng']))
+#            print(row)
+
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
 # TODO
+for city in cities:
+    print(f'{city.name}, {city.latitude}, {city.longitude}')
 
 # *** STRETCH GOAL! ***
 #
