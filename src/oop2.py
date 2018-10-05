@@ -36,5 +36,6 @@ vehicles = [
 
 for vehicle in vehicles:
     print(vehicle.drive())
+    # also outputs 'None and I don't know why ______________________________ask____________________________________________
 
 # TODO

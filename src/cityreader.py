@@ -24,10 +24,10 @@ class CityLocation():
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-# with open('cities.csv', newline='') as csvfile:
-#     reader = csv.DictReader(csvfile)
-#     for row in reader: 
-#         print(row['city'], row['lat'], row['lng'])
+with open('cities.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader: 
+        print(row['city'], row['lat'], row['lng'])
 
 
 # cities = [city.name for city in 'cities.csv']
@@ -75,21 +75,19 @@ class Point():
         self.lat = lat
         self.lng = lng
 
-inputA = input('insert lat1, lng1:   ')
-modA = [x.strip() for x in inputA.split(',')]
-if 2 < len(inputA) < 1:
+# inputA = input('insert lat1, lng1:   ') # kept for notes
+modA = [x.strip() for x in input('\ninsert lat1, lng1: ').split(',')]
+
+if 2 < len(modA) < 1:
     print('invalid input, please use comma to seperate')
 else: 
-    inputB = input('insert lat2, lng2:   ')
-    modB = [x.strip() for x in inputB.split(',')]
-    if 2 < len(inputB) < 1:
+    # inputB = input('insert lat2, lng2:   ') # kept as reminder
+    modB = [x.strip() for x in input('insert lat2, lng2: ').split(',')]
+    if 2 < len(modB) < 1:
         print('invalid input, please use comma to seperate')
     else: 
-        print("modA", modA, 'modB', modB)
         modA = Point(modA[0], modA[1])
         modB = Point(modB[0], modB[1])
-        print(modB.lat, modB.lng)
-        print('modB.lat', 'modB.lng')
         if modB.lat > modA.lat: 
             maxLat = modB.lat
             minLat = modA.lat
@@ -102,24 +100,14 @@ else:
         else: 
             maxLng = modA.lng
             minLng = modB.lng
-        print("maxLng", maxLng, "minLng", minLng, "maxLat", maxLat, "minLat", minLat)
         with open('cities.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
-            # data = [row['city'] for row in reader if (minLat < row['lat'] < maxLat) and (minLng < row['lng'] < maxLng)]
-            # print(data)
-            print(f"\nList of Cities located within ({maxLng},{maxLat}) & ({minLng},{minLat})\n")
+            print(f"\nList of Cities located within ({maxLat},{maxLng}) & ({minLat},{minLng})\n")
             for row in reader:
                 if (minLat < row['lat'] < maxLat) and (minLng < row['lng'] < maxLng):
                     print(f"    {row['city']}: ({row['lat']}, {row['lng']})")
 
-            
-        # coolList = [f"{city.city}: ({city.lat}, {city.lng})" for city in row if minLat < city.lat < maxLat and minLng < city.lng < maxLng ]
-        # return coolList
-
-# Enter lat1,lon1: 45,-100
-# Enter lat2,lon2: 32,-120
-
 '''
 45,-100
-32,-120
+32, -120
 '''
