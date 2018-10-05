@@ -1,7 +1,16 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+class City():
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
+
+    def __str__(self):
+        return f'{city.name}: ({city.latitude}, {city.longitude})'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,13 +25,19 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+# TODO
 cities = []
 
-# TODO
+with open('cities.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        cities.append(City(row['city'], row['lat'], row['lng']))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+for city in cities:
+    print(city)
 
 # *** STRETCH GOAL! ***
 #
@@ -50,3 +65,23 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+first_coord = input("Enter first lat/lng separated by ',' -> ")
+second_coord = input("Enter second lat/lng separated by ',' -> ")
+first_coord = first_coord.split(',')
+second_coord = second_coord.split(',')
+latMin = latMax = lngMin = lngMax = 0
+if float(first_coord[0]) > float(second_coord[0]):
+    latMin = float(second_coord[0])
+    latMax = float(first_coord[0])
+else:
+    latMin = float(first_coord[0])
+    latMax = float(second_coord[0])
+if float(first_coord[1]) > float(second_coord[1]):
+    lngMin = float(second_coord[1])
+    lngMax = float(first_coord[1])
+else:
+    lngMin = float(first_coord[1])
+    lngMax = float(second_coord[1])
+filtered_cities = [city for city in cities if city.latitude >= latMin and city.latitude <= latMax and city.longitude >= lngMin and city.longitude <= lngMax ]
+for city in filtered_cities:
+    print(city)
