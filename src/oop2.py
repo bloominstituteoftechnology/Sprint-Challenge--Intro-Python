@@ -40,10 +40,6 @@ vehicles = [
 
 # Go through the vehicles list and call drive() on each.
 
-# call = [vehicle.drive() for vehicle in vehicles]
-# print(call)
-
-print(vehicles[1].drive())
-
+[vehicle.drive() for vehicle in vehicles]
 
 # TODO
