@@ -17,3 +17,35 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+# Vehicle is the base class from which other classes inherit properties and methods
+
+#  [Vehicle]->[FlightVehicle]->[Starship]
+#      |                |
+#      v                v
+# [GroundVehicle]      [Airplane]
+#   |       |
+#   v       v
+# [Car]  [Motorcycle]
+
+class Vehicle:
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+
+class Starship(FlightVehicle):
+    pass
+
+class Airplane(FlightVehicle):
+    pass
+
+class GroundVehicle(Vehicle):
+    pass   
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
+
