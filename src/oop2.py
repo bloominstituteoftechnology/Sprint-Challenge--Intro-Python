@@ -28,11 +28,11 @@ class Motorcycle(GroundVehicle):
 
 
 vehicles = [
-    GroundVehicle(0),
-    GroundVehicle(0),
-    Motorcycle(2),
-    GroundVehicle(0),
-    Motorcycle(2),
+    GroundVehicle(),
+    GroundVehicle(),
+    Motorcycle(),
+    GroundVehicle(),
+    Motorcycle(),
 ]
 
 # Go through the vehicles list and call drive() on each.
