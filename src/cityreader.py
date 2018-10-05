@@ -1,7 +1,14 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, lat, lng):
+        self.name = name
+        self.lat = lat
+        self.lng = lng
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -19,9 +26,16 @@
 cities = []
 
 # TODO
+with open("./src/cities.csv", "r") as csv_file:
+    reader = csv.reader(csv_file)
+    next(reader)
+    for line in reader:
+        cities.append(line)
 
+# print(cities)
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+for city in cities:
+    print(city[0], city[3], city[4])
 # TODO
 
 # *** STRETCH GOAL! ***
@@ -50,3 +64,15 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+class Coords:
+    def __init__(self, lat, lng):
+        self.lat = float(lat)
+        self.lng = float(lng)
+
+coords1 = Coords(input("Please enter starting latitude => "),input("Please enter starting longitude => "))
+coords2 = Coords(input("Please enter ending latitude => "),input("Please enter ending longitude => "))
+
+for line in cities:
+    if float(line[3]) >= coords1.lat and float(line[3]) <=coords2.lat:
+        if float(line[4]) > coords1.lng and float(line[4]) < coords2.lng:
+            print(f"{line[0]}: {line[3]},{line[4]}")
