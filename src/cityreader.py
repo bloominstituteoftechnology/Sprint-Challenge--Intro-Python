@@ -1,16 +1,18 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
-import csv 
+import csv
 # import os
 # cwd = os.getcwd()
 # files = os.listdir(cwd)
 # print(files)
 # TODO
+
+
 class City(object):
-    def __init__(self, name,latitude,longitude):
+    def __init__(self, name, latitude, longitude):
         self.name = name
         self.latitude = latitude
-        self.longitude = longitude 
+        self.longitude = longitude
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -27,18 +29,18 @@ class City(object):
 # should not be loaded into a City object.
 
 cities = []
-count = 0 
+count = 0
 with open('src/cities.csv', newline="") as csvfile:
-    cityReader = csv.reader(csvfile, delimiter=",", quotechar = "|")
+    cityReader = csv.reader(csvfile, delimiter=",", quotechar="|")
     for row in cityReader:
-        if count > 0: 
+        if count > 0:
             print(row[0], row[3], row[4])
-            cities.append( City(row[0],float(row[3]), float(row[4])) )
-        count+= 1 
+            cities.append(City(row[0], float(row[3]), float(row[4])))
+        count += 1
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-#Completed on the same line as the append to cities. 
+# Completed on the same line as the append to cities.
 # TODO
 
 # *** STRETCH GOAL! ***
@@ -53,7 +55,7 @@ with open('src/cities.csv', newline="") as csvfile:
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
 # the input data so that it's always one or the other (what is latMin, latMax?)
 # then search for cities.
-#
+
 # Example I/O:
 #
 # Enter lat1,lon1: 45,-100
@@ -73,38 +75,42 @@ with open('src/cities.csv', newline="") as csvfile:
  https://repl.it/@codejoncode/NarrowInfatuatedElements
   """
 # TODO
-points1 = input("Min's Enter two points latitude and longitude(seperate by comma or space)::-> ")
+points1 = input(
+    "Min's Enter two points latitude and longitude(seperate by comma or space)::-> ")
 #
 points1.split()
 if "," in points1:
-  points1 = points1.replace(",", " ")
+    points1 = points1.replace(",", " ")
 if "  " in points1:
-  points1 = points1.replace("  ", " ")
-  print(points1)
-  points1 = points1.split()
+    points1 = points1.replace("  ", " ")
+    print(points1)
+    points1 = points1.split()
 else:
-  points1 = points1.split()
+    points1 = points1.split()
 #
-points2 = input("Max's Enter two points latitude and longitude(seperate by comma or space)::-> ")
+points2 = input(
+    "Max's Enter two points latitude and longitude(seperate by comma or space)::-> ")
 
 points2.split()
 if "," in points2:
-  points2 = points2.replace(",", " ")
+    points2 = points2.replace(",", " ")
 if "  " in points2:
-  points2 = points2.replace("  ", " ")
-  points2 = points2.split()
+    points2 = points2.replace("  ", " ")
+    points2 = points2.split()
 else:
-  points2 = points2.split()
+    points2 = points2.split()
 #
 
 
-points1[0] = int(points1[0]); points1[1] = int(points1[1]);
-points2[0] = int(points2[0]); points2[1] = int(points2[1]);
+points1[0] = int(points1[0])
+points1[1] = int(points1[1])
+points2[0] = int(points2[0])
+points2[1] = int(points2[1])
 
 
 for city in cities:
-  if city.latitude <= points1[0] and city.latitude >= points2[0]:
-    # new line for readiablity could use just another set of and's.
-    if city.longitude <= points1[1] and city.longitude >= points2[1]:
-      print (f"{city.name}: ({city.latitude}, {city.longitude})")
+    if city.latitude <= points1[0] and city.latitude >= points2[0]:
+        # new line for readiablity could use just another set of and's.
+        if city.longitude <= points1[1] and city.longitude >= points2[1]:
+            print(f"{city.name}: ({city.latitude}, {city.longitude})")
 #

@@ -17,43 +17,59 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+
 class Vehicle(object):
     def __init__(self, name, speed):
-        self.name = name 
+        self.name = name
         self.speed = speed
+
     def __repr__(self):
         return """This is a base class """
 
+
 class FlightVehicle(Vehicle):
     def __init__(self, name, speed):
-        Vehicle.__init__(self,name,speed)
+        Vehicle.__init__(self, name, speed)
+
     def __repr__(self):
         return """This is a subclass of Vehicle """
 
+
 class Starship(Vehicle):
-    def __init__(self,name,speed):
-        Vehicle.__init__(self,name,speed)
+    def __init__(self, name, speed):
+        Vehicle.__init__(self, name, speed)
+
     def __repr__(self):
         return """This is a subclass of Vehicle """
 #
+
+
 class GroundVehicle(Vehicle):
-    def __init__(self,name,speed):
-        Vehicle.__init__(self,name,speed)
+    def __init__(self, name, speed):
+        Vehicle.__init__(self, name, speed)
+
     def __repr__(self):
         return """This is a subclass of Vehicle """
 #
+
+
 class Car(GroundVehicle):
-    def __init__(self,name,speed):
-        GroundVehicle.__init__(self,name,speed)
+    def __init__(self, name, speed):
+        GroundVehicle.__init__(self, name, speed)
+
     def __repr__(self):
         return """
         This is a subclass of GroundVehicle 
         This is a grandchild of Vehicle 
         
         """
+
+
 class Motorcyle(GroundVehicle):
     def __init__(self, name, speed):
-        GroundVehicle.__init__(self,name,speed)
+        GroundVehicle.__init__(self, name, speed)
+
     def __repr__(self):
         return """
         This is a subclass of GroundVehicle 
@@ -61,9 +77,12 @@ class Motorcyle(GroundVehicle):
         
         """
 #
+
+
 class Airplane(FlightVehicle):
     def __init__(self, name, speed):
-        FlightVehicle.__init__(self,name,speed)
+        FlightVehicle.__init__(self, name, speed)
+
     def __repr__(self):
         return """
         This is a subclass of FlightVehicle 
