@@ -29,18 +29,13 @@ with open("cities.csv", newline="") as csvfile:
     for row in spamreader:
         print(", ".join(row))
 
-cities = []
-
-for city in spamreader:
-    cities.append(City(city))
+cities = [City(row[0])]
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for obj in cities:
-    print(obj.name)
-    print(longitudeobj.latitude)
-    print(obj.longitude)
+for city in cities:
+    print(city.name, city.latitude, city.longitude)
 
 # TODO
 
