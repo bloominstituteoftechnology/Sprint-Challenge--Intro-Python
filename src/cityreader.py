@@ -42,7 +42,7 @@ with open('src/cities.csv', newline="") as csvfile:
 # TODO
 
 # *** STRETCH GOAL! ***
-#
+
 # Allow the user to input two points, each specified by latitude and longitude.
 # These points form the corners of a lat/lon square. Output the cities that fall
 # within this square.
@@ -68,4 +68,43 @@ with open('src/cities.csv', newline="") as csvfile:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+
+""" Completed the stretch goal here because the system we are using doesn't allow me to enter inputs. Read only terminal
+ https://repl.it/@codejoncode/NarrowInfatuatedElements
+  """
 # TODO
+points1 = input("Min's Enter two points latitude and longitude(seperate by comma or space)::-> ")
+#
+points1.split()
+if "," in points1:
+  points1 = points1.replace(",", " ")
+if "  " in points1:
+  points1 = points1.replace("  ", " ")
+  print(points1)
+  points1 = points1.split()
+else:
+  points1 = points1.split()
+#
+points2 = input("Max's Enter two points latitude and longitude(seperate by comma or space)::-> ")
+
+points2.split()
+if "," in points2:
+  points2 = points2.replace(",", " ")
+if "  " in points2:
+  points2 = points2.replace("  ", " ")
+  points2 = points2.split()
+else:
+  points2 = points2.split()
+#
+
+
+points1[0] = int(points1[0]); points1[1] = int(points1[1]);
+points2[0] = int(points2[0]); points2[1] = int(points2[1]);
+
+
+for city in cities:
+  if city.latitude <= points1[0] and city.latitude >= points2[0]:
+    # new line for readiablity could use just another set of and's.
+    if city.longitude <= points1[1] and city.longitude >= points2[1]:
+      print (f"{city.name}: ({city.latitude}, {city.longitude})")
+#
