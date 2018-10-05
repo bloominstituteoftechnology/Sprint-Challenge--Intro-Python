@@ -37,6 +37,7 @@ print(r)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
+r = [human.name for human in humans if (human.name[0] >= "C" nad human.name[0] <= "G")]
 r = [human.name for human in humans if human.name[:1]=='C' or human.name[:1]=='D' or human.name[:1]=='E' or human.name[:1]=='F' or human.name[:1]=='G']  
 print(r)
 
@@ -55,7 +56,7 @@ print(r)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = [(str(human.name), int(human.age)) for human in humans]
+r = [(str(human.name), int(human.age)) for human in humans if(human.age >= 27 and human.age <= 32)]
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -67,5 +68,5 @@ print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = [human.age*.5 for human in humans]  
+r = [human.age**.5 for human in humans]  
 print(r)
