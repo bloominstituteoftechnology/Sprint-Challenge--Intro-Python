@@ -1,4 +1,5 @@
 import csv
+import os 
 # import numpy as pynum
 
 # Create a class to hold a city location. Call the class "City". It should have
@@ -93,11 +94,13 @@ while True:
             # continue
             for city in cities:
                 if city.latitude in range(lat1, lat2 + 1) and city.longitude in range(lon1, lon2 + 1):
-                    #problem installing numpy due to this errorh ttps://github.com/pypa/pipenv/issues/2871
+                    # problem installing numpy due to this errorh ttps://github.com/pypa/pipenv/issues/2871
                     # if can find a fix it will let me do range with floats and print what i want
                     print(
                         f'{city.name}, Latitude: {city.latitude}, Longitude: {city.longitude} ')
                 else:
-                    print("No cities found within coordinates.")
+                    os.system("clear")
+                    continue
+
         else:
             print("Invalid. Please enter valid coordinates.")
