@@ -26,11 +26,8 @@ class Airplane(FlightVechicle):
     pass
 class Starship(FlightVechicle):
     pass
-
 class GroundVechicle(Vechicle):
     pass
-
 class Car(GroundVechicle):
     pass
-
 class Motorcycle(GroundVechicle):
