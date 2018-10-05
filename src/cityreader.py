@@ -10,12 +10,6 @@ class City():
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
-
-with open('cities.csv', 'r') as csv_file:
-    csv_reader = csv.reader(csv_file)
-    for line in csv_reader:
-        print(line[0], line[3], line[4])
-
 #
 # Use Python's built-in "csv" module to read this file so that each record is
 # imported into a City instance. (You're free to add more attributes to the City
@@ -27,11 +21,16 @@ with open('cities.csv', 'r') as csv_file:
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
+with open('cities.csv', 'r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    cities = [City(line[0], line[3], line[4]) for index, line in enumerate(csv_reader)]
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+for city in cities:
+    print(f'{city.name}, lat: {city.latitude}, lng: {city.longitude}')
 
 # TODO
 
