@@ -30,9 +30,7 @@ with open('cities.csv', 'r') as Data:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for item in cities:
-    print(f"{item.name}")
-    print(f"{item.latitude}")
-    print(f"{item.longitude}")
+    print(f"{item.name}, {item.latitude}, {item.longitude}")
 
 # *** STRETCH GOAL! ***
 #
