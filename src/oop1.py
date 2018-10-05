@@ -32,7 +32,8 @@ class GroundVehicle(Vehicle):
 
 
 class Car(GroundVehicle):
-    pass
+    def __init__(self, name):
+        GroundVehicle.__init__(self, name)
 
 
 class Motorcycle(GroundVehicle):
