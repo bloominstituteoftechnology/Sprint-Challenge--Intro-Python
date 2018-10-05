@@ -9,6 +9,7 @@ class GroundVehicle():
 
     # TODO
     def drive(self):
+        """No Input Output vroom  drive method of GroundVehicle class """
         print("vroooom")
 
 
@@ -19,6 +20,7 @@ class Motorcycle (GroundVehicle):
         GroundVehicle.__init__(self, num_wheels)
     
     def drive(self):
+        """ No Input  Output  BRAAAP!!! drive method(override of parent) of Motorcyle class subclass of GroundVehicle """ 
         print("BRAAAP!!")
 
     
