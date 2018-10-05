@@ -1,4 +1,6 @@
 import csv
+from colorama import Fore 
+from colorama import Style
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
@@ -28,8 +30,6 @@ with open('cities.csv', newline='') as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
         city = row[0]
-        state = row[1]
-        county = row[2]
         lat = row[3]
         lng = row[4]
         newcity = City(city, lat, lng)
@@ -38,7 +38,7 @@ with open('cities.csv', newline='') as csvfile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for each in cities:
-    print(each.name, each.lat, each.lng)
+    print (f'CITY: {Fore.YELLOW}{each.name}{Style.RESET_ALL}, LAT: {Fore.MAGENTA}{each.lat}{Style.RESET_ALL}, LONG: {Fore.CYAN}{each.lng}{Style.RESET_ALL}')
 
 
 # TODO
