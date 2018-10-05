@@ -22,7 +22,7 @@ class GroundVehicle():
 
 class Motorcycle(GroundVehicle):
     def __init__(self, num_wheels):
-        pass
+        super().__init__(2)
     def drive(self):
         print("BRAAAP!!")
 
