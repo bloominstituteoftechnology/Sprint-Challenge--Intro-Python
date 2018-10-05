@@ -46,7 +46,7 @@ print(r)
 # Allow the user to input two points, each specified by latitude and longitude.
 # These points form the corners of a lat/lon square. Output the cities that fall
 # within this square.
-#
+# 
 # Be aware that the user could specify either a lower-left/upper-right pair of
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
 # the input data so that it's always one or the other (what is latMin, latMax?)
@@ -66,4 +66,13 @@ print(r)
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+# use float(), round (number, decimal places) for existing data and int() for inputs
+
+def citiesInSquare(point_1,point_2):
+    point_1 = []
+    point_2 = []
+    for city in cities:
+        if round(float(city.latitude),0) in point_1 and round(float(city.longitude),0) in point_2:
+            return city.name
+
+print(citiesInSquare([45,-100],[32,-120]))
