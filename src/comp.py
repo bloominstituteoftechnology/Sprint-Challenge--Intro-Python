@@ -23,7 +23,7 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [human.name for human in humans if human.name[0] == "D"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -42,7 +42,7 @@ print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [human.age + 10 for human in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -67,5 +67,5 @@ print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [math.sqrt(human.age) for human in humans]  # TODO
 print(r)
