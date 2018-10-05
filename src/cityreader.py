@@ -1,7 +1,20 @@
+import csv
+import os 
+# import numpy as pynum
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def __repr__(self):
+        return "<City: %s, %s, %s>" % (self.name, self.latitude, self.longitude)
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,11 +31,21 @@
 
 cities = []
 
-# TODO
+f = open('cities.csv', 'r')
+
+with f:
+
+    reader = csv.reader(f)
+    header = next(reader)
+    for row in reader:
+        cities.append(City(row[0], row[3], row[4]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+for city in cities:
+    print(
+        f'{city.name}, Latitude: {city.latitude}, Longitude: {city.longitude} ')
+
 
 # *** STRETCH GOAL! ***
 #
@@ -49,4 +72,35 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+while True:
+    coordinates_1 = input("Enter lat1,lon1: ")
+    if coordinates_1 == "q":
+        break
+    coordinates_2 = input("Enter lat2,lon2: ")
+    if coordinates_2 == "q":
+        break
+    else:
+        coordinates_1 = coordinates_1.replace(",", " ").split()
+        coordinates_2 = coordinates_2.replace(",", " ").split()
+        lat1 = int(coordinates_1[0])
+        lon1 = int(coordinates_1[1])
+        lat2 = int(coordinates_2[0])
+        lon2 = int(coordinates_2[1])
+        if lat1 in range(-90, 91) and lat2 in range(-90, 91) and lon1 in range(-180, 181) and lon2 in range(-180, 181):
+            # print(lat1)
+            # print(lon1)
+            # print(lat2)
+            # print(lon2)
+            # continue
+            for city in cities:
+                if city.latitude in range(lat1, lat2 + 1) and city.longitude in range(lon1, lon2 + 1):
+                    # problem installing numpy due to this errorh ttps://github.com/pypa/pipenv/issues/2871
+                    # if can find a fix it will let me do range with floats and print what i want
+                    print(
+                        f'{city.name}, Latitude: {city.latitude}, Longitude: {city.longitude} ')
+                else:
+                    os.system("clear")
+                    continue
+
+        else:
+            print("Invalid. Please enter valid coordinates.")
