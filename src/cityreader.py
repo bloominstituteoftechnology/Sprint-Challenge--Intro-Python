@@ -62,3 +62,15 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+class Coords:
+    def __init__(self, lat, lng):
+        self.lat = float(lat)
+        self.lng = float(lng)
+
+coords1 = Coords(input("Please enter starting latitude => "),input("Please enter starting longitude => "))
+coords2 = Coords(input("Please enter ending latitude => "),input("Please enter ending longitude => "))
+
+for line in cities:
+    if float(line[3]) >= coords1.lat and float(line[3]) <=coords2.lat:
+        if float(line[4]) > coords1.lng and float(line[4]) < coords2.lng:
+            print(f"{line[0]}: {line[3]},{line[4]}")
