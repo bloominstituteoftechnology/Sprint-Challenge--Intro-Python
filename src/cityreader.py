@@ -30,16 +30,16 @@ class City:
 
 cities = []
 
-# TODO
-
 with open('cities.csv', newline = '') as csvfile:
-    cityreader = csv.reader(csvfile, delimiter = ' ')
+    cityreader = csv.reader(csvfile)
     for row in cityreader:
-        print(', '.join(row))
+        cities.append(City(row[0], row[3], row[4]))
+    cities.pop(0) #removes the first row containing titles
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+r = [f"({city.name}, latitude: {city.latitude}, longitude: {city.longitude})" for city in cities]
+print(r)
 
 # *** STRETCH GOAL! ***
 #
