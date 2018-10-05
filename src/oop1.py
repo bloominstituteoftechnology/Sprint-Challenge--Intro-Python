@@ -28,8 +28,8 @@ class FlightVehicle(Vehicle):
     def __init__(self):
         pass
 
-# Vehicle
-class Starship(Vehicle):
+# FLight Vehicle
+class Starship(FlightVehicle):
     def __init__(self):
         pass
 
