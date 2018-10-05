@@ -4,7 +4,7 @@ import csv
 # fields for name, latitude, and longitude.
 
 
-class City:
+class City():
     def __init__(self, name, lat, lon):
         self.name = name
         self.lat = lat
@@ -24,19 +24,20 @@ class City:
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-store = []
+cities = []
 
-with open('cities.csv', newline='') as csvfile:
-    c = csv.reader(csvfile)
-    for row in c:
-        store.append(row)
+with open('cities.csv', newline="") as csvfile:
+    cityreader = csv.reader(csvfile, delimiter=",", quotechar="|")
+    passedHeader = False
+    for row in cityreader:
+        if passedHeader:
+            cities.append(City(row[0], row[3], row[4]))
+        else:
+            passedHeader = True
 
-store.pop(0)
-
-cities = [City(city[0], city[3], city[4]) for city in store]
 
 for city in cities:
-    print(city.name, city.lat, city.lon)
+    print(f'({city.name}, {city.lat}, {city.lon})')
 
 
 
