@@ -6,8 +6,11 @@ import csv
 class City():
     def __init__(self, name, latitude, longitude):
         self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
+
+    def __str__(self):
+        return f'{city.name}: ({city.latitude}, {city.longitude})'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -34,7 +37,7 @@ with open('cities.csv', newline='') as csvfile:
 
 # TODO
 for city in cities:
-    print(f'{city.name}: ({city.latitude}, {city.longitude})')
+    print(city)
 
 # *** STRETCH GOAL! ***
 #
@@ -62,3 +65,23 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+first_coord = input("Enter first lat/lng separated by ',' -> ")
+second_coord = input("Enter second lat/lng separated by ',' -> ")
+first_coord = first_coord.split(',')
+second_coord = second_coord.split(',')
+latMin = latMax = lngMin = lngMax = 0
+if float(first_coord[0]) > float(second_coord[0]):
+    latMin = float(second_coord[0])
+    latMax = float(first_coord[0])
+else:
+    latMin = float(first_coord[0])
+    latMax = float(second_coord[0])
+if float(first_coord[1]) > float(second_coord[1]):
+    lngMin = float(second_coord[1])
+    lngMax = float(first_coord[1])
+else:
+    lngMin = float(first_coord[1])
+    lngMax = float(second_coord[1])
+filtered_cities = [city for city in cities if city.latitude >= latMin and city.latitude <= latMax and city.longitude >= lngMin and city.longitude <= lngMax ]
+for city in filtered_cities:
+    print(city)
