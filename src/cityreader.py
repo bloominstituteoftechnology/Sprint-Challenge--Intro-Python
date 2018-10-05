@@ -30,12 +30,12 @@ with open('cities.csv', newline='') as csvfile:
     headers = next(cityreader)
     for row in cityreader:
         next(cityreader)
-        cities.append(row)
+        cities.append(City(row[0], row[3], row[4]))
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
-    print(city)
+    print(city.name, city.lat, city.lon)
 # TODO
 
 # *** STRETCH GOAL! ***
@@ -71,14 +71,14 @@ def findCitiesInBox():
     point2 = point2.split(",")
     for city in cities:
         if float(point1[0]) < float(point2[0]):
-            if float(city[3]) >= float(point1[0]) and float(city[3]) <= float(point2[0]) and float(city[4]) >= float(point1[1]) and float(city[4]) <= float(point2[1]):
+            if float(city.lat) >= float(point1[0]) and float(city.lat) <= float(point2[0]) and float(city.lon) >= float(point1[1]) and float(city.lon) <= float(point2[1]):
                 citiesInBox.append(city)
         else:
-            if float(city[3]) <= float(point1[0]) and float(city[3]) >= float(point2[0]) and float(city[4]) <= float(point1[1]) and float(city[4]) >= float(point2[1]):
+            if float(city.lat) <= float(point1[0]) and float(city.lat) >= float(point2[0]) and float(city.lon) <= float(point1[1]) and float(city.lon) >= float(point2[1]):
                 citiesInBox.append(city)
 
 findCitiesInBox()
 
 for city in citiesInBox:
-    print(city)
+    print(city.name, city.lat, city.lon)
 # TODO
