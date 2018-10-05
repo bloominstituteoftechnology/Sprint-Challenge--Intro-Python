@@ -1,5 +1,13 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
 
 # TODO
 
@@ -16,11 +24,23 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+with open("cities.csv", newline="") as csvfile:
+    spamreader = csv.reader(csvfile, delimiter="|", quotechar='"')
+    for row in spamreader:
+        print(", ".join(row))
+
 cities = []
+
+for city in spamreader:
+    cities.append(City(city))
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for obj in cities:
+    print(obj.name)
+    print(longitudeobj.latitude)
+    print(obj.longitude)
 
 # TODO
 
