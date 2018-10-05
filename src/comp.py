@@ -1,3 +1,6 @@
+import math
+
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -5,6 +8,7 @@ class Human:
 
     def __repr__(self):
         return "<Human: %s, %d>" % (self.name, self.age)
+
 
 humans = [
     Human("Alice", 29),
@@ -23,49 +27,50 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [DPeep for DPeep in humans if DPeep.name[:1] == "D"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [EPeep for EPeep in humans if EPeep.name[-1:] == "e"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [CGPeep for CGPeep in humans if CGPeep.name[:1] in "CDEFG"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [Peep.age + 10 for Peep in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
+r = ["-".join((Peep.name, str(Peep.age))) for Peep in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [(Peep.name, Peep.age)
+     for Peep in humans if Peep.age > 26 and Peep.age < 33]
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The `humans` list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [Human(Peep.name.upper(), Peep.age + 5) for Peep in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [math.sqrt(Peep.age) for Peep in humans]  # TODO
 print(r)
