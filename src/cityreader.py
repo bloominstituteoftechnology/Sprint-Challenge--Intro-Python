@@ -73,26 +73,29 @@ for city in cities:
 while True:
     coordinates_1 = input("Enter lat1,lon1: ")
     if coordinates_1 == "q":
-        break    
+        break
     coordinates_2 = input("Enter lat2,lon2: ")
     if coordinates_2 == "q":
-        break 
+        break
     # print(coordinates_1.split())
-    # print(coordinates_2.split()) 
+    # print(coordinates_2.split())
     # lat1 = float(coordinates_1[0])
     # lon1 = float(coordinates_1[3])
     # if lat1 in range(-90, 91) and lon1 in range(-180, 180):
-    #     print(coordinates_1, coordinates_2) 
+    #     print(coordinates_1, coordinates_2)
     else:
         # print(coordinates_1.split(" "))
-        # print(coordinates_2.split(" ")) 
+        # print(coordinates_2.split(" "))
         coordinates_1 = coordinates_1.replace(",", "").split()
         coordinates_2 = coordinates_2.replace(",", "").split()
         lat1 = float(coordinates_1[0])
         lon1 = float(coordinates_1[1])
         lat2 = float(coordinates_2[0])
         lon2 = float(coordinates_2[1])
-        print(lat1)
-        print(lon1)
-        print(lat2)
-        print(lon2)
+        if lat1 in range(-90, 91) and lat2 in range(-90, 91) and lon1 in range(-180, 181) and lon2 in range(-180, 181):
+            print(lat1)
+            print(lon1)
+            print(lat2)
+            print(lon2)
+        else:
+            print("wrong!")
