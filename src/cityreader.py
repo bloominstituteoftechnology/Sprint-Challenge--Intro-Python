@@ -34,6 +34,7 @@ with open('cities.csv', newline = '') as csvfile:
     cityreader = csv.reader(csvfile)
     for row in cityreader:
         cities.append(City(row[0], row[3], row[4]))
+    #could also use passedHeader = False
     cities.pop(0) #removes the first row containing titles
 
 # Print the list of cities (name, lat, lon), 1 record per line.
@@ -67,6 +68,8 @@ print(r)
 # Salt Lake City: (40.7774,-111.9301)
 
 # use float(), round (number, decimal places) for existing data and int() for inputs
+# https://www.digitalocean.com/community/tutorials/built-in-python-3-functions-for-working-with-numbers
+
 
 def citiesInSquare(point_1,point_2):
     point_1 = []

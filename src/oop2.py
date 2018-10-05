@@ -42,11 +42,9 @@ vehicles = [
 # Go through the vehicles list and call drive() on each.
 print("-------------------------------------------------------------")
 
-r = [vehicle.drive() for vehicle in vehicles]  
-print(r)
+for vehicle in vehicles:
+    vehicle.drive()
 
 print("-------------------------------------------------------------")
 
-# r = [f" The ground vehicle with {vehicle.num_wheels} goes {vehicle.drive()}" for vehicle in vehicles]  # TODO
-# print(r)
 
