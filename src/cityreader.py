@@ -28,6 +28,14 @@ import csv
 
 cities = []
 
+with open("cities.csv", newline="") as csvfile:
+    cityreader = csv.reader(csvfile, delimiter=",", quotechar="|")
+    passedHeader = False
+    for row in cityreader:
+        if passedHeader:
+            cities.append(City(row[0], row[3], row[4]))
+        else:
+            passedHeader = True
 
 # TODO
 
@@ -35,7 +43,7 @@ cities = []
 
 # TODO
 for city in cities:
-    print(city.name, city.latitude, city.longitude, city.population)
+    print(f"{city.name}, {city.latitude}, {city.longitude}")
 
 # *** STRETCH GOAL! ***
 #
