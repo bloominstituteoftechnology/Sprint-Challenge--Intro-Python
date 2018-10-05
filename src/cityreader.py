@@ -29,6 +29,7 @@ with open('src/cities.csv') as csvfile:
     citiesreader = csv.reader(csvfile)
     for row in citiesreader:
         cities.append(City(row[0], row[3], row[4]))
+    cities.pop(0)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
