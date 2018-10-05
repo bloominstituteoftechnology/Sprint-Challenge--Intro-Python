@@ -22,10 +22,10 @@
 class Vehicle:
     pass
 
-class GoundVehicle(Vehicle):
+class GroundVehicle(Vehicle):
     pass
 
-class Car(GoundVehicle):
+class Car(GroundVehicle):
     pass
 
 class Motorcycle(GroundVehicle):
