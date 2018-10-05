@@ -1,5 +1,13 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
 
 # TODO
 
@@ -17,11 +25,17 @@
 # should not be loaded into a City object.
 
 cities = []
-
+with open('cities.csv', newline='') as csvfile:
+    cityreader = csv.reader(csvfile, delimiter= ',', quotechar='|')
+    headers = next(cityreader)
+    for row in cityreader:
+        next(cityreader)
+        cities.append(City(row[0], row[3], row[4]))
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+for city in cities:
+    print(city.name, (city.lat, city.lon))
 # TODO
 
 # *** STRETCH GOAL! ***
@@ -49,4 +63,22 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+citiesInBox = []
+def findCitiesInBox():
+    point1 = input("Enter lat1, lon1: ")
+    point1 = point1.split(",")
+    point2 = input("Enter lat2, lon2: ")
+    point2 = point2.split(",")
+    latMin = min(float(point1[0]), float(point2[0]))
+    latMax = max(float(point1[0]), float(point2[0]))
+    lonMin = min(float(point1[1]), float(point2[1]))
+    lonMax = max(float(point1[1]), float(point2[1]))
+    for city in cities:
+            if float(city.lat) >= float(latMin) and float(city.lat) <= float(latMax) and float(city.lon) >= float(lonMin) and float(city.lon) <= float(lonMax):
+                citiesInBox.append(city)
+
+findCitiesInBox()
+
+for city in citiesInBox:
+    print(city.name, (city.lat, city.lon))
 # TODO
