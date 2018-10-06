@@ -40,8 +40,8 @@ print(r)
 print("Starts between C and G, inclusive:")
 # TODO
 letters = ["C", "D", "E", "F", "G"]
-r = [person.name for person in humans if person.name.startswith('C') or person.name.startswith(
-    'D') or person.name.startswith('E') or person.name.startswith('F') or person.name.startswith('G')]
+r = [person.name for person in humans if (
+    person.name[0] >= ('C') and person.name[0] <= "G")]
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -72,5 +72,5 @@ print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = [person.age**2 for person in humans]  # TODO
+r = [person.age**0.5 for person in humans]  # TODO
 print(r)
