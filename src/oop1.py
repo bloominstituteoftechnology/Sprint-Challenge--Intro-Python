@@ -33,6 +33,11 @@ class Car(GroundVehicle):
         GroundVehicle.__init__(self, name)
         self.name
 
+class Motorcycle(GroundVehicle):
+    def __init__(self, name):
+        GroundVehicle.__init__(self, name)
+        self.name
+
 #BASE CLASS
 class FlightVehicle(Vehicle):
     def __init__(self, name):
