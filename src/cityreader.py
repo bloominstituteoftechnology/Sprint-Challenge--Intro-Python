@@ -1,7 +1,15 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+
+class City(object):
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,13 +24,40 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+# print("CSV Here", csv)
 cities = []
 
 # TODO
 
+# import csv
+# with open('cities.csv', newline='') as f:
+#     reader = csv.reader(f)
+#     for row in reader:
+#         cities.append(row)
+
+with open("cities.csv", newline="") as csvfile:
+    cityreader = csv.reader(csvfile, delimiter=",", quotechar="|")
+    passedHeader = False
+    for row in cityreader:
+        if passedHeader:
+            cities.append(City(row[0], row[3], row[4]))
+        else:
+            passedHeader = True
+
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+
+# with open('cities.csv', newline='') as csvfile:
+#     reader = csv.DictReader(csvfile)
+#     for row in reader:
+#         print(row["city"], row["lat"], row["lng"])
+
+for city in cities:
+    print(f"({city.name}, {city.latitude}, {city.longitude})")
+
+
 
 # *** STRETCH GOAL! ***
 #
@@ -50,3 +85,11 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# latlon1Valid = False
+# latlon2Valid = False
+
+# while not latlon1Valid:
+#     latlon1 = input("Enter lat1,lon1: ")
+#     latlon1list = latlon1.split(",")
+#     if  len(latlon)
