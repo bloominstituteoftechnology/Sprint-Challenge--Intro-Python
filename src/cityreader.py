@@ -29,23 +29,33 @@ cities = []
 
 # TODO
 
-import csv
-with open('cities.csv', newline='') as f:
-    reader = csv.reader(f)
-    for row in reader:
-        cities.append(row)
+# import csv
+# with open('cities.csv', newline='') as f:
+#     reader = csv.reader(f)
+#     for row in reader:
+#         cities.append(row)
+
+with open("cities.csv", newline="") as csvfile:
+    cityreader = csv.reader(csvfile, delimiter=",", quotechar="|")
+    passedHeader = False
+    for row in cityreader:
+        if passedHeader:
+            cities.append(City(row[0], row[3], row[4]))
+        else:
+            passedHeader = True
 
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
 
-with open('cities.csv', newline='') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        print(row["city"], row["lat"], row["lng"])
+# with open('cities.csv', newline='') as csvfile:
+#     reader = csv.DictReader(csvfile)
+#     for row in reader:
+#         print(row["city"], row["lat"], row["lng"])
 
-
+for city in cities:
+    print(f"({city.name}, {city.latitude}, {city.longitude})")
 
 
 
@@ -75,3 +85,11 @@ with open('cities.csv', newline='') as csvfile:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# latlon1Valid = False
+# latlon2Valid = False
+
+# while not latlon1Valid:
+#     latlon1 = input("Enter lat1,lon1: ")
+#     latlon1list = latlon1.split(",")
+#     if  len(latlon)
