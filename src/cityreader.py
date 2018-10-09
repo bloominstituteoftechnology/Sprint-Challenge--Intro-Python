@@ -25,11 +25,11 @@ cities = []
 
 # TODO
 # MVP1 RIGHT HERE \/\/\/
-# with open("cities.csv") as csvfile:
-#     readCSV = csv.reader(csvfile, delimiter = ',')
+with open("cities.csv") as csvfile:
+    readCSV = csv.reader(csvfile, delimiter = ',')
     
-#     for row in readCSV:
-#         print (row[0],row[3],row[4])
+    for row in readCSV:
+        print (row[0],row[3],row[4])
 
 #MVP2
 with open("cities.csv", newline="") as csvfile:
