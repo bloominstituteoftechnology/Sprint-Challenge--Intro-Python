@@ -6,16 +6,18 @@ import csv
 class City:
     def __init__(self, name, latitude, longitude):
         self.name=name
-        self.latitude=latitude
-        self.longitude=longitude
-    
-    def read(self):
-        with open('cities.csv') as csvfile:
-            readCSV = csv.reader(csvfile, delimiter=',')
-            for row in readCSV:
-                print(row)
-                print(row[0])
-                print(row[0],row[3],row[4],)
+        self.lat=lat
+        self.lon=lon
+
+    # Incorrect >>>
+    # def read(self):
+    #     with open('cities.csv') as csvfile:
+    #         readCSV = csv.reader(csvfile, delimiter=',')
+    #         for row in readCSV:
+    #             print(row)
+    #             print(row[0])
+    #             print(row[0],row[3],row[4],)
+    # Incorrect ^^^^
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -32,9 +34,25 @@ class City:
 
 cities = []
 
+
+
+ with open('cities.csv', newline="") as csvfile:
+            cityreader= csv.reader(csvfile, delimiter=',', quotechar='|')
+            passedHeader= False
+            for row in cityreader:
+                if passedHeader:
+                  cities.append(City(row[0],row[3],row[4]))
+                else:
+                    passedHeader= True
+
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+
+
+for city in cities:
+    print(f'({city.name}, {city.lat}, {city.lon})')
 
 # TODO
 
@@ -63,3 +81,52 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# solution:
+
+# latlon1Valid= False
+# latlon2Valid= False
+
+# while not latlon1Valid:
+#     latlon1= input('Enter lat1, lon1:')
+#     latlon1list=latlon1.split(',')
+#     if len(latlon1list== 2:
+#         lat1= float(latlon1list[0])
+#         lon1= float(latlon1list[1])
+#         latlon1Valid= True
+#     else:
+#         print('Invalid input')
+
+# while not latlon2Valid:
+#     latlon2= input('Enter lat2, lon2:')
+#     latlon2list=latlon2.split(',')
+#     if len(latlon2list== 2:
+#         lat2= float(latlon1list[0])
+#         lon2= float(latlon1list[1])
+#         latlon2Valid= True
+#     else:
+#         print('Invalid input')
+
+# latMin=min(lat1, lat2)
+# latMax= max(lat1, lat2)
+# lonMin= min(lon1, lon2)
+# lonMax= max(lon1, lon2)
+
+# print(f'{latMin}, {latMax}, {lonMin}, {lonMax}')
+
+# for city in cities:
+#     if city.lat>= latMin and city.lat<= latMax \
+#         and city.lon>= lonMin and city.lon <=
+
+
+# alternate solution:
+# lat1, lon1= [float(v) for v in input("Enter lat1, lon1: ").split(',')]
+# lat2, lon2= [float(v) for v in input("Enter lat1, lon1: ").split(',')]
+
+# if lat2< lat1:
+#     lat1, lat2=lat2, lat1 ---swap
+
+# if lon2< lon1:
+#     lon1, lon2=lon2, lon1 ---swap
+
+# Filter
