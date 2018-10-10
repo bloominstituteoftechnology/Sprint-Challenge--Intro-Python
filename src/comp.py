@@ -23,49 +23,53 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+# r = [h for h in humans if h.name[0]=="D"]  # TODO
+
+r=[h.name for h in humans if h.name.startswith('D')]
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+#r = [r for r in humans if len(Humans.name)-1=="e"]  # TODO
+
+r=[h.name for h in humans if h.name.endswith('e')]
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 
 print("Starts between C and G, inclusive:")
-r = []  # TODO
+r = [h.name for h in humans if h.name[0]== 'C'or 'D' or 'E' or 'F' or 'G']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-r = []  # TODO
+r = [(h.age +10) for h in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-r = []  # TODO
+r = [f"{h.name}-{h.age}" for h in humans]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-r = []  # TODO
+r = [(h.name, h.age) for h in humans if (h.age>=27 and h.age<=32)]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The `humans` list should be unmodified.
 print("All names capitalized:")
-r = []  # TODO
+r = [Human(h.name.upper(), h.age+5) for h in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-r = []  # TODO
+r = [h.age**(1/2) for h in humans]  # TODO
 print(r)
