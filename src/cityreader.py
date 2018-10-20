@@ -1,7 +1,12 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+
+class City():
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,13 +21,20 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+
 cities = []
 
-# TODO
+with open('cities.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    for i, row in enumerate(reader):
+        if i is not 0:
+            cities.append(City("{0},{1}".format(row[0],row[1]), row[4], row[5]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
-# TODO
+for city in cities:
+    for prop, value in vars(city).items():
+        print("{0:<5}: {1:<15}".format(prop, str(value)))
+    print("\n")
 
 # *** STRETCH GOAL! ***
 #
@@ -49,4 +61,25 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+lat1 = input("Enter lat1:")
+lon1 = input("Enter lon1:")
+lat2 = input("Enter lat2:")
+lon2 = input("Enter lon2:")
+
+if lat2 < lat1:
+    lat1, lat2 = lat2, lat1
+
+if lon2 < lon1:
+    lon1, lon2 = lon2, lon1
+
+# This is broken
+within = []
+for c in cities:
+    if c.lat >= lat1 and c.lat <= lat2 and c.lon >= lon1 and c.lon <= lon2:
+        within.append(c)
+
+print("Cities Within the lat\lon you provided")
+for city in within:
+    for prop, value in vars(city).items():
+        if prop is "name":
+            print("{0:<5}: {1:<15}".format(prop, str(value)))
