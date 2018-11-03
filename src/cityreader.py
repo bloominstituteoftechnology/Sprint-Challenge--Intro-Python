@@ -1,7 +1,14 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+import csv
 
-# TODO
+
+class City():
+    def__init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,9 +25,17 @@
 
 cities = []
 
-# TODO
+with open("cities.csv", newline='') as csvfile:
+    cityreader = csv.reader(csvfile, delimiter=',')
+    for i, row in enumerate(reader):
+        if i is not 0:
+            cities.append(City("{0},{1}".format(row[0], row[1], row[4], row[5]))
 
-# Print the list of cities (name, lat, lon), 1 record per line.
+
+for city in cities:
+    for prop, value in vars(city).items():
+        print('{0:<5}: 1:<15}'.format(prop, str(value)))
+    print('\n')
 
 # TODO
 
@@ -50,3 +65,27 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+print('')
+
+
+uno = input('Enter lat1, lon1: ')
+uno = uno.split(',')
+dos = input('Enter lat2, lon2: ')
+dos = dos.split(',')
+
+lat1, lon1 = float(uno[0]), float(uno[1])
+lat2, lon2 = float(dos[0]), float(dos[1])
+
+if lat1 < lat2:
+    lat1, lat2 = lat2, lat1
+    lon1, lon2 = lon2, lon1
+
+c = [city for city in cities if (lat1 > float(city.latitude) > lat2)
+    and (lon1 > float(city.longitude) > lon2)]
+
+  print('')
+
+  for city in c:
+      city = '{}: ({}, {})'.format(city.name, city.latitude, city.longitude)
+      print(city)
