@@ -17,3 +17,28 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+# Base Vehicle Class
+class Vehicle():
+    pass
+
+# Sub Class of Vehicles
+class GroundVehicle(Vehicle):
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+
+# Sub Class of Ground Vehicles
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
+
+# Sub Class Flight Vehicles
+class Airplane(FlightVehicle):
+    pass
+
+class Starship(FlightVehicle):
+    pass
