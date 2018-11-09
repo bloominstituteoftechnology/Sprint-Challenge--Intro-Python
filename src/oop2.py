@@ -40,4 +40,6 @@ vehicles = [
 
 # Go through the vehicles list and call drive() on each.
 
-# TODO
+# using a for in loop to drive all the vehicles
+for vehicle in vehicles:
+    vehicle.drive()
