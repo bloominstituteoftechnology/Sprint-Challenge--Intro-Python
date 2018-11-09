@@ -26,14 +26,15 @@ cities = []
 with open('cities.csv', newline='') as csv_file:
     csv_reader = csv.reader(csv_file)
     for row in csv_reader:
-        print(row)
+        #print(row)
+        city = City(row[0], row[3], row[4])
+        cities.append(city)
 
-
-
+cities = cities[1:]
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+[print((city.name, city.latitude, city.longitude)) for city in cities]
 # TODO
 
 # *** STRETCH GOAL! ***
