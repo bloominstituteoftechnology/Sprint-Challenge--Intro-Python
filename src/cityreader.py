@@ -1,3 +1,5 @@
+# found this playlist useful for this and python in general: https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7
+# and this videos in particular was good: https://www.youtube.com/watch?v=q5uM4VKywbA
 import csv  # this is to read in the csv file
 
 # Create a class to hold a city location. Call the class "City". It should have
@@ -77,4 +79,6 @@ latlon2 = list(map(float, input("Enter lat2,lon2: ").strip().split(",")))
 lats = sorted([latlon1[0], latlon2[0]])
 lons = sorted([latlon1[1], latlon2[1]])
 
-# TODO: set the data using a list comprehension outputting the result to the console
+# set the data using a list comprehension outputting the result to the console
+[print("{}: ({},{})\n".format(c.name, c.lat, c.lon)) for c in cities if lats[0] <= float(
+    c.lat) <= lats[1] and lons[0] <= float(c.lon) <= lons[1]]
