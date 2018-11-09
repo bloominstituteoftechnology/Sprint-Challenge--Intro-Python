@@ -18,7 +18,12 @@ class GroundVehicle():
 #
 # Override the drive() method in Motorcycle so that it prints "BRAAAP!!"
 
-# TODO
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        GroundVehicle.__init__(self, num_wheels = 2)
+
+    def drive(self):
+        print("BRAAAP!!")
 
 vehicles = [
     GroundVehicle(),
@@ -30,4 +35,5 @@ vehicles = [
 
 # Go through the vehicles list and call drive() on each.
 
-# TODO
+for vehicle in vehicles:
+    vehicle.drive()
