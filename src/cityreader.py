@@ -6,8 +6,8 @@ import csv
 class City:
 	def __init__(self, name, latitude, longitude):
 		self.name = name
-		self.latitude = latitude
-		self.longitude = longitude
+		self.latitude = float(latitude)
+		self.longitude = float(longitude)
 
 	def __str__(self):
 		return f"{self.name} ({self.latitude},{self.longitude})"
@@ -63,3 +63,17 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+min_input = input("Enter the minimum coordinate: ").strip(" )(").split(",")
+max_input = input("Enter the maximum coordinate: ").strip(" )(").split(",")
+
+min_coordinates = [float(number) for number in min_input]
+max_coordinates = [float(number) for number in max_input]	
+
+def find_cities(min_lat, min_long, max_lat, max_long):
+	return [city for city in cities if min_lat <= city.latitude and city.latitude <= max_lat and min_long <= city.longitude and city.longitude <= max_long]
+
+city_list = find_cities(min_coordinates[0], min_coordinates[1], max_coordinates[0], max_coordinates[1])
+
+for city in city_list:
+	print(city)
