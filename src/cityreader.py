@@ -76,3 +76,16 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# note that this takes the coordinates given above in the reverse order
+# in case you're testing it ^_~
+
+print("Search for Cities: \nEnter a latitude, longitude pair for the northwest corner of your search")
+nw_coordinate = input("NW Lat,Lon > ").strip().split(",")
+# print(nw_coordinate)
+print("Enter a latitude, longitude pair for the southeast corner of your seach")
+se_coordinate = input("SE Lat,Lon > ").strip().split(",")
+# print(se_coordinate)
+search_results = [city for city in cities if city.latitude > nw_coordinate[0] and city.latitude < se_coordinate[0] and city.longitude < nw_coordinate[1] and city.longitude > se_coordinate[1]]
+for city in search_results:
+    print(city)
