@@ -5,6 +5,7 @@
 
 import csv
 
+
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
@@ -13,6 +14,7 @@ class City:
 
     def __str__(self):
         return f"{self.name}, {self.lat}, {self.lon}"
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -78,4 +80,3 @@ with open('cities.csv', newline="") as csvfile:
         # print(row[0], row[3], row[4])
         if str(lat) == row[3] and str(lon) == row[4]:
             print(row)
-

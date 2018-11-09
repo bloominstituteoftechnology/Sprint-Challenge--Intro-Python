@@ -66,7 +66,7 @@ print(r)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The `humans` list should be unmodified.
 print("All names capitalized:")
-r = [p.name.capitalize() + ' ' + str(p.age + 5) for p in humans if p.age > 26 and p.age < 33]  # TODO
+r = [p.name.capitalize() + ' ' + str(p.age + 5) for p in humans if 26 < p.age < 33]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
