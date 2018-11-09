@@ -21,8 +21,9 @@
 
 # base class Vehicle
 class Vehicle:
-  def __init__(self):
-    pass
+    def __init__(self):
+        pass
+
 
 # subclass FlightVehicle is a child of Vehicle
 class FlightVehicle(Vehicle):
@@ -30,8 +31,16 @@ class FlightVehicle(Vehicle):
         Vehicle.__init__(self)
         pass
 
+
 # subclass Starship is a child of FlightVehicle
 class Starship(FlightVehicle):
+    def __init__(self):
+        FlightVehicle.__init__(self)
+        pass
+
+
+# subclass Airplane is a child of FlightVehicle
+class Airplane(FlightVehicle):
     def __init__(self):
         FlightVehicle.__init__(self)
         pass
