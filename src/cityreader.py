@@ -24,11 +24,15 @@ class City:
 
 cities = []
 
-# TODO
+with open('cities.csv') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    for line in csv_reader:
+        cities.append(City(line['city'], line['lat'], line['lng']))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+for index in cities:
+    print(f"{index.name}: ({index.latitude}, {index.longitude})")
 
 # *** STRETCH GOAL! ***
 #
