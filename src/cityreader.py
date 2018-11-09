@@ -1,5 +1,12 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
 
 # TODO
 
@@ -15,14 +22,47 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-
 cities = []
+with open('cities.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    next(csv_reader, None)
+    for row in csv_reader:
 
+        cities.append((row[0], row[3], row[4]))
+        
+
+ 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
+for city in cities:
+    print(city)
 # TODO
+
+lat1 = input('write your first longitude:    ')
+lon1 = input('write your first latittude:    ')
+lat2 = input('write your second longitude:    ')
+lon2 = input('write your second latitude:    ')
+print(f'You have chosen to compare \'{lat1}\' \'{lon1}\' to \'{lat2}\' \'{lon2}\'')
+
+if lat1 > lat2:
+    lat_min=lat2
+    lat_max=lat1
+else:
+    lat_min=lat1
+    lat_max=lat2
+
+if lon1 > lon2:
+    lon_min=lon2
+    lon_max=lon1
+else:
+    lon_min=lon1
+    lon_max=lon2
+
+
+for city in cities:
+    if city[1]>lat_min and city[1] < lat_max and city[2]>lon_min and city[2]<lon_max:
+        print(city)    
 
 # *** STRETCH GOAL! ***
 #
