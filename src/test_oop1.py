@@ -22,6 +22,15 @@ class TestOop1(unittest.TestCase):
         except NameError as e:
             print(e)
 
+    def test_ground_vehicle(self):
+        """ Does the GroundVehicle class exist? """
+        try:
+            self.test = oop1.GroundVehicle()
+            self.assertIsInstance(self.test, oop1.GroundVehicle)
+            print("\nGroundVehicle Class Exists\n")
+        except NameError as e:
+            print(e)
+
 
 if __name__ == '__main__':
     unittest.main()
