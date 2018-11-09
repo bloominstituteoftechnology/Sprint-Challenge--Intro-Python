@@ -29,12 +29,13 @@ class City:
 cities = []
 
 with open('cities.csv', 'r') as csv_file:
-	csv_reader = csv.reader(csv_file)
+  csv_reader = csv.reader(csv_file)
+  next(csv_reader)
 
-	next(csv_reader)
+  for line in csv_reader:
+    #print(line)
+    cities.append(City(line[0], line[3], line[4]))
 
-	for line in csv_reader:
-		cities.append(City(line[0], line[3], line[4]))
 
 # TODO
 
@@ -42,6 +43,32 @@ with open('cities.csv', 'r') as csv_file:
 
 for i in cities:
 	print(i)
+
+
+input_stretch = input('speficy lat and long\n').split(' ')
+
+# print(input_stretch)
+
+lat = float(input_stretch[0])
+lon = float(input_stretch[1])
+
+print(lat, lon)
+
+# print("Names and ages between 27 and 32:")
+# r = [(i.name, i.age) for i in humans if i.age >= 27 and i.age <= 32]  # TODO
+# print(r)
+
+# lat3
+# lon4
+
+with open('cities.csv', 'r') as csv_file:
+  csv_reader = csv.reader(csv_file)
+  next(csv_reader)
+  output =[(f'name: {i[0]} lat: {i[3]} lon: {i[4]}') for i in csv_reader if float(i[3]) > lat and float(i[4]) < lon]
+
+print(output)
+
+
 
 # TODO
 
