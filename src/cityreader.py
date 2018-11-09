@@ -3,6 +3,16 @@
 
 # TODO
 
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+    def __str__(self):
+        return f"{self.name} {self.latitude} {self.longitude}"
+    #def __repl__(self):
+    #    return f"{self.name} {self.latitude} {self.longitude}"
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -18,9 +28,25 @@
 
 cities = []
 
+import csv
+with open('cities.csv', newline = '') as csvfile:
+    reader = csv.DictReader(csvfile)
+
+    for row in reader:
+        # global cities
+        cities.append(City(row['city'], row['lat'], row['lng']))
+        #v print(cities)
+
+
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+for city in cities:
+    print(city)
+    pass
+# print(cities)
+
 
 # TODO
 
