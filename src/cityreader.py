@@ -1,5 +1,4 @@
 import csv
-from itertools import islice
 
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
@@ -69,3 +68,46 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# I know there is a much cleaner and more simple way of doing this. This was pretty much
+# done very roughly just to get the correct functionality done. Will refactor once I have time.
+print('###############')
+# Get the user's input
+action = input("Enter lat1,lon1: > ").replace(",", " ").strip().split()
+action2 = input("Enter lat2,lon2: > ").replace(",", " ").strip().split()
+
+# setup some lists
+lati = []
+long = []
+city_list = list()
+lat_cities = list()
+
+# check if the input is greater than or lower than and set the lower number to the beginning
+# this prevents from checking wrong cords
+if action[0] > action2[0]:
+    lati = [int(action2[0]), int(action[0])]
+else:
+    lati = [int(action[0]), int(action2[0])]
+
+if action[1] > action2[1]:
+    long = [int(action2[1]), int(action[1])]
+else:
+    long = [int(action2[1]), int(action[1])]
+
+
+# loop for each city and append that city to lat_cities list
+for city in cities:
+    d = int(city.lat.split('.')[0])
+    if d >= lati[0] and d <= lati[1]:
+        lat_cities.append(city)
+
+# Then loop and check if coords match in range and append that city to the
+# city_list
+for city in lat_cities:
+    d = int(city.lon.split('.')[0])
+    if d >= long[0] and d <= long[1]:
+        city_list.append(city)
+
+# Finally loop through and print the city name
+for city in city_list:
+    print(city.name)
