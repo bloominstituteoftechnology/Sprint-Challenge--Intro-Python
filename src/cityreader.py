@@ -3,6 +3,19 @@
 
 # TODO
 
+import csv
+
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+    def __str__(self):
+        return f"{self.name}, {self.lat}, {self.lon}"
+
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -21,8 +34,16 @@ cities = []
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+with open('cities.csv', newline="") as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=",")
+    for row in spamreader:
+        # print(row[0], row[3], row[4])
+        cities.append(City(row[0], row[3], row[4]))
 
 # TODO
+
+for item in cities:
+    print(item.name, item.lat, item.lon)
 
 # *** STRETCH GOAL! ***
 #
@@ -50,3 +71,12 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+lat = float(input("Lat ").strip())
+lon = float(input("Lon ").strip())
+with open('cities.csv', newline="") as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=",")
+    for row in spamreader:
+        # print(row[0], row[3], row[4])
+        if str(lat) == row[3] and str(lon) == row[4]:
+            print(row)
