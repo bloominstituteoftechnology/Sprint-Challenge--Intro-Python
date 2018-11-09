@@ -8,7 +8,7 @@ class GroundVehicle():
         self.num_wheels = num_wheels
 
     # TODO
-def drive(self):
+    def drive(self):
         print("vroooom")
 
 # Subclass Motorcycle from GroundVehicle.
@@ -36,3 +36,4 @@ vehicles = [
 # Go through the vehicles list and call drive() on each.
 
 # TODO
+list(map(lambda x:x.drive(),vehicles))
