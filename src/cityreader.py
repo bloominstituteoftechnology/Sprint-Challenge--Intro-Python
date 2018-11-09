@@ -4,11 +4,11 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
-        self.latitude = lat
-        self.longitude = lon
+        self.latitude = float(lat)
+        self.longitude = float(lon)
 
     def __repr__(self):
-        return self.name + ' ' + self.latitude + ' ' + self.longitude
+        return self.name + ' ' + str(self.latitude) + ' ' + str(self.longitude)
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -64,4 +64,27 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+coord1 =  str(input('Enter your first coordinates'))
+coord2 =  str(input('Now second set of coordinates'))
+
+coord1 = coord1.replace(',', ' ')  #remove any commas user may have entered
+coord2 = coord2.replace(',', ' ')
+
+coord1 = coord1.split()  #being a str with no ',', we can split into two nums
+coord2 = coord2.split()
+
+for i in range(2):
+    coord1[i] = float(coord1[i])  #coerce into float
+    coord2[i] = float(coord2[i])
+
+coord1[0] = coord1[0]%-90 if coord1[0]<0 else coord1[0]%90    #handle out-of-bounds inputs
+coord2[0] = coord2[0]%-90 if coord2[0]<0 else coord2[0]%90
+coord1[1] = coord1[1]%-180 if coord1[1]<0 else coord1[1]%180
+coord2[1] = coord2[1]%-180 if coord2[1]<0 else coord2[1]%180
+lats = [coord1[0], coord2[0]]
+longs = [coord1[1], coord2[1]]
+
+for city in cities:
+    if city.latitude > min(lats) and city.latitude < max(lats):
+        if city.longitude > min(longs) and city.longitude < max(longs):
+            print (city)
