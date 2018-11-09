@@ -19,8 +19,13 @@
 # Put a comment noting which class is the base class
 
 
-# base class
-
+# base class Vehicle
 class Vehicle:
   def __init__(self):
     pass
+
+# subclass FlightVehicle is a child of Vehicle
+class FlightVehicle(Vehicle):
+    def __init__(self):
+        Vehicle.__init__(self)
+        pass
