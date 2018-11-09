@@ -39,7 +39,11 @@ vehicles = [
     Motorcycle(),
 ]
 
+# [vehicle.drive() for vehicle in vehicles]
+
+for vehicle in vehicles:
+    vehicle.drive()
 
 # Go through the vehicles list and call drive() on each.
-[vehicle.drive() for vehicle in vehicles]
+
 # TODO
