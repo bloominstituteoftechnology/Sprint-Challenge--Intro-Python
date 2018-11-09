@@ -34,7 +34,7 @@ with open('./src/cities.csv') as csvfile:
                 cities.append(City(row['city'], row['lat'], row['lng']))
 
 for city in cities:
-        print(f'{city.name}:({city.lat}, {city.lon})')
+        print(f'{city.name}: ({city.lat}, {city.lon})')
 
 
 # *** STRETCH GOAL! ***
@@ -63,3 +63,21 @@ for city in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+coord1 = input('Enter lat1, lon1:\n').split(',')
+coord2 = input('Enter lat2, lon2:\n').split(',')
+print(min(float(coord1[0]), float(coord2[0])))
+latMin = min(float(coord1[0]), float(coord2[0]))
+latMax = max(float(coord1[0]), float(coord2[0]))
+lonMin = min(float(coord1[1]), float(coord2[1]))
+lonMax = max(float(coord1[1]), float(coord2[1]))
+
+
+
+# places = [city.name for city in cities if float(city.lat) >= lat_min and float(
+#     city.lat) <= lat_max and float(city.lon) >= lon_min and float(city.lon) <= lon_max]
+# for place in places:
+#         print(place)
+
+for city in cities:
+   if latMin <= float(city.lat) <= latMax and lonMin <= float(city.lon) <= lonMax:
+         print(f'{city.name}: ({city.lat}, {city.lon})')
