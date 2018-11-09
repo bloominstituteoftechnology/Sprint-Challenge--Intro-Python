@@ -1,4 +1,4 @@
-import math # imported for math.sqrt
+import math # imported for math.sqrt (completed MVP on this file)
 class Human:
     def __init__(self, name, age):
         self.name = name
