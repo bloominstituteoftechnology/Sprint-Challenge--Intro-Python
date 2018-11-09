@@ -63,4 +63,13 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+coord1 = input('Enter lat1,lon1:\n').split(',')
+coord2 = input('Enter lat2,lon2:\n').split(',')
+lat_min = min(float(coord1[0]), float(coord2[0]))
+lat_max = max(float(coord1[0]), float(coord2[0]))
+lon_min = min(float(coord1[1]), float(coord2[1]))
+lon_max = max(float(coord1[1]), float(coord2[1]))
+
+for city in cities:
+    if lat_min <= float(city.lat) <= lat_max and lon_min <= float(city.lon) <= lon_max:
+        print(f'{city.name}: {city.lat}, {city.lon}')
