@@ -19,3 +19,19 @@ class Vehicle:
         self.engines = engines
 
 
+class FlightVehicle(Vehicle):
+    def __init__(self, engines, on_ground):
+        Vehicle.__init__(self, engines)
+        self.on_ground = False
+
+
+class Starship(FlightVehicle):
+    def __init__(self, engines, on_ground, in_earth):
+        FlightVehicle.__init__(self, engines, on_ground)
+        self.in_earth = False
+
+
+class Airplane(FlightVehicle):
+    def __init__(self, engines, on_ground, in_earth):
+        FlightVehicle.__init__(self, engines, on_ground)
+        self.in_earth = True
