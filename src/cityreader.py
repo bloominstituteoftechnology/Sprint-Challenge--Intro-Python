@@ -35,10 +35,10 @@ cities = []
 import csv
 with open('cities.csv') as csvfile:
     csv_read = csv.reader(csvfile, delimiter=',')
+    csv_read.next() # exclude first row
     for row in csv_read:
         cities.append(City(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
 
-cities.pop(0)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
@@ -66,8 +66,8 @@ print('Please input a pair of coordinates: ')
 lat2 = int(input('- latitude: '))
 lon2 = int(input('- longitude: '))
 
-if 3 in numpy.arange(math.floor(min(lat1, lat2)), math.ceil(max(lat1, lat2))):
-    print('pass')
+# if 3 in numpy.arange(math.floor(min(lat1, lat2)), math.ceil(max(lat1, lat2))):
+#     print('pass')
 
 for city in cities:
     if int(float(city.latitude)) in numpy.arange(math.floor(min(lat1, lat2)), math.ceil(max(lat1, lat2))):
