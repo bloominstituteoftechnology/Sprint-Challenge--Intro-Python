@@ -1,5 +1,10 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
 
 # TODO
 
@@ -15,14 +20,22 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-
-cities = []
-
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+
+import csv
+cities = []
+with open('./src/cities.csv') as csvfile:
+        reader = csv.DictReader( csvfile)
+        for row in reader:
+                cities.append(City(row['city'], row['lat'], row['lng']))
+
+for city in cities:
+        print(f'{city.name}: ({city.lat}, {city.lon})')
+
 
 # *** STRETCH GOAL! ***
 #
@@ -50,3 +63,21 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+coord1 = input('Enter lat1, lon1:\n').split(',')
+coord2 = input('Enter lat2, lon2:\n').split(',')
+print(min(float(coord1[0]), float(coord2[0])))
+latMin = min(float(coord1[0]), float(coord2[0]))
+latMax = max(float(coord1[0]), float(coord2[0]))
+lonMin = min(float(coord1[1]), float(coord2[1]))
+lonMax = max(float(coord1[1]), float(coord2[1]))
+
+
+
+# places = [city.name for city in cities if float(city.lat) >= lat_min and float(
+#     city.lat) <= lat_max and float(city.lon) >= lon_min and float(city.lon) <= lon_max]
+# for place in places:
+#         print(place)
+
+for city in cities:
+   if latMin <= float(city.lat) <= latMax and lonMin <= float(city.lon) <= lonMax:
+         print(f'{city.name}: ({city.lat}, {city.lon})')
