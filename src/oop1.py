@@ -64,3 +64,10 @@ class Car(GroundVehicle):
     def __init__(self):
         GroundVehicle.__init__(self)
         pass
+
+
+# subclass Motorcycle is a child of GroundVehicle
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        GroundVehicle.__init__(self)
+        pass
