@@ -1,7 +1,15 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-# TODO
+class City:
+	def __init__(self, name, latitude, longitude):
+		self.name = name
+		self.latitude = latitude
+		self.longitude = longitude
+
+	def __str__(self):
+		return f'{self.name}: ({self.latitude},{self.longitude})'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,11 +26,18 @@
 
 cities = []
 
-# TODO
+filename = 'cities.csv'
+
+with open(filename, 'r') as csvfile:
+	csvreader = csv.DictReader(csvfile)
+
+	for row in csvreader:
+		cities.append(City(row['city'], row['lat'], row['lng']))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+for city in cities:
+	print(city)
 
 # *** STRETCH GOAL! ***
 #
@@ -49,4 +64,16 @@ cities = []
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+print('\n*** STRETCH GOAL! ***')
+
+def get_cities_in_region(tuple1, tuple2):
+	latMin = min(tuple1[0], tuple2[0])
+	latMax = max(tuple1[0], tuple2[0])
+	lonMin = min(tuple1[1], tuple2[1])
+	lonMax = max(tuple1[1], tuple2[1])
+
+	for city in cities:
+		if latMin <= float(city.latitude) <= latMax and lonMin <= float(city.longitude) <= lonMax:
+			print(city)
+
+get_cities_in_region((45, -100), (32, -120))
