@@ -31,6 +31,15 @@ class TestOop1(unittest.TestCase):
         except NameError as e:
             print(e)
 
+    def test_starship(self):
+        """ Does the Starship class exist? """
+        try:
+            self.test = oop1.Starship()
+            self.assertIsInstance(self.test, oop1.Starship)
+            print("\nStarship Class Exists\n")
+        except NameError as e:
+            print(e)
+
 
 if __name__ == '__main__':
     unittest.main()
