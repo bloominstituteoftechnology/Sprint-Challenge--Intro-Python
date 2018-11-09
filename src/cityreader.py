@@ -35,9 +35,13 @@ cities = []
 with open('cities.csv', newline="") as csvfile:
     spamreader = csv.reader(csvfile, delimiter=",")
     for row in spamreader:
-        print(row[0], row[3], row[4])
+        # print(row[0], row[3], row[4])
+        cities.append(City(row[0], row[3], row[4]))
 
 # TODO
+
+for item in cities:
+    print(item.name, item.lat, item.lon)
 
 # *** STRETCH GOAL! ***
 #
