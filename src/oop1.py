@@ -17,3 +17,21 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+
+# base class -- vehicle
+
+class Vehicle:
+    pass
+
+# second-tier classes -- flightvehicle/groundvehicle
+
+
+class FlightVehicle(Vehicle):
+    pass
+
+
+class GroundVehicle(Vehicle):
+    pass
+
+# third-tier classes
