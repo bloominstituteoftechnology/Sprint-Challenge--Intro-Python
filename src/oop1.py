@@ -49,11 +49,11 @@ class Car(GroundVehicle):
     def __init__(self, engines, on_ground, in_earth, number_wheels):
         GroundVehicle.__init__(self, engines, on_ground)
         self.in_earth = True
-        self.wheels = 4
+        self.num_wheels = 4
 
 
 class Motorcycle(GroundVehicle):
     def __init__(self, engines, on_ground, in_earth):
         GroundVehicle.__init__(self, engines, on_ground)
         self.in_earth = True
-        self.wheels = 2
+        self.num_wheels = 2
