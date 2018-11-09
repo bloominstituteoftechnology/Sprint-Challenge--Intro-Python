@@ -25,6 +25,9 @@ class Vehicle:
         pass
 
 
+# flying types
+
+
 # subclass FlightVehicle is a child of Vehicle
 class FlightVehicle(Vehicle):
     def __init__(self):
@@ -43,4 +46,11 @@ class Starship(FlightVehicle):
 class Airplane(FlightVehicle):
     def __init__(self):
         FlightVehicle.__init__(self)
+        pass
+
+
+# ground types
+class GroundVehicle(Vehicle):
+    def __init__(self):
+        Vehicle.__init__(self)
         pass
