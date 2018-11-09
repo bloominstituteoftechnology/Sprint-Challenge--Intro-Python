@@ -1,3 +1,5 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
@@ -36,7 +38,9 @@ with open('cities.csv') as csvfile:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-# TODO
+# for in loop printing cities (name, lat, lon), 1 record per line
+for city in cities:
+    print("{}, {}, {}".format(city.name, city.lat, city.lon))
 
 # *** STRETCH GOAL! ***
 #
