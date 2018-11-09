@@ -1,7 +1,13 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 # TODO
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -18,9 +24,17 @@
 
 cities = []
 
+with open('cities.csv') as csvfile:
+    readCSV = csv.reader(csvfile)
+    for row in readCSV:
+        cities.append(City(row[0], row[3], row[4]))
+
+
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for i in cities:
+    print(f'{i.name}: ({i.latitude}, {i.longitude})')
 
 # TODO
 
@@ -50,3 +64,18 @@ cities = []
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO
+
+# userInput1 = input('Enter lat1 lon1 for the first point: ').split()
+# userInput2 = input('Enter lat2 lon2 for the second point: ').split()
+# print(int(userInput1[0]), int(userInput1[2]))
+# point1 = list(map[int, userInput1])
+# print(point1)
+
+# lat1, lon1 = [float(i) for i in input('Enter lat1 lon1 for the first point without comma: ').split(' ')]
+# lat2, lon2 = [float(i) for i in input('Enter lat2 lon2 for the second point: ').split(' ')]
+# if(int(userInput1[0]) > int(userInput2[0])):
+# print(lat1, lng1)
+
+# for city in cities:
+#     if(city.latitude in range(lat1, lat2) and city.longitude in range(lon1, lon2)):
+#         print(city)
