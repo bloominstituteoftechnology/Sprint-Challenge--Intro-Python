@@ -50,7 +50,17 @@ class Airplane(FlightVehicle):
 
 
 # ground types
+
+
+# subclass GroundVehicle is a child of Vehicle
 class GroundVehicle(Vehicle):
     def __init__(self):
         Vehicle.__init__(self)
+        pass
+
+
+# subclass Car is a child of GroundVehicle
+class Car(GroundVehicle):
+    def __init__(self):
+        GroundVehicle.__init__(self)
         pass
