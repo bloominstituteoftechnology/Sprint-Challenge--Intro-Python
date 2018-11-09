@@ -70,7 +70,8 @@ for city in cities:
 # create a list of the first coordinate set using the list constructor and mapping over the input casting the input to float
 latlon1 = list(map(float, input("Enter lat1,lon1: ").strip().split(",")))
 
-# TODO: create a list of the first coordinate set using the list constructor and mapping over the input casting the input to float
+# create a list of the second coordinate set using the list constructor and mapping over the input casting the input to float
+latlon2 = list(map(float, input("Enter lat2,lon2: ").strip().split(",")))
 
 # TODO: use sorted() for normalization
 
