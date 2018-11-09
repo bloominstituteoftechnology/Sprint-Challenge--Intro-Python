@@ -1,3 +1,4 @@
+import unittest
 # found this playlist useful for this and python in general: https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7
 # and this videos in particular was good: https://www.youtube.com/watch?v=q5uM4VKywbA
 import csv  # this is to read in the csv file
