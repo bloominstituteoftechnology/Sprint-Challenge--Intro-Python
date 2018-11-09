@@ -15,8 +15,18 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-
+import csv 
 cities = []
+line=0
+with open('cities.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+         if line == 0:
+                line += 1
+                cities.append(row)
+         else:
+             print(row[0],row[1],row[2],row[3],row[4])
+print(cities)
 
 # TODO
 
