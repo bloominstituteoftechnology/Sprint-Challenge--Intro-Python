@@ -32,10 +32,10 @@ cities = []
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-# with open('cities.csv', newline="") as csvfile:
-#     spamreader = csv.reader(csvfile, delimiter=",")
-#     for row in spamreader:
-#         print(row[0], row[3], row[4])
+with open('cities.csv', newline="") as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=",")
+    for row in spamreader:
+        print(row[0], row[3], row[4])
 
 # TODO
 
