@@ -1,11 +1,45 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+import csv
 
 # TODO
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+# with open('cities.csv') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     for row in csv_reader:
+#         if line_count == 0:
+#             print(f'Column names: {", ".join(row)}')
+#             line_count += 1
+#         else:
+#             print(f'\t{row[0]},{row[3]},{row[4]}')
+#             line_count += 1
+#     print(f'Processed {line_count} lines.')
+
+cities = []
+
+with open('cities.csv')  as csv_file:
+    csv_reader = csv.reader(csv_file)
+    header = next(csv_reader)
+
+    for row in csv_reader:
+        name = str(row[2])
+        latitude = str(row[4])
+        longitude = str(row[3])
+        cities.append(City(name, latitude, longitude))
+        
+for city in cities:
+    print(city.name, city.lat, city.lon)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
+
 # Use Python's built-in "csv" module to read this file so that each record is
 # imported into a City instance. (You're free to add more attributes to the City
 # class if you wish, but this is not necessary.) Google "python 3 csv" for
@@ -16,7 +50,6 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-cities = []
 
 # TODO
 
