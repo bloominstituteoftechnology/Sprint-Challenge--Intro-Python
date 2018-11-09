@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="466d801b-b521-44c9-86e9-58520aa73732" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/brianruff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/brianruff.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cityreader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cityreader.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,12 +34,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1276" />
+          <entry key="py" value="1614" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1276" />
+          <entry key="Python" value="1614" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -97,10 +96,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cityreader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+            <state relative-caret-position="401">
+              <caret line="34" selection-start-line="34" selection-start-column="2" selection-end-line="37" selection-end-column="39" />
               <folding>
-                <marker date="1541781457305" expanded="true" signature="156:347" ph="..." />
+                <marker date="1541782214744" expanded="true" signature="156:347" ph="..." />
               </folding>
             </state>
           </provider>
@@ -331,10 +330,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cityreader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+        <state relative-caret-position="401">
+          <caret line="34" selection-start-line="34" selection-start-column="2" selection-end-line="37" selection-end-column="39" />
           <folding>
-            <marker date="1541781457305" expanded="true" signature="156:347" ph="..." />
+            <marker date="1541782214744" expanded="true" signature="156:347" ph="..." />
           </folding>
         </state>
       </provider>
