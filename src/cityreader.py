@@ -25,7 +25,14 @@ class City:
 
 cities = []
 
-# TODO
+# opening the ciyies.csv file and reading in the data to a list
+# found this useful when thinking about this: https://www.youtube.com/watch?v=q5uM4VKywbA
+
+with open('cities.csv') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    next(reader)
+    for row in reader:
+        cities.append(City(row[0], row[3], row[4]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
