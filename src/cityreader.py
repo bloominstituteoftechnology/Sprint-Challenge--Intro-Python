@@ -3,22 +3,20 @@ import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
-class City:
+class City(cities):
     """City base class."""
     def__init__(self, name, latitude, longitude):
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
 
-    cities = [i for i in range(1, 750000).split(',')]
+    cities = [cities for i in range(750,000).split(',')]
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 
-    y = [i.upper() for i in cities]
-
-    print(y)
+    print(f'Name: {self.name}\n Latitude: {self.latitude}\n Longitude: {self.longitude}')
 
 # TODO
 
