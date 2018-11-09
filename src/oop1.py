@@ -19,6 +19,7 @@ class Vehicle:
         self.engines = engines
 
 
+# FlIGHT VEHICLES
 class FlightVehicle(Vehicle):
     def __init__(self, engines, on_ground):
         Vehicle.__init__(self, engines)
@@ -35,3 +36,24 @@ class Airplane(FlightVehicle):
     def __init__(self, engines, on_ground, in_earth):
         FlightVehicle.__init__(self, engines, on_ground)
         self.in_earth = True
+
+
+# GROUND VEHICLES
+class GroundVehicle(Vehicle):
+    def __init__(self, engines, on_ground):
+        Vehicle.__init__(self, engines)
+        self.on_ground = True
+
+
+class Car(GroundVehicle):
+    def __init__(self, engines, on_ground, in_earth, number_wheels):
+        GroundVehicle.__init__(self, engines, on_ground)
+        self.in_earth = True
+        self.wheels = 4
+
+
+class Motorcycle(GroundVehicle):
+    def __init__(self, engines, on_ground, in_earth):
+        GroundVehicle.__init__(self, engines, on_ground)
+        self.in_earth = True
+        self.wheels = 2
