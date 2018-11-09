@@ -28,7 +28,7 @@ with open('cities.csv') as csv_file:
     next(csv_reader, None)
     for row in csv_reader:
 
-        cities.append((row[0], row[3], row[4]))
+        cities.append(City(row[0], row[3], row[4]))
         
 
  
@@ -36,11 +36,11 @@ with open('cities.csv') as csv_file:
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for city in cities:
-    print(city)
+    print(city.name, city.longitude, city.latitude)
 # TODO
 
 lat1 = input('write your first longitude:    ')
-lon1 = input('write your first latittude:    ')
+lon1 = input('write your first latitude:    ')
 lat2 = input('write your second longitude:    ')
 lon2 = input('write your second latitude:    ')
 print(f'You have chosen to compare \'{lat1}\' \'{lon1}\' to \'{lat2}\' \'{lon2}\'')
@@ -61,8 +61,8 @@ else:
 
 
 for city in cities:
-    if city[1]>lat_min and city[1] < lat_max and city[2]>lon_min and city[2]<lon_max:
-        print(city)    
+    if city.latitude>lat_min and city.latitude < lat_max and city.longitude>lon_min and city.longitude<lon_max:
+        print(city.name +': ('+city.latitude+','+city.longitude+')')    
 
 # *** STRETCH GOAL! ***
 #
