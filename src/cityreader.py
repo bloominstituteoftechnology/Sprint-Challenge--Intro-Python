@@ -82,3 +82,5 @@ lons = sorted([latlon1[1], latlon2[1]])
 # set the data using a list comprehension outputting the result to the console
 [print("{}: ({},{})\n".format(c.name, c.lat, c.lon)) for c in cities if lats[0] <= float(
     c.lat) <= lats[1] and lons[0] <= float(c.lon) <= lons[1]]
+
+### STRETCH COMPLETE ###
