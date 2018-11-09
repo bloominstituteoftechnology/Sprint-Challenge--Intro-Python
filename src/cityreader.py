@@ -1,7 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
+import csv
+import os
+
 # TODO
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,14 +24,22 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+#print(os.listdir())
 cities = []
+cfile = open('src/cities.csv', "r", newline = "")
+with cfile:
+    reader = csv.reader(cfile)
+    for city in reader:
+        cities.append(city)
+        
+cities.pop(0) 
+citydata = [City(city[0], city[3], city[4]) for city in cities]
 
-# TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-
-# TODO
-
+for city in citydata:
+    print(city.name, city.lat, city.lon)
+##########################################################################################
 # *** STRETCH GOAL! ***
 #
 # Allow the user to input two points, each specified by latitude and longitude.
