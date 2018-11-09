@@ -1,5 +1,11 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City():
+   def __init__(self,name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
 
 # TODO
 
@@ -25,8 +31,13 @@ with open('cities.csv') as csv_file:
                 line += 1
                 cities.append(row)
          else:
-             print(row[0],row[1],row[2],row[3],row[4])
-print(cities)
+             city_info = City(row[0],row[3],row[4])
+             city_info.name,
+             try:
+                  cities.append(f'{city_info.name} is at a longitude: {city_info.longitude} and a latitutude: {city_info.latitude}.')
+             except:
+                print("err")
+    print(cities)
 
 # TODO
 
