@@ -23,14 +23,14 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [person.name for person in humans if person.name[0]=='D']
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 
 print("Ends with e:")
-r = []  # TODO
+r = [person.name for person in humans if person.name[-1]=='e']  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
