@@ -1,4 +1,4 @@
-import csv
+import csv  # this is to read in the csv file
 
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
