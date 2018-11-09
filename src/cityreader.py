@@ -73,6 +73,8 @@ latlon1 = list(map(float, input("Enter lat1,lon1: ").strip().split(",")))
 # create a list of the second coordinate set using the list constructor and mapping over the input casting the input to float
 latlon2 = list(map(float, input("Enter lat2,lon2: ").strip().split(",")))
 
-# TODO: use sorted() for normalization
+# use sorted() for normalization normalize the lats and the lons
+lats = sorted([latlon1[0], latlon2[0]])
+lons = sorted([latlon1[1], latlon2[1]])
 
 # TODO: set the data using a list comprehension outputting the result to the console
