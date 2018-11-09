@@ -31,30 +31,30 @@ class Vehicle: #Base Class
 
 class FlightVehicle(Vehicle):
     def __init__(self):
-        Vehicle__init__(self)
+        Vehicle.__init__(self)
     pass
 
 class Starship(FlightVehicle):
     def __init__(self):
-        FlightVehicle__init__(self)
+        FlightVehicle.__init__(self)
     pass
 
 class Airplane(FlightVehicle):
     def __init__(self):
-        FlightVehicle__init__(self)
+        FlightVehicle.__init__(self)
     pass
 
 class GroundVehicle(Vehicle):
     def __init__(self):
-        Vehicle__init__(self)
+        Vehicle.__init__(self)
     pass
 
 class Car(GroundVehicle):
     def __init__(self):
-        GroundVehicle__init__(self)
+        GroundVehicle.__init__(self)
     pass
 
 class Motocycle(GroundVehicle):
     def __init__(self):
-        GroundVehicle__init__(self)
+        GroundVehicle.__init__(self)
     pass
