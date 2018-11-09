@@ -5,4 +5,4 @@
   * `oop1.py`: class hierarchies
   * `oop2.py`: subclassing and method overriding
   * `comp.py`: list comprehensions
-  * `cityreader.py`: modules and CSV file reading
+  * `cityreader.py`: modules and CSV file reading 
