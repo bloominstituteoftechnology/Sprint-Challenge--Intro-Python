@@ -67,4 +67,5 @@ for city in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO
+# create a list of the first coordinate set using the list constructor and mapping over the input casting the input to float
+latlon1 = list(map(float, input("Enter lat1,lon1: ").strip().split(",")))
