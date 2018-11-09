@@ -6,8 +6,8 @@ import csv
 class City:
     def __init__(self, name, latitude, longitude):
         self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -64,14 +64,17 @@ for i in cities:
 
 # TODO
 
-userInput1 = input('Enter lat1 lon1 for the first point: ').split()
+# userInput1 = input('Enter lat1 lon1 for the first point: ').split()
 # userInput2 = input('Enter lat2 lon2 for the second point: ').split()
-print(int(userInput1[0]), int(userInput1[2]))
-firstPoints
+# print(int(userInput1[0]), int(userInput1[2]))
+# point1 = list(map[int, userInput1])
+# print(point1)
 
+# lat1, lon1 = [float(i) for i in input('Enter lat1 lon1 for the first point without comma: ').split(' ')]
+# lat2, lon2 = [float(i) for i in input('Enter lat2 lon2 for the second point: ').split(' ')]
 # if(int(userInput1[0]) > int(userInput2[0])):
-
+# print(lat1, lng1)
 
 # for city in cities:
-#     if(city.latitude in range(int(userInput1[0]), int(userInput2[0])) and city.longitude in range(int(userInput1[1]), int(userInput2[1]))):
+#     if(city.latitude in range(lat1, lat2) and city.longitude in range(lon1, lon2)):
 #         print(city)
