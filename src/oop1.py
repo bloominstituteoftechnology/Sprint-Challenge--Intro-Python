@@ -29,3 +29,9 @@ class FlightVehicle(Vehicle):
     def __init__(self):
         Vehicle.__init__(self)
         pass
+
+# subclass Starship is a child of FlightVehicle
+class Starship(FlightVehicle):
+    def __init__(self):
+        FlightVehicle.__init__(self)
+        pass
