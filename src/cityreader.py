@@ -52,21 +52,14 @@ input_stretch = input('speficy lat and long\n').split(' ')
 lat = float(input_stretch[0])
 lon = float(input_stretch[1])
 
-print(lat, lon)
-
-# print("Names and ages between 27 and 32:")
-# r = [(i.name, i.age) for i in humans if i.age >= 27 and i.age <= 32]  # TODO
-# print(r)
-
-# lat3
-# lon4
 
 with open('cities.csv', 'r') as csv_file:
   csv_reader = csv.reader(csv_file)
   next(csv_reader)
   output =[(f'name: {i[0]} lat: {i[3]} lon: {i[4]}') for i in csv_reader if float(i[3]) > lat and float(i[4]) < lon]
 
-print(output)
+for i in output:
+  print(i)
 
 
 
