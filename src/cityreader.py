@@ -26,10 +26,19 @@ class City:
 cities = []
 
 # TODO
-
+# --> Read file
+# --> Import into a city instance
+with open("cities.csv") as csvfile:
+  read_csv = csv.reader(csvfile)
+  for row in read_csv:
+    cities.append( City(row[0], row[3], row[4]) )
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+with open("cities.csv") as csvfile:
+  read_csv = csv.reader(csvfile)
+  for row in read_csv:
+    print(row[0], row[3], row[4])
 
 # *** STRETCH GOAL! ***
 #
