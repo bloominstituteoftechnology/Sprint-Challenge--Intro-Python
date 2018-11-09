@@ -9,7 +9,7 @@ class TestOop1(unittest.TestCase):
         try:
             self.test = oop1.Vehicle()
             self.assertIsInstance(self.test, oop1.Vehicle)
-            print("\nVehicle Class Exists\n")
+            print("\nPASS : Vehicle Class Exists\n")
         except NameError as e:
             print(e)
 
@@ -18,7 +18,7 @@ class TestOop1(unittest.TestCase):
         try:
             self.test = oop1.FlightVehicle()
             self.assertIsInstance(self.test, oop1.FlightVehicle)
-            print("\nFlightVehicle Class Exists\n")
+            print("\nPASS : FlightVehicle Class Exists\n")
         except NameError as e:
             print(e)
 
@@ -27,7 +27,7 @@ class TestOop1(unittest.TestCase):
         try:
             self.test = oop1.GroundVehicle()
             self.assertIsInstance(self.test, oop1.GroundVehicle)
-            print("\nGroundVehicle Class Exists\n")
+            print("\nPASS : GroundVehicle Class Exists\n")
         except NameError as e:
             print(e)
 
@@ -36,7 +36,16 @@ class TestOop1(unittest.TestCase):
         try:
             self.test = oop1.Starship()
             self.assertIsInstance(self.test, oop1.Starship)
-            print("\nStarship Class Exists\n")
+            print("\nPASS : Starship Class Exists\n")
+        except NameError as e:
+            print(e)
+
+    def test_airplane(self):
+        """ Does the Airplane class exist? """
+        try:
+            self.test = oop1.Airplane()
+            self.assertIsInstance(self.test, oop1.Airplane)
+            print("\nPASS : Airplane Class Exists\n")
         except NameError as e:
             print(e)
 
