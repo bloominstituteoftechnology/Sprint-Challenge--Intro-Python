@@ -22,6 +22,8 @@ The `cityreader` stretch goal has its own test file, `test_stretch.py`, if you w
 The grading rubric for this Sprint Challenge is as follows:
 
 3: All tests passing along with the stretch goal tests passing as well.
+
 2: All tests passing for non-stretch problems.
+
 1: Anything else.
 
