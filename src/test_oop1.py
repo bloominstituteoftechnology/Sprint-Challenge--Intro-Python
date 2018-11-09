@@ -58,6 +58,15 @@ class TestOop1(unittest.TestCase):
         except NameError as e:
             print(e)
 
+    def test_motorcycle(self):
+        """ Does the Motorcycle class exist? """
+        try:
+            self.test = oop1.Motorcycle()
+            self.assertIsInstance(self.test, oop1.Motorcycle)
+            print("\nPASS : Motorcycle Class Exists\n")
+        except NameError as e:
+            print(e)
+
 
 if __name__ == '__main__':
     unittest.main()
