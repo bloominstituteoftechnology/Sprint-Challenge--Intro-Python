@@ -24,21 +24,27 @@ class City:
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
-# citie_csv = csv.reader(open('cities.csv'))
+# cities_file = open('cities.csv')
+# cities_reader = csv.reader(cities_file)
 
-cities_file = open('cities.csv')
-cities_reader = csv.reader(cities_file)
+cities = []
+
+with open('cities.csv') as csvfile:
+    readCSV = csv.reader(csvfile)
+    for row in readCSV:
+        cities.append(City(row[0], row[3], row[4]))
 
 # TODO
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-cities_list = [
-    '%(name)s, %(lat)s, %(lon)s' 
-    % { "name": row[0], "lat": row[3], "lon": row[4]} 
-    for row in cities_reader
-]
 
-print(cities_list)
+# cities_list = [
+#     '%(name)s, %(lat)s, %(lon)s' 
+#     % { "name": row[0], "lat": row[3], "lon": row[4]}
+#     for row in cities_reader
+# ]
+for city in cities:
+    print(f'{city.name}: ({city.latitude}, {city.longitude})')
 
 # TODO
 
