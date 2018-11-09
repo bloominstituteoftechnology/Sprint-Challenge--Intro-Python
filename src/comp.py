@@ -23,7 +23,7 @@ humans = [
 # whose name starts with 'D':
 
 print("Starts with D:")
-r = []  # TODO
+r = [name for name in humans[1:'D']]
 print(r)
 
 # Write a list comprehension that creates a list of names of everyone
