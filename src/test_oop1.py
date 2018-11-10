@@ -63,7 +63,7 @@ class TestOop1(unittest.TestCase):
         try:
             self.test = oop1.Motorcycle()
             self.assertIsInstance(self.test, oop1.Motorcycle)
-            print("\nPASS : Motorcycle Class Exists\n")
+            print("\nPASS : Class Exists\n")
         except NameError as e:
             print(e)
 
