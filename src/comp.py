@@ -66,6 +66,8 @@ r = [Human(h.name.upper(), h.age + 5) for h in humans]  # TODO
 print(r)
 
 # Write a list comprehension that contains the square root of all the ages.
+import math
+
 print("Square root of ages:")
 r = [math.sqrt(h.age) for h in humans]  # TODO
 print(r)
