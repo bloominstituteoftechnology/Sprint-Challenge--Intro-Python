@@ -2,7 +2,7 @@
 # fields for name, latitude, and longitude.
 
 # TODO
- class City:
+class City:
     def __init__(self, name, lat, lon):
         self.name = name
         self.lat = lat
@@ -35,6 +35,11 @@ cities.pop(0)
 # Print the list of cities (name, lat, lon), 1 record per line.
 
 # TODO
+
+filtered = [City(c[0], c[3], c[4]) for c in cities]
+
+for c in filtered:
+    print(c.name, c.lat, c.lon)
 
 # *** STRETCH GOAL! ***
 #

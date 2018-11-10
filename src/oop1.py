@@ -22,9 +22,24 @@ class Vehicle:
     # base class
     pass
 
-    class GroundVehicle(Vehicle):
+class GroundVehicle(Vehicle):
     pass
 
 
 class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
+
+
+class FlightVehicle(Vehicle):
+    pass
+
+
+class Airplane(FlightVehicle):
+    pass
+
+
+class Starship(FlightVehicle):
     pass
