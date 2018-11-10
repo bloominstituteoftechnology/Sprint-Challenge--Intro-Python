@@ -25,9 +25,10 @@ class City:
 
 cities = []
 with open('cities.csv', newline='') as csvfile:
-    cityreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    cityreader = csv.reader(csvfile, delimiter=',')
+    next(cityreader)
     for row in cityreader:
-        cities.append(City(row['city'], row['lat'], row['lng']))
+        cities.append(City(row[0], row[3], row[4]))
 
 # TODO
 
@@ -35,7 +36,7 @@ with open('cities.csv', newline='') as csvfile:
 
 # TODO
 for city in cities:
-    print(f'{city.name}, {city.latitude}, {city.longitude}')
+    print('{}, {}, {}'.format(city.name, city.lat, city.lon))
 
 # *** STRETCH GOAL! ***
 #
