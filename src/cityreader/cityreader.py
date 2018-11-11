@@ -71,41 +71,54 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get lat and lon values from the user
-lat_A = int(input("Enter lat for first set"))
-lon_A = int(input("Enter lon for first set"))
-lat_B = int(input("Enter lat for second set"))
-lon_B = int(input("Enter lon for second set"))
+# # TODO Get lat and lon values from the user
+# lat_A = int(input("Enter lat for first set"))
+# lon_A = int(input("Enter lon for first set"))
+# lat_B = int(input("Enter lat for second set"))
+# lon_B = int(input("Enter lon for second set"))
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
+  lat_min = min(float(lat1),float(lat2))
+  lat_max = max(float(lat1),float(lat2))
+  lon_min = min(float(lon1),float(lon2))
+  lon_max = max(float(lon1),float(lon2))
 
   for city in cities:
-    if lat1 > lat2:
-      if lon1 > lon2:
-        if lat2 <= float(city.lat) <= lat1 and lon2 <= float(city.lon) <= lon1:
-          print('somethings workin', city)
-          within.append(city)
-      else: #lon2 > lon1
-        if lat2 <= float(city.lat) <= lat1 and lon1 <= float(city.lon) <= lon2:
-          print('somethings workin', city)
-          within.append(city)
-    else:
-      if lon1 > lon2:
-        if lat2 <= float(city.lat) <= lat1 and lon2 <= float(city.lon) <= lon1:
-          print('somethings workin', city)
-          within.append(city)
-      else: #lon2 > lon1
-        if lat2 <= float(city.lat) <= lat1 and lon1 <= float(city.lon) <= lon2:
-          print('somethings workin', city)
-          within.append(city)
+    if lat_min <= float(city.lat) <= lat_max and lon_min <= float(city.lon) <= lon_max:
+      print(f"{city.name} {city.lat} {city.lon}")
+      within.append(city)
+ 
+  return within
+
+
+  # for city in cities:
+  #   if lat1 > lat2:
+  #     if lon1 > lon2:
+  #       if lat2 <= float(city.lat) <= lat1 and lon2 <= float(city.lon) <= lon1:
+  #         print('somethings workin', city)
+  #         within.append(city)
+  #     else: #lon2 > lon1
+  #       if lat2 <= float(city.lat) <= lat1 and lon1 <= float(city.lon) <= lon2:
+  #         print('somethings workin', city)
+  #         within.append(city)
+  #   else:
+  #     if lon1 > lon2:
+  #       if lat2 <= float(city.lat) <= lat1 and lon2 <= float(city.lon) <= lon1:
+  #         print('somethings workin', city)
+  #         within.append(city)
+  #     else: #lon2 > lon1
+  #       if lat2 <= float(city.lat) <= lat1 and lon1 <= float(city.lon) <= lon2:
+  #         print('somethings workin', city)
+  #         within.append(city)
 
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
-  return within
+first = input("Enter first group").split(",")
+second = input("Enter second group").split(",")
 
-cityreader_stretch(lat_A, lon_A, lat_B, lon_B, cities)
+cityreader_stretch(first[0], first[1], second[0], second[1], cities)
