@@ -39,7 +39,7 @@ print(r)
 
 print("Starts between C and G, inclusive:")
 
-r = [i.name.lower() for i in humans if i.name in i.name.lower()]  # TODO
+r = [i.name for i in humans if i.name[0] >= "C" and i.name[0]<= "G"]  # TODO
 print(r)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
