@@ -1,22 +1,25 @@
+from os import path
 import csv
-
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
 class City:
-    """City base class."""
-    def__init__(self, name, latitude, longitude):
-        self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
+    def __init__(self, city, lat, lng):
+        self.city = city
+        self.lat = lat
+        self.lng = lng
 
     def __repr__(self):
-        return "<City: %s, %f, %f>" % (self.name, self.latitude, self.longitude)
+        return "<City: %s, %f, %f>" % (self.city, self.lat, self.lng)
 
-    cities = [cities for i in range(750,000).split(',')]
-    print(f'Name: {self.name}\n Latitude: {self.latitude}\n Longitude: {self.longitude}')
+def csv_list():
+    csvpath = path.join(path.dirname(__file__), "cities.csv")
+    with open(csvpath, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            print(row['city'], row['lat'], row['lng'])
 
-# TODO
+csv_list()
 
 # *** STRETCH GOAL! ***
 #
