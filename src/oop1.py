@@ -20,9 +20,9 @@
 
 
 class Vehicle:
-    def __init__: (self, name, description)
-    self.name = name
-    self.description = description
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
 
 # base class for FlightVehicle and Starship
 
@@ -42,7 +42,7 @@ class GroundVehicle(Vehicle):
 # base of Car and Motorcycle
 
 
-class Car(Ground Vehicle):
+class Car(GroundVehicle):
     pass
 # takes in from GroundVehicle
 

@@ -4,7 +4,7 @@ import csv
 
 
 class City():
-    def__init__(self, name, lat, lon):
+    def __init__(self, name, lat, lon):
         self.name = name
         self.lat = lat
         self.lon = lon
@@ -26,7 +26,7 @@ class City():
 cities = []
 
 with open("cities.csv", newline='') as csvfile:
-    cityreader = csv.reader(csvfile, delimiter=',')
+    cityreader = csv.cityreader(csvfile, delimiter=',')
     for i, row in enumerate(reader):
         if i is not 0:
             cities.append(City("{0},{1}".format(row[0], row[1], row[4], row[5]))
