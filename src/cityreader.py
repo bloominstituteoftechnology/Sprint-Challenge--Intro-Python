@@ -25,17 +25,17 @@ class City():
 
 cities = []
 
-with open("cities.csv", newline='') as csvfile:
-    cityreader = csv.cityreader(csvfile, delimiter=',')
-    for i, row in enumerate(reader):
-        if i is not 0:
-            cities.append(City("{0},{1}".format(row[0], row[1], row[4], row[5]))
+with open('cities.csv') as city_csv:
+    csv_line = csv.reader(city_csv, delimiter=',')
+    for row in csv_line:
+        cities.append(City(row[0], row[3], row[4]))
 
 
 for city in cities:
-    for prop, value in vars(city).items():
-        print('{0:<5}: 1:<15}'.format(prop, str(value)))
-    print('\n')
+        print(city.name)
+        print(city.lat)
+        print(city.lon)
+        print()
 
 # TODO
 
@@ -84,8 +84,8 @@ if lat1 < lat2:
 c = [city for city in cities if (lat1 > float(city.latitude) > lat2)
     and (lon1 > float(city.longitude) > lon2)]
 
-  print('')
+print('')
 
-  for city in c:
-      city = '{}: ({}, {})'.format(city.name, city.latitude, city.longitude)
-      print(city)
+for city in c:
+        city = '{}: ({}, {})'.format(city.name, city.latitude, city.longitude)
+        print(city)
