@@ -26,11 +26,8 @@ cities = []
 
 with open('cities.csv') as csvfile:
     reader = csv.reader(csvfile)
-    firstline = True
+    next(reader)
     for row in reader:
-        if firstline:
-            firstline = False
-            continue
         cities.append(City(row[0],row[3],row[4]))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
