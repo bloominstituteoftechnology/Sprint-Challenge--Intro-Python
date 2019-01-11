@@ -16,13 +16,13 @@ import csv
 # should not be loaded into a City object.
 
 class City:
-  def __init__(self, name, latitude, longitude):
+  def __init__(self, name, lat, lon):
     self.name = name
-    self.latitude = latitude
-    self.longitude = longitude
+    self.lat = lat
+    self.lon = lon
 
   def __str__(self):
-    return f'{self.name} lat - {self.latitude} lon - {self.longitude}'
+    return f'{self.name} lat - {self.lat} lon - {self.lon}'
 
 cities = []
 
@@ -34,9 +34,9 @@ def cityreader(cities=[]):
     spamreader = csv.reader(csvfile, delimiter=',')
     next(spamreader, None)
     for row in spamreader:
-      cities.append(City(row[0], row[3], row[4]))
+      cities.append(City(row[0], float(row[3]), float(row[4])))
     
-    # return cities
+    return cities
 
 cityreader(cities)
 
