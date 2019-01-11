@@ -25,14 +25,29 @@ class Vehicle(object):
 
 class GroundVehicle(Vehicle):
     pass
-# base class Vehicle
+# baseclass Vehicle
 
 
 class Car(GroundVehicle):
     pass
-# base class GroundVehicle
+# baseclass GroundVehicle
 
 
 class Motorcycle(GroundVehicle):
     pass
-# base clasee GroundVehicle
+# baseclass GroundVehicle
+
+
+class FlightVehicle(Vehicle):
+    pass
+# baseclass Vehicle
+
+
+class Airplane(FlightVehicle):
+    pass
+# baseclass FlightVehicle
+
+
+class StarShip(FlightVehicle):
+    pass
+# baseclass FlightVehicle
