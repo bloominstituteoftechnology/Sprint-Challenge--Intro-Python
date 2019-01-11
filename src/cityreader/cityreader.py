@@ -2,13 +2,13 @@
 # fields for name, latitude, and longitude.
 
 class City:
-  def __init__(self, name, latitude, longitude):
+  def __init__(self, name, lat, lon):
     self.name = name
-    self.latitude = latitude
-    self.longitude = longitude
+    self.lat = lat
+    self.lon = lon
 
   def __repr__(self):
-    return f"City: {self.name}, {self.latitude}, {self.longitude}"
+    return f"City: {self.name}, {self.lat}, {self.lon}"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -47,9 +47,9 @@ def cityreader(cities=[]):
         
         # get the value from the indexes
         name = row[0]
-        latitude = (row[3])
-        longitude = row[4]
-        city = City(name, latitude, longitude)
+        lat = float(row[3])
+        lon = float(row[4])
+        city = City(name, lat, lon)
         cities.append(city)
         print(city)
     
