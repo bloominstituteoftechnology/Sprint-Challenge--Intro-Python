@@ -46,3 +46,4 @@ In your solution, it is essential that you follow best practices and produce cle
 The `cityreader` directory poses an stretch problem that builds upon the functionality you are to implement as part of the non-stretch requirements in the `cityreader` directory. 
 
 There's a separate test file `test_stretch.py` for the stretch problem that you can run in order to test your implementation of the stretch problem.
+-Brandon Grych
