@@ -1,5 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = float(lat)
+    self.lon = float(lon)
+
+  def __repr__(self):
+    return f'Name:{self.name} Latitude:{self.lat} Longitude:{self.lon}'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -16,18 +24,26 @@
 # should not be loaded into a City object.
 cities = []
 
+import csv
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    with open('cities.csv',  newline='') as csvfile:
+      file_content = csv.DictReader(csvfile)
+
+      # next(file_content)
+      for item in file_content:
+        print(item)
+        cities.append(City(item["city"], item["lat"], item["lng"]))
+      
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
 #
@@ -58,7 +74,16 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+print("======================================================================")
+
 # TODO Get latitude and longitude values from the user
+lat1, lon1 = input("Enter in a latitude1, longitude 1").split()
+lat2, lon2 = input("Enter in a latitude 2, longitude 2").split()
+
+lat1 = float(lat1)
+lat2 = float(lat2)
+lon1 = float(lon1)
+lon2 = float(lon2)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
@@ -67,5 +92,24 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+  # min lat and max lat from input
+  if lat1 < lat2: 
+    latmin = lat1
+    latmax = lat2
+  else:
+    latmin = lat2
+    latmax = lat1
+
+  if lon1 < lon2:
+    lonmin = lon1
+    lonmax = lon2
+  else:
+    lonmin = lon2
+    lonmax = lon1
+
+  for city in cities:
+    if (city.lat > latmin and city.lat < latmax) and (city.lon > lonmin and city.lon < lonmax): 
+      within.append(city)
+
 
   return within
