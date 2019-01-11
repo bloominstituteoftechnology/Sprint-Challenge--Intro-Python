@@ -20,10 +20,11 @@ class City:
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 import csv
-def cityreader(cities=[]):
+def cityreader():
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+  cities = []
   with open('cities.csv') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=',')
     line_count = 0
@@ -39,7 +40,6 @@ def cityreader(cities=[]):
     return cities
 
 cities = cityreader()
-print(f'number of cities: {len(cities)}')
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(f'{c.name},{c.lat},{c.lon}')
