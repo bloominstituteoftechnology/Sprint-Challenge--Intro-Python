@@ -102,4 +102,10 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     [within.append(c) for c in cities if c.lat > pair1[0]
      and c.lat < pair2[0] and c.lon > pair1[1] and c.lon < pair2[1]]
 
+    for c in within:
+        print(c)
+
     return within
+
+
+cityreader_stretch(lat1, lon1, lat2, lon2, cities)
