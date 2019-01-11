@@ -27,12 +27,16 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-  with open('cities.csv') as csvfile:
+  with open(r'''C:\Users\ghobr\OneDrive\Software Dev\Lambda\Sprint-Challenge--Intro-Python\src\cityreader\cities.csv''') as csvfile:
     cityreader = csv.reader(csvfile)
     for row in cityreader:
-      print("placeholder code")
-      
-    return cities
+      # print(row[0])
+      # print(row[3])
+      # print(row[4])
+      newCity = City(row[0], row[3], row[4])
+      print("new city instance: {newCity}")
+      cities.append(newCity)
+  return cities
 
 cityreader(cities)
 
