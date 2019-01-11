@@ -69,7 +69,7 @@ print(f)
 # The "humans" list should be unmodified.
 print("All names capitalized:")
 
-g = [x.name.upper() + ", " + str(x.age+5)
+g = [Human(x.name.upper(), x.age+5)
      for x in humans]
 print(g)
 
