@@ -52,11 +52,11 @@ print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-starts_with = ['C,D,E,F,G']
+
 c = []
 
 for human in humans:
-    if human.name.startswith(('D', 'E', 'F')):
+    if human.name[0] >= 'C' and human.name[0] <= 'G':
         c.append(human.name)
 
 print(c)
@@ -66,8 +66,8 @@ print("Ages plus 10:")
 d = []
 
 for human in humans:
-    if human.age > 10:
-        d.append(human.age)
+    
+        d.append(human.age + 10)
 
 print(d)
 
@@ -89,8 +89,8 @@ print("Names and ages between 27 and 32:")
 f = []
 
 for human in humans:
-    if human.age > 27 and human.age < 32:
-        f.append(f'("{human.name}", {human.age})')
+    if human.age >= 27 and human.age <= 32:
+        f.append((human.name, human.age))
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
