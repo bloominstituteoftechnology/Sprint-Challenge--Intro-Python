@@ -31,8 +31,6 @@ def cityreader(cities=[]):
     # For each city record, create a new City instance and add it to the 
     # `cities` list
 
-    # global cities ?
-
     with open("cities.csv", newline = "") as csvfile:
         for index, row in enumerate(csv.reader(csvfile)):
             if index != 0:
@@ -75,14 +73,20 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+# Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+    # Ensure that the lat and lon valuse are all floats
+    # Go through each city and check to see if it falls within 
+    # the specified coordinates.
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    lat1, lat2 = float(lat1), float(lat2)
+    lon1, lon2 = float(lon1), float(lon2)
 
-  return within
+    min_lat, max_lat = min(lat1, lat2), max(lat1, lat2)
+    min_lon, max_lon = min(lon1, lon2), max(lon1, lon2)
+
+    # within will hold the cities that fall within the specified region
+    within = [city for city in cities if city.lat >= min_lat and city.lat <= max_lat and city.lon >= min_lon and city.lon <= max_lon]
+
+    return within
