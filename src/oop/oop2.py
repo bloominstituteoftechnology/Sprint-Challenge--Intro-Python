@@ -9,7 +9,7 @@ class GroundVehicle():
 
     # TODO
     def drive(self):
-        print('vrooom')
+        return 'vrooom'
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -24,7 +24,7 @@ class Motorcycle(GroundVehicle):
     def __init__(self, num_wheels = 2):
         super().__init__(num_wheels)
     def drive(self):
-        print('BRAAAP!!')
+        return 'BRAAAP!!'
 
 vehicles = [
     GroundVehicle(),
@@ -39,5 +39,5 @@ vehicles = [
 # TODO
 for vehicle in vehicles:
     vehicle.drive()
-    print(vehicle.num_wheels)
+    # print(vehicle.num_wheels)
 
