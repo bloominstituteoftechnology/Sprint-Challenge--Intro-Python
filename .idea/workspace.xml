@@ -107,7 +107,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.oop2">
+  <component name="RunManager" selected="Python.test_oop2">
     <configuration name="oop2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Sprint-Challenge--Intro-Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.oop2" />
         <item itemvalue="Python.test_oop2" />
+        <item itemvalue="Python.oop2" />
         <item itemvalue="Python.test_oop1" />
       </list>
     </recent_temporary>
