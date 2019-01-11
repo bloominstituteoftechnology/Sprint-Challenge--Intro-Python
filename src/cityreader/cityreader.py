@@ -14,14 +14,30 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-cities = []
+import csv
 
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+
+cities = []
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+    # TODO Implement the functionality to read from the 'cities.csv' file
+    # For each city record, create a new City instance and add it to the
+    # `cities` list
+    with open('cities.csv', newline='') as csvfile:
+        r_file = csv.DictReader(csvfile)
+        # read file
+        for row in r_file:
+            cities.append(City(row['city'], row['lat'], row['lng']))
+            # rows are from the csv file itself
+            # appending City object to cities list
     return cities
+
 
 cityreader(cities)
 
