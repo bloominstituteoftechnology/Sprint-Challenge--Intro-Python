@@ -9,8 +9,8 @@ class City:
         self.lat = lat
         self.lon = lon
 
-    def __repr__(self):
-        return f'{self.name} {self.lat} {self.lon}'
+    # def __repr__(self):
+    #     return f'{self.name} {self.lat} {self.lon}'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -37,7 +37,8 @@ def cityreader(cities=[]):
     with open(path, 'r', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            cities.append(City(row['city'], row['lat'], row['lng']))
+            city = City(row['city'], float(row['lat']), float(row['lng']))
+            cities.append(city)
 
     return cities
 
@@ -46,7 +47,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
 #
