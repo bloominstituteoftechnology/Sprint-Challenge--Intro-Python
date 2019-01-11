@@ -2,13 +2,15 @@
 #
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
+import sys
+
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
+    def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
 
-    # TODO
-
+    def drive(self):
+        return "vrooom"
 
 # Subclass Motorcycle from GroundVehicle.
 #
@@ -17,7 +19,14 @@ class GroundVehicle():
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
-# TODO
+
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        super().__init__(2)
+
+    def drive(self):
+        return "BRAAAP!!"
+
 
 vehicles = [
     GroundVehicle(),
@@ -29,4 +38,5 @@ vehicles = [
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
-# TODO
+for vehicle in vehicles:
+    print(vehicle.drive())
