@@ -79,7 +79,7 @@ for c in cities:
 
 ex = (45, -100, 32, -120, cities)
 
-
+# def cityreader_stretch(45, -100, 32, -120, cities):
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   # within = []
