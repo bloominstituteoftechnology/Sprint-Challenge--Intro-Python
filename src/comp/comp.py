@@ -73,11 +73,10 @@ print(f)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-g = []
+g = [Human(item.name.upper(), item.age+5) for item in humans]
 # item.name.upper() for item in humans
-for item in humans:
-    g.append(item.name.upper())
-    g.append(item.age+5)
+# for item in humans:
+#     g.append((item.name.upper(), item.age+5))
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
