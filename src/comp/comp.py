@@ -63,7 +63,8 @@ f = [tuple([human.name, human.age])
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
-# list, except with all the names capitalized and the ages with 5 added to them.
+# list, except with all the names capitalized and the ages with 5 added to
+# them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
 g = [Human(human.name.upper(), human.age + 5) for human in humans]
