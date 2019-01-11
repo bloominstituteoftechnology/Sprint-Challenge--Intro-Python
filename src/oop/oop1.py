@@ -23,6 +23,7 @@ class Vehicle:
     pass
 
 
+# subclass
 class FlightVehicle(Vehicle):
     pass
 
@@ -35,6 +36,7 @@ class Airplane(FlightVehicle):
     pass
 
 
+# subclass
 class GroundVehicle(Vehicle):
     pass
 
