@@ -28,8 +28,14 @@ def cityreader(cities=[]):
     import csv
     with open('cities.csv')as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
+        count = 0
         for row in csv_reader:
-            cities.append(City(row[0], row[3], row[4]))
+            if count != 0:
+                cities.append(City(row[0], row[3], row[4]))
+                count += 1
+            else:
+                count += 1
+
     return cities
 
 cityreader(cities)
