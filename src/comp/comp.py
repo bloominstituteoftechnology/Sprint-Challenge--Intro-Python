@@ -1,6 +1,7 @@
 # The following list comprehension exercises will make use of the
 # defined Human class.
 import math
+import string
 
 
 class Human:
@@ -37,18 +38,22 @@ print(a)
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [human.name for human in humans if human.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
+
+
+char_range = list(string.ascii_uppercase)
+
 print("Starts between C and G, inclusive:")
-c = []
+c = [human.name for human in humans if human.name[0] in char_range[2:7]]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [human.age + 10 for human in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
