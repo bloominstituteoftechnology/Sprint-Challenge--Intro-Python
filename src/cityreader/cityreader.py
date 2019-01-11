@@ -6,7 +6,7 @@ class City:
     self.lat = lat
     self.lon = lon
   def __repr__(self):
-        return f'\nCity("{self.name}", {self.lat},{self.lon})'
+        return f'\nCity("{self.name}", {self.lat:f},{self.lon:f})'
 import csv
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -30,7 +30,7 @@ def cityreader(cities=[]):
       # next(csvfile, None)
       reader = csv.DictReader(csvfile)
       for row in reader:
-        cities.append(City(row['city'], row['lat'],row['lng']))
+        cities.append(City(row['city'], float(row['lat']),float(row['lng'])))
     return cities
 
 cityreader(cities)
