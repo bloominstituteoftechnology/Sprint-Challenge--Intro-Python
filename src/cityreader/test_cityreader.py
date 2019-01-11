@@ -14,7 +14,7 @@ class CityreaderTests(unittest.TestCase):
   def setUp(self):
     
     self.cities = cityreader()
-    
+    print(self.cities[0].name)
     self.expected = [
       City("Seattle", 47.6217,-122.3238),
       City("Richmond", 37.5294,-77.4755),
