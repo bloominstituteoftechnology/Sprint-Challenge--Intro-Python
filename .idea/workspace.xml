@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc67041-4efe-4b7c-9a0b-b95fd48382d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/oop/oop2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/oop/oop2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comp/comp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/comp/comp.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,16 +24,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/oop/oop2.py">
+        <entry file="file://$PROJECT_DIR$/src/comp/comp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
-              <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+            <state relative-caret-position="158">
+              <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/oop/test_oop2.py">
+        <entry file="file://$PROJECT_DIR$/src/comp/test_comp.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
@@ -52,6 +53,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/oop/oop1.py" />
         <option value="$PROJECT_DIR$/src/oop/oop2.py" />
+        <option value="$PROJECT_DIR$/src/comp/comp.py" />
       </list>
     </option>
   </component>
@@ -82,7 +84,7 @@
               <item name="Sprint-Challenge--Intro-Python" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sprint-Challenge--Intro-Python" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="oop" type="462c0819:PsiDirectoryNode" />
+              <item name="comp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -107,7 +109,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_oop2">
+  <component name="RunManager" selected="Python.comp">
+    <configuration name="comp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Sprint-Challenge--Intro-Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/comp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/comp/comp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="oop2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Sprint-Challenge--Intro-Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,6 +196,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.comp" />
         <item itemvalue="Python.test_oop2" />
         <item itemvalue="Python.oop2" />
         <item itemvalue="Python.test_oop1" />
@@ -232,14 +256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/oop/test_oop2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -251,8 +267,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oop/oop2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        <state relative-caret-position="141">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comp/test_comp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comp/comp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
         </state>
       </provider>
     </entry>
