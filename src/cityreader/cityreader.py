@@ -35,8 +35,8 @@ def cityreader(cities=[]):
         next(reader, None)
         for row in reader:
             name = row[0]
-            lat = row[3]
-            lon = row[4]
+            lat = float(row[3])
+            lon = float(row[4])
             cities.append(City(name, lat, lon))
 
     return cities
@@ -79,11 +79,17 @@ for c in cities:
 # TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+  maxLat = max(lat1, lat2)
+  minLat = min(lat1, lat2)
+  maxLon = max(lon1, lon2)
+  minLon = min(lon1, lon2)
   # within will hold the cities that fall within the specified region
-  within = []
+  within = [city for city in cities if city.lat < maxLat and city.lat > minLat and city.lon < maxLon and city.lon > minLon]
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+print(cityreader_stretch(45, -100, 32, -120, cities))
