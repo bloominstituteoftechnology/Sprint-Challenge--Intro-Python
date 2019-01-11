@@ -1,6 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
-# fields for name, latitude, and longitude.
-
+# fields for name, lat, and lon.
+import csv
+class City():
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+  def __repr__(self):
+    return f'<City: {self.name}, {self.lon}, {self.lat}>'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -20,7 +27,12 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    with open ("/Users/farhan/Desktop/Lambda School/CS/Week0/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv", "r") as file:
+      reader = csv.reader(file)
+      next(reader)  #skips header line
+      for row in reader:
+          cities.append(City(row[0], float(row[3]), float(row[4])))
+
     return cities
 
 cityreader(cities)
@@ -31,9 +43,9 @@ for c in cities:
 
 # STRETCH GOAL!
 #
-# Allow the user to input two points, each specified by latitude and longitude.
-# These points form the corners of a lat/lon square. Pass these latitude and 
-# longitude values as parameters to the `cityreader_stretch` function, along
+# Allow the user to input two points, each specified by lat and lon.
+# These points form the corners of a lat/lon square. Pass these lat and 
+# lon values as parameters to the `cityreader_stretch` function, along
 # with the `cities` list that holds all the City instances from the `cityreader`
 # function. This function should output all the cities that fall within the 
 # coordinate square.
@@ -58,7 +70,7 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+# TODO Get lat and lon values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
