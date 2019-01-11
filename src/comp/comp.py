@@ -61,7 +61,7 @@ print(f)
 # list, except with all the names capitalized and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names capitalized:")
-g = [(human.name.upper(), human.age + 5) for human in humans if human.age >= 27 and human.age <= 32]
+g = [Human(human.name.upper(), human.age + 5) for human in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
