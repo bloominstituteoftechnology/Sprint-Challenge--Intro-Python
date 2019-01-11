@@ -1,6 +1,16 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+import csv
 
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+    def __repr__(self):
+        return ": ".join((self.name, ", ".join((str(self.lat), str(self.lon)))))
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -16,18 +26,26 @@
 # should not be loaded into a City object.
 cities = []
 
+
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+    # TODO Implement the functionality to read from the 'cities.csv' file
+    # For each city record, create a new City instance and add it to the
+    # `cities` list
+    with open('cities.csv') as cities_file:
+        csv_reader = csv.reader(cities_file, delimiter=',')
+        for index, word in enumerate(csv_reader):
+            if index != 0:
+                cities.append(City(word[0], float(word[3]), float(word[4])))
+
     return cities
+
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
+
 
 # STRETCH GOAL!
 #
@@ -61,11 +79,13 @@ for c in cities:
 # TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+    lat1, lat2 = float(lat1), float(lat2)
+    lon1, lon2 = float(lon1), float(lon2)
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    min_lat, max_lat = min(lat1, lat2), max(lat1, lat2)
+    min_lon, max_lon = min(lon1, lon2), max(lon1, lon2)
 
-  return within
+    within = [city for city in cities if
+              city.lat >= min_lat and city.lat <= max_lat and city.lon >= min_lon and city.lon <= max_lon]
+
+    return within
