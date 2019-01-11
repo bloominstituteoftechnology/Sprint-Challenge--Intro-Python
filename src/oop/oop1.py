@@ -21,7 +21,7 @@
 # Base class
 
 
-class Vehicle:
+class Vehicle():
     pass
 
 
