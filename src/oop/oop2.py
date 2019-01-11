@@ -32,7 +32,15 @@ print(weird_car)
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
-# TODO
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels):
+        super().__init__(2)
+
+    def drive(self):
+        print("BRAAAP!!")
+
+        # TODO
+
 
 vehicles = [
     GroundVehicle(),
