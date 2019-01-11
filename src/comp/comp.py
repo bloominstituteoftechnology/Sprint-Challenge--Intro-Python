@@ -28,7 +28,7 @@ a = []
 # a.append(i) for i in humans if i.name[0] == 'D'
 for i in humans:
     if i.name[0] == 'D':
-        a.append(i)
+        a.append(i.name)
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -37,7 +37,7 @@ print("Ends with e:")
 b = []
 for i in humans:
     if i.name[len(i.name) - 1] == 'e':
-        b.append(i)
+        b.append(i.name)
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -47,7 +47,7 @@ c = []
 betcg = ['C', 'D', 'E', 'F', 'G']
 for i in humans:
     if any(string in i.name[0] for string in betcg):
-        c.append(i)
+        c.append(i.name)
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -82,5 +82,5 @@ print(g)
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = [item.age**2 for item in humans]
+h = [math.sqrt(item.age) for item in humans]
 print(h)
