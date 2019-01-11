@@ -3,17 +3,11 @@
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 import sys
-DEFAULT = object()
 
 
 class GroundVehicle():
-    def __init__(self, num_wheels=DEFAULT):
-        # Checks if num_wheels is set to None then assigns 4
-        if num_wheels is DEFAULT:
-            self.num_wheels = 4
-        # If num_wheels exists assigns num_Wheels to self.num_wheels
-        else:
-            self.num_wheels = num_wheels
+    def __init__(self, num_wheels=4):
+        self.num_wheels = num_wheels
 
     def drive(self):
         return "vrooom"
@@ -28,8 +22,7 @@ class GroundVehicle():
 
 class Motorcycle(GroundVehicle):
     def __init__(self):
-        self.num_wheels = 2
-        super().__init__(self)
+        super().__init__(2)
 
     def drive(self):
         return "BRAAAP!!"
