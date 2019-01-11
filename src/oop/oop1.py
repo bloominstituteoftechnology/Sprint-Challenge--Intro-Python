@@ -25,15 +25,9 @@ class Vehicle:
     pass
 
 class FlightVehicle(Vehicle):
-    '''
-    flight vehicle base class
-    '''
     pass
 
 class Starship(FlightVehicle):
-    '''
-    starship base class
-    '''
     pass
 
 class GroundVehicle(Vehicle):
