@@ -1,5 +1,10 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -17,17 +22,57 @@
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+    # TODO Implement the functionality to read from the 'cities.csv' file
+    # For each city record, create a new City instance and add it to the 
+    # `cities` list
+    import csv
+    with open('cities.csv')as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        count = 0
+        for row in csv_reader:
+            if count != 0:
+                cities.append(City(row[0], float(row[3]), float(row[4])))
+                count += 1
+            else:
+                count += 1
+
     return cities
 
 cityreader(cities)
 
+##TESTING##
+# import csv
+# with open('cities.csv', newline='') as csvfile:
+#     test_city = csv.reader(csvfile, delimiter=' ', quotechar='|')
+#     seperated = [row for row in test_city]
+#     # print(seperated[1][0].split(',')) ## This line gives first city
+    
+##TESTING TAKE 2##
+#pasting example
+
+# with open('employee_birthday.txt') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     for row in csv_reader:
+#         if line_count == 0:
+#             print(f'Column names are {", ".join(row)}')
+#             line_count += 1
+#         else:
+#             print(f'\t{row[0]} works in the {row[1]} department, and was born in {row[2]}.')
+#             line_count += 1
+#     print(f'Processed {line_count} lines.')
+
+####WORKING!####
+# with open('cities.csv')as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     for row in csv_reader:
+#       cities.append(City(row[0], row[3], row[4]))
+
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    # print(c.name, c.lat, c.lon)
+    print(f'({c.name}, {c.lat}, {c.lon})')
 
 # STRETCH GOAL!
 #
