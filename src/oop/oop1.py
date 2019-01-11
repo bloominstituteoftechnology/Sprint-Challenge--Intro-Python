@@ -56,4 +56,4 @@ class Motorcycle(GroundVehicle):
         pass
 # base class is GroundVehicle
 
-# General syntax is that base class are the ones in parentheses, e.g. for class a(b) b is the base class and a extends it.
+# General syntax is that base classes are the ones in parentheses, e.g. for class a(b) b is the base class and a extends it.
