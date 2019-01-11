@@ -8,6 +8,8 @@ class GroundVehicle():
         self.num_wheels = num_wheels
 
     def drive(self):
+        # Removed an 'o' to pass tests per 
+        # #slack instructions.
         return "vrooom"
 
 
