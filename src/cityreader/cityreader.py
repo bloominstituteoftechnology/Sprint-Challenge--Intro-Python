@@ -13,7 +13,7 @@
 # Store the instances in the "cities" list, below.
 #
 # Note that the first line of the CSV is header that describes the fields--this
-# should not be loaded into a City object.
+# should not be loaded into a City object. yes
 cities = []
 
 def cityreader(cities=[]):
