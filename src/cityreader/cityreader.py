@@ -5,8 +5,8 @@ import csv  # this is to read the csv file
 class City:
   def __init__(self, name, latitude, longitude):
     self.name = name
-    self.latitude = latitude
-    self.longitude = longitude
+    self.lat = latitude
+    self.lon = longitude
   
   def __str__(self):
     return f'{self.name}, {self.latitude}, {self.longitude}'
@@ -31,9 +31,9 @@ def cityreader(cities=[]):
   # `cities` list
   with open("cities.csv", newline = "") as csv_file:
     city_info = csv.reader(csv_file, delimiter = ',')
-    next(city_info)  # to skip the header 
+    next(city_info)  # to ski89p the header 
     for row in city_info:
-      city = City(row[0], row[3], row[4])
+      city = City(row[0], float(row[3]), float(row[4]))
       cities.append(city)
     
   return cities
@@ -42,7 +42,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-  print(f'{c.name} has latitude :  {c.latitude} , and longitue :  {c.longitude}')
+  print(f'{c.name} has latitude :  {c.lat} , and longitue :  {c.lon}')
 
 # STRETCH GOAL!
 #
@@ -81,21 +81,24 @@ print("Enter another pair latitude and longitude (separated by comma) : ")
 coordinate2 = input().split(',')
 
 within = []
-print(f'Before   : {within}')
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = [city.name for city in cities if city.latitude >= lat1 
-                                            and city.latitude <= lat2 
-                                            and city.longitude >= lon1
-                                            and city.longitude <=lon2
+  within = [city.name for city in cities if city.lat <= float(lat1) 
+                                            and city.lat >= float(lat2) 
+                                            and city.lon <= float(lon1)
+                                            and city.lon >= float(lon2)
            ]
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
-
   return within
 
+# print("\n ", coordinate1[0])
+# print("\n", coordinate1[1])
+# print("\n", coordinate2[0])
+# print("\n", coordinate2[1])
+# print("\n", cities)
 cityreader_stretch(coordinate1[0], coordinate1[1], coordinate2[0], coordinate2[1], cities)
 print(f'After   : {within}')
 
