@@ -9,20 +9,18 @@
 class GroundVehicle():
     def __init__(self, num_wheels):
         self.num_wheels = num_wheels
-        # if num_wheels == 0:
-        #     print(4)
-        # else:
-        #     print(num_wheels)
+        if None == num_wheels:
+            print(4)
+        else:
+            print(num_wheels)
 
     def drive(self):
-        print("vroooom")
+        print("vrooom")
 
     # TODO
 
 
 weird_car = GroundVehicle(5).drive()
-
-print(weird_car)
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -34,12 +32,16 @@ print(weird_car)
 
 class Motorcycle(GroundVehicle):
     def __init__(self, num_wheels):
-        super().__init__(2)
+        print(super(Motorcycle, self).__init__(num_wheels))
 
     def drive(self):
         print("BRAAAP!!")
 
-        # TODO
+
+motorcycle = Motorcycle(2).drive()
+
+
+# TODO
 
 
 vehicles = [
@@ -52,4 +54,6 @@ vehicles = [
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
+for vehicle in vehicles:
+    print(vehicle.drive())
 # TODO
