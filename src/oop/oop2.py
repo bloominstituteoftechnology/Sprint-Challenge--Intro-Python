@@ -1,4 +1,4 @@
-# To the GroundVehicle class, add method drive() that returns "vroooom".
+# To the GroundVehicle class, add method drive() that returns "vrooom".
 #
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
@@ -11,7 +11,7 @@ class GroundVehicle():
     # TODO
 
     def drive(self):
-        return "vroooom"
+        return "vrooom"
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -43,3 +43,6 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # TODO
+
+for v in vehicles:
+    print(v.drive())
