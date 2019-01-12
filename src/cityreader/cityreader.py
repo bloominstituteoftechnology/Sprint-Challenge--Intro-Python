@@ -6,7 +6,7 @@ class City:
     self.lat = lat
     self.lon = lon
   def __repr__(self):
-        return f'\nCity("{self.name}", {self.lat:f},{self.lon:f})'
+        return f'\nCity("{self.name}", {round(self.lat, 4)},{round(self.lon, 4)})'
 import csv
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -70,29 +70,30 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+
 # TODO Get latitude and longitude values from the user
 first_latitude = int(input('first latitude ->'))
 first_longitude = int(input('first longitude ->'))
 second_latitude = int(input('second latitude ->'))
 second_longitude = int(input('second longitude ->'))
-lat1 = int(first_latitude)
-lon1 = int(first_longitude)
-lat2 = int(second_latitude)
-lon2 = int(second_longitude)
 
+                      #32    -120  45    -100
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  with open('cities.csv', newline='') as csvfile:
-      # next(csvfile, None)
-      reader = csv.DictReader(csvfile)
-      for row in reader:
-        cities.append(City(row['city'], float(row['lat']),float(row['lng'])))
+  # with open('cities.csv', newline='') as csvfile:
+  #     # next(csvfile, None)
+  #     reader = csv.DictReader(csvfile)
+  #     for row in reader:
+  #       cities.append(City(row['city'], round(float(row['lat']), 4),round(float(row['lng']), 4)))
   
-
   global first_latitude
   global first_longitude
   global second_latitude
   global second_longitude
+  lat1 = int(first_latitude)
+  lon1 = int(first_longitude)
+  lat2 = int(second_latitude)
+  lon2 = int(second_longitude)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
@@ -107,9 +108,9 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   print(max_lat)
   # print([x.lat for x in cities])
   # within = []
-  within = [(x.name + ': ', x.lat, x.lon) for x in cities if int(x.lat) in range(min_lat, max_lat) and int(x.lon) in range(min_lon, max_lon)]
+  within = [x for x in cities if int(x.lat) in range(min_lat, max_lat) and int(x.lon) in range(min_lon, max_lon)]
   print(within)
   return within
   
 
-cityreader_stretch(lat1, lon1, lat2, lon2, cities=[])
+cityreader_stretch(first_latitude, first_longitude, second_latitude, second_longitude, cities)
