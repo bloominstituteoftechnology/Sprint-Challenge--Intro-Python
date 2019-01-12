@@ -43,8 +43,8 @@ def cityreader(cities=[]):
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -77,27 +77,37 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
-ex = (45, -100, 32, -120, cities)
+point_1 = input('Input first point on Earth: lat, lon  \n> ')
+point_2 = input('Input second point on Earth: lat, lon  \n> ')
+lat1 = float((point_1).split(', ')[0])
+lon1 = float((point_1).split(', ')[1])
+lat2 = float((point_2).split(', ')[0])
+lon2 = float((point_2).split(', ')[1])
 
-# def cityreader_stretch(45, -100, 32, -120, cities):
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+print(lat1)
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=cities):
+
+  # point_1 = input('Input first point on Earth: lat, lon  \n> ')
+  # point_2 = input('Input second point on Earth: lat, lon  \n> ')
   # within will hold the cities that fall within the specified region
-  # within = []
-
+  within = []
+  print
+  # print((float(point_1[0]), float(point_2[0])))
+  # N = float(max(float(lat1), float(lat2)))
+  # S = float(min(float(lat1), float(lat2)))
+  # W = float(max(float(lon1), float(lon2)))
+  # E = float(min(float(lon1), float(lon2)))
   N = max(lat1, lat2)
   S = min(lat1, lat2)
-  W = max(lon1, lon2)
-  E = min(lon1, lon2)
+  E = max(lon1, lon2)
+  W = min(lon1, lon2)
 
   print(N, S, W, E)
-  # 45 32 -120 -100
-  east = [e for e in cities]
-  print(east)
- 
-  ns = [e for e in cities if e[1] > S and e[1] < N]
-  ew = [e for e in cities if e[2] > W and e[2] < E]
+  # # 45 32 -120 -100
+  # print(31.8478 > S)
+  within = [e for e in cities if e.lat > S and e.lat < N and e.lon > W and e.lon < E]
+  # ew = [e for e in cities if e.lon > W and e.lon < E]
 
-  within = [e for e in cities if e in ns and e in ew]
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
@@ -105,4 +115,4 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
   return within
 
-  # print(cityreader_stretch(45, -100, 32, -120, cities))
+print(cityreader_stretch(lat1, lon1, lat2, lon2))
