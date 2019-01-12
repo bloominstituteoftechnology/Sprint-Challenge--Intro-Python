@@ -7,20 +7,19 @@
 
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
+    def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
-        if None == num_wheels:
-            print(4)
-        else:
-            print(num_wheels)
 
     def drive(self):
-        print("vrooom")
+        return "vrooom"
+
+    def park(self):
+        return "Squeek!"
 
     # TODO
 
 
-weird_car = GroundVehicle(5).drive()
+# weird_car = GroundVehicle(5).drive()
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -31,14 +30,14 @@ weird_car = GroundVehicle(5).drive()
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, num_wheels):
+    def __init__(self, num_wheels=2):
         super().__init__(num_wheels)
 
     def drive(self):
-        print("BRAAAP!!")
+        return "BRAAAP!!"
 
 
-motorcycle = Motorcycle(2).drive()
+# motorcycle = Motorcycle(2).drive()
 
 
 # TODO
@@ -56,4 +55,5 @@ vehicles = [
 
 for vehicle in vehicles:
     print(vehicle.drive())
+    print(vehicle.num_wheels)
 # TODO
