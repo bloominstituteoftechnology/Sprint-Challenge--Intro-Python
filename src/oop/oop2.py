@@ -32,7 +32,7 @@ weird_car = GroundVehicle(5).drive()
 
 class Motorcycle(GroundVehicle):
     def __init__(self, num_wheels):
-        print(super(Motorcycle, self).__init__(num_wheels))
+        super().__init__(num_wheels)
 
     def drive(self):
         print("BRAAAP!!")
