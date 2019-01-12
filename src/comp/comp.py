@@ -9,7 +9,7 @@ class Human:
         self.age = age
 
     def __repr__(self):
-        return f"<Human: {self.name}, {self.age}>"
+        return f"(Human: {self.name}, {self.age})"
 
 
 humans = [
@@ -43,7 +43,7 @@ print(b)
 print("Starts between C and G, inclusive:")
 
 c = [human.name for human in humans if human.name[0]
-     == 'C' or 'D' or 'E' or 'F' or 'G']
+     >= 'C' and human.name[0] <= 'G']
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -61,7 +61,8 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [human for human in humans if human.age <= 32 and human.age >= 27]
+f = [(human.name, human.age)
+     for human in humans if human.age >= 27 and human.age <= 32]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
