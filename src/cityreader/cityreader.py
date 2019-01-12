@@ -32,9 +32,11 @@ def cityreader(cities=[]):
     # `cities` list
 
     with open("cities.csv", newline = "") as csvfile:
-        for index, row in enumerate(csv.reader(csvfile)):
-            if index != 0:
-                cities.append(City(row[0], float(row[3]), float(row[4])))
+        reader = csv.reader(csvfile)
+        # Goes to second line (skips first line of descriptions)
+        next(reader)
+        for row in reader:
+            cities.append(City(row[0], float(row[3]), float(row[4])))
 
     return cities
 
@@ -74,6 +76,12 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # Get latitude and longitude values from the user
+
+try:
+    lat1, lon1 = input("Enter lat, lon1 values: ").split()
+    lat2, lon2 = input("Enter lat2, lon2 values: ").split(", ")
+except ValueError:
+    print("Please enter two floats sperated by a comma and space.")
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # Ensure that the lat and lon valuse are all floats
