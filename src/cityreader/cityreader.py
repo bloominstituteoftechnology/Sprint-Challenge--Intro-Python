@@ -24,6 +24,7 @@ class City:
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
 cities = []
 
 
@@ -36,6 +37,7 @@ def cityreader(cities=[]):
 
     with open("cities.csv") as csvfile:
         reader = csv.reader(csvfile)
+
         next(reader)
 
         for row in reader:
