@@ -1,5 +1,17 @@
+import csv
+
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __repr__(self):
+    return '{}, {}, {}'.format(self.name, self.lat, self.lon)
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -20,14 +32,19 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    with open ('cities.csv', newline='\n') as csvfile:
+      cityReader = csv.reader(csvfile, delimiter=',')
+      csvfile.__next__()
+      for row in cityReader:
+        city = City(row[0], float(row[3]), float(row[4]))
+        cities.append(city)
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -60,12 +77,42 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+point_1 = input('Input first point on Earth: lat, lon  \n> ')
+point_2 = input('Input second point on Earth: lat, lon  \n> ')
+lat1 = float((point_1).split(', ')[0])
+lon1 = float((point_1).split(', ')[1])
+lat2 = float((point_2).split(', ')[0])
+lon2 = float((point_2).split(', ')[1])
+
+print(lat1)
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=cities):
+
+  # point_1 = input('Input first point on Earth: lat, lon  \n> ')
+  # point_2 = input('Input second point on Earth: lat, lon  \n> ')
   # within will hold the cities that fall within the specified region
   within = []
+  print
+  # print((float(point_1[0]), float(point_2[0])))
+  # N = float(max(float(lat1), float(lat2)))
+  # S = float(min(float(lat1), float(lat2)))
+  # W = float(max(float(lon1), float(lon2)))
+  # E = float(min(float(lon1), float(lon2)))
+  N = max(lat1, lat2)
+  S = min(lat1, lat2)
+  E = max(lon1, lon2)
+  W = min(lon1, lon2)
+
+  print(N, S, W, E)
+  # # 45 32 -120 -100
+  # print(31.8478 > S)
+  within = [e for e in cities if e.lat > S and e.lat < N and e.lon > W and e.lon < E]
+  # ew = [e for e in cities if e.lon > W and e.lon < E]
+
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+print(cityreader_stretch(lat1, lon1, lat2, lon2))
