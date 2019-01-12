@@ -17,3 +17,37 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+
+class Vehicle(object):
+    pass
+
+
+class GroundVehicle(Vehicle):
+    pass
+# baseclass Vehicle
+
+
+class Car(GroundVehicle):
+    pass
+# baseclass GroundVehicle
+
+
+class Motorcycle(GroundVehicle):
+    pass
+# baseclass GroundVehicle
+
+
+class FlightVehicle(Vehicle):
+    pass
+# baseclass Vehicle
+
+
+class Airplane(FlightVehicle):
+    pass
+# baseclass FlightVehicle
+
+
+class StarShip(FlightVehicle):
+    pass
+# baseclass FlightVehicle
