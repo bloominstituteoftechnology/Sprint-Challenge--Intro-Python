@@ -27,6 +27,7 @@ print("Starts with D:")
 a = [human.name for human in humans if human.name[0] == 'D']
 print(a)
 
+
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
@@ -67,5 +68,5 @@ print(g)
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = [round(math.sqrt(human.age), 2) for human in humans]
+h = [math.sqrt(human.age) for human in humans]
 print(h)
