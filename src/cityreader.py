@@ -1,6 +1,6 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
-# My Name... Brian Ruff
+# My Name... Brian A. Ruff
 
 # TODO
 
