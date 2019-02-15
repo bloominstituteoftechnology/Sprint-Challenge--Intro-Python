@@ -1,53 +1,40 @@
-# Create a class to hold a city location. Call the class "City". It should have
-# fields for name, latitude, and longitude.
+
 import csv
 
-# We have a collection of US cities with population over 750,000 stored in the
-# file "cities.csv". (CSV stands for "comma-separated values".)
-#
-# In the body of the `cityreader` function, use Python's built-in "csv" module
-# to read this file so that each record is imported into a City instance. Then
-# return the list with all the City instances from the function.
-# Google "python 3 csv" for references and use your Google-fu for other examples.
-#
-# Store the instances in the "cities" list, below.
-#
+# create a city class that takes name, lat, lon in constructor (per csv)
 
 
 class City:
-    def __init__(self, name, lat, lng):
+    def __init__(self, name, lat, lon):
         self.name = name
-        self.lat = lat
-        self.lng = lng
+        self.lat = float(lat)  # numbers need to be floats to pass
+        self.lon = float(lon)  # this took me too long to figure out
 
-    def __repr__(self):
-        return f"{self.name}: ({self.lat}, {self.lng})"
+# it will need to get printed
+    def __str__(self):
+        return f"{self.name}: ({self.lat}, {self.lon})"
 
 
+# initialize a cities list that will take the instances
 cities = []
+
+# create a function that will take the csv and append it to the class instance when it is called
 
 
 def cityreader(cities=[]):
-    with open('cities.csv', newline='') as csvfile:
+    with open("cities.csv", newline="") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             cities.append(City(row["city"], row["lat"], row["lng"]))
     return cities
 
 
-# Note that the first line of the CSV is header that describes the fields--this
-# should not be loaded into a City object.
-cityreader(cities)
-
-for city in cities:
-    print(city)
-
-
+# call the function and fill the cities list with the data
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+for city in cities:
+    print(city)
 
 # STRETCH GOAL!
 #
