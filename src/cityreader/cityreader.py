@@ -72,13 +72,13 @@ for c in cities:
 
 
 # TODO Get latitude and longitude values from the user
-first_latitude = int(input('first latitude ->'))
-first_longitude = int(input('first longitude ->'))
-second_latitude = int(input('second latitude ->'))
-second_longitude = int(input('second longitude ->'))
+# first_latitude = float(input('first latitude ->'))
+# first_longitude = float(input('first longitude ->'))
+# second_latitude = float(input('second latitude ->'))
+# second_longitude = float(input('second longitude ->'))
 
                       #32    -120  45    -100
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+def cityreader_stretch(lat2, lon2, lat1, lon1, cities=[]):
   # within will hold the cities that fall within the specified region
   # with open('cities.csv', newline='') as csvfile:
   #     # next(csvfile, None)
@@ -86,22 +86,22 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   #     for row in reader:
   #       cities.append(City(row['city'], round(float(row['lat']), 4),round(float(row['lng']), 4)))
   
-  global first_latitude
-  global first_longitude
-  global second_latitude
-  global second_longitude
-  lat1 = int(first_latitude)
-  lon1 = int(first_longitude)
-  lat2 = int(second_latitude)
-  lon2 = int(second_longitude)
+  # global first_latitude
+  # global first_longitude
+  # global second_latitude
+  # global second_longitude
+  # lat2 = int(first_latitude)
+  # lon2 = int(first_longitude)
+  # lat1 = int(second_latitude)
+  # lon1 = int(second_longitude)
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
-  lat1 = int(first_latitude)
-  lon1 = int(first_longitude)
-  lat2 = int(second_latitude)
-  lon2 = int(second_longitude)
+  # # TODO Ensure that the lat and lon valuse are all floats
+  # # Go through each city and check to see if it falls within 
+  # # the specified coordinates.
+  # lat2 = int(first_latitude)
+  # lon2 = int(first_longitude)
+  # lat1 = int(second_latitude)
+  # lon1 = int(second_longitude)
   min_lat, max_lat = min(lat1, lat2), max(lat1, lat2)
   min_lon, max_lon = min(lon1, lon2), max(lon1, lon2)
   print(min_lat)
@@ -113,4 +113,4 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   return within
   
 
-cityreader_stretch(first_latitude, first_longitude, second_latitude, second_longitude, cities)
+# cityreader_stretch(first_latitude, first_longitude, second_latitude, second_longitude, cities)
