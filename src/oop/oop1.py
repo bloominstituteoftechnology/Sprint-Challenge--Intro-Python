@@ -11,6 +11,33 @@
 # Each class can simply "pass" for its body. The exercise is about setting up
 # the hierarchy.
 #
+class Vehicle:
+    def __init__(self):
+        pass
+
+class GroundVehicle(Vehicle):
+    def __init__(self):
+        pass
+
+class FlightVehicle(Vehicle):
+    def __init__(self):
+        pass
+
+class Car (GroundVehicle):
+    def __init__(self):
+        pass
+
+class Motorcycle (GroundVehicle):
+    def __init__(self):
+        pass
+
+class Starship (FlightVehicle):
+    def __init__(self):
+        pass
+
+class Airplane (FlightVehicle):
+    def __init__(self):
+        pass
 # e.g.
 #
 # class Whatever:
