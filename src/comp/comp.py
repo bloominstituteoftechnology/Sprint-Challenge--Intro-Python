@@ -9,7 +9,8 @@ class Human:
         self.age = age
 
     def __repr__(self):
-        return f"<Human: {self.name}, {self.age}>"
+        return f'Human("{self.name}", {self.age})'
+        # return f"<Human: {self.name}, {self.age}>"
 
 
 humans = [
@@ -86,8 +87,7 @@ print(f)
 print("All names capitalized:")
 g = []
 for human in humans:
-    my_tuple = Human(human.name.upper(), human.age + 5)
-    g.append(Human.__repr__)
+    g.append(Human(f"{human.name.upper()}", human.age + 5))
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
