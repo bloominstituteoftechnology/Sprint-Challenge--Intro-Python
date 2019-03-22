@@ -29,9 +29,10 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-  with open('cities.csv', newline = "") as cities_csv:
-    for index, row in enumerate(csv.reader(cities_csv)):
-      if index != 0 :
+  with open('cities.csv') as cities_csv:
+    reading = csv.reader(cities_csv, delimiter=',')
+    next(reading, None)
+    for row in reading:
         cities.append(City(row[0], float(row[3]), float(row[4]) ))
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
@@ -75,6 +76,8 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
