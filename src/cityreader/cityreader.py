@@ -1,4 +1,5 @@
-import pandas as pd
+# import pandas as pd
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
 
@@ -9,7 +10,7 @@ class City:
         self.latitude = latitude
         self.longitude = longitude
 
-    def __repr__(self):
+    def __str__(self):
         return f"{self.name}, {self.latitude}, {self.longitude}"
 
 
@@ -31,19 +32,24 @@ cities = []
 def cityreader(cities=[]):
     # TODO Implement the functionality to read from the 'cities.csv' file
     # For each city record, create a new City instance and add it to the
-    # `cities` list
-    df = pd.read_csv('cities.csv').head(1)
-    city_data = df[['city', 'lat', 'lng']]
-    print("DF", city_data)
-    for city in city_data:
-        print("CITY =>", city)
-        new_city = City(city_data['city'], city_data['lat'], city_data['lng'])
-        print("new_city =>", new_city)
-        # print("CITY", city)
-    # with open('cities.csv') as f:
-    # read_data = f.read()
-    # cities.append(read_data)
-    # city = City()
+    # # `cities` list
+    # df = pd.read_csv('cities.csv')
+    # city_data = df[['city', 'lat', 'lng']]
+    # # print("DF", city_data.iloc[0])
+    # test = city_data.iloc[0]
+    # # print(test['city'])
+    # answer = test.apply(City(test['city'], test['lat'], test['lng']))
+    # print("ANSWER", answer)
+
+    with open('cities.csv') as f:
+        read_data = csv.reader(f)
+        next(read_data)
+        for row in read_data:
+            name = row[0]
+            lat = float(row[3])
+            lon = float(row[4])
+            cities.append(City(name, lat, lon))
+
     return cities
 
 
@@ -51,8 +57,8 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    # print(c)
-    print("waiting")
+    print(c)
+    # print("waiting")
 
 # STRETCH GOAL!
 #
