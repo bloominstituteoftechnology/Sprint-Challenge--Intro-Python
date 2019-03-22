@@ -17,3 +17,32 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+#base class
+class Vehicle():
+  def __init__(self):
+    print('base created')
+
+class FlightVehicle(Vehicle):
+  def __init__ (self):
+    Vehicle.__init__(self)
+
+class GroundVehicle(Vehicle):
+  def __init__ (self):
+    Vehicle.__init__(self)
+
+class Starship(FlightVehicle):
+  def __init__ (self):
+    FlightVehicle.__init__(self)
+
+class Airplane(FlightVehicle):
+  def __init__ (self):
+    FlightVehicle.__init__(self)
+
+class Car(GroundVehicle):
+  def __init__ (self):
+    GroundVehicle.__init__(self)
+
+class Motorcycle(GroundVehicle):
+  def __init__ (self):
+    GroundVehicle.__init__(self)
