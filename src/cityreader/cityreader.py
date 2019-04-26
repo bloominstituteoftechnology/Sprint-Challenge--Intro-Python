@@ -4,10 +4,10 @@
 class City:
   def __init__(self, name, latitude, longitude):
     self.name = name
-    self.latitude = latitude
-    self.longitude = longitude
+    self.lat = latitude
+    self.lon = longitude
   def __str__(self):
-    return f'City: {self.name}, Lat: {self.latitude}, Lon: {self.longitude}'
+    return f'City: {self.name}, Lat: {self.lat}, Lon: {self.lon}'
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -76,9 +76,14 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   if lat1 > lat2:
     if lon2 > lon1:
-      within = [x.__str__() for x in cities if x.latitude <= lat1 and x.latitude >= lat2 and x.longitude >= lon1 and x.longitude <= lon2]
+      within = [x.__str__() for x in cities if x.lat <= lat1 and x.lat >= lat2 and x.lon >= lon1 and x.lon <= lon2]
     else:
-      within = [x.__str__() for x in cities if x.latitude <= lat1 and x.latitude >= lat2 and x.longitude <= lon1 and x.longitude >= lon2]
+      within = [x.__str__() for x in cities if x.lat <= lat1 and x.lat >= lat2 and x.lon <= lon1 and x.lon >= lon2]
+  else:
+    if lon2 > lon1:
+      within = [x.__str__() for x in cities if x.lat <= lat2 and x.lat >= lat1 and x.lon >= lon1 and x.lon <= lon2]
+    else:
+      within = [x.__str__() for x in cities if x.lat <= lat2 and x.lat >= lat1 and x.lon <= lon1 and x.lon >= lon2]
   print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
   print('Here are the cities in your latitude longitude square!')
   for x in within:
