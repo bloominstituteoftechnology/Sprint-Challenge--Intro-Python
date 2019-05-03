@@ -53,6 +53,8 @@ for c in cities:
 # with the `cities` list that holds all the City instances from the `cityreader`
 # function. This function should output all the cities that fall within the 
 # coordinate square.
+
+
 #
 # Be aware that the user could specify either a lower-left/upper-right pair of
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
@@ -74,14 +76,38 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
-
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
-
+  if lat1 > lat2:
+      largeLat = float(lat1)
+      smallLat = float(lat2)
+  else:
+      largeLat = float(lat2)
+      smallLat = float(lat1)
+  
+  if lon1 > lon2:
+      largeLon = float(lon1)
+      smallLon = float(lon2)
+  else:
+      largeLon = float(lon2)
+      smallLon = float(lon1)
+  print({})
+  within = [print(n) for n in cities if (n.lat <= largeLat and n.lat >= smallLat) and (n.lon <= largeLon and n.lon >= smallLon)]
+  print("Finished")
   return within
+
+# TODO Get latitude and longitude values from the user
+user_input1 = str(input("lat1, lon1\n"))
+user_input2 = str(input("lat2, lon2\n"))
+input_list1 = user_input1.split(',')
+input_list2 = user_input1.split(',')
+
+lat1 = input_list1[0]
+lon1 = input_list1[1]
+lat2 = input_list2[0]
+lon2 = input_list2[1]
+
+print(cities)
+cityreader_stretch(lat1, lon1, lat2, lon2, cities)
