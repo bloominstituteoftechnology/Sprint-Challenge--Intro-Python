@@ -4,10 +4,10 @@ class City:
   def __init__(self, name, latitude, longitude):
     self.name = name
     self.lat = latitude
-    self.lng = longitude
+    self.lon = longitude
 
   def __str__(self):
-    return f"City('{self.name}', {self.lat},{self.lng}),"
+    return f"City({self.name}, {self.lat},{self.lon})"
     # return str(self.__dict__)
    
 
@@ -36,9 +36,9 @@ def cityreader(cities=[]):
    for row in reader:
       # print(row['city'], row['lat'], row['lng'])
       name = row['city']
-      lat = row['lat']
-      lng = row['lng']
-      cities.append(City(name, lat, lng))
+      lat = float(row['lat'])
+      lon = float(row['lng'])
+      cities.append(City(name, lat, lon))
 
   return cities
 
