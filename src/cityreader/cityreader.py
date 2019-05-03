@@ -1,5 +1,5 @@
 # Create a class to hold a city location. Call the class "City". It should have
-# fields for name, latitude, and longitude.
+# fields for name, lat and lon (representing latitude and longitude).
 
 
 # We have a collection of US cities with population over 750,000 stored in the
