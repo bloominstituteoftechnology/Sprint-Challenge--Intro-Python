@@ -1,6 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, latitude, and longitude.
+class City:
+  def __init__(self, name, latitude, longitude):
+    self.name = name
+    self.latitude = latitude
+    self.longitude = longitude
 
+  # def __str__(self):
+  #   return f'City(name: {self.name}, lat: {self.latitude} lng: {self.longitude})'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -15,19 +22,47 @@
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 cities = []
+import csv
+import os
+
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in '%s': %s" % (cwd, files))
+
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
+
+  with open('cities.csv') as csvfile:
+   reader = csv.DictReader(csvfile)
+   for row in reader:
+      # print(row['city'], row['lat'], row['lng'])
+      name = row['city']
+      lat = row['lat']
+      lng = row['lng']
+      cities.append(City(name, lat, lng))
+
+
+  # reader = csv.reader(open('cities.csv', 'r'))
+  # for row in reader:
+  #   print(row['city'], row['lan'], row['lng'])
+
+  # with open('cities.csv') as c:
+  #   d = dict(filter(None, csv.reader(c)))
+  #   print(d)
+
+  return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
+
+
+
 
 # STRETCH GOAL!
 #
