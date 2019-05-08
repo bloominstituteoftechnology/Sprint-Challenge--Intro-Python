@@ -1,10 +1,11 @@
-# Create a class to hold a city location. Call the class "City". It should have
+
 # fields for name, latitude, and longitude.
 class City:
   def __init__(self, name, latitude, longitude):
     self.name = name
     self.lat = latitude
     self.lon = longitude
+
 
   def __str__(self):
     return f"City({self.name}, {self.lat},{self.lon})"
