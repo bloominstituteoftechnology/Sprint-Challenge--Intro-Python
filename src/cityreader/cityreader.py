@@ -1,24 +1,27 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 import csv
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
-#
+
+
+class City:
+    def __init__(self, name, latitude, longitude):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def __str__(self):
+        return f"{self.name}, {self.latitude}, {self.longitude}"
+
+
 # In the body of the `cityreader` function, use Python's built-in "csv" module
 # to read this file so that each record is imported into a City instance. Then
 # return the list with all the City instances from the function.
 # Google "python 3 csv" for references and use your Google-fu for other examples.
 #
 # Store the instances in the "cities" list, below.
-
-
-class City():
-    def __init_(self, name, latitude, longitude):
-        self.name = name
-        self.lat = latitude
-        self.lon = longitude
-
-
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
@@ -26,21 +29,26 @@ cities = []
 
 
 def cityreader(cities=[]):
-        # TODO Implement the functionality to read from the 'cities.csv' file
-        # For each city record, create a new City instance and add it to the
-    with open('src/cityreader/cities.csv', newline='') as city:
-        city.reader = csv.reader(city)
-        next(city.reader)
-        for city in city.reader:
-            cities.append(City(city[0], city[3], city[4]))
-    # `cities` list
-
-            return cities
+  # TODO Implement the functionality to read from the 'cities.csv' files
+  # For each city record, create a new City instance and add it to the
+  # `cities` list
+    with open('src/cityreader/cities.csv') as c:
+        city_reader = csv.reader(c)
+        next(city_reader)
+        for row in city_reader:
+            name = row[0]
+            lat = float(row[3])
+            lon = float(row[4])
+            cities.append(City(name, lat, lon))
+    return cities
 
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+for c in cities:
+    print(c)
+
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -74,7 +82,7 @@ cityreader(cities)
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-    # within will hold the cities that fall within the specified region
+  # within will hold the cities that fall within the specified region
     within = []
 
     # TODO Ensure that the lat and lon valuse are all floats
