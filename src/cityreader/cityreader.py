@@ -1,6 +1,6 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
-
+import csv
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -10,6 +10,15 @@
 # Google "python 3 csv" for references and use your Google-fu for other examples.
 #
 # Store the instances in the "cities" list, below.
+
+
+class City():
+    def __init_(self, name, latitude, longitude):
+        self.name = name
+        self.lat = latitude
+        self.lon = longitude
+
+
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
@@ -17,11 +26,13 @@ cities = []
 
 
 def cityreader(cities=[]):
-    # TODO Implement the functionality to read from the 'cities.csv' file
-    # For each city record, create a new City instance and add it to the
-    with open('src/cityreader/cities.csv', 'r') as c:
-        for c in cities:
-            print('%s\n' % c)
+        # TODO Implement the functionality to read from the 'cities.csv' file
+        # For each city record, create a new City instance and add it to the
+    with open('src/cityreader/cities.csv', newline='') as city:
+        city.reader = csv.reader(city)
+        next(city.reader)
+        for city in city.reader:
+            cities.append(City(city[0], city[3], city[4]))
     # `cities` list
 
             return cities
