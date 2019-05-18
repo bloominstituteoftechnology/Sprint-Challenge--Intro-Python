@@ -9,7 +9,7 @@ class City:
     self.lon = lon
     
   def __repr__(self):
-    return f"{self.name} {self.lat} {self.lon}"
+    return f"({self.name}, {self.lat}, {self.lon})"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -26,17 +26,18 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-  with open('cities.csv', 'r', newline='') as f:
-    readCSV = csv.reader(f)
-    for row in readCSV:
-      cities.append(City(row[0], row[3], row[4]))
-      #print(row)
+    with open('cities.csv', 'r', newline='') as f:
+        for i, row in enumerate(csv.reader(f)):
+           if i !=0:
+                cities.append(City(row[0], float(row[3]), float(row[4])))
+    #print(row)
 
   #  Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     
-  return cities
+    return cities
+
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
