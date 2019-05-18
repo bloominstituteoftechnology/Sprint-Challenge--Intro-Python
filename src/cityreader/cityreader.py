@@ -7,13 +7,13 @@ import csv
 
 
 class City:
-    def __init__(self, name, latitude, longitude):
+    def __init__(self, name, lat, lon):
         self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
+        self.lat = lat
+        self.lon = lon
 
     def __str__(self):
-        return f"{self.name}, {self.latitude}, {self.longitude}"
+        return f"{self.name}, {self.lat}, {self.lon}"
 
 
 # In the body of the `cityreader` function, use Python's built-in "csv" module
@@ -79,14 +79,32 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+loc1 = input("\nEnter the first lat, lon: \n").strip().split(",")
+loc2 = input("\nEnter the second lat, lon: \n").strip().split(",")
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
     within = []
+    # makeing sure all values are a float
+    lat = [float(lat1), float(lat2)]
+    lon = [float(lon1), float(lon2)]
 
+    # Sort both lat and lon to normalize the data
+    lat.sort()
+    lon.sort()
+    cities.sort(key=lambda x: x.name)
     # TODO Ensure that the lat and lon valuse are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
+    # check each city and see if ti falls within those coordinates
+    for city in cities:
+        if lat[0] < city.lat < lat[1] and lon[0] < city.lon < lon[1]:
+            within.append(city)
 
     return within
+
+
+for city in cityreader_stretch(loc1[0], loc1[1], loc2[0], loc2[1], cities):
+
+    print('\n' + str(city))
