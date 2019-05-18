@@ -23,7 +23,10 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-  
+  with open('cities.csv') as csvfile:
+    readCSV = csv.reader(csvfile)
+    for row in readCSV:
+      print(row)
 
   
   #  Implement the functionality to read from the 'cities.csv' file
