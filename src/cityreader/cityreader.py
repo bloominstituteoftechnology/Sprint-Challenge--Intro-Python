@@ -90,7 +90,7 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     lat = [float(lat1), float(lat2)]
     lon = [float(lon1), float(lon2)]
 
-    # Sort both lat and lon to normalize the data
+    # Sort both lat,lon, and city name to normalize the data
     lat.sort()
     lon.sort()
     cities.sort(key=lambda x: x.name)
