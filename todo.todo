@@ -1,6 +1,6 @@
 sprint:
-    - oop.py
-        - class
-        - subclassing and method overriding
-    - comp.py
+    - oop.py @done
+        - class @done
+        - subclassing and method overriding @done
+    - comp.py @done
     - cityreader.py
