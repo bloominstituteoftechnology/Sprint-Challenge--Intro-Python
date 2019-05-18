@@ -1,0 +1,6 @@
+sprint:
+    - oop.py
+        - class
+        - subclassing and method overriding
+    - comp.py
+    - cityreader.py
