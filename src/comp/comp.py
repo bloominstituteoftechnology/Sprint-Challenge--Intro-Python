@@ -41,13 +41,13 @@ print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [i.age + 10 for i in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
+e = [i.name + "-" + str(i.age) for i in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -67,5 +67,11 @@ print(g)
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = []
+h = [math.sqrt(i.age) for i in humans]
 print(h)
+
+#A List Comprehension follows the basic pattern...
+#[ <do something to item>  for  <item> in <list>]
+
+#or if you want to keep the result around:
+#output_list = [ <manipulate item>  for  <item>  in  <input list> ]
