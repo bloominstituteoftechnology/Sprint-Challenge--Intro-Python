@@ -32,7 +32,7 @@ print("Starts with D:")
 a = []
 for x in humans:
     if x.name[0] == "D":
-        a.append(x)
+        a.append(x.name)
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -42,7 +42,7 @@ b = []
 end = "e"
 for x in humans:
     if x.name.endswith(end):
-        b.append(x)
+        b.append(x.name)
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -52,7 +52,7 @@ print("Starts between C and G, inclusive:")
 c = []
 for x in humans:
     if re.match(r'[C-G]', x.name):
-        c.append(x)
+        c.append(x.name)
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -78,7 +78,7 @@ print("Names and ages between 27 and 32:")
 f = []
 for x in humans:
     if x.age >= 27 and x.age <= 32:
-        f.append(x)
+        f.append((x.name, x.age))
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
