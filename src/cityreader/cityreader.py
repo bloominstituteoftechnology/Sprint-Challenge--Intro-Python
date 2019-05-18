@@ -11,7 +11,7 @@ class City:
     self.lon = lon
 
   def __repr__(self):
-    return '{}, {:.8g}, {:.8g}'.format(self.name, float(self.lat), float(self.lon))
+    return '{}: ({:.8g}, {:.8g})'.format(self.name, float(self.lat), float(self.lon))
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -108,4 +108,4 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
 inbounds = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
 for c in inbounds:
-  print(c)
+  print(f'{c.name}: ({c.lat}, {c.lon})')
