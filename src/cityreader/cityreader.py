@@ -40,18 +40,7 @@ def cityreader(cities=[]):
         line_count += 1      
     return cities  
   
-  #kwargs = {'newline': ''}
-  #mode = 'r'
-  #if sys.version_info < (3, 0):
-  #  kwargs.pop('newline', None)
-  #  mode = 'rb'
-  #with open('cities.csv', mode, **kwargs) as fp:
-  #  reader = csv.reader(fp, delimiter=',', quotechar='"')
-  #  next(reader, None)  # skip the headers
-  #  cities = [row for row in reader]
-  #  return cities 
-    
-
+ 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
