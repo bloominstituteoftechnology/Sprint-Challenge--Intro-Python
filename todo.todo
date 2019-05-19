@@ -3,4 +3,11 @@ sprint:
         - class @done
         - subclassing and method overriding @done
     - comp.py @done
-    - cityreader.py
+    - cityreader.py @done
+
+stretch:
+    - user input two points
+            - must be float numbers squared
+            - one must represent lat and lon
+            - Normalize input data 
+    - 
