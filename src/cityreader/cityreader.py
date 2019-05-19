@@ -31,16 +31,14 @@ def cityreader(cities=[]):
       reader = csv.reader(f)
       for col in reader:
           print(col[0])
-          cities.append(City(col[0] , col[3] , col[4]))
+          cities.append(City( str(col[0]) , float(col[3]) , float(col[4]) ))
       return cities
-
-
-print("SOME WORDS", cities)
-
 cityreader(cities)
+
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+  print(c)
 
 # STRETCH GOAL!
 #
