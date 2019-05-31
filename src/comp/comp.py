@@ -41,31 +41,31 @@ print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = [int(h.age]) + 10 for h in humans] 
+d = [int(h.age) + 10 for h in humans] 
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = [f'{h.nane}-{h.age}' for h in humans]
+e = [f'{h.name}-{h.age}' for h in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = (h.nane,h.age) for h in humans if (h.age > 26) and (h.age < 33) ]
+f = [(h.name,h.age) for h in humans if (h.age > 26) and (h.age < 33) ]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [Human(upper(h.name), int(h.age) + 5) for h in humans]
+g = [Human(h.name.upper(), int(h.age) + 5) for h in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = [double(h.age) ** 0.5 for h in humans]
+h = [float(h.age) ** 0.5 for h in humans]
 print(h)
