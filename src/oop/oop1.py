@@ -21,6 +21,7 @@
 #base class tier 1
 class Vehicle:
     pass
+
 # class tier 2
 class FlightVehicle(Vehicle):
     pass
@@ -33,6 +34,12 @@ class StarShip(FlightVehicle):
     pass
 
 class Airplane(FlightVehicle):
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
     pass
 
 
