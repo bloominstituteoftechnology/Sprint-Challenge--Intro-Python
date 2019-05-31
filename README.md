@@ -29,7 +29,7 @@ Complete the programs in the `src/` directory in any order.
 
 ## Testing
 
-Each file has its own associated test file. To test your code, run `python [name_of_test_file.py]` or `python3 [name_of_test_file.py]` if your Python 3 command is mapped to `python3`. 
+Each file has its own associated test file. To test your code, run `python [name_of_test_file.py]` or `python3 [name_of_test_file.py]` if your Python 3 command is mapped to `python3`. Note: `cityreader` needs to be run from the same directory as the files or it will not be able to find the associated CSV file.
 
 The `cityreader` stretch goal has its own test file, `test_stretch.py`, if you want to take a stab at implementing the stretch problem.
 
