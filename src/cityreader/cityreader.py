@@ -33,10 +33,10 @@ def cityreader(cities=[]):
   # `cities` list
   with open('cities.csv') as csvfile:
     read = csv.reader(csvfile, delimiter=(','))
-    catergory = ['city', 'state_name', 'county_name', 'lat', 'lng', 'population', 'density', 'timezone', 'zips']
-    fields =  [line for line in read if line != catergory]
+    fields = ['city', 'state_name', 'county_name', 'lat', 'lng', 'population', 'density', 'timezone', 'zips']
+    not_fields =  [line for line in read if line != fields]
     
-    for line in fields:
+    for line in not_fields:
       cities.append(City(line[0], float(line[3]), float(line[4])))
 
 
