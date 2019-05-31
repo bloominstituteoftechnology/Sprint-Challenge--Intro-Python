@@ -87,14 +87,51 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+    # within will hold the cities that fall within the specified region
+    within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    # TODO Ensure that the lat and lon valuse are all floats
+    # Go through each city and check to see if it falls within
+    # the specified coordinates.
 
-  return within
+    startlat = None
+    stoplat = None
+    startlon = None
+    stoplon = None
+
+    # Finding the bounding box
+    if lat1 < lat2:
+        startlat = lat1
+        stoplat = lat2
+    else:
+        startlat = lat2
+        stoplat = lat1
+
+    if lon1 < lon2:
+        startlon = lon1
+        stoplon = lon2
+    else:
+        startlon = lon2
+        stoplon = lon1
+
+    for city in cities:
+        if (city.lat >= startlat and city.lat <= stoplat)\
+             and (city.lon >= startlon and city.lon <= stoplon):
+
+            within.append(city)
+
+    return within
+
+
+# TODO Get latitude and longitude values from the user
+# This code is not needed while using test script
+"""
+lat1, lon1 = map(float, input('Enter lat1,lon1:').split(","))
+lat2, lon2 = map(float, input('Enter lat2,lon2:').split(","))
+within = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+
+for c in within:
+    print(f'({c.name}, {c.lat}, {c.lon})')
+"""
