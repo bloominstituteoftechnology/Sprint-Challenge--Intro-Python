@@ -22,4 +22,8 @@
 class Vehicle:
     pass
 
+class FlightVehicle(Vehicle):
+    pass
+
+
 
