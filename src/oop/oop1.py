@@ -25,6 +25,9 @@ class Vehicle:
 class FlightVehicle(Vehicle):
     pass
 
+class GroundVehicle(Vehicle):
+    pass
+
 #class tier 3
 class StarShip(FlightVehicle):
     pass
