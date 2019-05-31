@@ -70,13 +70,42 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+latlon1 = input("Enter Lat1 Lon1 :>",)
+latlon2 = input("Enter Lat2 Lon2 :>",)
+lat_lon1 = latlon1.split()  # split into word list
+lat_lon2 = latlon2.split()  # split into word list
+inp_lat1 = float(lat_lon1[0])
+inp_lon1 = float(lat_lon1[1])
+inp_lat2 = float(lat_lon2[0])
+inp_lon2 = float(lat_lon2[1])
+if inp_lat1 > inp_lat2:
+    lat1 = inp_lat2
+    lat2 = inp_lat1
+else:
+    lat1 = inp_lat1
+    lat2 = inp_lat2
+
+
+if inp_lon1 > inp_lon2:
+    lon1 = inp_lon2
+    lon2 = inp_lon1
+else:
+    lon1 = inp_lon1
+    lon2 = inp_lon2
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+    # within will hold the cities that fall within the specified region
+    within = []
+    # TODO Ensure that the lat and lon valuse are all floats
+    # Go through each city and check to see if it falls within 
+    # the specified coordinates.
+    for c in cities:
+        if (c.lat >= lat1) and (c.lat <= lat2):
+            if (c.lon >= lon1) and (c.lon <= lon2):
+                within.append(c)
+    return within
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
-
-  return within
+val_list = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+for c in val_list:
+    print(c)
