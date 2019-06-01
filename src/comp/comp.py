@@ -25,18 +25,18 @@ humans = [
 # whose name starts with 'D':
 # print("Starts with D:")
 a = [name for name in humans if name.name[0] == 'D']
-print(a)
+# print(a)
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
 b = [name for name in humans if name.name[len(name.name) -1 ] == 'e']
-print('b:', b)
+# print('b:', b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
-print(c)
+c = [name for name in humans if name.name[0] >= 'C' and name.name[0] <= 'G']
+print('c:', c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
