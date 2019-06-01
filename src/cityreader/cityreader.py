@@ -32,7 +32,7 @@ def cityreader(cities=[]):
   # `cities` list
   with open("cityreader/cities.csv", newline="") as csvfile:
     readCSV = csv.reader(csvfile, delimiter=",")
-    header_line = next(csvfile)
+    next(csvfile)
     for row in readCSV:
       cities.append(City(row[0], float(row[3]), float(row[4])))
     return cities
