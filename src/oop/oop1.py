@@ -1,3 +1,21 @@
+class Vehicle():
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+
+
+
+class GroundVehicle(Vehicle):
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
+
+
 # Write classes for the following class hierarchy:
 #
 #  [Vehicle]->[FlightVehicle]->[Starship]
