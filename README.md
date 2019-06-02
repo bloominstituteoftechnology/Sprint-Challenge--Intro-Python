@@ -1,4 +1,4 @@
-#  Sprint Challenge: Intro to Python
+#  Sprint Challenge: Intro to Python - A. Franklin
 
 In this week's Sprint you explored the Python programming language as well as object-oriented design principles. This Sprint Challenge aims to assess your comfort in both of these areas through exercises similar to the ones you worked on at the beginning of this week in Intro to Python.
 
@@ -19,13 +19,13 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Complete the programs in the `src/` directory in any order.
 
-* `oop/`
-    * `oop1.py`: class hierarchies
-    * `oop2.py`: subclassing and method overriding
-* `comp/`
-    * `comp.py`: list comprehensions
-* `cityreader/`
-    * `cityreader.py`: modules and CSV file reading
+[x] `oop/`
+    [x] `oop1.py`: class hierarchies
+    [x] `oop2.py`: subclassing and method overriding
+[x] `comp/`
+    [x] `comp.py`: list comprehensions
+[] `cityreader/`
+    [] `cityreader.py`: modules and CSV file reading
 
 ## Testing
 
