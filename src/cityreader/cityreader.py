@@ -31,12 +31,11 @@ def cityreader(cities=[]):
   # `cities` list
   with open('cities.csv') as list_cities:
        cities_reader = csv.reader(list_cities, delimiter=',')
-       line_num = 0
+       isFirst = 1
        for city in cities_reader:
-           if line_num == 0:
-               line_num += 1
-           else:
+           if not isFirst:
                cities.append(City(city[0], float(city[3]), float(city[4])))
+               isFirst = 0
   return cities
 
 cityreader(cities)
