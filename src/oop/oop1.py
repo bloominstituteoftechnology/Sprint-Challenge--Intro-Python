@@ -1,10 +1,16 @@
+# Vehicle is base class, and whichever class is in the parens is the base class and the new class is the child
+
 class Vehicle():
     pass
 
 class FlightVehicle(Vehicle):
     pass
 
+class Airplane(Vehicle):
+    pass
 
+class Starship(FlightVehicle):
+    pass
 
 class GroundVehicle(Vehicle):
     pass
