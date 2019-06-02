@@ -15,7 +15,9 @@ class GroundVehicle():
 
     # TODO
 
-gv = GroundVehicle(2)
+
+## When I print these I get a third print in the middle of them that says None, what does that refer to?
+gv = GroundVehicle(6)
 print(gv.__repr__())
 print(gv.drive())
 
@@ -27,6 +29,18 @@ print(gv.drive())
 # of wheels to 2 by passing that to the constructor of its superclass.
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
+
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels = 4):
+        GroundVehicle.__init__(self, num_wheels = 2)
+
+    def drive(self):
+        return "BRAAAP!!"
+
+
+m = Motorcycle()
+print(m.__repr__())
+print(m.drive())
 
 # TODO
 
