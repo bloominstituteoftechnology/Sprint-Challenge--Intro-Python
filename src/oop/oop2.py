@@ -4,14 +4,26 @@
 # object is constructed.
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
-        self.num_wheels = num_wheels
+    def __init__(self, num_wheels = None):
+        if num_wheels is None:
+            self.num_wheels = 4
+        else:
+            self.num_wheels = num_wheels    
 
     # TODO
+    def drive(self):
+        return "vroooom"
 
 
 # Subclass Motorcycle from GroundVehicle.
-#
+
+class Motorcycle(GroundVehicle):
+    def __init__(self, num_wheels=2):
+        super().__init__(num_wheels)
+    def drive(self):
+        return "BRAAAP!!"      
+        
+
 # Make it so when you instantiate a Motorcycle, it automatically sets the number
 # of wheels to 2 by passing that to the constructor of its superclass.
 #
