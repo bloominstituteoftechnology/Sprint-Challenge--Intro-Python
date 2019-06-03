@@ -79,13 +79,29 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
-  return within
+within = []
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+    lat1 = input('Please enter the first Latitude coordinate')
+        while len(lat1) != 2 :
+            lat1=input('Please make sure it it double digit only, try again.')
+    lon1=input('Please enter the second Latitude coordinate')
+        # if len(lat2) != 2:
+            # lat2=input('Please make sure it it double digit only, try again.')
+    with open('cities.csv') as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter = ',')
+            line_count = 0
+            for row in csv_reader:
+                if line_count == 0:
+                    line_count += 1
+                else:
+                    
+                    within.append(City((row[0]), float(row[3]), float(row[4])))
+    
+
