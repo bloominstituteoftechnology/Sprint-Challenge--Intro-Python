@@ -4,12 +4,12 @@
 class City():
     def __init__(self, name, lat, lon):
         self.name = name
-        self.lat = lat
-        self.lon = lon
+        self.lat = float(lat)
+        self.lon = float(lon)
 
     def __repr__(self):
       output =""
-      output += self.name + "," + self.lat +"," + self.lon 
+      output += self.name + ", " + str(self.lat) + ", " + str(self.lon)
       return output
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -32,12 +32,9 @@ def cityreader(cities=[]):
     import csv 
     with open ('cities.csv') as cities_csv:
         csv_reader = csv.reader(cities_csv, delimiter = ',')
-        line_count=0
+        next(csv_reader)
         for row in csv_reader:
-            if line_count == 0:
-                line_count+=1
-            else :
-                cities.append(City(row[0], row[3], row[4]))
+            cities.append(City(row[0], row[3], row[4]))
     return cities
 
 cityreader(cities)
