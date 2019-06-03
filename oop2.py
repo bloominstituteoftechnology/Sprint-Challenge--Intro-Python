@@ -4,7 +4,7 @@
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
-class GroundVehicle():
+class GroundVehicle(object):
     def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
 
