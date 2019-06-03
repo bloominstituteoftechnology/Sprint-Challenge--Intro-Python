@@ -37,3 +37,5 @@ class Car(GroundVehicle):
 
 class Motorcycle(GroundVehicle):
   pass
+
+  # All assignments are completed in this file
