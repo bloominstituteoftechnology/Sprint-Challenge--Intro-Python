@@ -81,5 +81,6 @@ class CityreaderTests(unittest.TestCase):
       self.assertTrue(check_city(self.cities[i], self.expected[i]))
 
 
+
 if __name__ == '__main__':
   unittest.main()
