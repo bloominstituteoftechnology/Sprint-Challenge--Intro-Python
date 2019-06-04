@@ -27,6 +27,7 @@ Complete the programs in the `src/` directory in any order.
 * `cityreader/`
     * `cityreader.py`: modules and CSV file reading
 
+
 ## Testing
 
 Each file has its own associated test file. To test your code, run `python [name_of_test_file.py]` or `python3 [name_of_test_file.py]` if your Python 3 command is mapped to `python3`. Note: `cityreader` needs to be run from the same directory as the files or it will not be able to find the associated CSV file.
