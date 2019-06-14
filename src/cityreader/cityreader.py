@@ -46,6 +46,7 @@ for c in cities:
 # with the `cities` list that holds all the City instances from the `cityreader`
 # function. This function should output all the cities that fall within the 
 # coordinate square.
+x = input("Enter latitude, longitude numbers: ").split(',')
 #
 # Be aware that the user could specify either a lower-left/upper-right pair of
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
