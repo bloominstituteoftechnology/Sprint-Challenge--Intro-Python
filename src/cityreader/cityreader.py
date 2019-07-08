@@ -2,12 +2,12 @@
 # fields for name, lat and lon (representing latitude and longitude).
 import csv
 class City:
- def __init__(self, name, lat, lon):
-  self.name = name
-  self.lat = lat
-  self.lon = lon
- def __repr__(self):
-  return "%s" % self.name
+	def __init__(self, name, lat, lon):
+		self.name = name
+		self.lat = lat
+		self.lon = lon
+	def __repr__(self):
+		return "%s" % self.name
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -23,19 +23,22 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
- with open('cities.csv', 'r') as csvfile:
-  citylist = csv.reader(csvfile)
-  field_row = next(citylist)
-  for row in citylist:
+	with open('cities.csv', 'r') as csvfile:
+		citylist = csv.reader(csvfile)
+		field_row = next(citylist)
+		for row in citylist:
+			c_name = row[1]
+			c_lat = float(row[3])
+			c_lon = float(row[4])
+			# print(c_name, c_lat, c_lon)
+		cities.append(City(c_name, c_lat, c_lon))
+		# TODO Implement the functionality to read from the 'cities.csv' file
+		# For each city record, create a new City instance and add it to the
+		# `cities` list
+		return cities
 
-   cities.append(City(row[0].name, row[0].lat, row[0].lon))
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-   return cities
-
-cityreader(cities)
-print(cities)
+# cityreader(cities)
+# print(cityreader(cities))
 # Print the list of cities (name, lat, lon), 1 record per line.
 # for c in cities:
 #     print(c.name)
@@ -72,11 +75,11 @@ print(cities)
 # TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+	# within will hold the cities that fall within the specified region
+	within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+	# TODO Ensure that the lat and lon valuse are all floats
+	# Go through each city and check to see if it falls within
+	# the specified coordinates.
 
-  return within
+	return within
