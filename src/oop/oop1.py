@@ -17,8 +17,10 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+# Base class for all classes
 class Vehicle:
   pass
+
 
 class FlightVehicle(Vehicle):
   pass
