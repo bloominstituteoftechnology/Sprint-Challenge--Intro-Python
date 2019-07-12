@@ -18,12 +18,12 @@ import csv
 
 
 class City:
-  def _init_(self, name, lat, lon):
+  def __init__(self, name, lat, lon):
     self.name = name
     self.lat = lat
     self.lon = lon
 
-def _repr_(self):
+def __repr__(self):
   return (f"{self.name}'s' coordinates are {self.lat}, {self.lon}")
 
 
@@ -35,7 +35,8 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
   with open('cities.csv', newLine='') as csvfile:
-    reader = csv.reader(csvfile, delimiter='')
+    reader = csv.reader(csvfile, delimiter=',')
+    for ()
     
     return cities
 
