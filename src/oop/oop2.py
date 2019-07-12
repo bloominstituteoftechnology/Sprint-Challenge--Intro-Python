@@ -3,12 +3,19 @@
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
-class GroundVehicle():
-    def __init__(self, num_wheels):
-        self.num_wheels = num_wheels
-
     # TODO
 
+class GroundVehicle():
+    
+    def __init__(self, **kwargs):
+        self.num_wheels = kwargs['num_wheels'] if 'num_wheels' in kwargs else 4
+        self.sound = kwargs['sound'] if 'sound' in kwargs else 'vroooom'
+    
+    def drive(self):
+        return self.sound
+    
+    def num_wheels(self):
+        return self.num_wheels
 
 # Subclass Motorcycle from GroundVehicle.
 #
@@ -17,7 +24,13 @@ class GroundVehicle():
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
+
 # TODO
+
+class Motorcycle(GroundVehicle):
+    def __init__(self, **kwargs):
+        self.sound= 'BRAAAP!!'
+        self.num_wheels= 2
 
 vehicles = [
     GroundVehicle(),
@@ -30,3 +43,6 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # TODO
+
+for i in vehicles:
+    print(i.drive())
