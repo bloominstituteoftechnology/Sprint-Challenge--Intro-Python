@@ -3,9 +3,9 @@
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
-class GroundVehicle:
-    def __init__(self, num_wheels):
-        self.num_wheels = num_wheels or 4
+class GroundVehicle():
+    def __init__(self, num_wheels = 4):
+        self.num_wheels = num_wheels
     def drive(self):
         return 'vroooom'
 
@@ -24,10 +24,10 @@ class Motorcycle(GroundVehicle):
         return "BRAAAP!!"
 
 vehicles = [
-    GroundVehicle(1),
-    GroundVehicle(2),
+    GroundVehicle(),
+    GroundVehicle(),
     Motorcycle(),
-    GroundVehicle(3),
+    GroundVehicle(),
     Motorcycle(),
 ]
 
