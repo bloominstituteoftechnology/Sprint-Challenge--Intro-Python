@@ -12,12 +12,6 @@ class GroundVehicle():
         return "vroooom"
 
 
-# Subclass Motorcycle from GroundVehicle.
-#
-# Make it so when you instantiate a Motorcycle, it automatically sets thenumber
-# of wheels to 2 by passing that to the constructor of its superclass.
-#
-# Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
 class Motorcycle(GroundVehicle):
     def __init__(self, num_wheels=2):
