@@ -46,20 +46,7 @@ for c in cities:
     print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
-#
-# Allow the user to input two points, each specified by latitude and longitude.
-# These points form the corners of a lat/lon square. Pass these latitude and
-# longitude values as parameters to the `cityreader_stretch` function, along
-# with the `cities` list that holds all the City instances from the`cityreader`
-# function. This function should output all the cities that fall within the
-# coordinate square.
-#
-# Be aware that the user could specify either a lower-left/upper-right pair of
-# coordinates, or an upper-left/lower-right pair of coordinates. Hint:normalize
-# the input data so that it's always one or the other, then search for cities.
-# In the example below, inputting 32, -120 first and then 45, -100 should not
-# change the results of what the `cityreader_stretch` function returns.
-#
+
 # Example I/O:
 #
 # Enter lat1,lon1: 45,-100
@@ -74,16 +61,12 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
 lat1, lon1 = input("Enter lat1,lon1:").split(",")
 lat2, lon2 = input("Enter lat2,lon2:").split(",")
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
-    # TODO Ensure that the lat and lon valuse are all floats
-    # Go through each city and check to see if it falls within
-    # the specified coordinates.
     within = []
     lat1, lon1, lat2, lon2 = float(lat1), float(lon1), float(lat2), float(lon2)
     big_lat = max(lat1, lat2)
