@@ -15,7 +15,7 @@ class City:
 # In the body of the `cityreader` function, use Python's built-in "csv" module 
 # to read this file so that each record is imported into a City instance. Then
 # return the list with all the City instances from the function.
-# Google "python 3 csv" for references and use your Google-fu for otherexamples
+# Google "python 3 csv" for references and use your Google-fu for other examples
 #
 # Store the instances in the "cities" list, below.
 #
