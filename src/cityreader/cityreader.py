@@ -23,8 +23,8 @@ class City:
     self.lat = lat
     self.lon = lon
 
-def __repr__(self):
-  return (f"{self.name}'s' coordinates are {self.lat}, {self.lon}")
+  def __repr__(self):
+    return (f"{self.name}'s coordinates are {self.lat}, {self.lon}")
 
 
 
@@ -34,10 +34,11 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-  with open('cities.csv', newLine='') as csvfile:
-    reader = csv.reader(csvfile, delimiter=',')
-    for ()
-    
+    with open('cities.csv', newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for (i, city) in enumerate(reader):
+            if i is not 0:
+                cities.append(City(city[0], float(city[3]), float(city[4])))
     return cities
 
 cityreader(cities)
