@@ -7,7 +7,7 @@ class City:
     self.lon = lon
 
   def __repr__(self):
-    return f"<City: {self.name}, {self.lat}, {self.lon}>"
+    return f"City({repr(self.name)}, {self.lat}, {self.lon})"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -34,8 +34,9 @@ def cityreader(cities=[]):
     next(csv_reader)
 
     for line in csv_reader:
-      print(line[0] + line[3] + line[4])
-      cities = [City(line[0], line[3], line[4]) for line in cities]
+      #print(line[0] + line[3] + line[4])
+      city = City(str(line[0]), line[3], line[4])
+      cities.append(city)
     return cities
 
 cityreader(cities)
@@ -43,7 +44,7 @@ cityreader(cities)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
-
+print(cities)
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
