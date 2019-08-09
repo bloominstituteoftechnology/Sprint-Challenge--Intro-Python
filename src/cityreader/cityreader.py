@@ -23,10 +23,16 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
+import csv
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+  with open ('src/cityreader/cities.csv','r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+
+    for line in csv_reader:
+      print(line)
     
     return cities
 
