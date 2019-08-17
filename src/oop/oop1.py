@@ -19,6 +19,6 @@
 # Put a comment noting which class is the base class
 
 
-# base class
+# base  vehicle class 
 class Vehicle:
     print("some code for testing")
