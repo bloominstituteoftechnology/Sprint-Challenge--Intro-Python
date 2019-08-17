@@ -31,14 +31,15 @@ print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
+
 print("Ends with e:")
-b = [human.name for human in humans if human.name[-1] == 'e]
+b = [human.name for human in humans if human.name[-1].lower() == 'e']
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [human.name for human in humans if (human.name[0] < 'H') & (human.name[0] > 'B')]
+c = [human.name for human in humans if (human.name[0].lower() > 'B') & (human.name[0].lower() < 'H')]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
