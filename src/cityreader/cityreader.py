@@ -40,16 +40,9 @@ def cityreader(cities=[]):
     # A LITTLE TEST OF MY GOOGLE-FU, I KNOW IT'S NOT CORRECT, BUT IT'S CLOSE ENOUGH TO HELP ME
     with open("./src/cityreader/cities.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
-        line_count = 0
         for row in csv_reader:
-            if line_count == 0:
-                print(f'Column names are {", ".join(row)}')
-                line_count += 1
-            else:
-                print(
-                    f'\t{row[0]}, {row[3]}, {row[4]}.')
-                line_count += 1
-        print(f'Processed {line_count} lines.')
+            cities.append(City(row[0], row[3], row[4]))
+
     # return cities
 
 
@@ -57,7 +50,9 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(f"({c.name}, {c.lat}, {c.lon})")
+
+# THAT'S AS CLOSE AS I CAN GET!
 
 # STRETCH GOAL!
 #
