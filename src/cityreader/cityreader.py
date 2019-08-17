@@ -23,6 +23,8 @@ class City():
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 
+# HEADER = city,state_name,county_name,lat,lng,population,density,timezone,zips
+
 
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
@@ -34,17 +36,21 @@ def cityreader(cities=[]):
     # TODO Implement the functionality to read from the 'cities.csv' file
     # For each city record, create a new City instance and add it to the
     # `cities` list
-    with open("./src/cityreader/cities.csv", "r") as csvfile:
-        readlist = csv.reader(csvfile)
-        for row in readlist:
-            if row[0] != "city":
-                cities.append(City(row[0], float(row[3]), float(row[4])))
-    # with open("cities.csv", 'r') as c:
-    #     readlist = csv.reader(c)
-    #     for row in readlist:
-    #         if row[0] != 'city':
-    #             cities.append(City(row[0], float(row[3]), float(row[4])))
-    return cities
+
+    # A LITTLE TEST OF MY GOOGLE-FU, I KNOW IT'S NOT CORRECT, BUT IT'S CLOSE ENOUGH TO HELP ME
+    with open("./src/cityreader/cities.csv") as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                print(f'Column names are {", ".join(row)}')
+                line_count += 1
+            else:
+                print(
+                    f'\t{row[0]}, {row[3]}, {row[4]}.')
+                line_count += 1
+        print(f'Processed {line_count} lines.')
+    # return cities
 
 
 cityreader(cities)
