@@ -66,6 +66,7 @@ class GroundVehicle(Vehicle):
 
     def __str__(self):
         return f'{self.name} is {self.color} color and is {self.size} large.'
+    def 
 
 # child of ground vehicle
 class Car(GroundVehicle):
