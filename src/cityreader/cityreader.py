@@ -4,11 +4,12 @@
 import csv
 
 
-class City():
-    def _init_(self, name, lat, lon):
+class City:
+    def __init__(self, name, lat, lon):
         self.name = name
         self.lat = lat
         self.lon = lon
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -25,7 +26,6 @@ class City():
 
 #  HEADER: city,state_name,county_name,lat,lng,population,density,timezone,zips
 
-
 cities = []
 
 
@@ -33,11 +33,12 @@ def cityreader(cities=[]):
     # TODO Implement the functionality to read from the 'cities.csv' file
     # For each city record, create a new City instance and add it to the
     # `cities` list
-
-    with open('cities.csv', 'r') as csv_file:
-        csv_list = csv.reader(csv_file)
-        for row in csv_list:
-            cities.append(City(row[0], float(row[3]), float(row[4])))
+    # Google magic
+    with open('./src/cityreader/cities.csv', 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        next(csvreader)
+        for row in csvreader:
+            cities.append(City(row[0], row[3], row[4]))
         return cities
 
 
