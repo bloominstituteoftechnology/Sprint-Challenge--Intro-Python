@@ -22,10 +22,12 @@ class GroundVehicle():
 
 class Motorcycle(GroundVehicle):
     def __init__(self, num_wheels=2):
-        GroundVehicle.__init__.num_wheels = num_wheels
+       self.num_wheels=num_wheels
+
     def drive(self):
         print('BRAAAP!!')
 
+print(Motorcycle().num_wheels)
 
 # TODO
 
@@ -40,5 +42,6 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # TODO
+
 new_vehicules = [v.drive() for v in vehicles]
 new_vehicules
