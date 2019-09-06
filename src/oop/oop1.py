@@ -18,7 +18,7 @@
 #
 # Put a comment noting which class is the base class
 
-class Vehicle # "Base Class"
+class Vehicle(): # "Base Class"
     def __init__(self, type):
         self.type = type 
 
@@ -34,8 +34,8 @@ class Starship(FlightVehicle):
 class GroundVehicle(Vehicle):
     pass
 
- class Car(GroundVehicle):
-     pass
+class Car(GroundVehicle):
+    pass
 
 class Motorcycle(GroundVehicle):
     pass 
