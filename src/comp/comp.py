@@ -8,6 +8,7 @@ class Human:
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
 
+
 humans = [
     Human("Alice", 29),
     Human("Bob", 32),
@@ -67,5 +68,6 @@ print(g)
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
+
 h = [math.sqrt(h.age) for h in humans]
 print(h)

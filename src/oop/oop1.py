@@ -47,7 +47,3 @@ class Car(GroundVehicle):
 
 class Motorcycle(GroundVehicle):
     pass
-
-
-
-
