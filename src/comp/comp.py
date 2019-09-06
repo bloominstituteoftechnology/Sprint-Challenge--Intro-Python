@@ -47,6 +47,7 @@ c = [human for human in humans if human.name[0] in ['C', 'D', 'E', 'F', 'G']]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
+#The expression goes on the left ( this is where you modify the output)
 print("Ages plus 10:")
 d = [  human.age + 10 for human in humans ]
 print(d)
@@ -54,7 +55,7 @@ print(d)
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
+e = [human.name + "-" + str(human.age) for human in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
