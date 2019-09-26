@@ -1,6 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.latitude = lat
+    self.longitude = lon
 
+  def __str__(self):
+    return f"Name: {self.name}, Latitude: { self.latitude}, Longitude {self.longitude}\n"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -17,10 +24,15 @@
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+  import csv 
+  with open('cities.csv') as file: # access csv file and assign the name 'file'
+    reader = csv.reader(file)
+
+    for row in reader: # iterate through each item, begin after the header
+      name = row[0]
+      lat = row[3]
+      lon = row[4]
+      cities.append(City(name, lat, lon)) # pass in name, lat, lon to a new instance of 'City' class
     return cities
 
 cityreader(cities)
@@ -28,7 +40,7 @@ cityreader(cities)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
-
+"""
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -69,3 +81,4 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
 
   return within
+"""
