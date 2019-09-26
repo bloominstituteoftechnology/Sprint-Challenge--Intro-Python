@@ -46,3 +46,11 @@ In your solution, it is essential that you follow best practices and produce cle
 The `cityreader` directory poses an stretch problem that builds upon the functionality you are to implement as part of the non-stretch requirements in the `cityreader` directory. 
 
 There's a separate test file `test_stretch.py` for the stretch problem that you can run in order to test your implementation of the stretch problem.
+
+## Rubric
+| OBJECTIVE | TASK | 1 - DOES NOT MEET Expectations | 2 - MEETS Expectations | 3 - EXCEEDS Expectations | SCORE |
+| ---------- | ----- | ------- | ------- | ------- | -- |
+| _Student can demonstrate applied knowledge of Python basics by producing list comprehensions in `comp.py`_ | List Comprehensions: (1 point per problem, 8 max) | 0-5 points | 6-7 points | 8 points |  |
+| _Student can demonstrate applied knowledge of Object-Oriented Programming by completing `oop1.py` and `oop2.py`_ | OOP: (2 points per file, 4 max) | 0 points | 2 points | 4 points |  |
+| _Student can demonstrate applied research and language learning by completing `cityreader.py`_ | CSV: 6 points for `cityreader()`, 1 point for `cityreader_stretch()` | 0 points | 6 points | 7 points |  |
+| **FINAL SCORE** | | **0-13** | **14-18** | **19** |  |
