@@ -85,10 +85,10 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  lat1 = int(lat1)
-  lon1 = int(lon1)
-  lat2 = int(lat2)
-  lon2 = int(lon2)
+  lat1 = float(lat1)
+  lon1 = float(lon1)
+  lat2 = float(lat2)
+  lon2 = float(lon2)
   if(lat1 < lat2):
     lat_lower = lat1
     lat_higher = lat2
