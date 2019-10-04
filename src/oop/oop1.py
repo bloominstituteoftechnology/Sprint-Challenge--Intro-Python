@@ -1,12 +1,31 @@
 # Write classes for the following class hierarchy:
-#
+class Vehicle:
+    pass
 #  [Vehicle]->[FlightVehicle]->[Starship]
 #      |                |
 #      v                v
-# [GroundVehicle]      [Airplane]
+class FlightVehicle(Vehicle):
+    pass
+
+class Starship (FlightVehicle):
+    pass 
+#[Airplane]
+    
+class Airplane (FlightVehicle):
+    pass
+# [GroundVehicle]  
+    
+class GroundVehicle(Vehicle):
+    pass
 #   |       |
 #   v       v
-# [Car]  [Motorcycle]
+# [Car]
+class Car(GroundVehicle):
+    pass
+#  [Motorcycle]
+    
+class Motorcycle(GroundVehicle):
+    pass
 #
 # Each class can simply "pass" for its body. The exercise is about setting up
 # the hierarchy.
