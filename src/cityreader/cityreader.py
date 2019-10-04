@@ -14,6 +14,17 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
+with open('cities.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            print(f'Column names are {", ".join(row)}')
+            line_count += 1
+        else:
+            print(f'\n city: {row[0]} lat: {row[3]} lng: {row[4]}.')
+            line_count += 1
 cities = []
 
 def cityreader(cities=[]):
