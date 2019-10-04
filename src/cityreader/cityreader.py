@@ -14,20 +14,33 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
+
+class City():
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+      
 cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    with open('cities.csv', newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        next(reader)
+        for row in reader:
+            cities.append(City(row[0], float(row[3]), float(row[4])))
+
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -62,10 +75,30 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+    within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    _lat1 = float(lat1)
+    _lon1 = float(lon1)
+    _lat2 = float(lat2)
+    _lon2 = float(lon2)
+    if _lat1 > _lat2: # upper left
+        _lat1 = float(lat2) # convert to upper right
+        _lat2 = float(lat1)
 
-  return within
+    with open('found_cities.txt', "wt") as F:
+
+        for c in cities:
+            lon = float(c.lon)
+            lat = float(c.lat)
+            if c.lon >= _lon1 and c.lon <= _lon2 and c.lat >= _lat1 and c.lon <= _lat2:
+                within.append(c)
+            if (lon >= _lon1) and (lon <= _lon2):
+                F.write(c)
+
+
+
+    # TODO Ensure that the lat and lon valuse are all floats
+    # Go through each city and check to see if it falls within 
+    # the specified coordinates.
+
+    return within

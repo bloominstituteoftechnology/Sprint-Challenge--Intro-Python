@@ -1,2 +1,8 @@
 .vscode
 *.sw[op]
+__pycache__/*
+__pycache__/cityreader.cpython-37.pyc
+src/oop/__pycache__/*
+src/cityreader/__pycache__/*
+src/comp/__pycache__/*
+found_cities.txt
