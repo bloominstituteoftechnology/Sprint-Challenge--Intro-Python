@@ -83,12 +83,51 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=cities): 
+    """
+    Go through each city and check to see if it falls within 
+    the specified coordinates.
+    """
+    
+    # Hacky wet code but I don't care
+    # They better be floats after this!
+    lat1 = float(lat1)
+    lat2 = float(lat2)
+    lon1 = float(lon1)
+    lon2 = float(lon2)
+  
+    #assert boundaries
+    if lat1 < lat2:
+        northern_boundary = lat2
+        southern_boundary = lat1
+    else:
+        northern_boundary = lat1
+        southern_boundary = lat2
+        
+    if lon1 < lon2:
+        western_boundary = lon1
+        eastern_boundary = lon2
+    else:
+        western_boundary = lon2
+        eastern_boundary = lon1
+        
+    #Here We Go!!!
+    
+    within = []
+    for city in cities:
+        #Probably not PEP8 compliant
+        if southern_boundary <= city.lat <= northern_boundary and western_boundary <= city.lon <= eastern_boundary:    
+            within.append(city)
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    return within
 
-  return within
+
+lat1 = float(input("Latitude 1:"))
+lon1 = float(input("Longitude 1:"))
+lat2 = float(input("Latitude 2:"))
+lon2 = float(input("Longitude 2:"))
+
+cities_within = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+
+for city in cities_within:
+    print(city)
