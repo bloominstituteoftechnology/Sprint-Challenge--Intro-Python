@@ -14,9 +14,29 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+import csv
+from math import *
+
 cities = []
 
+class City():
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+    # TODO
+
+
 def cityreader(cities=[]):
+  with open('cities.csv') as csvfile:
+    readCSV = csv.DictReader(csvfile, delimiter=',')
+    for row in readCSV:
+      city_obj = City(row['city'], float(row['lat']), float(row['lng']))
+      #city_obj = [row['city'], row['lat'], row['lng']]
+
+      cities.append(city_obj)
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
@@ -27,7 +47,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(repr(c))
 
 # STRETCH GOAL!
 #
@@ -64,8 +84,26 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
+  def FindPoint(x1, y1, x2, y2, x, y, name):
+    #print(name, x1, y1, x2, y2, x, y)
+    if (x < x1 and x > x2 and y < y1 and y > y2):
+      city_obj = City(name, x, y)
+      within.append(city_obj)
+      #within.append(name)
+    elif (x > x1 and x < x2 and y > y1 and y < y2):
+      city_obj = City(name, x, y)
+      within.append(city_obj)
+      return True
+    else:
+      return False
+  with open('cities.csv') as csvfile:
+    readCSV = csv.DictReader(csvfile, delimiter=',')
+    for row in readCSV:
+      FindPoint(float(lat1), float(lon1), float(lat2), float(lon2), float(row['lat']), float(row['lng']), row['city'])
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
-
+  print(within)
   return within
+cityreader_stretch(45, -100, 32, -120)
+#cityreader_stretch(32, -120, 45, -100)
