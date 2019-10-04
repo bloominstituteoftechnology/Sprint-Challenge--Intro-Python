@@ -1,2 +1,3 @@
 .vscode
 *.sw[op]
+src/cityreader/__pycache__/cityreader.cpython-37.pyc

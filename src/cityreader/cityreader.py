@@ -16,11 +16,38 @@
 # should not be loaded into a City object.
 cities = []
 
+class City:
+    def __init__(self, n, sn, cn, lat, lng, p, d, tz, z):
+        self.name = n;
+        self.state_name = sn;
+        self.country_name = cn;
+        self.lat = float(lat);
+        self.lng = float(lng);
+        self.population = int(p);
+        self.density = int(d);
+        self.timezone = tz;
+        self.zips = z;
+    def __repr__(self):
+        return "(" + self.name + ", " + str(self.lat) + ", " + str(self.lng) + ")";
+    def __str__(self):
+        return self.__repr__();
+        
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    f = open("cities.csv",'r');
+    l = f.readline();#ignore header;
+    l = f.readline();
+    while(l): #each line is one city object;
+        obj = l.split(",");
+        cities.append(City(obj[0],obj[1],obj[2], obj[3], obj[4], obj[5], obj[6], obj[7], obj[8].split(" ")));
+        try:
+            pass;
+        except:
+            print("could not read line: \n" + l);
+        l = f.readline();
+	f.close();
     return cities
 
 cityreader(cities)
@@ -60,12 +87,59 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
+  slat = lat1 if lat2 > lat1 else lat2;
+  slon = lon1 if lon2 > lon1 else lon2;
+  #slon and slat represent the top left corner of our box, so we need cordnate values that are >= both this x and this y
+  import math;
+  #now we need the bottom corner (the reson we do it this way is so we can garrentee that slat is always the smallest corner and elat is the lowest corner
+  
+  elat = lat1 if lat2 < lat1 else lat2;
+  elon = lon1 if lon2 < lon1 else lon2;
 
+  #well save some time if we know our center and our longest side;
+  dlat = elat-slat; #remember we already made e lat the greater one so no abs needed
+  dlon = elon-slon;
+  
+  dist = math.pow(dlat,2) if dlat > dlon else math.pow(dlon,2);
+  #note this is our c^2 of the a^2 + b^2 = c^2;
+
+  clat = elat-(dlat/2);
+  clon = elon-(dlon/2);
+
+  #now time for a messy if statement, we need to see if any point in our cities object
+  #is less than the farthest point (elat,elon) but greater than our nearest point(slat,slon)
+  for c in cities:
+      #this is very slow way of doing this, because our points arent spacially sorted (this is called a brute force method
+      #but we will optimize this slightly with a quick distance test, we know that a circle of the longest length of a rectangle
+      #whos diamater is is that same length and whos center is the center of the rectangle contains all space of that rectangle + roughly 1/3 extra
+      #this 1/3 rule is based on a square as a rectangle it would be based on the poportion of the large size to the short size
+      #as these deviate so does the 1/3 rule becoming larger. The reson for testing a circle first is its a much faster call then a aabb test. [Axis Aligned Bounding Box]
+    #now to do a distance test on a circle we just need to know the distance from the 2 points, this test is very easy to do because of the paraprium theorum (that a^2 + b^2 thing :P
+      #we find the distance along each axis to sad point and if that squared distance is > then our sqared max they dont exist in this circle
+      if(math.pow((c.lat - clat),2) + math.pow(c.lng-clon,2) > dist):
+      
+          continue;
+      #now we get to some nasty checking calls
+      if(c.lat >= slat and c.lat <= elat and c.lng >= slon and c.lng <= elon):
+          within.append(c);
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+if(__name__ == "__main__"):
+    while(True):
+        try:
+            p1 = "".join(input("Enter lat1, lon1").split(" ")).split(",");
+            p2 = "".join(input("Enter lat1, lon1").split(" ")).split(",");
+            if(len(p1) < 2 or len(p2) < 2):
+                throw
+            print(cityreader_stretch(float(p1[0]),float(p1[1]),float(p2[0]),float(p2[1]),cities));
+            break;
+        except:
+            print("please try again with commons seperating values");
