@@ -79,7 +79,7 @@ lon2 = float(input('enter second lon point '))
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
- #print(lat1,lon1,lat2,lon2)
+  print(lat1,lon1,lat2,lon2)
 #  for c in cities:
 #   print(c.name)
 
@@ -97,5 +97,6 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
   return within
 
-#   print(within)
-# cityreader_stretch(lat1,lon1,lat2,lon2, cities)
+  #print(within.name)
+
+cityreader_stretch(lat1,lon1,lat2,lon2, cities)
