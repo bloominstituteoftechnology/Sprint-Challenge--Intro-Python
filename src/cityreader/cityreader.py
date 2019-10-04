@@ -1,6 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City():
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat 
+    self.lon = lon
+
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -14,20 +21,30 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
 cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+  with open('cities.csv', mode = 'r') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter = ',')
+
+    next(csv_reader, None) # skips the headers
+
+    for row in csv_reader:
+      city = City(row[0], float(row[3]), float(row[4]))
+      cities.append(city)
     
-    return cities
+
+  return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
 #
@@ -59,13 +76,36 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+lat1,lon1 = input('Enter latitude1 and longitude1 values: ').split()
+print('Latitude1 is {}, Longitude1 is {}'. format(lat1, lon1))
+
+lat2,lon2 = input('Enter latitude2 and longitude2 values: ').split()
+print('Latitude2 is {}, Longitude2 is {}'. format(lat2, lon2))
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
+  
+  lat_max = max(lat1, lat2)
+  lon_max = max(lon1, lon2)
+
+  lat_min = min(lat1, lat2)
+  lon_min = min(lat1, lat2)
+
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
+  for city in cities:
+    if (city.lat <= lat_max) and (city.lon <= lon_max) and (city.lat >= lat_min) and (city.lon >= lon_min):
+      within.append(city)
+      # print(f"{place.name}: ({place.lat},{place.lon})")
+      print(within)
+
+
+  # TODO Ensure that the lat and lon values are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+  cityreader_stretch(point1[0],point1[1],point2[0],point2[1],cities) 
+  
+  # failing one test
