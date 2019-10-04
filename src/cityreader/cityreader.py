@@ -85,10 +85,37 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
+  lat1 = int(lat1)
+  lon1 = int(lon1)
+  lat2 = int(lat2)
+  lon2 = int(lon2)
+  if(lat1 < lat2):
+    lat_lower = lat1
+    lat_higher = lat2
+  else:
+    lat_higher = lat1
+    lat_lower = lat2
+  if(lon1 < lon2):
+    lon_lower = lon1
+    lon_higher = lon2
+  else:
+    lon_higher = lon1
+    lon_lower = lon2
   within = []
+  for city in cities:
+    if(city.lat >= lat_lower and city.lat <= lat_higher and city.lon >= lon_lower and city.lon <= lon_higher):
+      within.append(city)
+
+  for cities_within in within:
+    print(f"cities in perimeter: {cities_within}")
+
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+input_one = input("enter latitude 1 and longitude 1 separated by comma (ex:-22,100): ")
+input_two = input("enter latitude 2 and longitude 2 separated by comma (ex:-25,80): ")
+cityreader_stretch(input_one.split(",")[0], input_one.split(",")[1], input_two.split(",")[0], input_two.split(",")[1], cities)
