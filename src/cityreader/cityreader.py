@@ -29,22 +29,22 @@ with open("cities.csv") as csvfile:
         print (row[0],row[3],row[4])
 
 with open("cities.csv", newline="") as csvfile:
-    cityreader = csv.reader(csvfile, delimiter=",", quotechar="|")
-    passedHeader = False
-    for row in cityreader:
-        if passedHeader:
-            cities.append(City(row[0], row[3], row [4]))
-        else:
-            passedHeader = True
+    reader = csv.reader(csvfile, delimiter=",", quotechar="|")
+    # passedHeader = False
+    for row in reader:
+        # if passedHeader:
+        cities.append(City(row[0], row[3], row [4]))
+        # else:
+        #     passedHeader = True
 
-# def cityreader(cities=[]):
+def cityreader(cities=[]):
 #   # TODO Implement the functionality to read from the 'cities.csv' file
 #   # For each city record, create a new City instance and add it to the 
 #   # `cities` list
     
-#     return cities
+    return cities
 
-# cityreader(cities)
+cityreader(cities)
 
 # # Print the list of cities (name, lat, lon), 1 record per line.
 # for c in cities:
