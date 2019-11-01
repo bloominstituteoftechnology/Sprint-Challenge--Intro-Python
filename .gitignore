@@ -1,2 +1,5 @@
 .vscode
 *.sw[op]
+src/comp/__pycache__/
+src/oop/__pycache__/
+src/cityreader/__pycache__/
