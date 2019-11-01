@@ -27,11 +27,11 @@ print("Starts with D:")
 a = [person for person in humans if person.name[0].upper() == "D"]
 print(a)
 
-# # Write a list comprehension that creates a list of names of everyone
-# # whose name ends in "e".
-# print("Ends with e:")
-# b = []
-# print(b)
+# Write a list comprehension that creates a list of names of everyone
+# whose name ends in "e".
+print("Ends with e:")
+b = [person for person in humans if person.name.lower().endswith("e")]
+print(b)
 
 # # Write a list comprehension that creates a list of names of everyone
 # # whose name starts with any letter between 'C' and 'G' inclusive.
