@@ -1,6 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City():
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = float(lat)
+        self.lon = float(lon)
+
+    def __str__(self):
+        return f'("{self.name}", {self.lat},{self.lon})'
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -14,13 +23,18 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+import csv
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+    # TODO Implement the functionality to read from the 'cities.csv' file
+    # For each city record, create a new City instance and add it to the 
+    # `cities` list
+    with open('cities.csv', mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            cities.append(City(row['city'], row['lat'], row['lng']))
     return cities
 
 cityreader(cities)
@@ -61,11 +75,26 @@ for c in cities:
 # TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+    # within will hold the cities that fall within the specified region
+    within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    # TODO Ensure that the lat and lon valuse are all floats
+    # Go through each city and check to see if it falls within 
+    # the specified coordinates.
 
-  return within
+    lats = [lat1, lat2]
+    lons = [lon1, lon2]
+    lats.sort()
+    lons.sort()
+
+    lat_lower = lats[0]
+    lat_upper = lats[1]
+    lon_lower = lons[0]
+    lon_upper = lons[1]
+
+    for city in cities:
+        if city.lon>=lon_lower and city.lon<=lon_upper:
+            if city.lat>=lat_lower and city.lat<=lat_upper:
+                within.append(city)
+
+    return within
