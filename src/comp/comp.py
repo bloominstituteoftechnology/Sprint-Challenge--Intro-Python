@@ -50,12 +50,12 @@ print("Name hyphen age:")
 e = [f"{person.name}-{person.age}" for person in humans]
 print(e)
 
-# # Write a list comprehension that creates a list of tuples containing name and
-# # age, for example ("David", 31), for everyone between the ages of 27 and 32,
-# # inclusive.
-# print("Names and ages between 27 and 32:")
-# f = []
-# print(f)
+# Write a list comprehension that creates a list of tuples containing name and
+# age, for example ("David", 31), for everyone between the ages of 27 and 32,
+# inclusive.
+print("Names and ages between 27 and 32:")
+f = tuple([person for person in humans if person.age >= 27 and person.age <= 32])
+print(f)
 
 # # Write a list comprehension that creates a list of new Humans like the old
 # # list, except with all the names uppercase and the ages with 5 added to them.
