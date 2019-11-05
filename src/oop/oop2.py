@@ -8,7 +8,7 @@ class GroundVehicle():
         self.num_wheels = num_wheels
 
     def drive(self):
-        return f"vroooom on {self.num_wheels} wheel"
+        return "vroooom"
     # TODO
 
 class Motorcycle(GroundVehicle):
@@ -18,7 +18,7 @@ class Motorcycle(GroundVehicle):
         
 
     def drive(self):
-        return f"BRAAAP!! on {self.num_wheels} wheels"
+        return "BRAAAP!!"
 # Subclass Motorcycle from GroundVehicle.
 #
 # Make it so when you instantiate a Motorcycle, it automatically sets the number
@@ -37,5 +37,5 @@ vehicles = [
 ]
 
 # Go through the vehicles list and print the result of calling drive() on each.
-[print(x.drive()) for x in vehicles]
+[x.drive() for x in vehicles]
 # TODO
