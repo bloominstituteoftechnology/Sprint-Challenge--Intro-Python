@@ -73,13 +73,33 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+l1 = float(input("Please enter lat1: "))
+lo1 = float(input("Please enter lon1: "))
+
+l2 = float(input("Please enter lat2: "))
+lo2 = float(input("Please enter lon2: "))
+
+within = []
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+    
+  with open('cities.csv', newline='') as csvfile:
+      reader = csv.DictReader(csvfile)
+      for row in reader:
+        if (float(row["lat"]) >= min(lat1, lat2) and float(row["lng"]) <= max(lon1, lon2)):
+         
+          cityRecord = City(row["city"], float(row["lat"]), float(row["lng"]))
+
+          within.append(cityRecord)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+cityreader_stretch(l1, lo1, l2, lo2)
+
+for c in within:
+  print(c)
