@@ -35,6 +35,7 @@ def cityreader(cities=[]):
                     cnt = cnt      
             cnt +=1   
 
+
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
