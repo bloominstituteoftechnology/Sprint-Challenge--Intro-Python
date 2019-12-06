@@ -9,7 +9,7 @@ class GroundVehicle():
 
     # TODO
     def drive(self): # method
-        print("vroooom")
+        return ("vroooom") #Must return the string instead of just printing it. Otherwise is prints as a nontype!
     
     def __repr__(self):
         return f'({repr(self.num_wheels)})'
@@ -28,7 +28,7 @@ class Motorcycle(GroundVehicle):
         self.num_wheels = num_wheels
 
     def drive(self): # method
-        print("BRAAAP!!")
+        return ("BRAAAP!!") #Must return the string instead of just printing it. Otherwise is prints as a nontype!
 
     def __repr__(self):
         return f'({repr(self.num_wheels)})'
@@ -46,7 +46,13 @@ vehicles = [
 
 # TODO
 
-for v in vehicles:
-    v.drive()
+def sound(vehicle):
+ 
+    for v in vehicle:
+        v.drive()
 
-print(vehicles)
+    return vehicle
+
+    
+# type(sound(vehicles)) # --> used to debug why there was an assertionerror of none
+print(sound(vehicles))
