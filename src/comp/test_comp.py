@@ -1,5 +1,5 @@
 import unittest
-from src.comp import *
+from src.comp.comp import *
 
 
 def compare_humans(inp, exp):
