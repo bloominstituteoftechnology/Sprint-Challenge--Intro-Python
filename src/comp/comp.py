@@ -49,15 +49,17 @@ print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
+# person.name - person.number --> string
 print("Name hyphen age:")
-e = []
+e = [f"{person.name} - {person.age}" for person in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
+
 print("Names and ages between 27 and 32:")
-f = []
+f = [(person.name, person.age) for person in humans if person.age <= 32 and person.age >= 27 ]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
