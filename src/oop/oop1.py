@@ -27,22 +27,22 @@ class Vehicle:   #Base Class
 
 
 # Group A
-class GroundVehicle(Vehicle):   # Child 1
+class GroundVehicle(Vehicle):   # Child 1;  #inherits from vehicle
     pass
 
-class Car(GroundVehicle):    # Grandchild 1
+class Car(GroundVehicle):    # Grandchild 1; inherits from GroundVehicle
     pass
 
-class Motorcycle(GroundVehicle):    # Grandchild 2
+class Motorcycle(GroundVehicle):    # Grandchild 2; inherits from GroundVehicle
     pass
 
 
 # Group B
-class FlightVehicle(Vehicle):   # Child 2
+class FlightVehicle(Vehicle):   # Child 2; inherits from Vehicle
     pass
 
-class Airplane(FlightVehicle):    # Grandchild 1
+class Airplane(FlightVehicle):    # Grandchild 1;inherits from FlightVehicle 
     pass
 
-class Starship(FlightVehicle):    # Grandchild 2
+class Starship(FlightVehicle):    # Grandchild 2; inherits from FlightVehicle
     pass
