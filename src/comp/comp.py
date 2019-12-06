@@ -36,7 +36,7 @@ print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 # name STARTS BETWEEN C & G
-includes = ['C', 'D', 'E', 'F', 'F']
+includes = ['C', 'D', 'E', 'F', 'F', 'G']
 print("Starts between C and G, inclusive:")
 c = [letter.name for letter in humans if letter.name[0] in includes]
 print(c)
@@ -51,7 +51,7 @@ print(d)
 # joined to the age with a hyphen, for example "David-31", for all humans.
 # person.name - person.number --> string
 print("Name hyphen age:")
-e = [f"{person.name} - {person.age}" for person in humans]
+e = [f"{person.name}-{person.age}" for person in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -66,7 +66,7 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-# person.name.uppercase() person.age + 5
+# person.name.upper() person.age + 5
 g = [f"{person.name.upper()}, {person.age + 5}" for person in humans]
 print(g)
 
