@@ -1,6 +1,22 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+import csv 
 
+class City:
+    """
+    This is a class of cities with the attributes:
+    name, lat(latitude), & lon(longitude)
+    """
+    def __init__(self, name, lat, lon):
+      self.name = name
+      self.lat = lat
+      self.lon = lon
+      
+      def __repr__(self):
+            print(f"City:{self.name},Lat:{self.lat},Lon:{self.lon}")
+      
+      # def __str__(self):
+      #       print(f"City:{self.name},Lat:{self.lat},Lon:{self.lon}")
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -20,14 +36,34 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+  # cities[0] --> DO NOT INCLUDE
     
+    with open('cities.csv', 'r') as csv_file: #opening the file 
+      csv_reader = csv.reader(csv_file)  # reading the file with a reader method
+      next(csv_reader) #  skips first row(header)
+    
+    
+      for row in csv_reader: #looping through each line
+          print(row[0], row[3], row[4])
+          # city = City(row[0], row[3], row[4])
+          # cities.append(city)
+
+          name =str(row[0])
+          lat = float(row[3])
+          lon = float(row[4])
+          # needed to think about data types the new instances were expecting
+          cities.append(City(f"{name}", lat, lon))
+          # print(cities.append(City(f"{name}", {lat}, {lon})))
+
+
     return cities
+    
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
 #
@@ -69,3 +105,4 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
 
   return within
+
