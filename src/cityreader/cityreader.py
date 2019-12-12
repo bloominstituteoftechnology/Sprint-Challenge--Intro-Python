@@ -51,6 +51,7 @@ def cityreader(cities=[]):
           name =str(row[0])
           lat = float(row[3])
           lon = float(row[4])
+          # needed to think about data types the new instances were expecting
           cities.append(City(f"{name}", lat, lon))
           # print(cities.append(City(f"{name}", {lat}, {lon})))
 
