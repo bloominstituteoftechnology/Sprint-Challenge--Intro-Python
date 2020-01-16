@@ -1,2 +1,22 @@
-.vscode
+# Ignore VSCode folder
+.vscode/
+
+### Apple iOS ###
+.DS_Store
+*.DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*__pycache__/
+*.py[cod]
+*$py.class
 *.sw[op]
