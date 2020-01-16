@@ -89,4 +89,19 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # Go through each city and check to see if it falls within
     # the specified coordinates.
 
+    lats = [lat1, lat2].sort()
+    lons = [lon1, lon2].sort()
+
+    lat_lower, lat_upper = lats
+    lon_lower, lon_upper = lons
+
+    for city in cities:
+        if city.lon >= lon_lower and city.lon <= lon_upper:
+            if city.lat >= lat_lower and city.lat <= lat_upper:
+                within.append(city)
     return within
+
+
+print("================== City Reader Stretch ==================")
+for c in cityreader_stretch(45, -100, 32, -120, cities):
+    print(f"{c.name}, {c.lat}, {c.lon}")
