@@ -12,17 +12,17 @@
 
 class GroundVehicle():
     def __init__(self):
-        self.num_wheels = 4
+        self.num_wheels = 4  # setting number of wheels to 4 on a ground vehicle
 
-    def drive(self):
+    def drive(self):  # drive method returning "vrooom"
         return "vroooom"
 
 
-class Motorcycle(GroundVehicle):
+class Motorcycle(GroundVehicle):  # passing down GroundVehicle into Motorcycle to inherit
     def __init__(self):
-        self.num_wheels = 2
+        self.num_wheels = 2  # overriding the original vehicle numbers to 2
 
-    def drive(self):
+    def drive(self):  # overwriting the drive method to return brap instead of vroom
         return "BRAAAP!!"
 
 
@@ -36,3 +36,5 @@ vehicles = [
 
 for car in vehicles:
     print(car.drive)
+
+# this is a loop that picks each car in the list of vehicles, goes through each vehicle and returns the drive method on each vehicle in the list.
