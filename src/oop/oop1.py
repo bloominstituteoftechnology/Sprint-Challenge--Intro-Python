@@ -17,3 +17,28 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+# vehicle
+
+def Vehicle():
+    pass
+
+
+def GroundVehicle(Vehicle):
+    pass
+
+
+def Car(GroundVehicle):
+    pass
+
+
+def Motorcyle(GroundVehicle):
+    pass
+
+def FlightVehicle():
+    pass
+
+def Airplane(FlightVehicle):
+    pass
+
+def Starship():
+    pass
