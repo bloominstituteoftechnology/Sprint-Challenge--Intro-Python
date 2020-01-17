@@ -24,13 +24,25 @@ class Vehicle():
     pass
 
 
-class FlightVehicle(Vehicle):
+class FlightVehicle(Vehicle):  # this inherits from the base class Vehicle
     pass
 
 
-class Airplane(FlightVehicle):
+class Airplane(FlightVehicle):  # this class inherits from FlightVehicle
     pass
 
 
-class Starship(FlightVehicle):
+class Starship(FlightVehicle):  # this class inherits from FlightVehicle
+    pass
+
+
+class GroundVehicle(Vehicle):  # this inherits from the base class Vehicle
+    pass
+
+
+class Car(GroundVehicle):  # this class inherits from GroundVehicle
+    pass
+
+
+class Motorcycle(GroundVehicle):  # this class inherits from GroundVehicle
     pass
