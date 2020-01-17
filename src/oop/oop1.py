@@ -20,33 +20,32 @@
 
 
 ## Vehicle class is the main Parent class
-class Vehicle: 
-    def __init__(self, vehicle, flight_vehicle, ship):
-        self.vehicle = vehicle
-        self.flight_vehicle = FlightVehicle(flight_vehicle)
-        self.ship = ship
-        
-# Inhereted by Vehicle class, Parent of Starship Class
-class FlightVehicle: 
-    def __init__(self, starship):
-        self.starship = Starship(starship) 
 
-# Inhereted by FlightVehicle Class
-class Starship:
-    def __init__(self, starship):
-        self.starship = starship
-        
 
-# Vehicle inherets all Sub classes below 
-class GroundVehicle: 
-    def __init__(self, car, motorcycle):
-        self.car = Car(car)
-        self.motorcycle = Motorcycle(motorcycle)
-        
-class Car: 
-    def __init__(self, car):
-        self.car = car
-        
-class Motorcycle: 
-    def __init__(self, motorcycle):
-        self.motor_cycle = motorcycle
+class Vehicle:
+    # base class
+    pass
+
+
+class FlightVehicle(Vehicle):
+    pass
+
+
+class Starship(FlightVehicle):
+    pass
+
+
+class Airplane(FlightVehicle):
+    pass
+
+
+class GroundVehicle(Vehicle):
+    pass
+
+
+class Car(GroundVehicle):
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    pass
