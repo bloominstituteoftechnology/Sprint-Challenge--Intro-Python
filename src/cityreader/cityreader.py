@@ -31,9 +31,10 @@ filename = "/Users/marlon/Dev/CS/Sprint Challenges/Sprint-Challenge--Intro-Pytho
 def cityreader(cities=[]):
   with open(filename, 'r') as f:
     reader = csv.reader(f)
+    next(reader)
   # For each city record, create a new City instance and add it to the 
     for column in reader:
-          cities.append(City(column[0], column[3], column[4]))    
+          cities.append(City(column[0], float(column[3]), float(column[4])))
     return cities
 
 cityreader(cities)
