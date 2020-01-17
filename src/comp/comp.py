@@ -23,9 +23,9 @@ humans = [
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
-print("Starts with D:")
-a = []
-print(a)
+print("\n Starts with D:")
+a = [guy for guy in humans if guy.name[0] == "D"]
+print(a); print("\n")
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
