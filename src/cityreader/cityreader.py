@@ -9,7 +9,10 @@ class City:
         self.lon = lon
 
     def __repr__(self):
-        return f"City({self.name}, {self.lat}, {self.lon})"
+        return f'City({self.name}, {self.lat}, {self.lon})'
+
+    def __str__(self):
+        return f"{self.name}, {self.lat}, {self.lon}"
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -18,7 +21,8 @@ class City:
 # In the body of the `cityreader` function, use Python's built-in "csv" module
 # to read this file so that each record is imported into a City instance. Then
 # return the list with all the City instances from the function.
-# Google "python 3 csv" for references and use your Google-fu for other examples.
+# Google "python 3 csv" for references
+# and use your Google-fu for other examples.
 #
 # Store the instances in the "cities" list, below.
 #
@@ -39,10 +43,11 @@ def cityreader(cities=[]):
             if text.line_num == 1:
                 continue
             else:
-                city = line[0]
+                name = line[0]
                 lat = line[3]
                 lon = line[4]
-                cities.append(City(city, lat, lon))
+                city = City(name, lat, lon)
+                cities.append(city)
     return cities
 
 
