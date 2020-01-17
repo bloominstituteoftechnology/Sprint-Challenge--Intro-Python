@@ -48,21 +48,22 @@ print(d)
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("\nName hyphen age:")
-e = []
+e = [(guy.name + "-" + str(guy.age)) for guy in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("\nNames and ages between 27 and 32:")
-f = []
+ageRange = (27, 28, 29, 30, 31, 32)
+f = [guy for guy in humans if guy.age in ageRange]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
-print("\mAll names uppercase:")
-g = []
+print("\nAll names uppercase:")
+g = [(guy.name.upper(), guy.age + 5) for guy in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
