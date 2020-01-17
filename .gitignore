@@ -1,2 +1,6 @@
 .vscode
 *.sw[op]
+
+*.pyc
+
+.DS_Store
