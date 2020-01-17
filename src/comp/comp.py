@@ -1,5 +1,7 @@
-# The following list comprehension exercises will make use of the 
-# defined Human class. 
+# The following list comprehension exercises will make use of the
+# defined Human class.
+
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -7,6 +9,7 @@ class Human:
 
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
+
 
 humans = [
     Human("Alice", 29),
@@ -24,13 +27,13 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+a = [human.name for human in humans]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [human.name for human in humans if human.name.endswith('e')]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
