@@ -33,8 +33,8 @@ def cityreader(cities=[]):
     next(csvReader)
     for line in csvReader:
         name = line[0]
-        lat = line[3]
-        lon = line[4]
+        lat = float(line[3])
+        lon = float(line[4])
 
         cities.append(City(name, lat, lon))
     
