@@ -25,17 +25,17 @@ humans = [
 # whose name starts with 'D':
 print("\n Starts with D:")
 a = [guy for guy in humans if guy.name[0] == "D"]
-print(a); print("\n")
+print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
-print("Ends with e:")
-b = []
+print("\nEnds with e:")
+b = [guy for guy in humans if guy.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
-print("Starts between C and G, inclusive:")
+print("\nStarts between C and G, inclusive:")
 c = []
 print(c)
 
