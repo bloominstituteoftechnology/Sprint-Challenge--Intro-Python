@@ -32,8 +32,9 @@ def cityreader(cities=[]):
     all_cities_reddit = csv.reader(csvfile, delimiter=',')
     city = City("nothing", 40, 179)
     for row in all_cities_reddit:
-      city = City(row[0], row[3], row[4])
-      cities.append(city)
+      if row[0] != "city":
+         city = City(row[0], float(row[3]), float(row[4]))
+         cities.append(city)
     return cities
   csvfile.close()
 
