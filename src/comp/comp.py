@@ -25,8 +25,7 @@ humans = [
 # whose name starts with 'D':
 print("Starts with D:")
 a = []
-for h in human:
-    a.append(humans.find(self.name == 'D'))
+a = filter(lambda h: h == 'D',humans)
 
 print(a)
 
@@ -34,6 +33,8 @@ print(a)
 # whose name ends in "e".
 print("Ends with e:")
 b = []
+b = filter(lambda h: min(h)== 'e',humans)
+
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
