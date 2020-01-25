@@ -21,7 +21,7 @@
 class Vehicle:
     pass 
 
-class GroundVehicle:
+class GroundVehicle(Vehicle):
     pass
 
 class Car(GroundVehicle):
@@ -30,7 +30,7 @@ class Car(GroundVehicle):
 class Motorcycle(GroundVehicle):
     pass
 
-class FlightVehicle:
+class FlightVehicle(Vehicle):
     pass
 
 class Airplane(FlightVehicle):
