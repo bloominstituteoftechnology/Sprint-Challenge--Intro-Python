@@ -2,11 +2,18 @@ import unittest
 from cityreader import City, cityreader
 
 def check_city(inp, exp):
+    print(inp, exp)
+
     if inp.name != exp.name:
+      print('Fail on name: ', inp.name)
       return False
-    if inp.lat != exp.lat:
+    if (inp.lat - exp.lat) != 0:
+      print('Fail on lat: ', inp.name, \
+        'Got: {}, but expected: {}'.format(inp.lat, exp.lat))
       return False
-    if inp.lon != exp.lon:
+    if float(inp.lon) != float(exp.lon):
+      print('Fail on lat: ', inp.name, \
+        'Got: {}, but expected: {}'.format(inp.lon, exp.lon))
       return False
     return True
 
@@ -73,7 +80,7 @@ class CityreaderTests(unittest.TestCase):
       City("Detroit", 42.3834,-83.1024),
       City("Providence", 41.8229,-71.4186),
       City("Louisville", 38.1662,-85.6488),
-      City("Portland", 45.5372,-122.65)
+      City("Portland", 45.5372,-122.6500)
     ]
     
   def test_cityreader_correctness(self):

@@ -14,20 +14,43 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-cities = []
+import csv
 
-def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+
+class City():
+    def __init__(self, name: str, lat: float, lon: float):
+        self.name = name
+        self.lat = float(lat)
+        self.lon = float(lon)
+
+    def __repr__(self):
+        return f'{self.name}: {type(self.name)} | {self.lat}: {type(self.lat)} | \
+                    {self.lon}: {type(self.lon)}'
+
+
+def read_cities(filename='cities.csv'):
+    data = []
+    with open(filename, 'r') as csvfile:
+        datareader = csv.DictReader(csvfile, delimiter=',')
+        for row in datareader:
+            data.append(row)
+    return data
+
+def cityreader(filename='cities.csv'):
+    city_dictionary = read_cities(filename=filename)
+    cities = []
+    for city in city_dictionary:
+        cities.append(
+            City(   
+                name=city['city'],
+                lat=city['lat'], 
+                lon=city['lng'])
+            )
     return cities
 
-cityreader(cities)
-
-# Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# # Print the list of cities (name, lat, lon), 1 record per line.
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -69,3 +92,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
 
   return within
+
+
+if __name__ == "__main__":
+    for city in cityreader():
+        print(city.name, city.lat, city.lon)
