@@ -26,46 +26,33 @@ humans = [
 # whose name starts with 'D':
 print("Starts with D:")
 
-names = []
-for human in humans:
-    names += [human.name]
-
-print(names)
-
-a = [name for name in names if name[0] == "D"]
+a = [human.name for human in humans if human.name[0] == "D"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [name for name in names if name[-1] == "e"]
+b = [human.name for human in humans if human.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [name for name in names if name[0] == "C" or name[0] == "D" or name[0] == "E" or name[0] == "F" or name[0] == "G"]
+c = [human.name for human in humans if human.name[0] == "C" or human.name[0] == "D" or human.name[0] == "E" or human.name[0] == "F" or human.name[0] == "G"]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
-ages = []
-for human in humans:
-    ages += [human.age]
 
 print("Ages plus 10:")
-d = [age + 10 for age in ages]
+d = [human.age + 10 for human in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
-human_info = []
 
-for human in humans:
-    human_info += [[human.name, str(human.age)]]
-
-print(human_info)
 print("Name hyphen age:")
-e = ["-".join(human) for human in human_info]
+
+e = ["-".join([human.name, str(human.age)]) for human in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -78,7 +65,7 @@ for human in humans:
     human_info_list += [[human.name, human.age]]
 
 print("Names and ages between 27 and 32:")
-f = [tuple(human) for human in human_info_list if 27 <= human[1] <= 32]
+f = [tuple([human.name, human.age]) for human in humans if 27 <= human.age <= 32]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
