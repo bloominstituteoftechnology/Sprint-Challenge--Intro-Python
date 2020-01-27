@@ -59,11 +59,6 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 
-human_info_list = []
-
-for human in humans:
-    human_info_list += [[human.name, human.age]]
-
 print("Names and ages between 27 and 32:")
 f = [tuple([human.name, human.age]) for human in humans if 27 <= human.age <= 32]
 print(f)
@@ -73,7 +68,7 @@ print(f)
 # The "humans" list should be unmodified.
 
 print("All names uppercase:")
-g = [Human(human[0].upper(), human[1] + 5) for human in human_info_list]
+g = [Human(human.name.upper(), human.age + 5) for human in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.

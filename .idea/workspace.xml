@@ -175,26 +175,26 @@
       <screen x="0" y="23" width="1680" height="949" />
     </state>
     <state x="428" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.949@0.23.1680.949" timestamp="1580091012701" />
-    <state width="1358" height="247" key="GridCell.Tab.0.bottom" timestamp="1580096876206">
+    <state width="1358" height="247" key="GridCell.Tab.0.bottom" timestamp="1580096971855">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
     <state width="1358" height="247" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1580091381127" />
-    <state width="1358" height="247" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1580096876206" />
-    <state width="1358" height="247" key="GridCell.Tab.0.center" timestamp="1580096876203">
+    <state width="1358" height="247" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1580096971855" />
+    <state width="1358" height="247" key="GridCell.Tab.0.center" timestamp="1580096971854">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
     <state width="1358" height="247" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1580091381126" />
-    <state width="1358" height="247" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1580096876203" />
-    <state width="1358" height="247" key="GridCell.Tab.0.left" timestamp="1580096876201">
+    <state width="1358" height="247" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1580096971854" />
+    <state width="1358" height="247" key="GridCell.Tab.0.left" timestamp="1580096971854">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
     <state width="1358" height="247" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1580091381126" />
-    <state width="1358" height="247" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1580096876201" />
-    <state width="1358" height="247" key="GridCell.Tab.0.right" timestamp="1580096876204">
+    <state width="1358" height="247" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1580096971854" />
+    <state width="1358" height="247" key="GridCell.Tab.0.right" timestamp="1580096971855">
       <screen x="0" y="23" width="1680" height="952" />
     </state>
     <state width="1358" height="247" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1580091381127" />
-    <state width="1358" height="247" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1580096876204" />
+    <state width="1358" height="247" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1580096971855" />
     <state width="1358" height="305" key="GridCell.Tab.1.bottom" timestamp="1580091363801">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
@@ -219,7 +219,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$oop1.coverage" NAME="oop1 Coverage Results" MODIFIED="1580091140136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/oop" />
     <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$Unittests_for_test_oop1_Oop1Tests_test_starship.coverage" NAME="Unittests for test_oop1.Oop1Tests.test_starship Coverage Results" MODIFIED="1580091367241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/oop" />
-    <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$comp.coverage" NAME="comp Coverage Results" MODIFIED="1580096876186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/comp" />
+    <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$comp.coverage" NAME="comp Coverage Results" MODIFIED="1580096971841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/comp" />
     <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$Unittests_for_test_oop2_Oop2Tests_test_motorcycle_inheritance.coverage" NAME="Unittests for test_oop2.Oop2Tests.test_motorcycle_inheritance Coverage Results" MODIFIED="1580094052319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/oop" />
     <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$Unittests_in_test_oop2_py.coverage" NAME="Unittests in test_oop2.py Coverage Results" MODIFIED="1580091381112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/oop" />
     <SUITE FILE_PATH="coverage/Sprint_Challenge__Intro_Python$Unittests_for_test_oop2_Oop2Tests.coverage" NAME="Unittests for test_oop2.Oop2Tests Coverage Results" MODIFIED="1580093852138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/oop" />
