@@ -1,0 +1,6 @@
+coordinate_1 = input("Enter lat1,lon1: ").split(",")
+# coordinate_2 = input("Enter lat2,lon2: ").split(",")
+# lat1 = float(coordinate_1[0])
+# lon1 = float(coordinate_1[1])
+# lat2 = float(coordinate_2[0])
+# lon2 = float(coordinate_2[1])
