@@ -36,19 +36,20 @@ print(sorted(b))
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
-print(c)
+name_starts = ["C", "D", "E", "F", "G" ]
+c = [str(person.name) for person in humans if person.name[0] in name_starts]
+print(sorted(c))
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [int(person.age + 10) for person in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
-print(e)
+e = [str(f"{person.name}-{person.age}") for person in humans]
+print(sorted(e))
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
