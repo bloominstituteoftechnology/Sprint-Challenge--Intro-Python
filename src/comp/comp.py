@@ -24,22 +24,21 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [h[1] == 'D' for h in enumerate(humans)]
+a = [h.name[0] == 'D' for h in humans]
 # a = filter(lambda h: h == 'D',humans)
 
-print(list(a))
-
+print(a)
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [h.name[-1] == 'e' for h in humans]
+b = [h.name[-1].split() == 'e' for h in humans]
 # b = filter(lambda h: min(h)== 'e',humans)
 
-print(list(b))
+print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [h.name[0:] in 'C' in h.name for h in humans]
+c = [h.name[0] in h.name.split() == 'C' and h.name.split() == 'G' in h.name for h in humans]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
