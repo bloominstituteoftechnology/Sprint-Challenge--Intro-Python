@@ -28,6 +28,10 @@ class Motorcycle(GroundVehicle):
         return "BRAAAP!!"
 
 
+ducati = Motorcycle()
+
+print(ducati.num_wheels)
+
 # TODO
 
 vehicles = [
