@@ -71,8 +71,14 @@ print(e)
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
+
+human_info_list = []
+
+for human in humans:
+    human_info_list += [[human.name, human.age]]
+
 print("Names and ages between 27 and 32:")
-f = []
+f = [tuple(human) for human in human_info_list if 27 <= human[1] <= 32]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
