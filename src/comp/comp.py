@@ -8,6 +8,7 @@ class Human:
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
 
+
 humans = [
     Human("Alice", 29),
     Human("Bob", 32),
@@ -57,8 +58,14 @@ print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
+human_info = []
+
+for human in humans:
+    human_info += [[human.name, str(human.age)]]
+
+print(human_info)
 print("Name hyphen age:")
-e = []
+e = ["-".join(human) for human in human_info]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
