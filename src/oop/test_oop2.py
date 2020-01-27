@@ -1,5 +1,6 @@
 import unittest
-from oop2 import *
+
+from src.oop.oop2 import *
 
 class Oop2Tests(unittest.TestCase):
   def setUp(self):
