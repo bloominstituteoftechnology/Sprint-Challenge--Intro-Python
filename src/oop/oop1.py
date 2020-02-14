@@ -27,13 +27,13 @@ class Vehicle:
 # base class
 
 
-class FlightVehicle:
+class FlightVehicle(Vehicle):
     pass
 
 # base class
 
 
-class Starship:
+class Starship(FlightVehicle):
     pass
 
 # inherits from Vehicle
