@@ -1,8 +1,11 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 import csv
+import os
 
-file_name = '/Users/jakeconnerly/Desktop/iOS9/CSSprintI/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv'
+full_path = os.path.dirname(os.path.abspath(__file__))
+print(f"{full_path}/cities.csv")
+file_name = f"{full_path}/cities.csv"
 
 class City():
     def __init__(self, city_name, lat, lon):
