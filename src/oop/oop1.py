@@ -17,3 +17,45 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+# base class
+
+
+class Vehicle:
+    pass
+
+# base class
+
+
+class FlightVehicle:
+    pass
+
+# base class
+
+
+class Starship:
+    pass
+
+# inherits from Vehicle
+
+
+class GroundVehicle(Vehicle):
+    pass
+
+# inherits from FlightVehicle
+
+
+class Airplane(FlightVehicle):
+    pass
+
+# inherits from GroundVehicle
+
+
+class Car(GroundVehicle):
+    pass
+
+# inherits from GroundVehicle
+
+
+class Motorcycle(GroundVehicle):
+    pass
