@@ -28,13 +28,13 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [i for i in humans if i.name[0].lower() == "d"]
+a = [i.name for i in humans if i.name[0].lower() == "d"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [i for i in humans if i.name[-1].lower() == "e"]
+b = [i.name for i in humans if i.name[-1].lower() == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -47,7 +47,7 @@ def char_range(c1, c2):
         yield chr(c)
 
 
-c = [i for i in humans if i.name[0].lower() in [x for x in char_range(
+c = [i.name for i in humans if i.name[0].lower() in [x for x in char_range(
     "c", "g")]]
 print(c)
 
@@ -76,7 +76,7 @@ print("All names uppercase:")
 
 
 def action(i):
-    new = Human(i.name[0].upper(), i.age + 5)
+    new = Human(i.name.upper(), i.age + 5)
     return new
 
 
@@ -85,5 +85,5 @@ print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-h = [i.age**2 for i in humans]
+h = [math.sqrt(i.age) for i in humans]
 print(h)
