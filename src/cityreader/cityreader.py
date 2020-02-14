@@ -35,8 +35,11 @@ def cityreader(cities=[]):
     line_count = 0
     for row in reader:
       if not row[0] == "city":
-        cities.append(City(row[0], float(row[4]), float(row[5])))
+        cities.append(City(row[0], float(row[3]), float(row[4])))
   return cities
+
+#float method is used to return a floating point number(decimal) from a number or string, it only accepts one argument i.e: float(row[3]) float taking in row index 4
+
 
 cityreader(cities)
 
