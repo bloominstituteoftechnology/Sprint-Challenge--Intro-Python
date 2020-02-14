@@ -88,12 +88,20 @@ print("\n")
 # (7) Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
-print("(7) All names uppercase:")
+print("All names uppercase:")
 g = []
+for human in humans:
+    screaming_human_ages_you = Human(human.name.upper(), human.age + 5)
+    g.append(screaming_human_ages_you)
 print(g)
+print("\n")
 
 # (8) Write a list comprehension that contains the square root of all the ages.
-print("(8) Square root of ages:")
+print("Square root of ages:")
 import math
 h = []
+for human in humans:
+    squirt_age = math.sqrt(human.age)
+    h.append(squirt_age)
 print(h)
+print("\n")
