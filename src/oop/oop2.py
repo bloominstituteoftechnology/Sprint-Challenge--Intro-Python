@@ -38,4 +38,4 @@ vehicles = [
 
 # TODO
 for vehicles in vehicles:
-    vehicles.drive()
+    print(vehicles.drive())
