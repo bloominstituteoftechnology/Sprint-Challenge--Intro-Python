@@ -4,7 +4,6 @@ import csv
 import os
 
 full_path = os.path.dirname(os.path.abspath(__file__))
-print(f"{full_path}/cities.csv")
 file_name = f"{full_path}/cities.csv"
 
 class City():
@@ -77,12 +76,47 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+class Point():
+  def __init__(self, lat, lon):
+    self.lat = lat
+    self.lon = lon
+  def __repr__(self):
+        return f"<LAT: {self.lat}, LON: {self.lon}>"
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
-
+  if lat1 <= lat2:
+    first_point = Point(lat1, lon1)
+    second_point = Point(lat2, lon2)
+  else:
+    first_point = Point(lat2, lon2)
+    second_point = Point(lat1, lon1)
+  
+  for city in cities:
+    if city.lat in range(first_point.lat, second_point.lat) and city.lon in range(first_point.lon, second_point.lon):
+      within.append(city)
+      
+  
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+def input_point_cleaner(point_str):
+  result = [x.strip() for x in point_str.split(',')]
+  lat = float(result[0])
+  lon = float(result[1])
+  return Point(lat, lon)
+
+f = input("enter first point: [lat],[lon]")
+s = input("enter second point: [lat],[lon]")
+
+
+fp = input_point_cleaner(f)
+sp = input_point_cleaner(s)
+
+cityreader_stretch(fp.lat, fp.lon, sp.lat, sp.lon, cities)
+
+
