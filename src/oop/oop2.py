@@ -7,7 +7,10 @@ class GroundVehicle():
     def __init__(self, num_wheels = 4):
         self.num_wheels = num_wheels
     def drive(self):
-        return 'vroom'
+        return f'vroom'
+
+vehicle = GroundVehicle()
+print(vehicle.num_wheels, "this is the default vehicle wheels!")
         
         
 
@@ -18,6 +21,9 @@ class Motorcycle(GroundVehicle):
     def drive(self):
         return "BRAAAP!!"
 
+motor = Motorcycle()
+
+print(motor.num_wheels, "THIS IS THE AMOUNT OF WHEELS A MOTORCYCLE HAS")
 
 
 # Subclass Motorcycle from GroundVehicle.
