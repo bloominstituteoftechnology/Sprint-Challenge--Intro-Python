@@ -1,3 +1,5 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -14,20 +16,36 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-cities = []
 
+class City:
+
+  def __init__(self, name, lon, lat):
+    self.name = name
+    self.lon = lon
+    self.lat = lat
+
+cities = []
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+  with open("cities.csv", "r") as f:
+    d_reader = csv.DictReader(f)
+    headers = d_reader.fieldnames
+
+    for line in d_reader:
+      cities.append(line['city'])
+      print(line['city'])
     return cities
+    
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+  with open("cities.csv", "r") as f:
+    d_reader = csv.DictReader(f)
+    headers = d_reader.fieldnames
+    for line in d_reader:
+      print(line['city'], line['lat'], line['lng'])
 
 # STRETCH GOAL!
 #
@@ -58,14 +76,14 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+# # TODO Get latitude and longitude values from the user
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+#   # within will hold the cities that fall within the specified region
+#   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+#   # TODO Ensure that the lat and lon valuse are all floats
+#   # Go through each city and check to see if it falls within 
+#   # the specified coordinates.
 
-  return within
+#   return within
