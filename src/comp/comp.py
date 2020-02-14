@@ -1,3 +1,4 @@
+import re
 # The following list comprehension exercises will make use of the 
 # defined Human class. 
 class Human:
@@ -24,24 +25,29 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+a = [x.name for x in humans if x.name[0] == "D"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [x.name for x in humans if x.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+# compile(pattern, repl, string): We can combine a regular expression pattern into pattern objects,
+# which can be used for pattern matching. It also helps to search a pattern again without rewriting it
+letters = re.compile("C-G")
+# If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.
+# Return None if the string does not match the pattern; note that this is different from a zero-length match.
+c = [x.name for x in humans if letters.match(x.name[0]) != None]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [x.age + 10 for x in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
