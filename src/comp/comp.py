@@ -5,8 +5,11 @@ class Human:
         self.name = name
         self.age = age
 
+    # def __repr__(self):
+    #     return f"<Human: {self.name}, {self.age}>"
     def __repr__(self):
-        return f"<Human: {self.name}, {self.age}>"
+        return '{self.__class__.__name__}({self.name}, {self.age})'.format(self=self)
+        # return f"<Human: {self.name}, {self.age}>"
 
 humans = [
     Human("Alice", 29),
@@ -62,9 +65,24 @@ print(f)
 # # list, except with all the names uppercase and the ages with 5 added to them.
 # # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [("".join((str(f"<Human: {str(i.name).upper()}, {i.age+5}>")))) for i in humans]
+# g = [(repr("".join((str(f"Human({str(i.name).upper()}, {i.age+5})"))))).strip("'") for i in humans]
+# g = [str(i.name).upper() for i in humans]
+# g = [Human(i.name.upper(),i.age+5) for i in humans]
+# g = [repr(Human(getattr(i, "name").upper(), getattr(i, "age")+5)) for i in humans]
+# g = [repr('Human(%s, %s)' % (str(i.name).upper(), i.age+5))[1:-1] for i in humans]
 
+# g = [(i.__class__.__name__ + '(' i.name.upper(),i.age+5)for i in humans[:]]
+# g = i.__class__.__name__+(i.name.upper(),i.age+5)for i in humans]
+
+# g = [('Human(%s, %s)' % (str(i.name).upper(), i.age+5)) for i in humans]
+# g = [f"Human({i.name}, {i.age})" for i in humans]
+# g = [Human(i.__dict__['name'],i.__dict__['age'])  for i in humans]
+# v = [tuple((i.name).split()) + tuple([i.age]) for i in humans]
+# g = [Human(i.name.upper(),i.age+5) for i in humans]
+# g = ['Human(%s, %s)' % (repr(i.name), i.age) for i in humans[:]]
+g = [Human('"%s"' % i.name.upper(),i.age+5) for i in humans]
 print(g)
+# Human("ALICE", 34)
 
 # # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")

@@ -1,8 +1,6 @@
 import csv
 
 
-import csv
-
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -20,39 +18,29 @@ class City:
     self.lon = lon
     self.lat = lat
 
+  def __repr__(self):
+    return '{self.__class__.__name__}({self.name}, {self.lat}, {self.lon})'.format(self=self)
+
 cities = []
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   with open("cities.csv", "r") as f:
     d_reader = csv.DictReader(f)
-    headers = d_reader.fieldnames
-
+  # For each city record, create a new City instance and add it to the 
+  # `cities` list
     for line in d_reader:
-      city_instance = City(line['city'],line['lng'],line['lat'])
-      cities.append(city_instance.name)
-      cities.append(city_instance.lon)
-      cities.append(city_instance.lat)
+      city_instance = City('"%s"' % line['city'],line['lng'],line['lat'])
+      cities.append(city_instance)
     return cities
+    # print(cities)
 
 cityreader(cities)
-# for c in cities:
-#     city_instance_list = []
-#     with open("cities.csv", "r") as f:
-#         d_reader = csv.DictReader(f)
-#         headers = d_reader.fieldnames
 
-#         for line in d_reader:
-#             city_instance = City(line['city'],line['lng'],line['lat'])
-#             city_instance_list.append(city_instance.name)
-#             city_instance_list.append(city_instance.lon)
-#             city_instance_list.append(city_instance.lat)
-
-# print(city_instance_list)
-
-
-# t = City(cityreader(cities))
-
-# print(cityreader(cities))
+#
+# # Print the list of cities (name, lat, lon), 1 record per line.
+for c in cities:
+    print(c)
+# cityreader()
 # # Create a class to hold a city location. Call the class "City". It should have
 # # fields for name, lat and lon (representing latitude and longitude).
 
