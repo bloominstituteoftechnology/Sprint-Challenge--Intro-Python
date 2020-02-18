@@ -31,21 +31,23 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
   # os.chdir(f"{os.getcwd()}/src/cityreader")
-  with open('cities.csv') as csvfile:
-    readcsvfile = csv.reader(csvfile)
-    print(readcsvfile)
+  # print(os.getcwd())
+  with open('.\src\cityreader\cities.csv') as csvfile:
+    readcsvfile = csv.DictReader(csvfile)
 
     for row in readcsvfile:
-      cities.append(row)
+      cities.append(City(row['city'], row['lat'], row['lng']))
+      # print(cities)
     return cities
 
 cityreader(cities)
 
-# Print the list of cities (name, lat, lon), 1 record per line.
+# # Print the list of cities (name, lat, lon), 1 record per line.
 cityList = []
 
 for city in cities:
-  cityList.append(City(city[0], city[3], city[4]))
+  # print(city)
+  cityList.append(city)
 
 for singleCity in cityList:
   print(singleCity)
