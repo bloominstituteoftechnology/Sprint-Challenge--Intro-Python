@@ -15,12 +15,16 @@ import csv
 class City:
   def __init__(self, name, lon, lat):
     self.name = name
-    self.lon = lon
-    self.lat = lat
+    self.lon = float(lon)
+    self.lat = float(lat)
 
   def __repr__(self):
-    return '{self.__class__.__name__}({self.name}, {self.lat}, {self.lon})'.format(self=self)
+    return f'({self.name}, {self.lat}, {self.lon})'#.format(self=self)
 
+  def __eq__(self, other):
+    return (str(self.name) == str(other.name)) and (float(self.lon) == float(other.lon)) and (float(self.lat) == float(other.lat))
+
+#{self.__class__.__name__}
 cities = []
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
@@ -36,10 +40,17 @@ def cityreader(cities=[]):
 
 cityreader(cities)
 
+if cities[0] == City("Seattle", 47.6217, -122.3238):
+  print("eq working")
+
+# if City("Seattle", "47.6217", "-122.3238") == City("Seattle", 47.6217, -122.3238):
+#   print("eq working")
+
+print(type(cities[0]))
 #
 # # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 # cityreader()
 # # Create a class to hold a city location. Call the class "City". It should have
 # # fields for name, lat and lon (representing latitude and longitude).
