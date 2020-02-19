@@ -29,24 +29,42 @@ cities = []
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   with open("cities.csv", "r") as f:
-    d_reader = csv.DictReader(f)
-  # For each city record, create a new City instance and add it to the 
+    ll = [line.split(',')[:5] for line in f][1:]
+  cities = [City(l[0], l[3], l[4]) for l in ll]
+  return cities
+# cities= []
+# def cityreader(cities=[]):
+#   # TODO Implement the functionality to read from the 'cities.csv' file
+#   with open("cities.csv", "r") as f:
+#     d_reader = csv.DictReader(f)
+  # For each city record, create a new City instance and add it to the
   # `cities` list
-    for line in d_reader:
-      city_instance = City('"%s"' % line['city'],line['lng'],line['lat'])
-      cities.append(city_instance)
-    return cities
+  #   print(d_reader)
+  #   for line in d_reader:
+      # print(type(eval(line["city"])))
+      # city_instance = City(str(line['city']),float(line['lng']),float(line['lat']))
+      # print(type(city_instance.name), type(city_instance.lon) ,type(city_instance.lat))
+      # cities.append(city_instance)
+  # return cities
     # print(cities)
 
 cityreader(cities)
+# cityreader2(cities2)
 
-if cities[0] == City("Seattle", 47.6217, -122.3238):
-  print("eq working")
+print(cities)
+
+# if cities[0] == City("Seattle", 47.6217, -122.3238):
+#   print("eq working")
 
 # if City("Seattle", "47.6217", "-122.3238") == City("Seattle", 47.6217, -122.3238):
 #   print("eq working")
 
-print(type(cities[0]))
+# if cities == cities2:
+#   print('same')
+# else:
+#   print('not same')
+# print(type(cities2[0].lon))
+# print(type(cities[0].lon))
 #
 # # Print the list of cities (name, lat, lon), 1 record per line.
 # for c in cities:
