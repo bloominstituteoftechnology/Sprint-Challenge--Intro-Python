@@ -80,7 +80,8 @@ print("All names uppercase:")
 # v = [tuple((i.name).split()) + tuple([i.age]) for i in humans]
 # g = [Human(i.name.upper(),i.age+5) for i in humans]
 # g = ['Human(%s, %s)' % (repr(i.name), i.age) for i in humans[:]]
-g = [Human('"%s"' % i.name.upper(),i.age+5) for i in humans]
+# g = [Human('"%s"' % i.name.upper(),i.age+5) for i in humans]
+g = [Human(idx.name.upper() , idx.age + 5) for idx in humans]
 print(g)
 # Human("ALICE", 34)
 
