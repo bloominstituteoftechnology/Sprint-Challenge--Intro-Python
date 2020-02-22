@@ -39,8 +39,12 @@ print(b)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
 # c = [e.name for e in humans if e.name[0] in range(ord("C"), ord("G"))]
+# c = [e.name for e in humans if e.name[0] == 'C' or  e.name[0] == 'G']
+c2g = ('C','D','E','F','G')
 
-c = [e.name for e in humans if e.name[0] == 'C' or  e.name[0] == 'G']
+c = [e.name for e in humans if e.name.startswith(c2g)]
+
+# text.startswith('for geeks')
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -66,7 +70,7 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [(e.name.upper(), e.age+5) for e in humans if e]
+g = [(e.name.upper(),e.age+5) for e in humans if e]
 print(g)
 # print(humans)
 
