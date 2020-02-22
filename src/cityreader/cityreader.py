@@ -27,11 +27,9 @@ class City:
 
 cities = []
 
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the
-  # `cities` list
+# with open('cities.csv') as csvfile: didn't work
+# i had to use path
 path = "/Users/ilqarilyasov/Desktop/Edu/LambdaCS/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv"
-
 def cityreader(cities=[]):
   with open(path) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -50,10 +48,10 @@ for c in cities:
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
-# These points form the corners of a lat/lon square. Pass these latitude and 
+# These points form the corners of a lat/lon square. Pass these latitude and
 # longitude values as parameters to the `cityreader_stretch` function, along
 # with the `cities` list that holds all the City instances from the `cityreader`
-# function. This function should output all the cities that fall within the 
+# function. This function should output all the cities that fall within the
 # coordinate square.
 #
 # Be aware that the user could specify either a lower-left/upper-right pair of
