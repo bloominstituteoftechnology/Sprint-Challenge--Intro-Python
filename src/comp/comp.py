@@ -70,7 +70,7 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [(e.name.upper(),e.age+5) for e in humans if e]
+g = [Human(e.name.upper(),e.age+5) for e in humans if e]
 print(g)
 # print(humans)
 
