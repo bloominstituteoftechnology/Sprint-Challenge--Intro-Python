@@ -23,10 +23,10 @@ class Vehicle:
     pass
 
 class FlightVehicle(Vehicle):
-    # Base class of Airplane
+    # Base class of Airplane and Starship
     pass
 
-class Starship(Vehicle):
+class Starship(FlightVehicle):
     pass
 
 class GroundVehicle(Vehicle):
