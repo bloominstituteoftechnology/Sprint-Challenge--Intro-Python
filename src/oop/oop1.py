@@ -17,3 +17,39 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+
+# Vehicle is the base class
+class Vehicle():
+    # Base class
+    pass
+
+# Flight vehicles, descended from Vehicle.
+
+
+class FlightVehicle(Vehicle):
+    # Base of this tree
+    pass
+
+
+class Airplane(FlightVehicle):
+    pass
+
+
+class Starship(FlightVehicle):
+    pass
+
+# Ground Vehicles, descended from Vehicle
+
+
+class GroundVehicle(Vehicle):
+    # Base of this tree
+    pass
+
+
+class Car(GroundVehicle):
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    pass
