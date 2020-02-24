@@ -23,8 +23,9 @@ with open('cities.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     for x in readCSV:
       # print(x, '1')
-      cities.append(x)
-# print(cities)
+      cities.append([x[0],x[3],x[4]])
+
+print(cities,'first')
 
 class City():
   def __init__(self,name,lat,lon):
@@ -32,19 +33,20 @@ class City():
     self.lat = lat
     self.lon = lon
 
-    print(name,lat,lon)
+    # print(name,lat,lon,'class')
 
-for x in cities:
-  x = City(x[0],x[3],x[4])
-  print(x)
+# for x in cities:
+#   x = City(x[0],x[1],x[2])
+#   print(x)
+
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    cities.append(['newname','newlat','newlon'])
+  #   cities.append()
     return cities
 
-print(cities)
+# print(cities)
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
