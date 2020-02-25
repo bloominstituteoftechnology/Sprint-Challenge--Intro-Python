@@ -32,12 +32,12 @@ class Oop1Tests(unittest.TestCase):
   def test_car(self):
     self.assertTrue(isinstance(self.car, Car))
     self.assertTrue(isinstance(self.car, GroundVehicle))
-    self.assertTrue(isinstance(self.car, Vehicle)) 
+    self.assertTrue(isinstance(self.car, Vehicle))
 
   def test_motocycle(self):
     self.assertTrue(isinstance(self.motorcycle, Motorcycle))
     self.assertTrue(isinstance(self.motorcycle, GroundVehicle))
-    self.assertTrue(isinstance(self.motorcycle, Vehicle)) 
+    self.assertTrue(isinstance(self.motorcycle, Vehicle))
 
 
 if __name__ == '__main__':
