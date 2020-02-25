@@ -31,7 +31,6 @@ a = []
 for x in humans:
     if x.name[0] == 'D':
         a.append(x.name)
-print(a)    
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
@@ -40,7 +39,6 @@ b = []
 for x in humans:
     if x.name[-1] == 'e':
         b.append(x.name)
-print(b)
 
 
 # Write a list comprehension that creates a list of names of everyone
@@ -48,15 +46,20 @@ print(b)
 print("Starts between C and G, inclusive:")
 c = []
 for x in humans:
-    c.append(x.name)
-c.sort()
-print(c)
+    if x.name[0] == "C":
+        c.append(x.name)
+    elif x.name[0] == "D":
+        c.append(x.name)
+    elif x.name[0] == "E":
+        c.append(x.name)
+    elif x.name[0] == "F":
+        c.append(x.name)
+    elif x.name[0] == "G":
+        c.append(x.name)
 # ##################### need to do
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
-for x in humans:
-    d.append(x.age+10)
+d = [x.age + 10 for x in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -72,22 +75,19 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
-for x in humans:
-    if x.age < 32:
-        if x.age > 27:
-            f.append(x)
-print(f)
+# f = [(x.name, x.age) for x in humans if (int(x.age) <= 32) | (int(x.age) >= 27)]
+
+f = [(x.name, x.age) for x in humans if int(x.age) in range(27, 33)]
+
+print(f,"f")
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 
 print("All names uppercase:")
-g = []
-for x in humans:
-    g.append(x.name.upper())
-    g.append(x.age + 5)
+g = [Human(x.name.upper(), x.age + 5) for x in humans]
+
 
 print(g)
 
