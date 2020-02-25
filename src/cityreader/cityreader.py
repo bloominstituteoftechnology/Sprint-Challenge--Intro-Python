@@ -29,9 +29,8 @@ cities = []
 
 # with open('cities.csv') as csvfile: didn't work
 # i had to use path
-path = "/Users/ilqarilyasov/Desktop/Edu/LambdaCS/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv"
 def cityreader(cities=[]):
-  with open(path) as csvfile:
+  with open('cities.csv') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     for (index, row) in enumerate(csvreader):
       if index != 0:
