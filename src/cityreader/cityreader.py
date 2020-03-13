@@ -6,8 +6,8 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
-        self.lat = lat
-        self.lon = lon
+        self.lat = float(lat)
+        self.lon = float(lon)
 
     def __str__(self):
         return f'City{self.name, self.lat, self.lon}'
@@ -39,7 +39,7 @@ def cityreader(cities=[]):
             lat = city[3]
             lon = city[4]
             if name != 'city':
-                new_city = City(name, float(lat), float(lon))
+                new_city = City(name, lat, lon)
                 cities.append(new_city)
         return cities
 
