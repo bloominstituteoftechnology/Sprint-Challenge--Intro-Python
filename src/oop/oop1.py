@@ -17,3 +17,30 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+# the Vehicle class is the base class
+
+class Vehicle():
+    pass
+
+# the 'flying' classes ultimate roll up and in to the vehicle class
+
+class FlightVehicle(Vehicle):
+    pass
+
+class Airplane(FlightVehicle):
+    pass
+
+class Starship(FlightVehicle):
+    pass
+
+# The ground vehicle class and its child classes ultimately roll up to the vehicle class
+
+class GroundVehicle(Vehicle):
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
