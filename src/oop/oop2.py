@@ -4,10 +4,11 @@
 # object is constructed.
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
+    def __init__(self, num_wheels = 4):
         self.num_wheels = num_wheels
 
-    # TODO
+    def drive():
+    	return "vroooom"
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -19,6 +20,15 @@ class GroundVehicle():
 
 # TODO
 
+class Motorcycle(GroundVehicle):
+
+	def __init__(self):
+		super().__init__(self, 2)
+
+	def drive():
+		return "BRAAAP!!"
+
+
 vehicles = [
     GroundVehicle(),
     GroundVehicle(),
@@ -29,4 +39,5 @@ vehicles = [
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
-# TODO
+for i in vehicles:
+	print(vehicles[i].drive())
