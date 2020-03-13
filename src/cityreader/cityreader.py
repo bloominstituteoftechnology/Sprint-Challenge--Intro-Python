@@ -33,7 +33,7 @@ def cityreader(cities=[]):
     #skip header
     for row in reader:
       if(count > 0):
-        cities.append(City(row[0], row[3], row[4]))
+        cities.append(City(row[0], float(row[3]), float(row[4])))
       count += 1
 
   return cities

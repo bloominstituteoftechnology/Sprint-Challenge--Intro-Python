@@ -2,6 +2,7 @@ import unittest
 from cityreader import City, cityreader
 
 def check_city(inp, exp):
+    # print("WHY")
     if inp.name != exp.name:
       print("---------TEST-------- " + inp.name + "!=" + exp.name)
       return False
