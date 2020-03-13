@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import unittest
 from cityreader import City, cityreader, cityreader_stretch
 

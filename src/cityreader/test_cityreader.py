@@ -1,12 +1,17 @@
+#!/usr/bin/env python
+
 import unittest
 from cityreader import City, cityreader
 
 def check_city(inp, exp):
     if inp.name != exp.name:
+      print(inp.name, exp.name)
       return False
     if inp.lat != exp.lat:
+      print(inp.lat, exp.lat)
       return False
     if inp.lon != exp.lon:
+      print(inp.lon, exp.lon)
       return False
     return True
 
