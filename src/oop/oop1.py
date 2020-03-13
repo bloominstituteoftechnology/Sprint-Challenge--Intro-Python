@@ -35,4 +35,5 @@ class Airplane(FlightVehicle):#groundvehicle
 class Car(GroundVehicle):#GroundVehicle
     pass
  
-class Motorcycle(GroundVehicle)
+class Motorcycle(GroundVehicle):
+    pass
