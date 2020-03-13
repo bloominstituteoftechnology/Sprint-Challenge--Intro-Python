@@ -73,7 +73,7 @@ print(e)
 print("Names and ages between 27 and 32:")
 f = [
     (ae.name, ae.age) for ae in humans 
-    if(ae.age >= 20 and ae.age <=32)
+    if(ae.age >= 27 and ae.age <= 32)
 ]
 print(f)
 
