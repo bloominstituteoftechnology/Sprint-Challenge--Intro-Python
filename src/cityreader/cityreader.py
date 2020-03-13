@@ -38,10 +38,10 @@ def cityreader(cities=[]):
         city_reader = csv.reader(csv_file, delimiter=",")
         next(csv_file)
         for row in city_reader:
-            cuty_name = row[0]
-            cuty_lat = float(row[3])
-            cuty_lon = float(row[4])
-            city = City(cuty_name, cuty_lat, cuty_lon)
+            city_name = row[0]
+            city_lat = float(row[3])
+            city_lon = float(row[4])
+            city = City(city_name, city_lat, city_lon)
             cities.append(city)
 
     return cities
