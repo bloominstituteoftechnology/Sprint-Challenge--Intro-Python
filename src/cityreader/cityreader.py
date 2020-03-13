@@ -115,6 +115,7 @@ s = input("enter second point: [lat],[lon]")
 
 
 fp = input_point_cleaner(f)
+print(fp)
 sp = input_point_cleaner(s)
 
 cityreader_stretch(fp.lat, fp.lon, sp.lat, sp.lon, cities)
