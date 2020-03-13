@@ -3,15 +3,34 @@
 import os
 import csv
 
+from typing import List, Union
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
 
 class City:
-	def __init__(self, name, lat, lon):
+	def __init__(
+			self,
+			name: str,
+			lat: Union[float, int, str],
+			lon: Union[float, int, str]
+	):
+		'''
+		A city.
+
+		Args:
+			name (str): Name of the city.
+			lat (Union[float, int, str]): Latitude.
+			lon (Union[float, int, str]): Longitude.
+		'''
+
 		self.name = name
 		self.lat = float(lat)
 		self.lon = float(lon)
+
+	def __repr__(self):
+		return f'<{self.__class__.__name__}: "{self.name}", {self.lat}, {self.lon}>'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -31,7 +50,29 @@ class City:
 # TODO Implement the functionality to read from the 'cities.csv' file
 # For each city record, create a new City instance and add it to the
 # `cities` list
-def cityreader(cities=None, path='cities.csv'):
+CSV_FIELD_NAMES = ['city', 'state_name', 'county_name', 'lat',
+	'lng', 'population', 'density', 'timezone', 'zips']
+
+
+def cityreader(
+		cities: List[City] = None,
+		path: str = 'cities.csv',
+		field_names: List[str] = CSV_FIELD_NAMES
+) -> List[City]:
+	'''
+	Reads a CSV of cities into a list of City objects.
+
+	Args:
+		cities (List[City], optional): If provided, new City objects will be added to this list.
+			If omitted, a new list of City objects will be created.
+		path (str, optional): Defaults to 'cities.csv'. CSV file path.
+		field_names (List[str], optional): Defaults to CSV_FIELD_NAMES. Format of the CSV.
+
+	Returns:
+		List[City]: A list of City objects from the CSV.
+	'''
+
+	# Avoid issues with mutable arguments
 	if cities is None:
 		cities = []
 
@@ -39,10 +80,8 @@ def cityreader(cities=None, path='cities.csv'):
 			os.path.dirname(__file__),
 			path), 'r'
 	) as csv_file:
-		field_names = ['city', 'state_name', 'county_name', 'lat',
-			'lng', 'population', 'density', 'timezone', 'zips']
 		reader = csv.DictReader(csv_file, field_names)
-		next(reader)
+		next(reader)  # Skip the header
 		for record in reader:
 			cities.append(
 				City(
