@@ -24,7 +24,7 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [d.name for d in humans if d.name[0] =='D']
+a = []
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
