@@ -5,25 +5,33 @@
 
 
 class Human:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+	def __init__(self, name: str, age: int):
+		'''
+		A human.
 
-    def __repr__(self):
-        return f"<Human: {self.name}, {self.age}>"
+		Args:
+			name (str): The Human's name.
+			age (int): The Human's age.
+		'''
+
+		self.name = name
+		self.age = age
+
+	def __repr__(self):
+		return f'<{self.__class__.__name__}: "{self.name}", {self.age}>'
 
 
 humans = [
-    Human("Alice", 29),
-    Human("Bob", 32),
-    Human("Charlie", 37),
-    Human("Daphne", 30),
-    Human("Eve", 26),
-    Human("Frank", 18),
-    Human("Glenn", 42),
-    Human("Harrison", 12),
-    Human("Igon", 41),
-    Human("David", 31),
+	Human("Alice", 29),
+	Human("Bob", 32),
+	Human("Charlie", 37),
+	Human("Daphne", 30),
+	Human("Eve", 26),
+	Human("Frank", 18),
+	Human("Glenn", 42),
+	Human("Harrison", 12),
+	Human("Igon", 41),
+	Human("David", 31),
 ]
 
 # Write a list comprehension that creates a list of names of everyone
