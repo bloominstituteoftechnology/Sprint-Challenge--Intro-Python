@@ -18,9 +18,10 @@
 #
 # Put a comment noting which class is the base class
 
-# the Vehicle class is the base class
+
 
 class Vehicle():
+    # the Vehicle class is the base class
     pass
 
 # the 'flying' classes ultimate roll up and in to the vehicle class
