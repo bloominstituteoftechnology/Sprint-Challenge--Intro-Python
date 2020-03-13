@@ -69,12 +69,27 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
-# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-#   # within will hold the cities that fall within the specified region
-#   within = []
-
-#   # TODO Ensure that the lat and lon valuse are all floats
-#   # Go through each city and check to see if it falls within 
-#   # the specified coordinates.
-
-#   return within
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+    # within will hold the cities that fall within the specified region
+    within = []
+    cities = []
+    import csv
+    with open('cities.csv') as c:
+        city_generator = csv.reader(c, delimiter=',')
+        next(city_generator)
+        for row in city_generator:
+            cities.append(City(row[0], row[3], row[4]))
+    for city in cities:
+        if abs(lat1) < abs(city.lat) < abs(lat2) and abs(lon1) < abs(city.lon) < abs(lon2):
+            within.append(city)
+        if abs(lat2) < abs(city.lat) < abs(lat1) and abs(lon2) < abs(city.lon) < abs(lon1):
+            within.append(city)
+        if lat1 < city.lat < lat2 and lon1 < city.lon < lon2:
+            within.append(city)
+        if lat2 < city.lat < lat1 and lon2 < city.lon < lon1:
+            within.append(city)
+    # TODO Ensure that the lat and lon valuse are all floats
+    # Go through each city and check to see if it falls within 
+    # the specified coordinates.
+    
+    return within 
