@@ -44,7 +44,7 @@ def cityreader(cities=[]):
           city_name = row[0]
           lat = row[3]
           lon = row[4]
-          cities.append(City(city_name, lat, lon))
+          cities.append(City(city_name, float(lat), float(lon)))
         count+=1
     return cities
 
