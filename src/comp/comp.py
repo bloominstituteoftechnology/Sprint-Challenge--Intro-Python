@@ -37,7 +37,7 @@ print(a)
 print("Ends with e:")
 b = []
 for human in humans:
-    if human.name[-1] == "e"
+    if human.name[-1] == "e":
         b.append(human)
 
 print(b)
