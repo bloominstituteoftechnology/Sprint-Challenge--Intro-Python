@@ -44,7 +44,7 @@ c = [i.name for i in humans if i.name[0] == 'C' or i.name[0] == 'D' or i.name[0]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
-print("Ages plus 10:")
+print("Ages plus 10: ")
 d = [i.age +10 for i in humans]
 print(d)
 
