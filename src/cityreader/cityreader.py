@@ -9,7 +9,8 @@ class City:
         self.name = name
         self.lat = lat
         self.lon = lon
-
+    def __str__(self):
+        return f"{self.name}, {self.lat}, {self.lon}"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -37,7 +38,7 @@ def cityreader(cities=[]):
             if row[0] == "city":
                 pass
             else:
-                city = City(row[0], row[3], row[4])
+                city = City(row[0], float(row[3]), float(row[4]))
                 cities.append(city)
     return cities
 
@@ -46,7 +47,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(f"{c.name}: {c.lat}, {c.lon}")
+    print(c)
 
 
 # STRETCH GOAL!
@@ -99,9 +100,9 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     return within
 
 
-print("\n** Stretch Goal **")
-for c in cityreader_stretch(45, -100, 32, -120, cities):
-    print(f"{c.name}: {c.lat}, {c.lon}")
+# print("\n** Stretch Goal **")
+# for c in cityreader_stretch(45, -100, 32, -120, cities):
+#     print(f"{c.name}: {c.lat}, {c.lon}")
 
 # With Reversed Coordinates
 # print("\nStretch Goal")
