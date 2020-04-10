@@ -27,6 +27,11 @@ print("Starts with D:")
 a = [person.name for person in humans if(person.name[0] == "D")]
 print(a)
 
+eve = "Eve"
+
+z = [person.name for person in humans if(person.name >= eve)]
+print(z)
+
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
@@ -36,7 +41,8 @@ print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+check = ["C", "D", "E", "F", "G"]
+c = [person.name for person in humans if(person.name[0] in check)]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
