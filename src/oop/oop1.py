@@ -17,3 +17,31 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+# Vehicle class, parent class
+class Vehicle:
+    pass
+
+# This is the child class inherits from Vehicle class
+class FlightVehicle(Vehicle):
+    pass
+
+# Another child class inherits from Vehicle class
+class GroundVehicle(Vehicle):
+    pass
+
+# Child class inherits from GroundVehicle class
+class Car(GroundVehicle):
+    pass
+
+# Child class inherits from GroundVehicle class
+class Motorcycle(GroundVehicle):
+    pass
+
+# Child class inherits from FlightVehicle class
+class Airplane(FlightVehicle):
+    pass
+
+# Child class inherits from FlightVehicle class
+class Starship(FlightVehicle):
+    pass
