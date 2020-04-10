@@ -27,11 +27,6 @@ print("Starts with D:")
 a = [person.name for person in humans if(person.name[0] == "D")]
 print(a)
 
-eve = "Eve"
-
-z = [person.name for person in humans if(person.name >= eve)]
-print(z)
-
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
@@ -63,7 +58,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [f"{person.name}, {person.age}" for person in humans if(person.age >= 27 and person.age <= 32)]
+f = [(person.name, person.age) for person in humans if(person.age >= 27 and person.age <= 32)]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
