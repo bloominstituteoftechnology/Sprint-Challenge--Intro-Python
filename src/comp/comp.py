@@ -42,7 +42,7 @@ print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = [x.age * 10 for x in humans]
+d = [x.age + 10 for x in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -55,7 +55,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [(x.name, x.age) for x in humans if x.age in range(27, 32)]
+f = [(x.name, x.age) for x in humans if x.age in range(27, 33)]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
