@@ -99,19 +99,25 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   clat2 = float(lat2)
   clon1 = float(lon1)
   clon2 = float(lon2)
-  if lat1 > lat2:
+  if lat1 > lat2: #Arranges inputs to correct order (low to high)
     # print(f'lat1 is greater')
     clat1 = lat2
     clat2 = lat1
-  if lon1 > lon2:
+  if lon1 > lon2: #Arranges inputs to correct order (low to high)
     # print(f'lon1 is greater')
     clon1 = lon2
     clon2 = lon1
-
+# -----------First attempt, no floats--------------
+  # for city in cities:
+  #   # print (float(city.lat))
+  #   if int(city.lat) in range(int(clat1), int(clat2)):
+  #     if int(city.lon) in range(int(clon1), int(clon2)):
+  #       print(city)
+  #       within.append(city)
+# -----------Second attempt, with floats------------
   for city in cities:
-    # print (float(city.lat))
-    if int(city.lat) in range(int(clat1), int(clat2)):
-      if int(city.lon) in range(int(clon1), int(clon2)):
+    if city.lat >= clat1 and city.lat <= clat2:
+      if city.lon >= clon1 and city.lon <= clon2:
         print(city)
         within.append(city)
 
