@@ -27,7 +27,7 @@ humans = [
 print("Starts with D:")
 a = []
 for human in humans:
-    if human.name[0] == "D"
+    if human.name[0] == "D":
         a.append(human)
 
 print(a)
