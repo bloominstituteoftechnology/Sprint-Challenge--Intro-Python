@@ -7,7 +7,7 @@ class City:
         self.lat = lat
         self.lon = lon
     def __repr__(self):
-        return f"City: {self.name}, Latitude: {self.lat}, Longitude: {self,lon}"
+        return f"City: {self.name}, Latitude: {self.lat}, Longitude: {self.lon}"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -24,18 +24,25 @@ class City:
 cities = []
 
 import csv
+import os
+
+"""full_path = os.path.dirname(os.path,abs(__file__))
+file_name = f"{full_path}/cities.csv" """
+
+file_name = "/Users/jerryhaaser/Documents/Python/IntroPythonSprintChallenge/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv"
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-  with open(file_name) as csvfile:
-    reader = csv.reader(csvfile, delimiter=',')
-    for row in reader:
-      city = City(row[0], row[3], row[4])
-      cities.append(city)
+  with open(file_name, 'r') as f:
+      reader = csv.reader(f)
+      next(reader)
+
+      for column in reader:
+        cities.append(City(column[0], float(column[3]), float(column[4])))
     
-    return cities
+  return cities
 
 cityreader(cities)
 
