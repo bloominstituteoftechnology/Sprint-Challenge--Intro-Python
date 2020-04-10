@@ -17,3 +17,34 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+
+# Base Class
+class Vehicle:
+    pass
+
+
+# Second Tier Classes
+class GroundVehicle(Vehicle):
+    pass
+
+
+class FlightVehicle(Vehicle):
+    pass
+
+
+# Third Tier Classes
+class Car(GroundVehicle):
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    pass
+
+
+class Airplane(FlightVehicle):
+    pass
+
+
+class Starship(FlightVehicle):
+    pass
