@@ -24,6 +24,7 @@ class GroundVehicle():
 class Motorcycle(GroundVehicle):
 
     def __init__(self, num_wheels = 2):
+        self.num_wheels = num_wheels
         
     def drive(self):
         return "BRAAAP!!"
@@ -40,4 +41,4 @@ vehicles = [
 
 # TODO
 for vehicle in vehicles:
-    vehicle.drive()
+    print(vehicle.drive())
