@@ -17,3 +17,23 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+##### top vehicle > flightVehicle(vehicle) > AP(flight) > SS(flight) and so on parent to child down 
+class Vehicle():
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+class Airplane(FlightVehicle):
+    pass
+class Starship(FlightVehicle):
+    pass
+
+class GroundVehicle(Vehicle):
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass 
+
