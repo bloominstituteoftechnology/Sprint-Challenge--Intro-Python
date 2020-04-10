@@ -1,7 +1,16 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = float(lat)
+    self.lon = float(lon)
 
+  def __repr__(self):
+    return f"City({self.name}, {self.lat}, {self.lon})"
+    
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -17,11 +26,14 @@
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
-    return cities
+  f = open('cities.csv', 'r')
+  csv_f = csv.reader(f)
+  next(csv_f)
+  for row in csv_f:
+    cities.append(City(row[0], row[3], row[4]))
+
+  f.close()  
+  return cities
 
 cityreader(cities)
 
@@ -60,12 +72,35 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+latlon_1 = input("Enter lat1,lon1: ")
+latlon_2 = input("Enter lat2,lon2: ")
+
+latlon_1 = latlon_1.replace(",", " ")
+latlon_2 = latlon_2.replace(",", " ")
+
+latlon_1_split = latlon_1.split()
+latlon_2_split = latlon_2.split()
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
-
+  
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+  lats = [float(lat) for lat in [lat1, lat2]]
+  lons = [float(lon) for lon in [lon1, lon2]]
 
+  lats_srt = sorted(lats, key = float) 
+  lons_srt = sorted(lons, key = float) 
+  
+  print(lats_srt)
+  print(lons_srt)
+  for city in cities:
+    city_lat = float(city.lat)
+    city_lon = float(city.lon)
+    if city_lat >= lats_srt[0] and city_lat <= lats_srt[1] and city_lon >= lons_srt[0] and city_lon <= lons_srt[1]:
+        within.append(city)
   return within
+
+print(cityreader_stretch(latlon_1_split[0], latlon_1_split[1], latlon_2_split[0], latlon_2_split[1], cities))
