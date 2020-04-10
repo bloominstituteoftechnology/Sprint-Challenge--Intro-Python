@@ -1,5 +1,8 @@
 # The following list comprehension exercises will make use of the 
 # defined Human class. 
+
+import operator
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -21,11 +24,25 @@ humans = [
     Human("David", 31),
 ]
 
+print(humans[0:5])
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
+#if humans.name == "Eve"
 print("Starts with D:")
-a = []
+
+#d = "D"
+
+#print(getattr(humans, 'name'))
+
+a = [i for i in humans]
+
+# for i in humans:
+#     print(i)
+# #if operator.contains(humans, d_character):
+#     print("Contains d")
+#a = [x for x in humans if operator.contains(humans, "D")]
 print(a)
+
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
