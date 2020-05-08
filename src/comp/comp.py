@@ -24,7 +24,8 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+#a = [id for id in humans.__dict__.items()]
+a = [human.name for human in humans]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
