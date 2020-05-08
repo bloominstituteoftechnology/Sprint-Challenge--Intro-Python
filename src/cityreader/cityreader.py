@@ -22,17 +22,20 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-    with open('cities.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-          name = row[0]
-          lat = row[3]
-          lon = row[4]
-          cities.append(City(name, lat, lon))
+  '''Functionality to read from the 'cities.csv' file
+  For each city record, create a new City instance and add it to the
+  `cities` list'''
+
+  # cities=[]
+  with open('cities.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile, delimiter = ',')
+    next(reader)    # to jump header
+    for col in reader:
+      name = col[0]
+      lat = float(col[3])
+      lon = float(col[4])
+      cities.append(City(name, lat, lon))
     return cities
-
-cityreader(cities)
-
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
