@@ -19,35 +19,33 @@ Put a comment noting which class is the base class
 
 class Vehicle:
     """base class for all vehicles"""
-    
-    pass
-    
-    
-class Ground_Vehicle(Vehicle):
-    """base class for all vehciles"""
-    
-    pass
-    
-class Car(Ground_Vehicle):
-    """class represents all ground vehicles, inherts from base vehicle class"""
-    
-    pass
-    
-class Moped(Ground_Vehicle):
 
     pass
-    
+
+
+class Ground_Vehicle(Vehicle):
+    """base class for all vehciles"""
+
+    pass
+
+class Car(Ground_Vehicle):
+    """class represents all ground vehicles, inherts from base vehicle class"""
+
+    pass
+
+class Motorcycle(Ground_Vehicle):
+
+    pass
+
 
 class Flight_Vehicle(Vehicle):
 
     pass
-    
+
 class Airplane(Flight_Vehicle):
 
     pass
-    
+
 class Starship(Flight_Vehicle):
 
     pass
-    
-    
