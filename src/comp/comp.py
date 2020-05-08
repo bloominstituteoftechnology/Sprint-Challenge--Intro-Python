@@ -50,13 +50,13 @@ print(d)
 
 #This is just a practice
 print("Ages between >=10 or <=40:")
-t = [i.age for i in humans if i.age >=10 or i.age <=40]
+t = [i.age for i in humans if i.age >=10 and i.age <=40]
 print(t)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = [f"{i.name}-{i.age}" for i in humans if i.age >= 27 & i.age <= 32]
+e = [f"{i.name}-{i.age}" for i in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and

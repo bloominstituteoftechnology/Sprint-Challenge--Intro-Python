@@ -25,7 +25,7 @@ class Motorcycle(GroundVehicle):
         #self.num_wheels = num_wheels
 
     def drive(self):
-        return "BRAAAP, BRAAAP, BRAAAP!!"
+        return "BRAAAP!!"
 
 vehicles = [
     GroundVehicle(),
