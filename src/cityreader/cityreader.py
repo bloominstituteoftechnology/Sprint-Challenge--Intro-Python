@@ -20,7 +20,7 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
     path=r'/Users/lambda_school_loaner_148/Desktop/Python/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv'
   
-    with open(path, 'rb') as csvfile:
+    with open(path) as csvfile:
         csvreader = csv.reader(csvfile)
   # For each city record, create a new City instance and add it to the 
   # `cities` list
