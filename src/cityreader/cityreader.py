@@ -1,5 +1,8 @@
 import csv
+import numpy as np
 from typing import List
+
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -82,13 +85,21 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+#lat_lon = input("Enter latitude and longitude as a comma separated list: ").split(', ')
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+
+def cityreader_stretch(lat1, lon1, lat2, lon2, internal_cities=[]):
     # within will hold the cities that fall within the specified region
     within = []
 
-    # TODO Ensure that the lat and lon valuse are all floats
+    # TODO Ensure that the lat and lon values are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
+    within = [city for city in internal_cities
+              if float(city.lat) in np.arange(float(lat1), float(lat2), 0.01)
+              and float(city.lon) in np.arange(float(lon1), float(lon2), 0.01)]
 
     return within
+
+
+print(cityreader_stretch(45, -100, 32, -120, cities))
