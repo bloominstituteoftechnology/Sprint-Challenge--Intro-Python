@@ -32,9 +32,9 @@ def cityreader(cities=[]):
 
     with open('cities.csv', newline='') as f:
         r = csv.reader(f)
+        next(r, None)  # skips
         for line in r:
-            cities.append(City(line[0], ))
-
+            cities.append(City(line[0], float(line[3]), float(line[4])))
     return cities
 
 
