@@ -1,5 +1,5 @@
 import csv
-
+from typing import List
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -25,10 +25,14 @@ class City:
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+
 cities = []
 
 
-def cityreader(cities=[]):
+def cityreader(internal_cities: List[City] = None):
+    if internal_cities is None:
+        internal_cities = []
     with open('cities.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         next(reader)
@@ -36,9 +40,9 @@ def cityreader(cities=[]):
             name = row[0]
             lat = float(row[3])
             lon = float(row[4])
-            cities.append(City(name, lat, lon))
+            internal_cities.append(City(name, lat, lon))
 
-    return cities
+    return internal_cities
 
 
 cityreader(cities)
