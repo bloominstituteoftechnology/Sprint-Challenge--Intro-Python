@@ -1,6 +1,11 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
-
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name 
+    self.lat = lat
+    self.lon = lon 
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -9,9 +14,9 @@
 # to read this file so that each record is imported into a City instance. Then
 # return the list with all the City instances from the function.
 # Google "python 3 csv" for references and use your Google-fu for other examples.
-#
+
 # Store the instances in the "cities" list, below.
-#
+
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 cities = []
@@ -20,14 +25,45 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+    # TODO Implement the functionality to read from the 'cities.csv' file
+  with open("cities.csv", newline='') as f:
+    mycsv = csv.reader(f)
+    list_cities = []
+    # appending the csv into a list
+    for row in mycsv:
+        for i in row:
+          list_cities.append(i)
+
+  # For each city record, create a new City instance and add it to the 
+  # `cities` list
+  # grabbing every city from the list
+  every_city = list_cities[::9]
+  every_city.remove("city")
+  every_city
+
+  # grabbing every latitude from the list by slicing and grabbing every nth item
+  list_cities2 = list_cities[3:]
+  every_lat = list_cities2[::9]
+  every_lat.remove('lat')
+  every_lat
+
+  # grabbing every longitude from the list by slicing and grabbing every nth item
+  list_cities3 = list_cities[4:]
+  every_lon = list_cities3[::9]
+  every_lon.remove('lng')
+  every_lon
+
+  # Store the instances in the "cities" list, below.
+  for i in range(len(every_city)):
+    cities.append(City(every_city[i],every_lat[i], every_lon[i]))
     
-    return cities
+  return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
 #
