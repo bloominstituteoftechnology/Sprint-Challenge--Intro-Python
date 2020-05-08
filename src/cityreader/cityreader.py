@@ -38,7 +38,7 @@ def cityreader(cities=[]):
             city = City(row["city"], float(row["lat"]), float(row["lng"]))
             cities.append(city)
 
-        return cities
+            return cities
 
 
 cityreader(cities)
