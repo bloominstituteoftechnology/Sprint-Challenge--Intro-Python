@@ -90,14 +90,14 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, internal_cities=[]):
     # within will hold the cities that fall within the specified region
-    within = []
-
+    within = [city for city in cities
+              if (city.lat < lat1 and city.lat > lat2)
+              and (city.lon < lon1 and city.lon > lon2)
+              or (city.lat > lat1 and city.lat < lat2)
+              and (city.lon > lon1 and city.lon < lon2)]
     # TODO Ensure that the lat and lon values are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
-    within = [city for city in internal_cities
-              if float(city.lat) in np.arange(float(lat1), float(lat2), 0.01)
-              and float(city.lon) in np.arange(float(lon1), float(lon2), 0.01)]
 
     return within
 
