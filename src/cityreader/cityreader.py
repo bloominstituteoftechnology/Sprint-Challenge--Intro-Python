@@ -1,33 +1,56 @@
-# Create a class to hold a city location. Call the class "City". It should have
-# fields for name, lat and lon (representing latitude and longitude).
+import csv
+import os
 
+datafile_name = 'cities.csv'
+cwd = os.getcwd()
+path_name = cwd + '/' + datafile_name
 
-# We have a collection of US cities with population over 750,000 stored in the
-# file "cities.csv". (CSV stands for "comma-separated values".)
-#
-# In the body of the `cityreader` function, use Python's built-in "csv" module 
-# to read this file so that each record is imported into a City instance. Then
-# return the list with all the City instances from the function.
-# Google "python 3 csv" for references and use your Google-fu for other examples.
-#
-# Store the instances in the "cities" list, below.
-#
-# Note that the first line of the CSV is header that describes the fields--this
-# should not be loaded into a City object.
-cities = []
+class City():
+    def __init__(self, name, lat, lon):
+        """Store the name, latitude, and longitude
+        for a city.
+        Input is received as three strings.  The 
+        lat and log values are converted to floats."""
+        self.name = name
+        self.lat = float(lat)
+        self.lon = float(lon)
+        
+    def __str__(self):
+        """Print out strings in (City): (lat, long) format."""
+        return f'{self.name}: ({self.lat}, {self.lon})'
 
-def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
+def get_required_data(row):
+    """Index 0: city name
+    Index 3: latitude
+    Index 4: longitude"""
+    return [row[0]]+row[3:5]
     
+def cityreader(cities=[]):
+    """Read a CSV file, and create, collect, and return 
+    a list of 'City' objects."""
+    # Open the file, expected to be in the same directory.
+    with open(path_name) as f:
+        # Instantiate a reader object
+        rowreader = csv.reader(f)
+        # iterate past the header row, which is not ueful.
+        rowreader.__next__()
+        # Iterate over remaining rows, 
+        for row in rowreader:
+            # creating a City object for each, and collecting
+            # in the list 'cities'
+            cities.append(City(*(get_required_data(row))))
+    # 'with' structure automatically closes file.        
     return cities
 
-cityreader(cities)
 
-# Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+def __main__():
+    cities = cityreader()
+    for c in cities:
+        print(c)
+    
+    
+    
+    
 
 # STRETCH GOAL!
 #
@@ -42,30 +65,94 @@ for c in cities:
 # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
 # the input data so that it's always one or the other, then search for cities.
 # In the example below, inputting 32, -120 first and then 45, -100 should not
-# change the results of what the `cityreader_stretch` function returns.
-#
-# Example I/O:
-#
-# Enter lat1,lon1: 45,-100
-# Enter lat2,lon2: 32,-120
-# Albuquerque: (35.1055,-106.6476)
-# Riverside: (33.9382,-117.3949)
-# San Diego: (32.8312,-117.1225)
-# Los Angeles: (34.114,-118.4068)
-# Las Vegas: (36.2288,-115.2603)
-# Denver: (39.7621,-104.8759)
-# Phoenix: (33.5722,-112.0891)
-# Tucson: (32.1558,-110.8777)
-# Salt Lake City: (40.7774,-111.9301)
+# change the results of what the `cityreader_stretch` function returns.    
+    
+    
+    
+def get_input():
+    print("We need two pairs of lat/long coordinates.")
+    print("Please enter a comma separated pair of latitude, longitude.")
+    print("Example: 45, -100")
+    corner_1 = input("~~~~~~~~~> ")
+    validate_input(corner_1)
+    print("Thanks. Please enter one more pair.")
+    print("Example: 32, -120")
+    corner_2 = input("~~~~~~~~~> ")
 
-# TODO Get latitude and longitude values from the user
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+# In[9]:
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
 
-  return within
+# get west longitude (more negative)
+# get east longitude (less negative)
+# get north latitide (bigger)
+# get south latitude (smaller)
+
+def in_box(lat1, lon1, lat2, lon2 city):
+    """Report whether a city's lat/lon is within a box 
+    defined by north and south latitudes, and east and west
+    longitude."""
+    lat = city.lat
+    lon = city.lon
+    
+#     return (lat, lon)
+#     return type(lat)
+    return (n > lat > s)
+#             and (w > lon > e))
+
+# test
+my_city = cities[0]
+my_lat_lon = (my_city.lat, my_city.lon)
+my_lat_lon
+
+in_box(90, -130, my_city)
+
+
+# In[7]:
+
+
+def validate_input(to_check):
+    """Make sure that input is a string that can be parsed
+    into two numbers.
+    TODO: specific error messages
+    TODO: range limits"""
+
+
+    maybe_valid = [mv for mv in to_check.split(',')]
+    # test that exactly two data were entered
+    try:
+        assert len(maybe_valid) == 2
+    except:
+        print("Please enter two numbers.")
+    
+    lat, lon = maybe_valid
+    # test that the first value can be converted to a float
+    try:
+        lat = float(lat)
+    except:
+        print(f'Could not ensure {lat} is a floating point number.')    
+        print("Please enter two numbers.")
+
+    # test that the second value can be converted to a float    
+    try:
+        lon = float(lon)
+    except:
+        print(f'Could not ensure {lon} is a floating point number.')
+        print("Please enter two numbers.")
+        
+    # test that the latitude entered is valid    
+    try:
+        -90 < lat < 90
+    except:
+        print(f'Latitude must be between -90 and 90.')
+        
+    # test that the longitude entered is valid    
+    try:
+        -180 < lon < 180
+    except:
+        print(f'Longitude must be between -90 and 90.')
+
+
+        
+
+
