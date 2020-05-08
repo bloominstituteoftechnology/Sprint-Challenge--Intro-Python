@@ -18,13 +18,13 @@
 #
 # Put a comment noting which class is the base class
 
-class Vehicle:
+class Vehicle:  #Base Class 
     pass
 
-class GroundVehicle(Vehicle):
+class GroundVehicle(Vehicle): #sub class
     pass
 
-class Car(GroundVehicle):
+class Car(GroundVehicle): 
     pass
 
 class Motorcycle(GroundVehicle):

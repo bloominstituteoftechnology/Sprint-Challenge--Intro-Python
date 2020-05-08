@@ -1,6 +1,6 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
-import csv
+import csv # (comma separeted values) import and export format for spreadsheets and database
 
 class City:
       def __init__(self, name, lat, lon):
@@ -29,13 +29,20 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-  with open("src/cityreader/cities.csv") as file:
-    reader = csv.DictReader(file)
-    for city in reader:
-          new_city = City(city["city"], float(city["lat"]), float(city["lng"]))
-          cities.append(new_city)
+
+  # with open("src/cityreader/cities.csv") as file: 
+  #   reader = csv.DictReader(file) # used DictReader to map the information in each row to a dictionary whose keys are given by the optional fieldnames parameter.
+  #   for city in reader:           # I did not use fieldname / trying to make it less code /puts  key / gets value 
+  #         new_city = City(city["city"], float(city["lat"]), float(city["lng"]))
+  #         cities.append(new_city)
+
+   with open("src/cityreader/cities.csv") as cvsfile:
+     reader = csv.DictReader(cvsfile)
+     for dictionary in reader: 
+           cities.append(City(dictionary["city"], float(dictionary["lat"]), float(dictionary["lng"]))) # city lat long is the value 
+
     
-    return cities
+     return cities
 
 cityreader(cities)
 
@@ -74,25 +81,40 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
-city1 = input("Enter lat1,lon1: ").split(",")
-city2 = input("Enter lat2,lon2: ").split(",")
-lat1, lon1 = float(city1[0]), float(city1[1])
-lat2, lon2 = float(city2[0]), float(city2[1])
+input1 = input("Enter lat1,lon1: ").split(",") 
+input2 = input("Enter lat2,lon2: ").split(",")
+lat1, lon1 = float(input1[0]), float(input1[1])
+lat2, lon2 = float(input2[0]), float(input2[1])
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
       
   # within will hold the cities that fall within the specified region
-  within = [city for city in cities
-  if float(city.lat) >= city.lat[0]]
 
-  for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
-    print(city.name)
-    within.append(city)
+  # within = [print(city) for city in cities if city.lat <= max(lat1, lat2) and city.lat >= min(lat1, lat2)if city.lon <=max(lon1, lon2) and city.lon >= min(lon1, lon2)]
+  within = []
+
+  for city in cities:
+        if city.lat <= max(lat1, lat2) and city.lat >= min(lat1, lat2): #comparing my inputs with the cities latitude 
+              if city.lon <= max(lon1, lon2)  and city.lon >= min(lon1, lon2): #comparing my inputs with the cities longitude 
+                  within.append(city)
+                  print(city) 
+              else:
+                print(f"{city.name} longitude is not between {lon1} and {lon2}")
+
+        else:
+          print(f"{city.name} latitude is not between {lat1} and {lat2}")
+                
+  # within = [city for city in cities
+  # if float(city.lat) >= city.lat[0]]
+  # for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
+  #   print(city.name)
+  #   within.append(city)
+  
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
 
-# for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
-#   print(city.name)
+cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+

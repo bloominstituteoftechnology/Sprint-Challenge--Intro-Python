@@ -4,7 +4,7 @@
 # object is constructed.
 
 class GroundVehicle():
-    def __init__(self, num_wheels=4):
+    def __init__(self, num_wheels=4): #default value =4
         self.num_wheels = num_wheels
 
     # TODO
@@ -22,7 +22,7 @@ class GroundVehicle():
 # TODO
 class Motorcycle(GroundVehicle):   #white space matters aka slim shaddy 
     def __init__(self):
-        super().__init__(num_wheels=2) #sub class 
+        super().__init__(2) #sub class 
 
     def drive(self):
         return "BRAAAP!!"
