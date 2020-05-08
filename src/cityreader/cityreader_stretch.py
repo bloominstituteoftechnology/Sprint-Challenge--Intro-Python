@@ -42,74 +42,62 @@ def cityreader(cities=[]):
     # 'with' structure automatically closes file.        
     return cities
 
+cities = cityreader()
 
-def __main__():
-    cities = cityreader()
-    for c in cities:
-        print(c)
-    
-    
-    
-    
+for c in cities:
+    print(c)
 
-# STRETCH GOAL!
-#
-# Allow the user to input two points, each specified by latitude and longitude.
-# These points form the corners of a lat/lon square. Pass these latitude and 
-# longitude values as parameters to the `cityreader_stretch` function, along
-# with the `cities` list that holds all the City instances from the `cityreader`
-# function. This function should output all the cities that fall within the 
-# coordinate square.
-#
-# Be aware that the user could specify either a lower-left/upper-right pair of
-# coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
-# the input data so that it's always one or the other, then search for cities.
-# In the example below, inputting 32, -120 first and then 45, -100 should not
-# change the results of what the `cityreader_stretch` function returns.    
+
     
     
+#stretch stuff starts here
+
     
+def get_lat_lon(inpt):
+    return list((float(val) for val in inpt.split(',')))
+
+
 def get_input():
     print("We need two pairs of lat/long coordinates.")
     print("Please enter a comma separated pair of latitude, longitude.")
     print("Example: 45, -100")
     corner_1 = input("~~~~~~~~~> ")
-    validate_input(corner_1)
     print("Thanks. Please enter one more pair.")
     print("Example: 32, -120")
     corner_2 = input("~~~~~~~~~> ")
+    return get_lat_lon(input1) + get_lat_lon(input2)
 
 
-# In[9]:
-
-
-# get west longitude (more negative)
-# get east longitude (less negative)
-# get north latitide (bigger)
-# get south latitude (smaller)
-
-def in_box(lat1, lon1, lat2, lon2 city):
+def within(lat1, lon1, lat2, lon2, city):
     """Report whether a city's lat/lon is within a box 
     defined by north and south latitudes, and east and west
     longitude."""
     lat = city.lat
     lon = city.lon
     
-#     return (lat, lon)
-#     return type(lat)
-    return (n > lat > s)
-#             and (w > lon > e))
-
-# test
-my_city = cities[0]
-my_lat_lon = (my_city.lat, my_city.lon)
-my_lat_lon
-
-in_box(90, -130, my_city)
+    sorted_lats = sorted([lat1, lat2])
+    s = sorted_lats[0]
+    n = sorted_lats[1]
+    sorted_lons = sorted([lon1, lon2])
+    e = sorted_lons[0]
+    w = sorted_lons[1]
+    
+    return (w > lon > e) & (n > lat > s)
 
 
-# In[7]:
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+  # within will hold the cities that fall within the specified region
+  within = [city for city in cities if within(lat1, lon1, lat2, lon2, city)]
 
+  return within
+
+
+def __main__():
+    lats_lons = get_input
+    return lats_lons
+
+
+#### This is incomplete
 
 def validate_input(to_check):
     """Make sure that input is a string that can be parsed
@@ -154,5 +142,14 @@ def validate_input(to_check):
 
 
         
+        
 
+        
+# get_input()
+
+
+# In[11]:
+
+
+__main__()
 
