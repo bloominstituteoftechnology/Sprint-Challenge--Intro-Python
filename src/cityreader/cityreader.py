@@ -11,7 +11,7 @@ class City:
         self.lon = lon
 
     def __str__(self):
-        return f'City("{self.name}", {self.lat}, {self.lon})'
+        return f'{self.name}, {self.lat}, {self.lon}'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -35,17 +35,14 @@ def cityreader(cities=[]):
     # `cities` list
     with open('src/cityreader/cities.csv', 'r') as file:
         data = csv.DictReader(file)
-        line_count = 0
         for row in data:
-            if line_count > 0:
-                city = City(f"{row['city']}", f"{row['lat']}", f"{row['lng']}")
-                cities.append(city)
-            line_count += 1
-
+            city = City(f"{row['city']}",
+                        float(row['lat']), float(row['lng']))
+            cities.append(city)
     return cities
 
 
-cityreader(cities)
+# cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
@@ -81,14 +78,32 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+# lat1u = input("Provide us Lat 1 Lower Range")
+# lat2u = input("Provide us Lat 2 Upper Range")
+# lon1u = input("Provide us Lon 1 Lower Range")
+# lon2u = input("Provide us Lon 2 Upper Range")
+
+within = []
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
-    within = []
 
     # TODO Ensure that the lat and lon valuse are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
-
+    city = cityreader(cities)
+    for x in city:
+        if float(x.lat) < float(lat1) and float(x.lat) > float(lat2) and float(x.lon) < float(lon1) and float(x.lon) > float(lon2):
+            withinCities = City(f"{x.name}",
+                                float(x.lat), float(x.lon))
+            within.append(withinCities)
+            # within.append(f'{x}')
     return within
+
+
+cityreader_stretch(45, -100, 32, -120)
+# cityreader_stretch(40, -50, 12, -120)
+
+for w in within:
+    print(w)
