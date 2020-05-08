@@ -35,8 +35,14 @@ print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
-print("Starts between C and G, inclusive:") # use slice method 
-c = [f.name for f in humans[2:7]]
+print("Starts between C and G, inclusive:") 
+# use slice method does not work with number/ but works with letters /stack overflow 
+# c = [f.name for f in humans[2:7]] ----> does not work
+# c = [person.name for person in humans if person.name[0] > "B" and person.name < "H"] ------> works
+c = [f.name for f in humans if f.name.startswith('C') or f.name.startswith('D')
+or f.name.startswith('E')
+or f.name.startswith('F')
+or f.name.startswith('G')]
 
 print(c)
 
