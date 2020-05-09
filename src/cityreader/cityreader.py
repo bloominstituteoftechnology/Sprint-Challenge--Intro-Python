@@ -4,6 +4,11 @@ import csv
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
 #
 # In the body of the `cityreader` function, use Python's built-in "csv" module 
 # to read this file so that each record is imported into a City instance. Then
@@ -18,14 +23,22 @@ cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
-    path=r'/Users/lambda_school_loaner_148/Desktop/Python/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv'
+    
   
-    with open(path) as csvfile:
-        csvreader = csv.reader(csvfile)
+    with open('cities.csv') as csvfile:
+      reader = csv.reader(csvfile, delimiter= ',')
+      next(reader, None)
+
+      for row in reader:
+        print(row)
+        cities.append(City(row[0], row[3], row[4]))
+
+       
+        
+        
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    for row in csvreader:
-        cities.append(row)
+        
   
     
     return cities
