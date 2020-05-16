@@ -35,17 +35,14 @@ def cityreader(cities=[]):
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+
+import csv
+
+cities = csv.reader(open('cities.csv','r'))  # Info source: https://stackoverflow.com/questions/5757743/how-can-i-get-a-specific-field-of-a-csv-file
 for c in cities:
-  print(c)
+  print (c[0], c[3], c[4])
 
-
-#######################################################
-  import csv
-
-c= open("cities.csv", "r")
-data = c.read()
-print(data)
-c.close()
 
 # STRETCH GOAL!
 #
