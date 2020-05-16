@@ -38,11 +38,22 @@ cityreader(cities)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
 
-    import csv
+#     import csv
 
-data= open("cities.csv", "r")
-c = data.read()
-print(c)
+# data= open("cities.csv", "r")
+# c = data.read()
+# print(c)
+#   import csv
+
+# with open("cities.csv") as csvfile:
+#   csv_reader = csv.reader(csvfile, delimiter= ",")
+#   line_count = 0
+#   for row in csv_reader:
+#     if line_count == 0:
+#       print(f'Column names are: {", ".join(row)}')
+#       line_count += 1
+#     else:
+#       print(f'{row[0]} Lat: {row[4]}  Lon{row[5]}')
 
 
 # STRETCH GOAL!
