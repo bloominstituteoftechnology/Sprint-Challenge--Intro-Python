@@ -71,8 +71,8 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 
-
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities):
   # within will hold the cities that fall within the specified region
   within = []
   min_lat = float(min(lat1, lat2))
@@ -99,4 +99,4 @@ lon1 = float(input('Enter a number for longitude1\n'))
 lat2 = float(input('Enter a number for latitude2\n'))
 lon2 = float(input('Enter a number for longitude2\n'))
 
-print(cityreader_stretch(lat1, lon1, lat2, lon2))
+print(cityreader_stretch(lat1, lon1, lat2, lon2, cities))
