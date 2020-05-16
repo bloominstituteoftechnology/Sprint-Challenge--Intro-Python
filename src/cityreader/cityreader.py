@@ -42,10 +42,10 @@ for c in cities:
 #######################################################
   import csv
 
-data= open("cities.csv", "r")
-c = data.read()
-print(c)
-
+c= open("cities.csv", "r")
+data = c.read()
+print(data)
+c.close()
 
 # STRETCH GOAL!
 #
