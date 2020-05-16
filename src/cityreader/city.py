@@ -2,14 +2,14 @@ class City():
     def __init__(
         self,
         city,
-        state_name,
-        county_name,
         lat,
         lng,
-        population,
-        density,
-        timezone,
-        zips):
+        state_name=None,
+        county_name=None,
+        population=None,
+        density=None,
+        timezone=None,
+        zips=None):
         self.name = city
         self.state_name = state_name
         self.county_name = county_name
