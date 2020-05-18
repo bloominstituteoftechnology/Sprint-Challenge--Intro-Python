@@ -1,13 +1,25 @@
+"""
+This file presents an example of class inheritance.
+"""
+
 # To the GroundVehicle class, add method drive() that returns "vroooom".
 #
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
 
 class GroundVehicle():
-    def __init__(self, num_wheels):
+    """
+    This is a class for land vehicles.
+    """
+
+    def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
 
-    # TODO
+    def drive(self):
+        """
+        Return a sound effect for vehicle movement.
+        """
+        return "vroooom"
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -17,7 +29,16 @@ class GroundVehicle():
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
-# TODO
+class Motorcycle(GroundVehicle):
+    """
+    This is a class for two-wheeled ground vehicles.
+    """
+
+    def __init__(self):
+        super().__init__(num_wheels=2)
+
+    def drive(self):
+        return "BRAAAP!!"
 
 vehicles = [
     GroundVehicle(),
@@ -29,4 +50,5 @@ vehicles = [
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
-# TODO
+for vehicle in vehicles:
+    print(vehicle.drive())
