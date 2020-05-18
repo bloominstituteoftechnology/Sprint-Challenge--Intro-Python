@@ -21,42 +21,28 @@
 
 # This is the base class
 class Vehicle:
-    def __init__(self, vehicle_name, is_Flight = False, is_Star = False):
-        self.vehicle_name = vehicle_name
-        self.is_Flight = is_Flight
-        self.is_Star = is_Star
+    pass
+   
 
 
 class GroundVehicle(Vehicle):
-    def __init__(self, vehicle_name):
-        super().__init__(vehicle_name)
-        pass
+    pass
 
 class Car(GroundVehicle):
-    def __init__(self, vehicle_name):
-        super().__init__(vehicle_name)
-        pass
+    pass
 
 
 class Motorcycle(GroundVehicle):
-    def __init__(self, vehicle_name):
-        super().__init__(vehicle_name)
-        pass
+    pass
 
 
 class FlightVehicle(Vehicle):
-    def __init__(self, vehicle_name):
-        super().__init__(vehicle_name, is_Flight = True) 
-        pass
+    pass
 
 class Airplane(FlightVehicle):
-    def __init__(self, vehicle_name):
-        super().__init__(vehicle_name)
-        pass
+    pass
 
 
-class Starship(Vehicle):
-    def __init__(self, vehicle_name): 
-        super().__init__(vehicle_name, is_Star = True)
-        pass
+class Starship(FlightVehicle):
+    pass
 
