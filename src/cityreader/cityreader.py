@@ -29,7 +29,7 @@ class City:
 def cityreader(cities=[]):
 
   with open("cities.csv") as pokemon:
-    city_parser = csv.DictReader(pokemon, delimiter= ",", quotechar = "|")
+    city_parser = csv.DictReader(pokemon)
     for row in city_parser:
       city = City(row["city"], float(row["lat"]), float(row["lng"]))
       cities.append(city)
