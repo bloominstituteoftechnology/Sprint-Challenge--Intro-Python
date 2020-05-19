@@ -58,13 +58,13 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [human.name +", " + str(human.age) for human in humans if 33>int(human.age)>26]
-print(f)
+# f = [human.name +", " + str(human.age) for human in humans if 33>int(human.age)>26]
+# print(f)
 
 #  This is getting closer, but not quite right.
 
-# f = [f'("{human.name}"", {str(human.age)})' for human in humans]
-# print(f)
+f = [(f"{human.name}", human.age) for human in humans]
+print(f)
 #******************************************************************************
 
 # Write a list comprehension that creates a list of new Humans like the old
