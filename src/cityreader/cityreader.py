@@ -36,7 +36,7 @@ def cityreader(cities=[]):
     next(file)
 
     for city in file:
-      city = City(city[0], city[3], city[4])
+      city = City(city[0], float(city[3]), float(city[4]))
       cities.append(city)
     
   return cities
