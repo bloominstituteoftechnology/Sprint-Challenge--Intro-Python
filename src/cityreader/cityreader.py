@@ -28,7 +28,7 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-  with open("src/cityreader/cities.csv", newline="") as f:
+  with open("cities.csv", newline="") as f:
 
       line = csv.DictReader(f)
       for lines in line:
