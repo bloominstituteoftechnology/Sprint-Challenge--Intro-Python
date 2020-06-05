@@ -71,6 +71,23 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
+def search_for_cities():
+  user_input = input("Enter the first coordinate (lat,lon)")
+  coord = user_input.split(',')
+
+  lat1 = coord[0]
+  lon1 = coord[1]
+
+  user_input = input("Enter the second coordinate (lat,lon)")
+  coord = user_input.split(',')
+
+  lat2 = coord[0]
+  lon2 = coord[1]
+
+  results = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+  city_names = [city.name for city in results]
+  print(city_names)
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
@@ -91,8 +108,7 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
   within = [city for city in cities if min_lat <= city.lat <= max_lat and min_lon <= city.lon <= max_lon]
 
-  print(within)
-
   return within
 
 cityreader_stretch(45, -100.0, 32.0, -120.0, cities)
+search_for_cities()
