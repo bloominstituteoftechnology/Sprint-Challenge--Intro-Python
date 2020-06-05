@@ -24,8 +24,10 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+# a = [i for x ]
+a = [for i in (len(humans))]
 print(a)
+# print()
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
