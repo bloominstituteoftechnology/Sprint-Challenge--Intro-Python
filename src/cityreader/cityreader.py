@@ -26,8 +26,9 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    with open('cityreader/cities.csv') as csvfile:
+    with open('cityreader/cities.csv', 'r') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
+        next(readCSV)
         for row in readCSV:
             name = row[0]
             lat = row[3]
@@ -72,6 +73,11 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+userCoordinate1 = input('Enter lat1,lon1: ')
+userCoordinate2 = input('Enter lat2,lon2: ')
+
+def is_between(a, x, b):
+    return min(a, b) < x < max(a, b)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
@@ -81,4 +87,17 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
+  for city in cities:
+      latWithin = is_between(float(lat1), float(city.lat), float(lat2))
+      lonWithin = is_between(float(lon1), float(city.lon), float(lon2))
+      if (latWithin and lonWithin):
+          within.append(city)
+
   return within
+
+coordinate1 = userCoordinate1.split(",")
+coordinate2 = userCoordinate2.split(",")
+results = cityreader_stretch(coordinate1[0], coordinate1[1], coordinate2[0], coordinate2[1], cities)
+
+for city in results:
+    print(f'{city.name}: ({city.lat},{city.lon})')
