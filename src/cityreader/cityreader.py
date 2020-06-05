@@ -86,11 +86,10 @@ def search_for_cities():
 
   results = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
   city_names = [city.name for city in results]
+
   print(city_names)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
 
   try:
     lat1 = float(lat1)
@@ -106,9 +105,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   min_lon = min(lon1, lon2)
   max_lon = max(lon1, lon2)   
 
-  within = [city for city in cities if min_lat <= city.lat <= max_lat and min_lon <= city.lon <= max_lon]
+  return [city for city in cities if min_lat <= city.lat <= max_lat and min_lon <= city.lon <= max_lon]
 
-  return within
 
-cityreader_stretch(45, -100.0, 32.0, -120.0, cities)
-search_for_cities()
+# cityreader_stretch(45, -100.0, 32.0, -120.0, cities)
+# search_for_cities()
