@@ -37,3 +37,8 @@ class GroundVehicle(Vehicle):
     def __init__(self):
         super().__init__()
         pass
+
+class Car(GroundVehicle):
+    def __init__(self):
+        super().__init__()
+        pass
