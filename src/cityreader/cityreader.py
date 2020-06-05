@@ -45,6 +45,10 @@ cityreader(cities)
 for c in cities:
     print(c)
 
+print()
+#test to ensure I can pull out class attributes
+print(cities[0].lat)
+print(cities[0].lon)
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -83,5 +87,19 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+  lat_max = max(lat1, lat2)
+  lat_min = min(lat1, lat2)
+  lon_max = max(lon1, lon2)
+  lon_min = min(lon1, lon2)
+
+  for i in cities:
+    #logic
+    if (i.lat < lat_max and i.lat > lat_min) and (i.lon > lon_min and i.lon < lon_max):
+      within.append(i)
 
   return within
+
+print('Beginning of stretch goal work')
+results = cityreader_stretch(45, -100, 32, -120, cities)
+for i in results:
+  print(i)
