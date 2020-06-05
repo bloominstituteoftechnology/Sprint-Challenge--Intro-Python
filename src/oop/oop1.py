@@ -33,3 +33,7 @@ class Starship(FlightVehicle):
         super().__init__()
         pass
 
+class GroundVehicle(Vehicle):
+    def __init__(self):
+        super().__init__()
+        pass
