@@ -1,5 +1,6 @@
 # The following list comprehension exercises will make use of the 
 # defined Human class. 
+import math
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -61,11 +62,10 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [Human(human.name.upper(), human.age + 5) for human in humans]
+g = [(f"{human.name.upper()} {human.age + 5}") for human in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-import math
 h = [(math.sqrt(human.age)) for human in humans]
 print(h)
