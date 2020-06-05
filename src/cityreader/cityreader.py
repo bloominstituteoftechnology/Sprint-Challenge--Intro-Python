@@ -19,6 +19,13 @@ import csv
 csv_reader = []
 
 
+class City:
+  def __init__(name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+
 def cityreader(csv_reader=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the
@@ -34,8 +41,8 @@ def cityreader(csv_reader=[]):
 cityreader(csv_reader)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in range(len(cities)):
-    print(cities[c])
+for c in range(len(csv_reader)):
+    print(csv_reader[c])
 
 # STRETCH GOAL!
 #
