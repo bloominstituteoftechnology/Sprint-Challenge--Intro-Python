@@ -35,7 +35,7 @@ print(a)
 print("Ends with e:")
 b = [i.name for i in humans if i.name[len(i.name) - 1] == 'e']
 # for i in humans:
-#     if i.name[len(i.name) - 1] == 'e':
+#     if i.name[-1] == 'e':
 #         b.append(i.name)
 print(b)
 
@@ -44,8 +44,10 @@ print(b)
 print("Starts between C and G, inclusive:")
 c = [i.name for i in humans if i.name[0] >= 'C' and i.name[0] <= 'G']
 # for i in humans:
-#     if i.name[0] >= 'C' and i.name[0] <= 'G':
+#     if 'C' <= i.name[0] <= 'G':
 #         c.append(i.name)
+    #   if i.name[0] in 'CDEFG':
+    #       c.append(i.name)
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -69,8 +71,10 @@ print(e)
 print("Names and ages between 27 and 32:")
 f = [(i.name, i.age) for i in humans if i.age >= 27 and i.age <= 32]
 # for i in humans:
-#     if i.age >= 27 and i.age <= 32:
+#     if 27 <= i.age <= 32:
 #         f.append((i.name, i.age))
+#     if i.age in range(27,33)
+
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
