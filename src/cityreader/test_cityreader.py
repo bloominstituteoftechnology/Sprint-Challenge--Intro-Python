@@ -3,8 +3,12 @@ from cityreader import City, cityreader
 
 def check_city(inp, exp):
     if inp.name != exp.name:
+      print(f"{inp.name}, {exp.name}")
       return False
     if inp.lat != exp.lat:
+      print(f"{type(inp.lat)}")
+      print(f"{type(exp.lat)}")
+      print(f"{inp.lat}, {exp.lat}")
       return False
     if inp.lon != exp.lon:
       return False
