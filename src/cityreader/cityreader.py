@@ -90,7 +90,7 @@ def search_for_cities():
   print(city_names)
 
 
-# This function doesn't account for the prime meridian
+# This function doesn't account for the anti-meridian
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
