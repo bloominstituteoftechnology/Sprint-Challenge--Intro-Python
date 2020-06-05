@@ -23,3 +23,7 @@ class Vehicle: # BASE CLASS
     def __init__(self):
         pass
 
+class FlightVehicle(Vehicle):
+    def __init__(self):
+        super().__init__()
+        pass
