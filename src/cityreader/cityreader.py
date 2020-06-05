@@ -38,7 +38,7 @@ def cityreader(cities=[]):
             if line_count == 0:
                 line_count += 1
             else:
-                cities.append(City(row[0], row[3], row[4]))
+                cities.append(City(row[0], row[3].strip("0"), row[4].strip("0")))
     return cities
 
 cityreader(cities)
