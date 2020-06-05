@@ -2,7 +2,7 @@
 # fields for name, lat and lon (representing latitude and longitude).
 
 class City():
-    def __init__(self, name: str, lat, lon):
+    def __init__(self, name: str, lat: float, lon: float):
         self.name = name
         self.lat = lat
         self.lon = lon
@@ -37,7 +37,7 @@ def cityreader(cities=[]):
       for index, city in enumerate(allCities):
         if index:
           # print(city)
-          cities.append(City(city[0], city[3], city[4]))
+          cities.append(City(city[0], float(city[3]), float(city[4])))
           # sys.exit()
     return cities
 
