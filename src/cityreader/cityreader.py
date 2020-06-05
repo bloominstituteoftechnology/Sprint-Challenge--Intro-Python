@@ -26,34 +26,30 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
+import csv
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-  # os.chdir(f"{os.getcwd()}/src/cityreader")
-  # print(os.getcwd())
-  with open('.\src\cityreader\cities.csv') as csvfile:
-    readcsvfile = csv.DictReader(csvfile)
+    with open('cities.csv') as csvfile:
+      readcsvfile = csv.reader(csvfile)
 
-    for row in readcsvfile:
-      cities.append(City(row['city'], row['lat'], row['lng']))
-      # print(cities)
+      for row in readcsvfile:
+        cities.append(row)
     return cities
 
 cityreader(cities)
 
-# # Print the list of cities (name, lat, lon), 1 record per line.
+# Print the list of cities (name, lat, lon), 1 record per line.
 cityList = []
 
 for city in cities:
-  # print(city)
-  cityList.append(city)
+  cityList.append(City(city[0], city[3], city[4]))
 
 for singleCity in cityList:
   print(singleCity)
 
 print(cityList)
-
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
