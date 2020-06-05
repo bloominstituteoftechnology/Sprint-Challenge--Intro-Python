@@ -48,3 +48,8 @@ class Motorcycle(GroundVehicle):
         super().__init__()
         pass
 
+class Airplane(FlightVehicle):
+    def __init__(self):
+        super().__init__()
+        pass
+
