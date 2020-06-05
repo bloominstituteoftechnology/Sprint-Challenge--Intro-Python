@@ -19,7 +19,7 @@
 # Put a comment noting which class is the base class
 
 
-class Vehicle:
+class Vehicle:  # base class
     def __init__(self, wheels=4):
         self.wheels = wheels
 

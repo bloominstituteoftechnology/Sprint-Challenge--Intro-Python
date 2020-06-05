@@ -14,8 +14,8 @@ class GroundVehicle:
 
 # Subclass Motorcycle from GroundVehicle.
 #
-# Make it so when you instantiate a Motorcycle, it automatically sets the number
-# of wheels to 2 by passing that to the constructor of its superclass.
+# Make it so when you instantiate a Motorcycle, it automatically sets the
+# number of wheels to 2 by passing that to the constructor of its superclass.
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
