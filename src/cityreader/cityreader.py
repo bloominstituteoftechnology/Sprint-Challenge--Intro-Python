@@ -74,6 +74,8 @@ for c in cities:
 # lat2 = input('Enter a second longitude: ')
 # lon2 = input('Enter a second longitude: ')
 
+
+#stretch heeaaaaaa
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
@@ -90,3 +92,5 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
       within.append(city)
 
   return within
+print('stretch')
+#stretch heeaaaaaa
