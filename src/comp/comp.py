@@ -77,7 +77,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [f'({human.name}, {human.age})' for human in humans if human.age in range(27,32)]
+f = [(hu.name, hu.age) for hu in humans if hu.age >= 27 and hu.age <= 32]
 
 #for human in humans:
   #  if human.age <= 32 and human.age >= 27:
@@ -88,7 +88,7 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [(human.name.upper(), human.age + 5) for human in humans]
+g = [Human(hu.name.upper(), hu.age + 5) for hu in humans]
 
 #for human in humans:
  #   g.append(Human(human.name.upper(), human.age + 5))
