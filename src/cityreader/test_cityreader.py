@@ -78,7 +78,8 @@ class CityreaderTests(unittest.TestCase):
     
   def test_cityreader_correctness(self):
     for i in range(len(self.cities)):
-      self.assertTrue(check_city(self.cities[i], self.expected[i]))
+      testy = check_city(self.cities[i], self.expected[i])
+      self.assertTrue(testy)
 
 
 if __name__ == '__main__':
