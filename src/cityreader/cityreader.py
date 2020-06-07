@@ -46,8 +46,8 @@ def cityreader():
 cities = cityreader()
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-#for c in cities:
-#    print(c.name, c.lon, c.lat)
+for c in cities:
+  print(c.name, c.lon, c.lat)
 
 # STRETCH GOAL!
 #
