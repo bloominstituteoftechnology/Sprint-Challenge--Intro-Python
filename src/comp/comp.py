@@ -6,7 +6,7 @@ class Human:
         self.age = age
 
     def __repr__(self):
-        return f"<Human: {self.name}, {self.age}>"
+        return f'<Human: {self.name}, {self.age}>'
 
 humans = [
     Human("Alice", 29),
