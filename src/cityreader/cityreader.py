@@ -27,12 +27,13 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     with open('cities.csv', 'r') as csvfile:
-      csv_reader = csv.reader(csvfile)
-      header = next(csv_reader)
-      print(f'header = {header}')
-      for city in csv_reader:
-        cities.append(City(city[0], float(city[3]), float(city[4])))
-        print(f'city = {city}')
+      reader = csv.reader(csvfile)
+      next(reader)
+      for i in reader:
+        name = i[0]
+        lat = float(i[3])
+        lon = float(i[4])
+        cities.append(City(name, lat, lon))
 
 cityreader(cities)
 
@@ -74,6 +75,19 @@ for c in cities:
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
+
+  lat1, lon1 = float(lat1), float(lon1)
+  lat2, lon2 = float(lat1), float(lon2)
+
+  if lat2 < lat1:
+    lat1, lat2 = lat2, lat1
+
+  if lon2 < lon1:
+    lon1, lon2 = lon2, lon1
+
+  for i in cities:
+    if i.lat >= lat1 and i.lat <= lat2 and i.lon >= lon1 and i.lon <= lon2:
+      within.append(i)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
