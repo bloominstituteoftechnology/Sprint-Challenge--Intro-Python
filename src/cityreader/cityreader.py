@@ -7,6 +7,8 @@ class City:
     self.name = name
     self.lat = lat
     self.lon = lon
+  def __repr__(self):
+    return "<{} {},{}>".format(self.name, self.lat, self.lon)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -26,7 +28,7 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    with open('cities.csv', 'r') as csvfile:
+    with open('cities.csv', newline='') as csvfile:
       reader = csv.reader(csvfile)
       next(reader)
       for i in reader:
@@ -39,7 +41,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(f'{c.name}, {c.lat}, {c.lon}')
+    print(c)
 
 # STRETCH GOAL!
 #
@@ -85,12 +87,7 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   if lon2 < lon1:
     lon1, lon2 = lon2, lon1
 
-  for i in cities:
-    if i.lat >= lat1 and i.lat <= lat2 and i.lon >= lon1 and i.lon <= lon2:
-      within.append(i)
-
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
-
+  for c in cities:
+    if c.lat >= lat1 and c.lat <= lat2 and c.lon >= lon1 and c.lon <= lon2:
+      within.append(c)
   return within
