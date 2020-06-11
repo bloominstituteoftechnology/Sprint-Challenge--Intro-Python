@@ -25,9 +25,6 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
     with open('cities.csv', newline='') as csvfile:
       reader = csv.reader(csvfile)
       next(reader)
@@ -36,6 +33,7 @@ def cityreader(cities=[]):
         lat = float(i[3])
         lon = float(i[4])
         cities.append(City(name, lat, lon))
+    return cities
 
 cityreader(cities)
 
@@ -76,18 +74,23 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+    within = []
 
-  lat1, lon1 = float(lat1), float(lon1)
-  lat2, lon2 = float(lat1), float(lon2)
+    lat1, lon1 = float(lat1), float(lon1)
+    lat2, lon2 = float(lat2), float(lon2)
 
-  if lat2 < lat1:
-    lat1, lat2 = lat2, lat1
+    # Normalize
 
-  if lon2 < lon1:
-    lon1, lon2 = lon2, lon1
+    if lat2 < lat1:
+        lat1, lat2 = lat2, lat1  # Swap
 
-  for c in cities:
-    if c.lat >= lat1 and c.lat <= lat2 and c.lon >= lon1 and c.lon <= lon2:
-      within.append(c)
-  return within
+    if lon2 < lon1:
+        lon1, lon2 = lon2, lon1  # Swap
+
+    # Filter
+
+    for c in cities:
+        if c.lat >= lat1 and c.lat <= lat2 and c.lon >= lon1 and c.lon <= lon2:
+            within.append(c)
+
+    return within
