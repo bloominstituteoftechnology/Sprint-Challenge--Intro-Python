@@ -16,33 +16,35 @@ import csv
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-csv_reader = []
+cities = []
 
 
 class City:
-  def __init__(name, lat, lon):
-    self.name = name
-    self.lat = lat
-    self.lon = lon
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+    def __str__(self):
+        return "<{}>".format(self.name)
 
 
-def cityreader(csv_reader=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the
-  # `cities` list
-   with open('cities.csv') as csv_file:
-     csv_reader = csv.reader(csv_file, delimiter=',')
-     line_count = 0
-    for city in csv_reader:
-        csv_reader.append(city(city, city.name, city.lat, city.lon))
-    return csv_reader
+def cityreader(cities=[]):
+    # TODO Implement the functionality to read from the 'cities.csv' file
+    # For each city record, create a new City instance and add it to the
+    # `cities` list
+    with open('src/cityreader/cities.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for city in csv_reader:
+            cities.append(City((city[0]), float(city[3]), float(city[4])))
+        return cities
 
 
-cityreader(csv_reader)
+cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in range(len(csv_reader)):
-    print(csv_reader[c])
+for c in cities:
+    print("<{} {},{}>".format(c.name, c.lat, c.lon))
 
 # STRETCH GOAL!
 #
@@ -77,7 +79,7 @@ for c in range(len(csv_reader)):
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
+    # within will hold the cities that fall within the specified region
     within = []
 
     # TODO Ensure that the lat and lon valuse are all floats
