@@ -81,26 +81,70 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+
+# Step 1 - get values from user. Separate those values into usable pieces of data.
+
 user_input = input(
-    "Input coordinates as demonstrated in the example (lat1, lon1, lat2, lon2): ")
-print(user_input.split(','))
+    "Input coordinates as demonstrated in the example (lat1, lon1, lat2, lon2): ").split(',')
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
-    within = []
 
     # TODO Ensure that the lat and lon values are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
 
+    # Step 2 - Define the pieces of data from the user as floats to permit using decimals.
     lat1 = float(lat1)
     lon1 = float(lon1)
 
     lat2 = float(lat2)
     lon2 = float(lon2)
 
-    greater = []
-    lesser = []
+    # Step 3 - instantiate lists of the biggest and smallest values provided by the user.
+    biggest = []
+    smallest = []
+
+    try:
+        if lat1 > lat2:
+            biggest.append(lat1)
+            smallest.append(lat2)
+        else:
+            biggest.append(lat2)
+            smallest.append(lat1)
+
+        if lon1 > lon2:
+            biggest.append(lon1)
+            smallest.append(lon2)
+        else:
+            biggest.append(lon2)
+            smallest.append(lon1)
+
+        print(biggest)
+        print(smallest)
+
+    except Exception as error:
+        print('error type: ', type(error))
+        print('error args: ', error.args)
+
+    # Step 4 - set up a list comprehension that will capture names of cities
+    #   if their latitudes and longitudes are within the values provided by the user.
+
+    # Try to re-work this into something that isn't a list comprehension first.
+    # within = [city for city in cities if city.lat > smallest[0] and city.lat <
+    #           biggest[0] and city.lon > smallest[1] and city.lon < biggest[1]]
+
+    # print(within.name)
 
     return within
+
+
+cityreader_stretch(user_input[0], user_input[1],
+                   user_input[2], user_input[3], cities)
+# Jacksonville, 30.3322, -81.6749
+
+# Albuquerque, 35.1055, -106.6476
+
+
+# 35.1055, -106.6476, 30.3322, -81.6749
