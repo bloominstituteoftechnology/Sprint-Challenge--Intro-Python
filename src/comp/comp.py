@@ -1,5 +1,8 @@
 # The following list comprehension exercises will make use of the 
 # defined Human class. 
+from string import ascii_uppercase
+import math
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -36,36 +39,36 @@ print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [n.name for n in humans if n.name[0] == ]
+c = [n.name for n in humans for i in ascii_uppercase[2:7] if n.name[0] == i]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [n.age + 10 for n in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
+e = [f"{n.name}-{n.age}" for n in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
+f = [(n.name, n.age) for n in humans if 27 <= n.age <= 32]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = []
+g = [Human(n.name.upper(), n.age + 5) for n in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = []
+h = [math.sqrt(n.age) for n in humans]
 print(h)
