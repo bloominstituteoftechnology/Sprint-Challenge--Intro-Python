@@ -132,10 +132,12 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     #   if their latitudes and longitudes are within the values provided by the user.
 
     # Try to re-work this into something that isn't a list comprehension first.
-    # within = [city for city in cities if city.lat > smallest[0] and city.lat <
-    #           biggest[0] and city.lon > smallest[1] and city.lon < biggest[1]]
+    within = [city for city in cities if (city.lat > smallest[0] and city.lat <
+                                          biggest[0]) and (city.lon > smallest[1] and city.lon < biggest[1])]
 
-    # print(within.name)
+    if (len(within) > 1):
+        for item in within:
+            print(item)
 
     return within
 
