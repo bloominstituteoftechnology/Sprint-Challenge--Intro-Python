@@ -101,10 +101,10 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
     lat2 = float(lat2)
     lon2 = float(lon2)
-    
+
 #     Rethink what you're doing with step 3 here. Consider the problem within the scope of what you've got set - up already.
 #       So, given lat and lon as float values as well as a list of cities[objects]. How could you check whether just a single city object
-#       can fit within the boundaries provided? 
+#       can fit within the boundaries provided?
 
     # Step 3 - instantiate lists of the biggest and smallest values provided by the user.
     biggest = []
@@ -135,9 +135,11 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # Step 4 - set up a list comprehension that will capture names of cities
     #   if their latitudes and longitudes are within the values provided by the user.
 
-    # Try to re-work this into something that isn't a list comprehension first.
-    within = [city for city in cities if (city.lat > smallest[0] and city.lat <
-                                          biggest[0]) and (city.lon > smallest[1] and city.lon < biggest[1])]
+    # within = [city for city in cities if (city.lat > smallest[0] and city.lat <
+    #                                       biggest[0]) and (city.lon > smallest[1] and city.lon < biggest[1])]
+
+    within = [city for city in cities if (smallest[0] < city.lat < biggest[0]) and (
+        smallest[1] < city.lon < biggest[1])]
 
     if (len(within) > 1):
         for item in within:
