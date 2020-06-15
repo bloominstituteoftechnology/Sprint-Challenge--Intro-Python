@@ -94,10 +94,6 @@ print(user_input)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
-    # TODO Ensure that the lat and lon values are all floats
-    # Go through each city and check to see if it falls within
-    # the specified coordinates.
-
     # Step 3 - instantiate lists of the biggest and smallest values provided by the user.
 
     biggest = []
@@ -111,7 +107,6 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     sort_inputs(user_input[1], user_input[3], biggest, smallest)
 
     # Step 4 - set up a list comprehension that will capture names of cities
-    #   if their latitudes and longitudes are within the values provided by the user.
 
     within = [city for city in cities if (smallest[0] < city.lat < biggest[0]) and (
         smallest[1] < city.lon < biggest[1])]
