@@ -67,7 +67,7 @@ for c in cities:
 #
 # Example I/O:
 #
-# Enter lat1,lon1: 45,-100
+# Enter lat1,lon1: 45,-100, 32,-120
 # Enter lat2,lon2: 32,-120
 # Albuquerque: (35.1055,-106.6476)
 # Riverside: (33.9382,-117.3949)
@@ -83,60 +83,35 @@ for c in cities:
 
 
 # Step 1 - get values from user. Separate those values into usable pieces of data.
-
 user_input = input(
     "Input coordinates as demonstrated in the example (lat1, lon1, lat2, lon2): ").split(',')
 
+# Step 2 - Define the pieces of data from the user as floats to permit using decimals.
+user_input = [float(i) for i in user_input]
+
+print(user_input)
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-    # within will hold the cities that fall within the specified region
 
     # TODO Ensure that the lat and lon values are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
 
-    # Step 2 - Define the pieces of data from the user as floats to permit using decimals.
-    lat1 = float(lat1)
-    lon1 = float(lon1)
-
-    lat2 = float(lat2)
-    lon2 = float(lon2)
-
-#     Rethink what you're doing with step 3 here. Consider the problem within the scope of what you've got set - up already.
-#       So, given lat and lon as float values as well as a list of cities[objects]. How could you check whether just a single city object
-#       can fit within the boundaries provided?
-
     # Step 3 - instantiate lists of the biggest and smallest values provided by the user.
+
     biggest = []
     smallest = []
 
-    try:
-        if lat1 > lat2:
-            biggest.append(lat1)
-            smallest.append(lat2)
-        else:
-            biggest.append(lat2)
-            smallest.append(lat1)
+    def sort_inputs(a, b, point_list1, point_list2):
+        point_list1.append(max(a, b))
+        point_list2.append(min(a, b))
 
-        if lon1 > lon2:
-            biggest.append(lon1)
-            smallest.append(lon2)
-        else:
-            biggest.append(lon2)
-            smallest.append(lon1)
-
-        print(biggest)
-        print(smallest)
-
-    except Exception as error:
-        print('error type: ', type(error))
-        print('error args: ', error.args)
+    sort_inputs(user_input[0], user_input[2], biggest, smallest)
+    sort_inputs(user_input[1], user_input[3], biggest, smallest)
 
     # Step 4 - set up a list comprehension that will capture names of cities
     #   if their latitudes and longitudes are within the values provided by the user.
-
-    # within = [city for city in cities if (city.lat > smallest[0] and city.lat <
-    #                                       biggest[0]) and (city.lon > smallest[1] and city.lon < biggest[1])]
 
     within = [city for city in cities if (smallest[0] < city.lat < biggest[0]) and (
         smallest[1] < city.lon < biggest[1])]
@@ -150,9 +125,5 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
 cityreader_stretch(user_input[0], user_input[1],
                    user_input[2], user_input[3], cities)
-# Jacksonville, 30.3322, -81.6749
 
-# Albuquerque, 35.1055, -106.6476
-
-
-# 35.1055, -106.6476, 30.3322, -81.6749
+# 44.9635, -93.2679, 36.2288,-115.2603
