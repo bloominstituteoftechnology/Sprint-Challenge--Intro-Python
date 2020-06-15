@@ -20,14 +20,34 @@
 # base class -- vehicle
 
 class Vehicle:
-    pass
-
-# second-tier classes -- flightvehicle/groundvehicle
-
-
-class FlightVehicle(Vehicle):
+    '''base class'''
     pass
 
 
 class GroundVehicle(Vehicle):
+    ''' sub-class of vehicle'''
+    pass
+
+
+class Car(GroundVehicle):
+    '''sub-class of GroundVehicle'''
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    '''sub-class of GroundVehicle'''
+
+
+class FlightVehicle(Vehicle):
+    '''sub-class of Vehicle'''
+    pass
+
+
+class Airplane(FlightVehicle):
+    '''sub-class of FlightVehicle'''
+    pass
+
+
+class Starship(FlightVehicle):
+    '''sub-class of FlightVehicle'''
     pass
