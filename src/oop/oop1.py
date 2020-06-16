@@ -26,6 +26,10 @@ class Vehicle:
 class GroundVehicle(Vehicle):
     pass
 
+# Car inherits GroundVehicle
+class Car(GroundVehicle):
+  pass
+
 #Car inherits Ground Vehicle
 class Motorcycle(GroundVehicle):
     pass
