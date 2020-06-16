@@ -1,5 +1,5 @@
-# The following list comprehension exercises will make use of the 
-# defined Human class. 
+# The following list comprehension exercises will make use of the
+# defined Human class.
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -7,6 +7,7 @@ class Human:
 
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
+
 
 humans = [
     Human("Alice", 29),
@@ -23,49 +24,55 @@ humans = [
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
-print("Starts with D:")
-a = []
+# print("Starts with D:")
+a = [x for x in humans if x.name[0] == "D"]
 print(a)
+
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
-print("Ends with e:")
-b = []
+# print("Ends with e:")
+# b = [x[-1:] for x in humans if x[-1:] == "e"]
+b = [x for x in humans if x.name[-1:] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+letters = ('C', 'D', 'E', 'G')
+c = [x for x in humans if x.name.startswith(letters)]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+
+K = 10
+
+d = [x.age + K for x in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
-print("Name hyphen age:")
-e = []
+# print("Name hyphen age:")
+e = ["".join(x.name[0:] + "-" + str(x.age)) for x in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
-print("Names and ages between 27 and 32:")
-f = []
+# print("Names and ages between 27 and 32:")
+f = ["".join(x.name[0:] + "-" + str(x.age)) for x in humans if x.age >= 27 and x.age <= 32]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
-print("All names uppercase:")
-g = []
+# print("All names uppercase:")
+g = ["".join(x.name[0:].upper() + str(x.age + 10)) for x in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
-print("Square root of ages:")
+# print("Square root of ages:")
 import math
-h = []
+h = [math.sqrt(x.age) for x in humans]
 print(h)
