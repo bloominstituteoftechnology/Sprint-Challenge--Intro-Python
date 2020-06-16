@@ -23,17 +23,30 @@ humans = [
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
-print("Starts with D:")
-a = []
+# print("Starts with D:")
+# a = []
+# y = slice(3, 11, 6)
+
+# def first_name():
+#     for x in range(10):
+#         a.append(humans[x].name)
+# first_name()
 
     
-print(a)
+# print(a[y])
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 # print("Ends with e:")
 # b = []
-# print(b)
+# y = slice(0, 5, 2)
+
+# def first_name():
+#     for x in range(10):
+#         b.append(humans[x].name)
+# first_name()
+
+# print(b[y])
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
