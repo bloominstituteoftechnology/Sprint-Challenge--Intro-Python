@@ -3,17 +3,11 @@
 import csv
 
 class City:
-      def __init__(self, city, state_name, county_name, lat, lng, population, density, timezone, zips):
+      def __init__(self, city, lat, lng):
             self.city = city
-            self.state_name = state_name
-            self.county_name = county_name
             self.lat = lat
             self.lng = lng
-            self.population = population
-            self.density = density
-            self.timezone = timezone
-            self.zips = zips
-      def cityreader(self, city, state_name, county_name, lat, lng, population, density, timezone, zips):
+      def cityreader(self, city, lat, lng):
             with open('cities.csv') as csv_file:
               csv_reader = csv.reader(csv_file, delimiter=',')
               line_count = 0
@@ -22,8 +16,8 @@ class City:
                     for row in csv_reader:
                           print(row)
 
-      def __repr__(self, city, state_name, county_name, lat, lng, population, density, timezone, zips):
-           return f"{self.city } {self.state_name } {self.county_name } {self.lat } {self.lng } {self.population } {self.density } {self.timezone } {self.zips }"   
+      def __repr__(self):
+           return f"{self.city} {self.lat} {self.lng}"   
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -38,21 +32,16 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
-def cityreader(cities=[], ):
+def cityreader(cities=[]):
+  
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     city_info = City()
 
     cities.append(city_info.city)
-    cities.append(city_info.state_name)
-    cities.append(city_info.county_name)
     cities.append(city_info.lat)
     cities.append(city_info.lng)
-    cities.append(city_info.population)
-    cities.append(city_info.density)
-    cities.append(city_info.timezone)
-    cities.append(city_info.zips)
 
     return cities
 
@@ -61,6 +50,18 @@ cityreader(cities)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
+
+
+
+
+
+
+
+
+
+
+
+
 
 # STRETCH GOAL!
 #
