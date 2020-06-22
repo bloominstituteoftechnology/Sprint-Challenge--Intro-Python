@@ -2,11 +2,15 @@ import unittest
 from cityreader import City, cityreader
 
 def check_city(inp, exp):
+    # print("WHY")
     if inp.name != exp.name:
+      print("---------TEST-------- " + inp.name + "!=" + exp.name)
       return False
     if inp.lat != exp.lat:
+      print("---------TEST-------- " + str(inp.lat) + "!=" + str(exp.lat))
       return False
     if inp.lon != exp.lon:
+      print("---------TEST-------- " + str(inp.lon) + "!=" + str(exp.lon))
       return False
     return True
 
