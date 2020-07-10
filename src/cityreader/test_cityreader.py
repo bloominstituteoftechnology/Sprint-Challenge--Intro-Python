@@ -18,7 +18,7 @@ class CityreaderTests(unittest.TestCase):
       City("Richmond", 37.5294,-77.4755),
       City("Virginia Beach", 36.7335,-76.0435),
       City("Washington", 38.9047,-77.0163),
-      City("Milwaukee", 43.064,-87.9669),
+      City("Milwaukee", 43.0640,-87.9669),
       City("Orlando", 28.4801,-81.3448),
       City("Miami", 25.784,-80.2102),
       City("Tampa", 27.9937,-82.4454),
@@ -32,7 +32,7 @@ class CityreaderTests(unittest.TestCase):
       City("Houston", 29.7871,-95.3936),
       City("San Antonio", 29.4722,-98.5247),
       City("New Orleans", 30.0687,-89.9288),
-      City("Charlotte", 35.208,-80.8308),
+      City("Charlotte", 35.2080,-80.8308),
       City("Raleigh", 35.8323,-78.6441),
       City("Omaha", 41.2634,-96.0453),
       City("Memphis", 35.1047,-89.9773),
@@ -43,14 +43,14 @@ class CityreaderTests(unittest.TestCase):
       City("Bronx", 40.8501,-73.8662),
       City("Brooklyn", 40.6501,-73.9496),
       City("Manhattan", 40.7834,-73.9662),
-      City("Philadelphia", 40.0076,-75.134),
+      City("Philadelphia", 40.0076,-75.1340),
       City("Pittsburgh", 40.4396,-79.9763),
       City("Sacramento", 38.5666,-121.4683),
       City("Riverside", 33.9382,-117.3949),
       City("San Francisco", 37.7561,-122.4429),
       City("San Diego", 32.8312,-117.1225),
-      City("San Jose", 37.302,-121.8488),
-      City("Los Angeles", 34.114,-118.4068),
+      City("San Jose", 37.3020,-121.8488),
+      City("Los Angeles", 34.1140,-118.4068),
       City("Las Vegas", 36.2288,-115.2603),
       City("Denver", 39.7621,-104.8759),
       City("Chicago", 41.8373,-87.6861),
@@ -65,7 +65,7 @@ class CityreaderTests(unittest.TestCase):
       City("Boston", 42.3189,-71.0838),
       City("Cleveland", 41.4766,-81.6805),
       City("Columbus", 39.9859,-82.9852),
-      City("Cincinnati", 39.1412,-84.506),
+      City("Cincinnati", 39.1412,-84.5060),
       City("Salt Lake City", 40.7774,-111.9301),
       City("Saint Louis", 38.6358,-90.2451),
       City("Kansas City", 39.1239,-94.5541),
@@ -73,7 +73,7 @@ class CityreaderTests(unittest.TestCase):
       City("Detroit", 42.3834,-83.1024),
       City("Providence", 41.8229,-71.4186),
       City("Louisville", 38.1662,-85.6488),
-      City("Portland", 45.5372,-122.65)
+      City("Portland", 45.5372,-122.6500)
     ]
     
   def test_cityreader_correctness(self):
