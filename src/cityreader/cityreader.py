@@ -33,11 +33,12 @@ def cityreader():
 
     next(reader)
 
-    cities = [City(info[0], info[3], info[4]) for info in reader]
+    cities = [City(info[0], float(info[3]), float(info[4])) for info in reader]
   
     return cities
 
 cities = cityreader()
+print(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
@@ -72,14 +73,82 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+# # TODO Get latitude and longitude values from the user
+
+lat1 = float(input('Enter in first latitude: '))
+lon1 = float(input('Enter in first longitude: '))
+lat2 = float(input('Enter in first latitude: '))
+lon2 = float(input('Enter in second longitude: '))
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
+
   within = []
+  
+  coords = [lat1, lon1, lat2, lon2]
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+  lat = [coords[0], coords[2]]
+  lon = [coords[1], coords[3]]
 
+  lat = sorted(lat)
+  lon = sorted(lon)
+
+  for city in cities:
+    if (city.lat > lat[0] and city.lat < lat[1]) and (city.lon > lon[0] and city.lon < lon[1]):
+      within.append(city)
   return within
+
+
+cityreader_stretch(lat1, lat2, lon1, lon2)
+
+# ooooold code :
+# lat1 = float(input("\nEnter in the latitude for point 1:\n"))
+# lon1 = float(input("Enter in the longitude 1:\n"))
+
+# lat2 = float(input("\nEnter in the latitude for point 2:\n"))
+# lon2 = float(input("Enter in the longitude 2:\n"))
+
+# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+#   # within will hold the cities that fall within the specified region
+
+#   lat_1, lon_1, lat_2, lon_2 = lat1, lon1, lat2, lon2
+
+#   within = []
+#   print("lat1:", lat1)
+#   print("lat2:", lat2)
+
+#   if lat_1 > lat_2:
+#     print("HI1")
+#     bigger_lat = lat_1
+#     smaller_lat = lat_2
+#   elif lat_2 < lat_1:
+#     print("HI2")
+#     bigger_lat = lat_2
+#     smaller_lat = lat_1
+  
+#   if lon_1 > lon_2:
+#     print("HI3")
+#     bigger_lon = lon_1
+#     smaller_lon = lon_2
+#   elif lon_2 > lon_1:
+#     print("HI4")
+#     bigger_lon = lat_2
+#     smaller_lon = lat_1
+
+#   for city in cities:
+#     print("bigger lat:", bigger_lat)
+#     print("smaller lat:", smaller_lat)
+#     if city.lat <= bigger_lat and city.lat >= smaller_lat:
+#       print(city)
+  
+#   # within = [city for city in cities if ((city.lat <= bigger_lat and city.lat >= smaller_lat) and (city.lon <= bigger_lon and city.lon >= smaller_lon))]
+
+#   # TODO Ensure that the lat and lon valuse are all floats
+#   # Go through each city and check to see if it falls within 
+#   # the specified coordinates.
+
+#   print(within)
+#   return within
+
+
+
+
