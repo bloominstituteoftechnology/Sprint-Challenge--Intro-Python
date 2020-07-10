@@ -25,36 +25,49 @@ humans = [
 # whose name starts with 'D':
 print("Starts with D:")
 a = []
+for human_name in humans:
+    if human_name.name[:1]=="D":
+        a.append(human_name.name)
+
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
 b = []
+for human_name in humans:
+    if human_name.name[-1:]=="e":
+        b.append(human_name.name)
+
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+# c = []
+i = ["C","D","E","F","G"]
+c = [human_name.name for human_name in humans if human_name.name[:1] in i ]
+
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [human_age.age + 10 for human_age in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
 e = []
+for human in humans:
+    e.append(f"{human.name}-{human.age}")
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
+f = [(human.name,human.age)  for human in humans if human.age >27 and human.age <33]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -62,10 +75,12 @@ print(f)
 # The "humans" list should be unmodified.
 print("All names uppercase:")
 g = []
+for human in humans:
+    g.append(Human(human.name.upper(),human.age +5))
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = []
+h = [math.sqrt((human.age)) for human in humans]
 print(h)
