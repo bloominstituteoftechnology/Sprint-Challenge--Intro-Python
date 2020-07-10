@@ -14,7 +14,7 @@ class Vehicle(): #BASE CLASS
 class FlightVehicle(Vehicle):
     pass
 
-class Starship(Vehicle):
+class Starship(FlightVehicle):
     pass
 
 class Airplane(FlightVehicle):
