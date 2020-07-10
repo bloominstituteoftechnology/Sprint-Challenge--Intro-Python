@@ -28,7 +28,7 @@ cities = []
 def cityreader(cities=[]):
   # Implement the functionality to read from the 'cities.csv' file
   # using with open to automatically close file
-  with open('./cities.csv') as cityFile:
+  with open('/mnt/h/CS32/Intro-Py-1/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv') as cityFile:
     readFile = csv.reader(cityFile)
 
     # use __next__ to skip the top row
