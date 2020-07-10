@@ -2,12 +2,21 @@
 #
 # Also change it so the num_wheels defaults to 4 if not specified when the
 # object is constructed.
-
+from oop1 import Motorcycle
 class GroundVehicle():
-    def __init__(self, num_wheels):
+    def __init__(self, num_wheels = 4):
         self.num_wheels = num_wheels
 
+    def drive(self):
+        return "vroooom"
     # TODO
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        super().__init__(num_wheels)
+        num_wheels = 2
+
+    def drive(self):
+        return f"BRAAAP!"
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -26,6 +35,9 @@ vehicles = [
     GroundVehicle(),
     Motorcycle(),
 ]
+
+for vehicle in vehicles:
+    print(f"{vehicle.drive()}")
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
