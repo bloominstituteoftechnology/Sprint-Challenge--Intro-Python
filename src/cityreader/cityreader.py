@@ -79,14 +79,39 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+lat1 = float(input("Please enter a value for latitude: "))
+lon1 = float(input("Please enter a value for longitude: "))
+lat2 = float(input("Please enter a value for latitude: "))
+lon2 = float(input("Please enter a value for longitude: "))
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-    within = []
+    small = []
+    large = []
+
+    def sort_LatLon(a, b, list1, list2):
+        list1.append(max(a, b))
+        list2.append(min(a, b))
+
+    sort_LatLon(lat1, lat2, large, small)
+    sort_LatLon(lon1, lon2, large, small)
+
+    print("SMALL", small)
+    print("LARGE", large)
+
+    within = [city for city in cities if (
+        small[0] < city.lat < large[0]) and (small[1] < city.lon < large[1])]
+
+    if (len(within) > 1):
+        for item in within:
+            print(item)
 
     # TODO Ensure that the lat and lon valuse are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
 
     return within
+
+
+cityreader_stretch(lat1, lon1, lat2, lon2, cities=[])
