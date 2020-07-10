@@ -28,21 +28,17 @@ cities = []
 def cityreader(cities=[]):
   # Implement the functionality to read from the 'cities.csv' file
   # using with open to automatically close file
-  with open('/mnt/h/CS32/Intro-Py-1/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv') as cityFile:
+  #with open('/mnt/h/CS32/Intro-Py-1/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv') as cityFile:
+   with open('./cities.csv') as cityFile:
     readFile = csv.reader(cityFile)
 
     # use __next__ to skip the top row
     next(readFile)
-
+    # For each city record, create a new City instance and add it to the 
+    # `cities` list 
     #for each row in csv file
     for row in readFile:
-      cityName = row[0]
-      lat = row[3]
-      lon = row[4]
-
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-      cities.append(City(cityName, lat, lon))
+      cities.append(City(row[0], float(row[3]), float(row[4])))
     
     return cities
 
