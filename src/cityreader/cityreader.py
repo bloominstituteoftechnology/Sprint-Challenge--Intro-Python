@@ -1,7 +1,18 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+class City:
+  """
+  Class for city location
+  """
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+  def __str__(self):
+    return f'{self.name}, at ({self.lat}, {self.lon})'
 
-
+city1 = City('Worcestshire', 41, -121.46)
+print(city1)
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -14,14 +25,21 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
 cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
+  with open('src/cityreader/cities.csv', "r") as file:
+    reader = csv.reader(file)
+    # This line skips the header
+    next(reader)
+    for row in reader:
+      city = City(row[0], float(row[3]), float(row[4]))
+      cities.append(city)
+  return cities
 
 cityreader(cities)
 
@@ -58,14 +76,60 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+corner1 = list(map(float, input("Enter the first coordinate: lat1,long1 ").split(",")))
+# split the input string into a list, map the float function to that list
+# need to make it a list after
+corner2 = list(map(float, input("Enter the first coordinate: lat2,long2").split(",")))
+
+# lat = corner[0] and lon = corner[1]. Now we compare to find upper right corner
+if corner1[0] > corner2[0]:
+  if corner1[1] > corner2[1]:
+    # upper right corner
+    lat2 = corner1[0]
+    lon2 = corner1[1]
+    # bottom left
+    lat1 = corner2[0]
+    lon1 = corner2[1]
+  else:
+    # means they gave bottom right and top left
+    # need logic to find the top right corner
+    lat2 = corner1[0]
+    lon2 = corner2[1]
+    # we are extrapolating to get bottom left
+    lat1 = corner2[0]
+    lon2 = corner1[1]
+
+# At this point I realize that we aren't asking for inputs in terminal...
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
+  # Ensure that the lat and lon valuse are all floats
+  lat1, lon1, lat2, lon2 = map(float, [lat1, lon1, lat2, lon2])
+
+  if lat1 > lat2:
+    if lon1 > lon2:
+      upper_right = [lat1, lon1]
+      bottom_left = [lat2, lon2]
+    else:
+      upper_right = [lat1, lon2]
+      bottom_left = [lat2, lon1]
+  if lat1 < lat2:
+    if lon1 < lon2:
+      upper_right = [lat2, lon2]
+      bottom_left = [lat1, lon1]
+    else:
+      upper_right = [lat2, lon1]
+      bottom_left = [lat1, lon2]
+
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+
+  # The city will be in range if City.lat < upper_right[0] and > bottom_left[0]
+  # while meeting the same for lon
+
+  for c in cities:
+    if c.name
 
   return within
