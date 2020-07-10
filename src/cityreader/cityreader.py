@@ -29,7 +29,7 @@ def cityreader(cities=[]):
     with open("cities.csv", "r") as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            city = City(row['city'], row['lat'], row['lng'])
+            city = City(row['city'], float(row['lat']), float(row['lng']))
             cities.append(city)
     csv_file.close()
 
@@ -45,7 +45,6 @@ print(len(cities))
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(f"{c.name}, {c.lat}, {c.lon}")
-
 
 # # STRETCH GOAL!
 # #
@@ -75,41 +74,37 @@ for c in cities:
 # # Phoenix: (33.5722,-112.0891)
 # # Tucson: (32.1558,-110.8777)
 # # Salt Lake City: (40.7774,-111.9301)
-#
-# # TODO Get latitude and longitude values from the user
-#
-#
 
 
 turn1 = input('Enter lat1,lon1: ')
-inList = [float(n) for n in turn1.split(',')]   # check for parens too?
+inList = [float(n) for n in turn1.split(',')]  # check for parens too?
 point1 = tuple(inList)
 print(point1)
 
 turn2 = input('Enter lat2,lon2: ')
-inList2 = [float(n) for n in turn2.split(',')]   # check for parens too?
+inList2 = [float(n) for n in turn2.split(',')]  # check for parens too?
 point2 = tuple(inList2)
 print(point2)
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     within = []
 
     # within will hold the cities that fall within the specified region
-    bottom = min(lat1,lat2)
-    max_lat = max(lat1,lat2)
+    bottom = min(lat1, lat2)
+    max_lat = max(lat1, lat2)
     print(f"Bottom {bottom}")
-    top = min(lon1,lon2)
-    max_lon = max(lon1,lon2)
+    top = min(lon1, lon2)
+    max_lon = max(lon1, lon2)
     print(f"Top {top}")
     for city in cities:
-        if float(city.lat) >= float(bottom) and float(city.lat) <= max_lat and float(city.lon) >= float(top) and float(city.lon) <= max_lon:
+        if float(city.lat) >= float(bottom) and float(city.lat) <= max_lat and float(city.lon) >= float(top) and float(
+                city.lon) <= max_lon:
             print(f"Name: {city.name}, Lat: {city.lat} Long: {city.lon}")
-
-
 
     return within
 
     print(len(within))
 
 
-cityreader_stretch(point1[0],point1[1],point2[0],point2[1],cities)
+cityreader_stretch(point1[0], point1[1], point2[0], point2[1], cities)

@@ -22,6 +22,7 @@
 class Vehicle:
     pass
 
+
 # Base class of Airplane
 class FlightVehicle(Vehicle):
     pass
