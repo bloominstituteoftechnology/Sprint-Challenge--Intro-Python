@@ -31,9 +31,9 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-  with open('cities.csv') as csvfile:
-    spamreader = csv.reader(csvfile)
-    for row in spamreader:
+  with open('src/cityreader/cities.csv') as csvfile:
+    csv_reader = csv.reader(csvfile)
+    for row in csv_reader:
       print((', \n').join(row))
 
     return cities
