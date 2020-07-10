@@ -1,6 +1,15 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f"{self.name}, {self.lon}, {self.lat}"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -14,13 +23,21 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
 cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+
+  with open("cities.csv", 'r') as data:
+    cvsreader = csv.reader(data)
+    next(cvsreader)
+    for line in cvsreader:
+      city = City(line[0], float(line[3]), float(line[4]))
+      cities.append(city)
+
     return cities
 
 cityreader(cities)
@@ -60,12 +77,29 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+# Note: This is not tested, but should work and ensure only floats are entered.
+
+# lat1, lon1 = [float(x) for x in input("Enter lat1, lon1: ").split(", ")] 
+# lat2, lon2 = [float(x) for x in input("Enter lat1, lon1: ").split(", ")] 
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
+
+  # TODO Ensure that the lat and lon valuse are all floats:
+  
+  #  Added float conversion to user input above.  Not perfect because can result in error on input which isn't handled.
+
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
+  # loop through cities list.
+  for city in cities:
+    # 1st check city to see if has lat within range input by user.
+    if (city.lat <= lat1 and city.lat >= lat2) or (city.lat <= lat2 and city.lat >= lat1):
+          # then check city within lat range to see if also has lon within range input by user.
+      if (city.lon <= lon1 and city.lon >= lon2) or (city.lon <= lon2 and city.lon >= lon1):
+          # if yes append cities with value.
+        within.append(city)
   return within
