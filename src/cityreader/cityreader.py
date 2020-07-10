@@ -1,5 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+import csv
+
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f"{self.name}, {str(self.lat)}, {str(self.lon)}"
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -14,13 +24,18 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
 cities = []
+csv_file = "/Users/amin/Desktop/Lambda School/CS/Sprint_1_Python/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv"
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
+  with open(csv_file) as csvfile:
+    next(csvfile)
+    read_csv = csv.reader(csvfile, delimiter=',')
+
+    for row in read_csv:
+      cities.append(City(row[0], float(row[3]), float(row[4])))
+
     return cities
 
 cityreader(cities)
@@ -58,14 +73,26 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+lat1 = int(input('Enter lat1: '))
+lon1 = int(input('Enter lon1: '))
+lat2 = int(input('Enter lat2: '))
+lon2 = int(input('Enter lon2: '))
+print()
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+  coord_list = [lat1, lon1, lat2, lon2]
+
+  # separate and sort lat and lon coordinates
+  lat_coords = [coord_list[0], coord_list[2]]
+  lon_coords = [coord_list[1], coord_list[3]]
+  lat_coords = sorted(lat_coords)
+  lon_coords = sorted(lon_coords)
+
+  for city in cities:
+    if (city.lat > lat_coords[0] and city.lat < lat_coords[1]) and (city.lon > lon_coords[0] and city.lon < lon_coords[1]):
+      within.append(city)
 
   return within
