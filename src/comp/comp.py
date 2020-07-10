@@ -37,7 +37,8 @@ print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [human.name for human in humans if human.name in range(ord("C"),ord("G"))]
+c = [human.name for human in humans if human.name[0] in ["C","D","E","F","G"]]
+
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -48,7 +49,7 @@ print(d)
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = [(human.name + str(human.age)).replace(",","-") for human in humans]
+e = [human.name + "-" + str(human.age) for human in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -62,7 +63,7 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [(human.name.upper(), human.age + 5) for human in humans ]
+g = [Human(human.name.upper(), human.age + 5) for human in humans ]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.

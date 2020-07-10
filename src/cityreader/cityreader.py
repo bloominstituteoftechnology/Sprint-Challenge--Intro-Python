@@ -1,6 +1,7 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 import csv
+from csv import reader
 
 class City:
   def __init__(self,name,lat,lon):
@@ -9,7 +10,7 @@ class City:
     self.lon = lon
 
   def __str__(self):
-    return "City({self.name},{self.lat},{self.lon})".format(self=self)
+    return f"{self.name} == (Lat: {self.lat}, Lon: {self.lon})"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -31,12 +32,9 @@ def cityreader(cities=[]):
   # `cities` list
   with open("/Users/brianvilchez/Documents/lambda-cs/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv", "r") as cities_file:
     city_file = csv.reader(cities_file)
-    for line in city_file: 
-      city = line[0]
-      lon = line[4]
-      lat = line[3]
-      city = City(city,lat,lon)
-      cities.append(city)
+   
+    for line in city_file:  
+      cities.append(City(line[0],float(line[3]),float(line[4])))
     cities.pop(0)
     return cities
 
@@ -46,7 +44,7 @@ cityreader(cities)
 for c in cities:
     print(c)
 
-print(len(cities))
+
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
