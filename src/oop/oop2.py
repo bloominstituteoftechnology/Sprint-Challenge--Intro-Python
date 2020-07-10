@@ -8,8 +8,7 @@ class GroundVehicle():
         self.num_wheels = num_wheels
 
     def drive(self):
-        print("vroooom")
-
+        return "vroooom"
 
 # Subclass Motorcycle from GroundVehicle.
 #
@@ -23,7 +22,7 @@ class Motorcycle(GroundVehicle):
         super().__init__(num_wheels=2)
 
     def drive(self):
-        print("BRAAAP!!")
+        return "BRAAAP!!"
 
 vehicles = [
     GroundVehicle(),
@@ -35,8 +34,5 @@ vehicles = [
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
-print(vehicles[0].drive())
-print(vehicles[1].drive())
-print(vehicles[2].drive())
-print(vehicles[3].drive())
-print(vehicles[4].drive())
+for vehicle in vehicles:
+    print(vehicle.drive())
