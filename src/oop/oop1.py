@@ -21,34 +21,32 @@
 
 # Parent Class
 class Vehicle:
-    def __init__(self, name, engine):
-        self.name = name
-        self.engine = engine
+    def __init__(self):
+        pass
 
 # Inherits from Vehicle
 class GroundVehicle(Vehicle):
-    def __init__(self, name, engine, num_tires):
-        super.__init__(name, engine)
-        self.num_tires = num_tires
+    def __init__(self):
+        pass
 
 # Inherits from GroundVehicle
 class Car(GroundVehicle):
-    def __init__(self, name, engine, num_tires, num_doors):
-        super.__init__(name, engine, num_tires)
-        self.num_doors = num_doors
+    def __init__(self):
+        pass
+
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        pass
 
 # Inherits from Vehicle
 class FlightVehicle(Vehicle):
-    def __init__(self, name, engine, num_engines):
-        super.__init__(name, engine)
-        self.num_engines = num_engines
+    def __init__(self):
+        pass
 
 class Airplane(FlightVehicle):
-    def __init__(self, name, engine, num_engines, num_seats):
-        super.__init__(name, engine, num_engines)
-        self.num_seats = num_seats
+    def __init__(self):
+        pass
 
 class Starship(FlightVehicle):
-    def __init__(self, name, engine, num_engines, num_blasters):
-        super.__init__(name, engine, num_engines)
-        self.num_blasters = num_blasters
+    def __init__(self):
+        pass
