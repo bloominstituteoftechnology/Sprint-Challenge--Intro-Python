@@ -45,3 +45,5 @@ class Car(GroundVehicle):
 
 class Motorcycle(GroundVehicle):
     pass
+
+# this was faily easy
