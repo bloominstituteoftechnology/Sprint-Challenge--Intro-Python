@@ -50,7 +50,7 @@ def cityreader(cities=[]):
 
       # loop into city_info list to create City() instances
       for city in city_info:
-        instance = City(name=city[0], lat=city[1], lon=city[2])
+        instance = City(name=city[0], lat=float(city[1]),lon=float(city[2]))
         cities.append(instance)
   
       return cities
@@ -72,6 +72,7 @@ print("-----" * 5)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
+print("-----" * 5)
 
 # breakpoint() #> Added breakpoint here to test some things and compare to 
 # test_cityreader.py ....
