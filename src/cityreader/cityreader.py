@@ -1,6 +1,19 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+import csv
+
+
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __repr__(self):
+    # I'm using __repl__ because it gives the human readable output, not necessarily
+    # just a string as is seen in __str__.
+    return f'City("{self.name}", {self.lat}, {self.lon})'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -14,20 +27,26 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+# This is our empty list to populate.
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
-    return cities
+    with open('cities.csv', newline='') as csvfile:  # Opening the CSV file.
+      readfile = csv.reader(csvfile)  # We don't need to specify a delimiter - ','
+      next(readfile)  # Skip the row containing column labels.
+      for row in readfile:  # For every row in the readfile...
+        cities.append(City(row[0], float(row[3]), float(row[4])))  # Append data.
+      return cities
 
 cityreader(cities)
-
+  
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c.name, c.lat, c.lon)
+    # Alternatively, with the way I have __repr__ setup, one could simply use:
+    # print(c) however this prints in a fashion more representative of the
+    # objective here.
 
 # STRETCH GOAL!
 #
