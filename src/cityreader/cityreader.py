@@ -9,7 +9,7 @@ class  City:
     self.lon = lon
 
 # We have a collection of US cities with population over 750,000 stored in the
-# file "cities.csv". (CSV stands for "comma-separated values".)
+# file "cities.csv". (CSV stands for "comma -separated values".)
 #
 # In the body of the `cityreader` function, use Python's built-in "csv" module 
 # to read this file so that each record is imported into a City instance. Then
@@ -72,6 +72,18 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+first_point = input("Input latititude and longitude of desired city: ").split(",")
+second_point = input("Input latitude and longitude of desired city: ").split(",")
+
+try:
+  first_lat = first_point[0].strip()
+  first_lon = first_point[1].strip()
+  second_lat = seecond_point[0].strip()
+  second_lon = second_point[1].strip()
+except IndexError:
+  print("Error: That latitude and longitude does not exist.")
+  exit(-1)
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
