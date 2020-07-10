@@ -18,14 +18,14 @@ class CompTests(unittest.TestCase):
   def test_ends_with_e(self):
     self.assertEqual(b, ['Alice', 'Charlie', 'Daphne', 'Eve'])
 
-  # def test_between_C_and_G(self):
-  #   self.assertEqual(c, ['Charlie', 'Daphne', 'Eve', 'Frank', 'Glenn', 'David'])
+  def test_between_C_and_G(self):
+    self.assertEqual(c, ['Charlie', 'Daphne', 'Eve', 'Frank', 'Glenn', 'David'])
 
-  # def test_ages_plus_10(self):
-  #   self.assertEqual(d, [39, 42, 47, 40, 36, 28, 52, 22, 51, 41])
+  def test_ages_plus_10(self):
+    self.assertEqual(d, [39, 42, 47, 40, 36, 28, 52, 22, 51, 41])
 
-  # def test_name_hyphen_age(self):
-  #   self.assertEqual(e, ['Alice-29', 'Bob-32', 'Charlie-37', 'Daphne-30', 'Eve-26', 'Frank-18', 'Glenn-42', 'Harrison-12', 'Igon-41', 'David-31'])
+  def test_name_hyphen_age(self):
+    self.assertEqual(e, ['Alice-29', 'Bob-32', 'Charlie-37', 'Daphne-30', 'Eve-26', 'Frank-18', 'Glenn-42', 'Harrison-12', 'Igon-41', 'David-31'])
 
   # def test_names_ages_between_27_and_32(self):
   #   self.assertEqual(f, [('Alice', 29), ('Bob', 32), ('Daphne', 30), ('David', 31)])
