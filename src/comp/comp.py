@@ -24,21 +24,13 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
-for human_name in humans:
-    if human_name.name[:1]=="D":
-        a.append(human_name.name)
-
+a = [human_name.name for human_name in humans if human_name.name[:1]== "D"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
-for human_name in humans:
-    if human_name.name[-1:]=="e":
-        b.append(human_name.name)
-
+b = [human_name.name for human_name in humans if human_name.name[-1:]=="e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -58,9 +50,7 @@ print(d)
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
-for human in humans:
-    e.append(f"{human.name}-{human.age}")
+e = [f"{human.name}-{human.age}"  for human in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -74,9 +64,7 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = []
-for human in humans:
-    g.append(Human(human.name.upper(),human.age +5))
+g = [Human(human.name.upper(),human.age +5) for human in humans ]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
