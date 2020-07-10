@@ -89,8 +89,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
         within.append(c)
       elif lon1<=float(c.lon)<=lon2:
         within.append(c)
-    else:
-      print("Make sure your input is in correct format")
+#     else:
+#       print("Make sure your input is in correct format")
   return within
 
 cities_within = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
