@@ -83,20 +83,14 @@ lon2 = float(input('Enter in second longitude: '))
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
   within = []
-  
-  coords = [lat1, lon1, lat2, lon2]
 
-  lat = [coords[0], coords[2]]
-  lon = [coords[1], coords[3]]
-
-  lat = sorted(lat)
-  lon = sorted(lon)
+  lat = sorted([lat1, lat2])
+  lon = sorted([lon1, lon2])
 
   for city in cities:
     if (city.lat > lat[0] and city.lat < lat[1]) and (city.lon > lon[0] and city.lon < lon[1]):
       within.append(city)
   return within
-
 
 cityreader_stretch(lat1, lat2, lon1, lon2)
 
