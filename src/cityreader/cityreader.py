@@ -40,49 +40,76 @@ def cityreader(cities=[]):
 
 
 cityreader(cities)
+print(len(cities))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(f"{c.name},{c.lat}, {c.lon}")
+    print(f"{c.name}, {c.lat}, {c.lon}")
 
 
-# STRETCH GOAL!
+# # STRETCH GOAL!
+# #
+# # Allow the user to input two points, each specified by latitude and longitude.
+# # These points form the corners of a lat/lon square. Pass these latitude and
+# # longitude values as parameters to the `cityreader_stretch` function, along
+# # with the `cities` list that holds all the City instances from the `cityreader`
+# # function. This function should output all the cities that fall within the
+# # coordinate square.
+# #
+# # Be aware that the user could specify either a lower-left/upper-right pair of
+# # coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
+# # the input data so that it's always one or the other, then search for cities.
+# # In the example below, inputting 32, -120 first and then 45, -100 should not
+# # change the results of what the `cityreader_stretch` function returns.
+# #
+# # Example I/O:
+# #
+# # Enter lat1,lon1: 45,-100
+# # Enter lat2,lon2: 32,-120
+# # Albuquerque: (35.1055,-106.6476)
+# # Riverside: (33.9382,-117.3949)
+# # San Diego: (32.8312,-117.1225)
+# # Los Angeles: (34.114,-118.4068)
+# # Las Vegas: (36.2288,-115.2603)
+# # Denver: (39.7621,-104.8759)
+# # Phoenix: (33.5722,-112.0891)
+# # Tucson: (32.1558,-110.8777)
+# # Salt Lake City: (40.7774,-111.9301)
 #
-# Allow the user to input two points, each specified by latitude and longitude.
-# These points form the corners of a lat/lon square. Pass these latitude and 
-# longitude values as parameters to the `cityreader_stretch` function, along
-# with the `cities` list that holds all the City instances from the `cityreader`
-# function. This function should output all the cities that fall within the 
-# coordinate square.
+# # TODO Get latitude and longitude values from the user
 #
-# Be aware that the user could specify either a lower-left/upper-right pair of
-# coordinates, or an upper-left/lower-right pair of coordinates. Hint: normalize
-# the input data so that it's always one or the other, then search for cities.
-# In the example below, inputting 32, -120 first and then 45, -100 should not
-# change the results of what the `cityreader_stretch` function returns.
 #
-# Example I/O:
-#
-# Enter lat1,lon1: 45,-100
-# Enter lat2,lon2: 32,-120
-# Albuquerque: (35.1055,-106.6476)
-# Riverside: (33.9382,-117.3949)
-# San Diego: (32.8312,-117.1225)
-# Los Angeles: (34.114,-118.4068)
-# Las Vegas: (36.2288,-115.2603)
-# Denver: (39.7621,-104.8759)
-# Phoenix: (33.5722,-112.0891)
-# Tucson: (32.1558,-110.8777)
-# Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+
+turn1 = input('Enter lat1,lon1: ')
+inList = [float(n) for n in turn1.split(',')]   # check for parens too?
+point1 = tuple(inList)
+print(point1)
+
+turn2 = input('Enter lat2,lon2: ')
+inList2 = [float(n) for n in turn2.split(',')]   # check for parens too?
+point2 = tuple(inList2)
+print(point2)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-    # within will hold the cities that fall within the specified region
     within = []
 
-    # TODO Ensure that the lat and lon valuse are all floats
-    # Go through each city and check to see if it falls within
-    # the specified coordinates.
+    # within will hold the cities that fall within the specified region
+    bottom = min(lat1,lat2)
+    max_lat = max(lat1,lat2)
+    print(f"Bottom {bottom}")
+    top = min(lon1,lon2)
+    max_lon = max(lon1,lon2)
+    print(f"Top {top}")
+    for city in cities:
+        if float(city.lat) >= float(bottom) and float(city.lat) <= max_lat and float(city.lon) >= float(top) and float(city.lon) <= max_lon:
+            print(f"Name: {city.name}, Lat: {city.lat} Long: {city.lon}")
+
+
 
     return within
+
+    print(len(within))
+
+
+cityreader_stretch(point1[0],point1[1],point2[0],point2[1],cities)
