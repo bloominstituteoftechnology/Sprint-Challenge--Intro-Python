@@ -2,10 +2,6 @@ import unittest
 from cityreader import City, cityreader
 
 def check_city(inp, exp):
-    print(f"check city for {inp.name}:")
-    print(f"names: {inp.name} vs. expected {exp.name}, {inp.name != exp.name}")
-    print(f"lat: {inp.lat} vs. expected {exp.lat}, {inp.lat != exp.lat}")
-    print(f"lon: {inp.lon} vs. expected {exp.lon}, {inp.lon != exp.lon}")
     if inp.name != exp.name:
       return False
     if inp.lat != exp.lat:
@@ -83,9 +79,7 @@ class CityreaderTests(unittest.TestCase):
   def test_cityreader_correctness(self):
     self.assertEqual(len(self.cities), 60)
     for i in range(len(self.cities)):
-      print(f"mine: {self.cities[i]} VS. expected: {self.expected[i]}")
-      print(f"For {self.expected[i].name}: {check_city(self.cities[i], self.expected[i])}")
-      # print(self.assertTrue(check_city(self.cities[i], self.expected[i])))
+      self.assertTrue(check_city(self.cities[i], self.expected[i]))
 
 
 if __name__ == '__main__':
