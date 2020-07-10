@@ -6,7 +6,11 @@
 class GroundVehicle():
     def __init__(self, num_wheels):
         self.num_wheels = num_wheels
+        if num_wheels == None:
+            num_wheels = 4
 
+    def drive(self):
+        return 'vroooom'
     # TODO
 
 
