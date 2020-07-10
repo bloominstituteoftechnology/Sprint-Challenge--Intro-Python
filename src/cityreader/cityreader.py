@@ -82,14 +82,37 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+lat1 = input('Enter Latitude #1: ')  # Accept lat1 input.
+lon1 = input('Enter Longitude #1: ')  # Accept lon1 input.
+lat2 = input('Enter Latitude #2: ')  # Accept lat2 input.
+lon2 = input('Enter Longitude #2: ')  # Accept lon2 input.
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-    # within will hold the cities that fall within the specified region
-    within = []
-
     # TODO Ensure that the lat and lon valuse are all floats
+    # within will hold the cities that fall within the specified region
     # Go through each city and check to see if it falls within
     # the specified coordinates.
-
+    within = []  # Empty list to populate.
+    for city in cities:  # For each city in cities...
+        # Check if the city is within the specified lat/lon.
+        # This will need to be done in two separate if statements
+        # to ensure that the appropriate cities are appended to
+        # our within list, regardless of order.
+        if ((float(city.lat) < float(lat1)) &
+            (float(city.lat) > float(lat2)) &
+            (float(city.lon) < float(lon1)) &
+                (float(city.lon) > float(lon2))):
+                # And append it if so.
+                    within.append(city)
+        elif ((float(city.lat) > float(lat1)) &
+              (float(city.lat) < float(lat2)) &
+              (float(city.lon) > float(lon1)) &
+                (float(city.lon) < float(lon2))):
+                # And append it if so.
+                    within.append(city)
     return within
+
+# This will print cities within the range of coordinates user specified.
+for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities=cities):
+    print(city)
