@@ -1,5 +1,11 @@
 import unittest
-from oop1 import *
+from oop1 import Vehicle
+from oop1 import FlightVehicle
+from oop1 import GroundVehicle
+from oop1 import Car
+from oop1 import Motorcycle
+from oop1 import Starship
+from oop1 import Airplane
 
 class Oop1Tests(unittest.TestCase):
   def setUp(self):
