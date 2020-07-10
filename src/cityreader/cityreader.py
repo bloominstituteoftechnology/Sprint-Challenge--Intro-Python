@@ -25,7 +25,7 @@ class City:
         # name = self.name
         # lat = float(self.lat)
         # lon = float(self.lon)
-        return f"{self.name}, {self.lat},{self.lon}"
+        return f"{self.name}, {self.lat}, {self.lon}"
 
 cities = []
 
