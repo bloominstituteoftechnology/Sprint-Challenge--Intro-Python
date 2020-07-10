@@ -22,6 +22,7 @@ class City:
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
 import csv
 cities = []
 
@@ -37,7 +38,6 @@ def cityreader(cities=[]):
     return cities
 
 cities = cityreader(cities)
-
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
@@ -72,8 +72,7 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
-
+# Get latitude and longitude values from the user
 lat1, lon1 = [float(x) for x in input('Enter lat1,lon1: ').split(',')]
 lat2, lon2 = [float(x) for x in input('Enter lat2,lon2: ').split(',')]
 
