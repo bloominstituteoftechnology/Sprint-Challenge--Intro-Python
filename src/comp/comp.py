@@ -75,6 +75,7 @@ print("-----" * 5)
 # The "humans" list should be unmodified.
 print("7. All names uppercase:")
 g = [(i.name.upper(), i.age + 5) for i in humans]
+# Still returning tuple, test wants full Human objects
 print(g)
 print("-----" * 5)
 
