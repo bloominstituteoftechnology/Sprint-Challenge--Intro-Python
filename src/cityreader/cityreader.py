@@ -1,3 +1,4 @@
+import sys
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 class City:
@@ -15,8 +16,9 @@ class City:
   def __repr__(self):
     return f'City({self.name}, {self.lat}, {self.lon})'
 
-city1 = City('Worcestshire', 41, -121.46)
+city1 = City('Worcestershire', 52.192001, -2.22)
 print(city1)
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -33,12 +35,12 @@ import csv
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
+  # Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
   with open('src/cityreader/cities.csv', "r") as file:
     reader = csv.reader(file)
-    # This line skips the header
+    # This next line skips the header
     next(reader)
     for row in reader:
       city = City(row[0], float(row[3]), float(row[4]))
@@ -50,7 +52,7 @@ cityreader(cities)
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
-
+print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -79,14 +81,6 @@ for c in cities:
 # Phoenix: (33.5722,-112.0891)
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
-
-corner1 = list(map(float, input("Enter the first coordinate: lat1,long1 ").split(",")))
-# split the input string into a list, map the float function to that list
-# need to make it a list after
-corner2 = list(map(float, input("Enter the first coordinate: lat2,long2 ").split(",")))
-
-# lat = corner[0] and lon = corner[1]. Now we compare to find upper right corner
-
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
@@ -123,4 +117,23 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
   return within
 
-print(cityreader_stretch(corner1[0], corner1[1], corner2[0], corner2[1], cities))
+# Tests weren't running properly when imported,
+#  so this will run if this script ran directly
+if __name__ == "__main__":
+  inputting = True
+  while inputting:
+    print("Please enter with no spaces")
+    try:
+      corner1 = list(map(float, input("Enter the first coordinate: lat1,long1 ").split(",")))
+    # split the input string into a list, map the float function to that list
+    # need to make it a list after
+      corner2 = list(map(float, input("Enter the second coordinate: lat2,long2 ").split(",")))
+      inputting = False
+    except ValueError:
+      print("Try again with floats and no spaces. (eg. 45,-120.55)")
+      print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+
+  print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+  # lat = corner[0] and lon = corner[1]. We can input that into the function
+  print("The following cities are within that range: \n",
+  cityreader_stretch(corner1[0], corner1[1], corner2[0], corner2[1], cities))
