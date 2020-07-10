@@ -100,6 +100,7 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     for city in cities:
         if float(city.lat) >= float(bottom) and float(city.lat) <= max_lat and float(city.lon) >= float(top) and float(
                 city.lon) <= max_lon:
+            within.append(city)
             print(f"Name: {city.name}, Lat: {city.lat} Long: {city.lon}")
 
     return within
