@@ -7,6 +7,27 @@
 #   |       |
 #   v       v
 # [Car]  [Motorcycle]
+
+class Vehicle(): #BASE CLASS
+    pass
+
+class FlightVehicle(Vehicle):
+    pass
+
+class Starship(FlightVehicle):
+    pass
+
+class Airplane(FlightVehicle):
+    pass
+
+class GroundVehicle(Vehicle):
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
 #
 # Each class can simply "pass" for its body. The exercise is about setting up
 # the hierarchy.
