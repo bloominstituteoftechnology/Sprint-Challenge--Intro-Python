@@ -75,7 +75,7 @@ class CityreaderTests(unittest.TestCase):
       City("Louisville", 38.1662,-85.6488),
       City("Portland", 45.5372,-122.65)
     ]
-    
+
   def test_cityreader_correctness(self):
     self.assertEqual(len(self.cities), 60)
     for i in range(len(self.cities)):
