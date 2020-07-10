@@ -1,6 +1,15 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+class City():
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
 
+  def __repr__(self):
+    return f"<City: {self.name}, {self.lat}, {self.lon}>"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -17,11 +26,19 @@
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
+  # Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
+  with open('cities.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+          line_count += 1
+        else:
+          city = City(row[0], row[3], row[4])
+          cities.append(city) 
+  return cities
 
 cityreader(cities)
 
@@ -59,13 +76,35 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+coord1 = input('First lat/lon coords seprated by a space.')
+coord2 = input('Second lat/lon coords seprated by a space.')
+lat1, lon1 = coord1.split()
+lat2, lon2 = coord2.split()
+lats = [float(lat1), float(lat2)]
+lons = [float(lon1), float(lon2)]
+print(lats)
+print(lons)
+
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+  for city in cities:
+    if float(city.lat) >= lat1 and float(city.lat) <= lat2 and float(city.lon) >= lon1 and float(city.lon) <= lon2:
+      within.append(city)
 
   return within
+
+# Regardless of how user inputs this standardizes the function input to expect the lesser lat/lon first
+within = cityreader_stretch(min(lats), min(lons), max(lats), max(lons), cities)
+
+for city in within:
+  print(city)
+
+"""
+Try these two lines of inputs to get 5 cities in range
+40 50
+-100 -80
+"""
