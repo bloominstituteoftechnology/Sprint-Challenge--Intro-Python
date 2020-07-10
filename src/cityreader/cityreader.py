@@ -1,6 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f"{self.name}, {self.lat}, {self.lon}"
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -14,20 +23,44 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+import csv
+
 cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+  PATH = "/Users/ekselan/Desktop/LAMBDA/CS-1/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv"
+  with open(PATH, mode="r") as file:
+    # reading csv file
+    reader = csv.DictReader(file)
+
+    city_info = []
+    # display contents of csv file
+    for row in reader:
+      obs = [row["city"], row["lat"], row["lng"]]
+      city_info.append(obs)
+      # city_info[0][0] == name
+      # city_info[0][1] == lat
+      # city_info[0][2] == lon
+
+    # loop into city_info list to create City() instances
+    for city in city_info:
+      instance = City(name=city[0], lat=city[1], lon=city[2])
+      cities.append(instance)
     
     return cities
 
 cityreader(cities)
 
+# breakpoint()
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
+
 
 # STRETCH GOAL!
 #
