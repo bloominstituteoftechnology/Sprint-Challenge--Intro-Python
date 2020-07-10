@@ -1,5 +1,15 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+import csv
+
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+
+    def __repr__(self):
+        return f'City("{self.name}", {self.lat}, {self.lon})'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -17,18 +27,26 @@
 cities = []
 
 def cityreader(cities=[]):
+    with open("cities.csv") as file:
+        city_reader = csv.DictReader(file, delimiter=",", quotechar="|")
+        for row in city_reader:
+            city = City(row["city"], float(row["lat"]), float(row["lng"]))
+            cities.append(city)
+
+    return cities
+    
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     
-    return cities
-
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(c) 
 
+    # if 
+        
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -61,11 +79,16 @@ for c in cities:
 # TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+    # within will hold the cities that fall within the specified region 
+    lats = [lat1, lat2]
+    lats.sort()
+    lons = [lon1, lon2]
+    lons.sort()
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    within = [city for city in cities 
+                if lats[0] <= float(city.lat) <= lats[1] 
+                and lons[0] <= float(city.lon) <= lons[1]]
 
-  return within
+    return within
+
+cityreader_stretch(45, -100, 32, -120, cities=cities)
