@@ -79,7 +79,7 @@ class CityreaderTests(unittest.TestCase):
       City("Kansas City", 39.1239,-94.5541), 
       City("Louisville", 38.1662,-85.6488)
     ]
-
+    breakpoint()
     inp = cityreader_stretch(40, -50, 12, -120, self.cities)
 
     for i in range(len(inp)):
