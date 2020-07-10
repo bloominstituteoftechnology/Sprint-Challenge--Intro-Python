@@ -8,8 +8,12 @@ class City:
     self.name = name
     self.lat = lat
     self.lon = lon
+
   def __str__(self):
     return f'{self.name}, at ({self.lat}, {self.lon})'
+
+  def __repr__(self):
+    return f'City({self.name}, {self.lat}, {self.lon})'
 
 city1 = City('Worcestshire', 41, -121.46)
 print(city1)
@@ -79,27 +83,10 @@ for c in cities:
 corner1 = list(map(float, input("Enter the first coordinate: lat1,long1 ").split(",")))
 # split the input string into a list, map the float function to that list
 # need to make it a list after
-corner2 = list(map(float, input("Enter the first coordinate: lat2,long2").split(",")))
+corner2 = list(map(float, input("Enter the first coordinate: lat2,long2 ").split(",")))
 
 # lat = corner[0] and lon = corner[1]. Now we compare to find upper right corner
-if corner1[0] > corner2[0]:
-  if corner1[1] > corner2[1]:
-    # upper right corner
-    lat2 = corner1[0]
-    lon2 = corner1[1]
-    # bottom left
-    lat1 = corner2[0]
-    lon1 = corner2[1]
-  else:
-    # means they gave bottom right and top left
-    # need logic to find the top right corner
-    lat2 = corner1[0]
-    lon2 = corner2[1]
-    # we are extrapolating to get bottom left
-    lat1 = corner2[0]
-    lon2 = corner1[1]
 
-# At this point I realize that we aren't asking for inputs in terminal...
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
@@ -130,6 +117,10 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # while meeting the same for lon
 
   for c in cities:
-    if c.name
+    if c.lat < upper_right[0] and c.lat > bottom_left[0]:
+      if c.lon < upper_right[1] and c.lon > bottom_left[1]:
+        within.append(c)
 
   return within
+
+print(cityreader_stretch(corner1[0], corner1[1], corner2[0], corner2[1], cities))

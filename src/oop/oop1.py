@@ -16,8 +16,10 @@
 # class Whatever:
 #     pass
 #
+
 # Put a comment noting which class is the base class
 class Vehicle:
+    # each and every python class inherits from the base class object in python
     pass
 
 class FlightVehicle(Vehicle):
