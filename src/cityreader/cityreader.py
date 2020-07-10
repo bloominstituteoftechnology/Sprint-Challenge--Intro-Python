@@ -17,9 +17,15 @@ import csv
 
 class City:
     def __init__(self, name, lat, lon):
-      self.name = name
-      self.lat = lat 
-      self.lon = lon
+        self.name = name
+        self.lat = float(lat)
+        self.lon = float(lon)
+
+    def __repr__(self):
+        # name = self.name
+        # lat = float(self.lat)
+        # lon = float(self.lon)
+        return f"{self.name}, {self.lat},{self.lon}"
 
 cities = []
 
@@ -32,6 +38,7 @@ def cityreader(cities=[]):
          next(reader, None)  # skip the headers
          for row in reader:
              city = City(row[0], row[3], row[4])
+             
              cities.append(city)
 
     return cities
@@ -92,7 +99,7 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # Go through each city and check to see if it falls within 
     # the specified coordinates.
     
-    within = [[c.name, (c.lat, c.lon)] for c in cities if float(c.lon)>x[0] and float(c.lon)<x[1] and float(c.lat)>y[0] and float(c.lat)<y[1]]
+    within = [c for c in cities if float(c.lon)>x[0] and float(c.lon)<x[1] and float(c.lat)>y[0] and float(c.lat)<y[1]]
     
     return within
 
