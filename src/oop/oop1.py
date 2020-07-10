@@ -20,20 +20,28 @@
 
 # base class
 class Vehicle:
-    def __init__(self, name, ground_vehicle, flight_vehicle)
     pass
 
 
-class GroundVehicle:
-    def __init__(self, name, car, motorcycle)
+class GroundVehicle(Vehicle):
     pass
 
 
-class FlightVehicle:
-    def __init__(self, name, airplane, starship)
+class FlightVehicle(Vehicle):
     pass
 
 
-class Car:
-    def __init__(self, name, airplane, starship)
+class Car(GroundVehicle):
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    pass
+
+
+class Airplane(FlightVehicle):
+    pass
+
+
+class Starship(FlightVehicle):
     pass
