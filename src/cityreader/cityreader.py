@@ -1,6 +1,11 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+    def __init__(self, name, lat, lon):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -14,6 +19,7 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
 cities = []
 
 def cityreader(cities=[]):
@@ -21,14 +27,22 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
+    with open('cityreader/cities.csv', 'r') as csvfile:
+        readCSV = csv.reader(csvfile, delimiter=',')
+        next(readCSV)
+        for row in readCSV:
+            name = row[0]
+            lat = row[3]
+            lon = row[4]
+            city = City(float(name), float(lat), float(lon))
+            cities.append(city)
+        return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(f'{c.name}, {c.lat}, {c.lon}')
 
 # STRETCH GOAL!
 #
@@ -60,6 +74,11 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+userCoordinate1 = input('Enter lat1,lon1: ')
+userCoordinate2 = input('Enter lat2,lon2: ')
+
+def is_between(a, x, b):
+    return min(a, b) < x < max(a, b)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
@@ -68,4 +87,17 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
+  for city in cities:
+      latWithin = is_between(float(lat1), float(city.lat), float(lat2))
+      lonWithin = is_between(float(lon1), float(city.lon), float(lon2))
+      if (latWithin and lonWithin):
+          within.append(city)
+
   return within
+
+coordinate1 = userCoordinate1.split(",")
+coordinate2 = userCoordinate2.split(",")
+results = cityreader_stretch(coordinate1[0], coordinate1[1], coordinate2[0], coordinate2[1], cities)
+
+for city in results:
+    print(f'{city.name}: ({city.lat},{city.lon})')
