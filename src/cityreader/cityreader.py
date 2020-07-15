@@ -1,6 +1,19 @@
+import csv
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  #def __str__(self):
+    #return str(self.name + self.lat + self.lon)
+
+  def __repr__(self):
+    return (f'{self.__class__.__name__}('f'{self.name!r}, {self.lat}, {self.lon})')
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -21,10 +34,15 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
+  file = open(r'C:\Users\Business\Desktop\Lambda\Projects\Sprint-Challenge--Intro-Python\src\cityreader\cities.csv')
+  reader = csv.reader(file)
+  next(reader, None)
+  for row in reader:
+    cities.append(City(str(row[0]), float(row[3]), float(row[4])))
 
-cityreader(cities)
+  return cities
+
+print(cityreader(cities))
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
