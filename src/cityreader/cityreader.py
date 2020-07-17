@@ -4,9 +4,13 @@
 import csv
 
 class City:
-  def __init__(self, lat, lon):
+  def __init__(self, name, lat, lon):
+    self.name = name
     self.lat = lat
     self.lon = lon
+
+  def __repr__(self):
+    return f'City(\"{self.name}\", {self.lat},{self.lon})'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -17,8 +21,12 @@ class City:
 # Google "python 3 csv" for references and use your Google-fu for other examples.
 #
 
-data = list(csv.reader(open('cities.csv')))
-print(data)
+
+# with open('cities.csv', 'r') as d:
+#   city_object = csv.DictWriter(d)
+#   next(city_object)
+#   for row in city_object:
+#     city_data.append(row[0], int(row[3]), int(row[4]))
 
 # Store the instances in the "cities" list, below.
 #
@@ -30,13 +38,20 @@ def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+  with open('cities.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+      cities.append(City(name=row['city'], lat=row['lat'], lon=row['lng']))
+
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
+  if c != cities[-1]:
+    print(c,'\b,')
+  else:
     print(c)
 
 # STRETCH GOAL!
