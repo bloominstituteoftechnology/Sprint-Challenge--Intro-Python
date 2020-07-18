@@ -27,10 +27,9 @@ import csv # needed for csvs
 
 
 def cityreader(cities=[]):
-    # TODO Implement the functionality to read from the 'cities.csv' file
-    # Ensure that the lat and lon valuse are all floats
-    # For each city record, create a new City instance and add it to the 
-    # `cities` list
+    '''
+    Reads from cites.csv and creates a list of of city instances from the file
+    '''
 
     filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cities.csv')
     
@@ -81,13 +80,59 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
-  
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+    # within will hold the cities that fall within the specified region
+    within = []
 
-  return within
+    #normalizing inputs, a1, b1 are upper right, and a2, b2 are lower right
+    if lat1 > lat2:
+        a1 = lat1
+        a2 = lat2
+    else:
+        a1 = lat2
+        a2 = lat1
+    if lon1 > lon2:
+        b1 = lon1
+        b2 = lon2
+    else:
+        b1 = lon2
+        b2 = lon1
+    
+    # Go through each city and check to see if it falls within 
+    # the specified coordinates.
+
+    for city in cities:
+        if (city.lat <= a1) \
+        and (city.lat >= a2) \
+        and (city.lon <= b1) \
+        and (city.lon >= b2):
+
+            within.append(city)
+
+    return within
+
+while True:
+    print('Please enter two corners to construct a latitude and longitude square.')
+    in1 = input('Enter lat1, lon1:')
+    in2 = input('Enter lat2, lon2:')
+    try:
+        lat1, lon1 = in1.split(', ')
+        lat2, lon2 = in2.split(', ')
+        lat1 = float(lat1)
+        lon1 = float(lon1)
+        lat2 = float(lat2)
+        lon2 = float(lon2)
+
+        break
+    except:
+        print('Incorrect input. Please enter latitude and longitude like the following:')
+        print('Enter lat1, lon1: 45, -100')
+        print('or')
+        print('Enter lat2, lon2: 45.68, -99.45')
+
+inside = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+
+print('The following cities are within the specified square:')
+for c in inside:
+    print(f'{c.name}: ({c.lat}, {c.lon})')
