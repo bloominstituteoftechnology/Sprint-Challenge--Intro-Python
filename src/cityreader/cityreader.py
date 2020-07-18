@@ -31,12 +31,13 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
+# cityreader reads city data from the 'cities.csv' file and creates City objects
 def cityreader(cities=[]):
-    # TODO Implement the functionality to read from the 'cities.csv' file
     # Ensure that the lat and lon valuse are all floats
     # For each city record, create a new City instance and add it to the 
     # `cities` list
 
+    # Open and process the cities.csv file
     with open("cities.csv", newline='') as csvfile:
       # Create a reader object to read the open csv file (and access as a dict)
       my_reader = DictReader(csvfile)
