@@ -22,9 +22,9 @@ class Vehicle:
     # base class 
     pass 
 
-class FlightVehicle(Vehicle):
+class FlightVehicle(Vehicle): 
     # partially a base class? 
-    pass 
+    pass  
 
 class Starship(FlightVehicle): 
     # child class 
@@ -32,16 +32,16 @@ class Starship(FlightVehicle):
 
 class Airplane(FlightVehicle): 
     # child class 
-    pass  
+    pass 
 
 class GroundVehicle(Vehicle): 
     # partially a base class? 
-    pass 
+    pass  
 
 class Car(GroundVehicle): 
     # child class 
     pass 
 
-class Motorcycle(GroundVehicle): 
+class Motorcycle(GroundVehicle):
     # child class 
     pass 
