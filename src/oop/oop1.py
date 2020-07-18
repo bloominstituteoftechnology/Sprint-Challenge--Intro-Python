@@ -29,10 +29,32 @@ class GroundVehicle(Vehicle):
     """
     pass
 
-class Car(GroundVehicle)
+class Car(GroundVehicle):
     """
     From GroundVehicle
     """
     pass
 
-class Motorcycle
+class Motorcycle(GroundVehicle):
+    """
+    From GroundVehicle
+    """
+    pass
+
+class FlightVehicle(Vehicle):
+    """
+    From Vehicle
+    """
+    pass
+
+class Starship(FlightVehicle):
+    """
+    From FlightVehicle
+    """
+    pass
+
+class Airplane(FlightVehicle):
+    """
+    From FlightVehicle
+    """
+    pass
