@@ -1,5 +1,18 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+import csv
+#import numpy as np
+
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f'City name {self.name}, Lattitude {self.lat}, Longitude {self.lon}'
+
+
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -21,7 +34,14 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    with open('cities.csv') as csvfile:
+      reader = csv.reader(csvfile)
+      next(reader)
+      for row in reader:
+        name = row[0]
+        lat = float(row[3])
+        lon = float(row[4])
+        cities.append(City(name,lat,lon))
     return cities
 
 cityreader(cities)
@@ -63,9 +83,24 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
+
+  # need to qualify cities that fall within range of the lats and lons given
   within = []
+  latcoord = (lat1,lat2)
+  loncoord = (lon1,lon2)
+  #for item in cities:
+  #  if item.lon in np.linspace(loncoord[0],loncoord[1]):
+  #    print(item.name)
+    #if (item.lat in range(lat1,lat2) and item.long in range(lon1,lon2)):
+    #  print(f'\n{item}' )
+    #  within.append(item)
   
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+new_cities = cityreader_stretch(45,-100,32,-120,cities)
+
+for c in new_cities:
+  print(f'\n New Cities\n  {c}' )
