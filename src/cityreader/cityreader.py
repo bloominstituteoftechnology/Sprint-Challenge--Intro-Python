@@ -1,9 +1,24 @@
+# Imports
+import csv
+from csv import DictReader
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+# class City models a city location
+class City:
+  # Constructor method
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat  = lat
+    self.lon  = lon
+
+  def __str__(self):
+      return f'{self.name}, Lat: {self.lat}, Lon: {self.lon}'
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
+
 #
 # In the body of the `cityreader` function, use Python's built-in "csv" module 
 # to read this file so that each record is imported into a City instance. Then
@@ -16,14 +31,33 @@
 # should not be loaded into a City object.
 cities = []
 
+# cityreader reads city data from the 'cities.csv' file and creates City objects
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # Ensure that the lat and lon valuse are all floats
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
+    # Ensure that the lat and lon valuse are all floats
+    # For each city record, create a new City instance and add it to the 
+    # `cities` list
+
+    # Open and process the cities.csv file
+    with open("cities.csv", newline='') as csvfile:
+      # Create a reader object to read the open csv file (and access as a dict)
+      my_reader = DictReader(csvfile)
+      
+      # Iteratively read each row in the file
+      for row in my_reader:
+        # Create a City object
+        tmp_city = City(
+          name=row['city'],
+          # Convert lat and lon string values to float
+          lat=float(row['lat']),
+          lon=float(row['lng']))
+
+        # Add the city object to our list
+        cities.append(tmp_city)
     
+    # return the list of cities
     return cities
 
+# Invoke function cityreader
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
