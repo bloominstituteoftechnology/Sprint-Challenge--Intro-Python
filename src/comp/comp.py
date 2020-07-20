@@ -1,6 +1,6 @@
 # The following list comprehension exercises will make use of the 
 # defined Human class. 
-import re
+import re #regular expression
 
 class Human:
     def __init__(self, name, age):
@@ -31,8 +31,8 @@ print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
-print("Ends with e:") #this for whatever reason does not work, but this is the way to do it so i am not sure
-b = [x for x in humans if re.match(r"e$", x.name)]
+print("Ends with e:") 
+b = [x for x in humans if re.search(r"e$", x.name)]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
