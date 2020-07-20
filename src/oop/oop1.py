@@ -17,3 +17,19 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+#base class
+class Vehicle: 
+    def __init__(self, name, type):
+        self.name = name
+        self.type = type
+
+#child class
+class GroundVehicle(Vehicle):
+    def __init__(self, name, type):
+        super.__init__(name, type)
+
+#child class
+class FlightVehicle(Vehicle):
+    def __init__(self, name, type):
+        super.__init__(name, type)
