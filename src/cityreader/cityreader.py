@@ -6,8 +6,11 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
-        self.lat = lat
-        self.lon = lon
+        self.lat = float(lat)
+        self.lon = float(lon)
+
+    def __str__(self,):
+        return f"{self.name}, {self.lat}, {self.lon}"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -31,12 +34,13 @@ def cityreader(cities=[]):
   # `cities` list
 
     with open('src/cityreader/cities.csv') as csv_file:
-        readcsv = csv.reader(csv_file, delimiter=',')
+        readcsv = csv.reader(csv_file)
+        next(readcsv)
+
         for row in readcsv:
-            print(row)
-            print
+            cities.append(City(row[0], row[3], row[4]))
     
-    #return cities
+    return cities
 
 cityreader(cities)
 
