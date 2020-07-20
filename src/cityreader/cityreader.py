@@ -19,29 +19,28 @@ class City:
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-import csv
+
+
 
 cities = []
-
+import csv
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-
-    with open('cities.csv') as csvfile:
-      readCSV = csv.reader(csvfile, delimtier =',')
-      city = []
-      for row in readCSV:
-        city += row.name + float(row.lat) + float(row.lon)
-        city.append(cities)
+    with open('/Users/Dcbekillin/PTweb13/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv', 'r', newline= '') as csvfile:
+        city_reader = csv.reader(csvfile)
+        next(city_reader)
+        for row in city_reader:
+          cities.append(City(row[0], float(row[3]), float(row[4])))
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(f'{c.name}, {c.lat}, {c.lon}')
 
 # STRETCH GOAL!
 #
