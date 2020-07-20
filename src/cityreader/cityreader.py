@@ -60,15 +60,7 @@ for c in cities:
 #
 # Example I/O:
 #
-lat1,lon1= 45,-100
-lat2,lon2= 32,-120
-# city_s =[]
-# for city in cities:
-#     if (city.lat > lat2 and abs(city.lon) < abs(lon2)  and abs(city.lon) > abs(lon1) and city.lat < lat1): 
-#       city_s.append(city)
-#       #print(city.lat, city.lon)
-# print(len(city_s))      
-
+    
 # Albuquerque: (35.1055,-106.6476)
 # Riverside: (33.9382,-117.3949)
 # San Diego: (32.8312,-117.1225)
@@ -80,8 +72,8 @@ lat2,lon2= 32,-120
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-#lat1, lon1= input('Enter lat1, lon1:').split(',')
-#lat2, lon2 = input('Enter lat2,lon2:').split(',')
+lat1, lon1= input('Enter lat1, lon1:').split(',')
+lat2, lon2 = input('Enter lat2,lon2:').split(',')
 # 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
@@ -96,5 +88,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
         
     
   return within
+result = cityreader_stretch(45, -100, 32, -120, cities)
+for i in result:
+  print(i)
 
-cityreader_stretch(lat1, lon1, lat2, lon2, cityreader(cities) )
+#cityreader_stretch(lat1, lon1, lat2, lon2, cities)
