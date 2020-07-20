@@ -1,5 +1,17 @@
+import csv
+import os 
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+
+class City():
+
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon= lon 
+
+  def __str__(self):
+    return f"{self.name}, {self.lat}, {self.lon}"
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -14,6 +26,7 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
 cities = []
 
 def cityreader(cities=[]):
@@ -21,10 +34,14 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
 
-cityreader(cities)
+    with open('./src/cityreader/cities.csv', newline="") as csvfile:
+      reader = csv.reader(csvfile, delimiter=",", quotechar='"')
+      cities = [City(x[0], float(x[3]), float(x[4])) for x in reader if x[0] != 'city']
+      
+      return cities
+
+cities = cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
@@ -61,11 +78,41 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+inputOne = input('Enter lat1,lon1: ')
+inputTwo = input('Enter lat2,lon2: ')
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
   
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+  if(lat1 > lat2):
+    gLat = lat1
+    lLat = lat2
+  else:
+    gLat = lat2
+    lLat = lat1
+
+  if(lon1 > lon2):
+    gLon = lon1
+    lLon = lon2
+  else:
+    gLon = lon2
+    lLon = lon1
+
+  within = [city for city in cities if city.lat >= lLat and city.lat <= gLat and city.lon >= lLon and city.lon <= gLon ]
 
   return within
+
+inputs = [inputOne.split(','), inputTwo.split(',')]
+i = []
+for x in inputs:
+  i.append(float(x[0]))
+  i.append(float(x[1]))
+
+
+contained = cityreader_stretch(i[0], i[1], i[2], i[3], cities)
+
+for city in contained:
+  print(city)
