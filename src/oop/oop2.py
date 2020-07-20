@@ -8,7 +8,8 @@ class GroundVehicle():
         self.num_wheels = num_wheels
 
     # TODO
-
+    def drive(self):
+        return 'vroooom'
 
 # Subclass Motorcycle from GroundVehicle.
 #
@@ -18,6 +19,12 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
 # TODO
+class Motorcycle(GroundVehicle):
+    def __init__(self):
+        super().__init__(2)
+
+    def drive(self):
+        return 'BRAAAP!!'
 
 vehicles = [
     GroundVehicle(),
@@ -30,3 +37,5 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # TODO
+for v in vehicles:
+    print(f'{v.drive()}')
