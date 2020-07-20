@@ -66,8 +66,6 @@ cityreader(cities)
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
-
 lat1, lon1, lat2, lon2 = input(
     'please input two sets of latitude and longitude coordinates in whole numbers without commas.'
     ).split()
