@@ -21,21 +21,21 @@
 class Vehicle:
     pass
 
-class Flight_Vehicle:
+class FlightVehicle(Vehicle):
     pass
 
-class Starship:
+class Starship(FlightVehicle):
     pass
 
-class Ground_Vehicle:
+class GroundVehicle(Vehicle):
     pass
 
-class Airplane:
+class Airplane(FlightVehicle):
     pass
 
-class Car:
+class Car(GroundVehicle):
     pass
 
-class Motorcycle:
+class Motorcycle(GroundVehicle):
     pass
 
