@@ -1,5 +1,13 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+class City:
+  def __init__(self, name = None, lat = 0.0, lon = 0.0):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f'{self.name}, {self.lat}, {self.lon}'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -14,6 +22,7 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
 cities = []
 
 def cityreader(cities=[]):
@@ -21,11 +30,15 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
-    return cities
+  with open(r'C:\Users\deepa\Documents\repo\pythonlab\sc_p\Sprint-Challenge--Intro-Python\src\cityreader\cities.csv',encoding='utf-8', newline='') as f:
+      reader = csv.reader(f)
+      next(reader, None)  # skip the headers
+      for row  in reader:
+          city = City(row[0], float(row[3]), float(row[4]))
+          cities.append(city)
+  return cities
 
 cityreader(cities)
-
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
@@ -47,8 +60,15 @@ for c in cities:
 #
 # Example I/O:
 #
-# Enter lat1,lon1: 45,-100
-# Enter lat2,lon2: 32,-120
+lat1,lon1= 45,-100
+lat2,lon2= 32,-120
+# city_s =[]
+# for city in cities:
+#     if (city.lat > lat2 and abs(city.lon) < abs(lon2)  and abs(city.lon) > abs(lon1) and city.lat < lat1): 
+#       city_s.append(city)
+#       #print(city.lat, city.lon)
+# print(len(city_s))      
+
 # Albuquerque: (35.1055,-106.6476)
 # Riverside: (33.9382,-117.3949)
 # San Diego: (32.8312,-117.1225)
@@ -60,12 +80,21 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+#lat1, lon1= input('Enter lat1, lon1:').split(',')
+#lat2, lon2 = input('Enter lat2,lon2:').split(',')
+# 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
-  
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
-
+  
+  for city in cities:
+      if (city.lat > int(lat2) and abs(city.lon) < abs(int(lon2))  and abs(city.lon) > abs(int(lon1)) and city.lat < int(lat1)): 
+            within.append(city)
+        
+    
   return within
+
+cityreader_stretch(lat1, lon1, lat2, lon2, cityreader(cities) )
