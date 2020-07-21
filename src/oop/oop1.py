@@ -19,11 +19,12 @@
 # Put a comment noting which class is the base class
 
 class Vehicle:
-    def __init__(self,name,category):
-        self.name = name
-        self.category = category
+    #def __init__(self,name,category):
+    #    self.name = name
+    #    self.category = category
+    pass
 
-class GroundVehicle(Vehicle):
+class GroundVehicle():
     #A groundVehicle is a Vehicle
     pass
 
