@@ -2,13 +2,13 @@
 # fields for name, lat and lon (representing latitude and longitude).
 
 class City: 
-    def __init__(self, name, lat, lon):
+    def __init__(self, name, lat, lng):
       self.name = name
       self.lat = lat
-      self.lon = lon
+      self.lng = lng
 
     def __str__(self):
-      return (f'{self.name}, {self.lat}, {self.lon}')
+      return f'({self.name}: {self.lat}, {self.lng})'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -39,6 +39,7 @@ def cityreader(cities=[]):
       if i[0] != "city": 
         cities.append(City(i[0], float(i[3]), float (i[4])))
     return cities
+   
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
