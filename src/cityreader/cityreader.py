@@ -3,7 +3,7 @@ import csv
 # fields for name, lat and lon (representing latitude and longitude).
 
 class City:
-  def __init__(self, name, lat, long):
+  def __init__(self, name, lat, lon):
     self.name = name
     self.lat = lat
     self.lon = lon
@@ -28,11 +28,13 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-   with open('cities.csv', newline = '') as csv_file:
-    csv_reader = csv.DictReader(csv_file)
+   with open('cities.csv') as csv_file:
+    # csv_reader = csv.reader(csv_file)
+    csv_reader = csv.DictReader(csv_file, delimiter= " ")
 
-    for line in csv_reader:
-      cities.append(line)
+    for city in csv_reader:
+      my_city= City(city['city'], city['lat'], city['lng'])
+      cities.append(my_city)
     
     return cities
 
@@ -40,8 +42,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c["city"], c['lat'], c["lng"])
-    # print(f"{c[0]} {c[3]}  {c[4]} \n")
+    print(c.name, c.lat, c.lon)
 
 # STRETCH GOAL!
 #
