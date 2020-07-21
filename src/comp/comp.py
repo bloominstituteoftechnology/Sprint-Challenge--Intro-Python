@@ -41,13 +41,13 @@ print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = [(human.name, human.age + 10) for human in humans ]
+d = [(human.age + 10) for human in humans ]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = [f"{human.name} - {human.age}" for human in humans]
+e = [f"{human.name}-{human.age}" for human in humans]
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -61,8 +61,10 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [(human.name.upper(), human.age + 5) for human in humans]
+g = [ Human(human.name.upper(), human.age + 5) for human in humans]
 print(g)
+# naam = [(human.name, human.age) for human in humans]
+# print(naam)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
