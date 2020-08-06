@@ -44,7 +44,7 @@ print("Starts between C and G, inclusive:")
 c = [item.name for item in humans if item.name.startswith(
     'C') or item.name.startswith('D') or item.name.startswith('E') or item.name.startswith('F') or item.name.startswith('G')]
 print(c)
-
+c = [name for name in humans if name.name[0] in "CDEFG"]
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
 d = [item.age + 10 for item in humans]
