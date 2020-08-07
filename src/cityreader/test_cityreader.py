@@ -4,9 +4,9 @@ from cityreader import City, cityreader
 def check_city(inp, exp):
     if inp.name != exp.name:
       return False
-    if inp.lat != exp.lat:
+    if inp.latitude != exp.latitude:
       return False
-    if inp.lon != exp.lon:
+    if inp.longitude != exp.longitude:
       return False
     return True
 
