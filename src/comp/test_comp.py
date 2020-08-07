@@ -1,4 +1,5 @@
 import unittest
+
 from comp import *
 
 def compare_humans(inp, exp):
