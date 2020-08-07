@@ -14,15 +14,25 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+import csv
+from city import City
+
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # Ensure that the lat and lon valuse are all floats
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
-    
-    return cities
+  with open("cities.csv", "r") as spreadsheet:
+      cityData = csv.reader(spreadsheet)
+      next(cityData)
+
+      for cityInfo in cityData:
+          name = cityInfo[0]
+          latitude = float(cityInfo[3])
+          longitude = float(cityInfo[4])
+          city = City(name, latitude, longitude)
+
+          cities.append(city)
+
+      return cities
 
 cityreader(cities)
 
@@ -61,11 +71,54 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+first_point = input("Please enter the first latitude and longitude seperated. SEPERATE BY COMMAS: ").split(",")
+second_point = input("Please enter the second latitude and longitude seperated. SEPERATE BY COMMAS: ").split(",")
+
+try:
+    first_lat = first_point[0].strip()
+    first_lon = first_point[1].strip()
+    second_lat = second_point[0].strip()
+    second_lon = second_point[1].strip()
+except IndexError:
+    print("ERROR: Did not input proper latitude and longitude")
+    exit(-1)
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
-  
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
 
+  latitude1 = float(lat1)
+  longitude1 = float(lon1)
+  latitude2 = float(lat2)
+  longitude2 = float(lon2)
+
+  # which latitude/longitude is on the left??
+  if lon1 < lon2:
+    left_lat = lat1
+    left_lon = lon1
+    right_lat = lat2
+    right_lon = lon2
+  else:
+    left_lat = lat2
+    left_lon = lon2
+    right_lat = lat1
+    right_lon = lon1
+
+  if left_lat < right_lat:
+        for city in cities:
+            city_lat = city.lat
+            city_lon = city.lon
+            if left_lat < city_lat < right_lat and left_lon < city_lon < right_lon:
+                within.append(city)
+            else:
+              for city in cities:
+                city_lat = city.lat
+                city_lon = city.lon
+            if left_lat > city_lat > right_lat and left_lon < city_lon < right_lon:
+                within.append(city)
   return within
+
+new_cities = cityreader_stretch(first_lat, first_lon, second_lat, second_lon, cities)
+
+for city in new_cities:
+  print(city)
