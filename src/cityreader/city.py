@@ -1,7 +1,7 @@
 class City:
     def __init__(self, name, latitude, longitude):
         self.name = name
-        self.latiude = latitude
+        self.latitude = latitude
         self.longitude = longitude
 
     def __str__(self):
