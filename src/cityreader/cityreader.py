@@ -44,7 +44,6 @@ cityreader(cities)
 for c in cities:
     print(c)
 
-
 # STRETCH GOAL!
 #
 # Allow the user to input two points, each specified by latitude and longitude.
@@ -74,13 +73,3 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
-
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-    # within will hold the cities that fall within the specified region
-    within = []
-
-    # Go through each city and check to see if it falls within
-    # the specified coordinates.
-
-    return within
