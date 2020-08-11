@@ -2,6 +2,15 @@
 # fields for name, lat and lon (representing latitude and longitude).
 
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f"City: {self.name}, Lat: {self.lat}, Lon: {self.lon}"
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -27,8 +36,14 @@ def cityreader(cities=[]):
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
+
+
+import csv
+
+cities = csv.reader(open('cities.csv','r'))  # Info source: https://stackoverflow.com/questions/5757743/how-can-i-get-a-specific-field-of-a-csv-file
 for c in cities:
-    print(c)
+  print (c[0], c[3], c[4])
+
 
 # STRETCH GOAL!
 #
