@@ -19,6 +19,7 @@ class GroundVehicle():
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
 
 class Motorvehicle(GroundVehicle):
+    super().__init__(num_wheels=2)
 
 
 vehicles = [
