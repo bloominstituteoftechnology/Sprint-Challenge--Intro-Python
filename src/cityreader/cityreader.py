@@ -28,8 +28,8 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-      with open('src/cityreader/cities.csv') as csvFile:
-        read_city = csv.reader(csvFile)
+      with open('src/cityreader/cities.csv') as CSV:
+        read_city = csv.reader(CSV)
 
         for i, row in enumerate(read_city):
             if i == 0:
