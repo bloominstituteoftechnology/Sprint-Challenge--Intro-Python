@@ -1,6 +1,12 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -21,14 +27,20 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    import csv
+    with open('cities.csv') as f:
+      reader = csv.reader(f)
+      for row in reader:
+        if row[0] == "city":
+          continue
+        cities.append(City(row[0], float(row[3]), float(row[4])))
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(f"{c.name}, {c.lat}, {c.lon}")
 
 # STRETCH GOAL!
 #
@@ -60,6 +72,7 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+import math
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
@@ -68,4 +81,32 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
+  if lat1 > lat2:
+    up1 = lat1
+    upo1 = lon1
+    low1 = lat2
+    lowo1 = lon2
+  else:
+    up1 = lat2
+    upo1 = lon2
+    low1 = lat1
+    lowo1 = lon1
+
+  for city in cities:
+    if city.lat <= up1 and city.lon <= upo1:
+      if city.lat >= low1 and city.lon >= lowo1:
+        within.append(city)
+
   return within
+
+l1 = input("Enter lat1,lon1 ->")
+l2 = input("Enter lat2,lon2 ->")
+
+l1 = l1.split(",")
+l2 = l2.split(",")
+
+print(float(l1[0]))
+print(l2)
+
+cityreader_stretch(float(l1[0]), float(l1[1]), float(l2[0]), float(l2[1]), cities)
+
