@@ -53,7 +53,7 @@ b = [(i.name) for i in humans if i.name.endswith("e") == True]
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
-print("Starts between C and G, inclusive:")
+# print("Starts between C and G, inclusive:")
 c = [(i.name) for i in humans if i.name.startswith(("C", "D", "E", "F", "G")) == True ]
 
 # for i in humans:
@@ -63,7 +63,7 @@ c = [(i.name) for i in humans if i.name.startswith(("C", "D", "E", "F", "G")) ==
 #         print((i.name))
 # print(i)
 
-print(c)
+# print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 # print("Ages plus 10:")
@@ -79,7 +79,7 @@ d = [i.age + 10 for i in humans]
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 # print("Name hyphen age:")
-e = [f"{i.name } - {i.age}" for i in humans]
+e = [f"{i.name }-{i.age}" for i in humans]
 
 # for i in humans:
 #     print(f"{i.name } - {i.age}")
@@ -105,19 +105,19 @@ f = [(i.name, i.age) for i in humans if i.age >= 27 and i.age <= 32]
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 # print("All names uppercase:")
-g = [(i.name.upper(), i.age + 5) for i in humans]
+g = [(Human(i.name.upper(), i.age + 5)) for i in humans]
 
 # for i in humans:
 #     new_humans = []
-#     new_humans.append((i.name.upper(), i.age + 5))
+#     new_humans.append(Human(i.name.upper(), i.age + 5))
 #     print(new_humans)
 
-# print(g)
+print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 # print("Square root of ages:")
 import math
-h = [i.age ** 2 for i in humans]
+h = [math.sqrt(i.age) for i in humans]
 
 # for i in humans:
 #     new_age = []
