@@ -24,8 +24,8 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
-print(human.name for human in humans if human.name[0] == "D")
+a = [human.name for human in humans if human.name[0] == 'D']
+print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
@@ -54,7 +54,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [human.name +"," + str(human.age) for human in humans if human.age in range(27,33)]
+f = [(human.name, human.age) for human in humans if human.age in range(27,33)]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
