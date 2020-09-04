@@ -1,4 +1,35 @@
 # Write classes for the following class hierarchy:
+
+
+class Vehicle():
+    ''' base class '''
+    def __init__(self, name):
+        self.name = name
+
+
+class GroundVehicle(Vehicle):
+    pass
+
+
+class Car(GroundVehicle):
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    pass
+
+
+class FlightVehicle(Vehicle):
+    pass
+
+
+class Airplane(FlightVehicle):
+    pass
+
+
+class Starship(FlightVehicle):
+    pass
+
 #
 #  [Vehicle]->[FlightVehicle]->[Starship]
 #      |                |
