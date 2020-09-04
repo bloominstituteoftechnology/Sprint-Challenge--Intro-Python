@@ -6,10 +6,12 @@ class City:
 		self.name = name
 		self.lat = lat
 		self.lon = lon
+
+
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
-# In the body of the `cityreader` function, use Python's built-in "csv" module 
+# In the body of the `cityreader` function, use Python's built-in "csv" module
 # to read this file so that each record is imported into a City instance. Then
 # return the list with all the City instances from the function.
 # Google "python 3 csv" for references and use your Google-fu for other examples.
@@ -20,10 +22,11 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
+
 def cityreader(cities=[]):
 		# TODO Implement the functionality to read from the 'cities.csv' file
 		# Ensure that the lat and lon valuse are all floats
-		# For each city record, create a new City instance and add it to the 
+		# For each city record, create a new City instance and add it to the
 		# `cities` list
 	with open("cities.csv", newline="") as csvfile:
     next(csvfile)
@@ -82,40 +85,40 @@ except IndexError:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 		# within will hold the cities that fall within the specified region
-		within = []
+	within = []
 		
-    lat1 = float(lat1)
-    lon1 = float(lon1)
-    lat2 = float(lat2)
-    lon2 = float(lon2)
+  lat1 = float(lat1)
+  lon1 = float(lon1)
+  lat2 = float(lat2)
+  lon2 = float(lon2)
 
 		# Go through each city and check to see if it falls within 
 		# the specified coordinates.
-    if lon1 < lon2:
-      left_lat = lat1
-      left_lon = lon1
-      right_lat = lat2
-      right_lon = lon2
-    else:
-      left_lat = lat2
-      left_lon = lon2
-      right_lat = lat1
-      right_lon = lon1
+  if lon1 < lon2:
+    left_lat = lat1
+    left_lon = lon1
+    right_lat = lat2
+    right_lon = lon2
+  else:
+    left_lat = lat2
+    left_lon = lon2
+    right_lat = lat1
+    right_lon = lon1
 
-    if left_lat < right_lat:
-      for city in cities:
-          city_lat = city.lat
-          city_lon = city.lon
-          if left_lat < city_lat < right_lat and left_lon < city_lon < right_lon:
-            within.append(city)
-    else:
-      for city in cities:
-        city_lat = city.lat
-        city_lon = city.lon
-        if left_lat > city_lat > right_lat and left_lon < city_lon < right_lon:
-          within.append(city)
+  if left_lat < right_lat:
+    for city in cities:
+      city_lat = city.lat
+      city_lon = city.lon
+      if left_lat < city_lat < right_lat and left_lon < city_lon < right_lon:
+        within.append(city)
+  else:
+    for city in cities:
+      city_lat = city.lat
+      city_lon = city.lon
+      if left_lat > city_lat > right_lat and left_lon < city_lon < right_lon:
+        within.append(city)
 
-		return within
+	return within
 
 included_cities = cityreader_stretch(first_lat, first_lon, second_lat, second_lon, cities)
 
