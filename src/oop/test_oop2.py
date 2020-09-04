@@ -16,6 +16,7 @@ class Oop2Tests(unittest.TestCase):
     self.assertEqual(self.motorcycle.num_wheels, 2)
 
   def test_ground_vehicle_drive(self):
+    print(self.ground_vehicle.drive())
     self.assertEqual(self.ground_vehicle.drive(), "vroooom")
 
   def test_motorcyle_drive(self):
