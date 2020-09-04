@@ -22,18 +22,17 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
-
-def cityreader(cities=[]):
-		# TODO Implement the functionality to read from the 'cities.csv' file
-		# Ensure that the lat and lon valuse are all floats
-		# For each city record, create a new City instance and add it to the
-		# `cities` list
-	with open("cities.csv", newline="") as csvfile:
+def cityreader(cities = []):
+	# TODO Implement the functionality to read from the 'cities.csv' file
+	# Ensure that the lat and lon valuse are all floats
+	# For each city record, create a new City instance and add it to the
+	# `cities` list
+  with open("cities.csv", newline="") as csvfile:
     next(csvfile)
     for line in csvfile:
       city_info = line.split(",")
       cities.append(City(city_info[0], float(city_info[3]), float(city_info[4])))			
-	return cities
+  return cities
 
 cityreader(cities)
 
@@ -70,7 +69,6 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
 coordinate1 = input("Enter lat and long values for the first co-ordinate separated by commas: ").split(",")
 coordinate2 = input("Enter lat and long values for the second co-ordinate separated by commas: ").split(",")
 
@@ -84,9 +82,9 @@ except IndexError:
   exit(-1)
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-		# within will hold the cities that fall within the specified region
-	within = []
-		
+	# within will hold the cities that fall within the specified region
+  within = []
+
   lat1 = float(lat1)
   lon1 = float(lon1)
   lat2 = float(lat2)
@@ -118,9 +116,9 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
       if left_lat > city_lat > right_lat and left_lon < city_lon < right_lon:
         within.append(city)
 
-	return within
+  return within
 
-included_cities = cityreader_stretch(first_lat, first_lon, second_lat, second_lon, cities)
+included_cities = cityreader_stretch(lat_first, lon_first, lat_second, lon_second, cities)
 
 for city in included_cities:
   print(city)
