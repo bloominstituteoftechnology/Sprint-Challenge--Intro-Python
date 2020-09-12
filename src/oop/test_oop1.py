@@ -1,5 +1,5 @@
 import unittest
-from oop1 import *
+from oop1 import * 
 
 class Oop1Tests(unittest.TestCase):
   def setUp(self):
