@@ -27,6 +27,10 @@ class FlightVehicle(Vehicle):
     pass
 
 # Base: FlightVehicle
+class Starship(FlightVehicle):
+    pass
+
+# Base: FlightVehicle
 class Airplane(FlightVehicle):
     pass
 
