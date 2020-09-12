@@ -70,6 +70,7 @@ print("All names uppercase:")
 g = [(human.name.upper(), human.age + 5) for human in humans]
 print(g)
 
+
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
