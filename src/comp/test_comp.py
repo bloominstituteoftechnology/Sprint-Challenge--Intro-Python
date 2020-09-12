@@ -11,6 +11,7 @@ def compare_humans(inp, exp):
       return False
   return True
 
+
 class CompTests(unittest.TestCase):
   def test_starts_with_D(self):
     self.assertEqual(a, ['Daphne', 'David'])
