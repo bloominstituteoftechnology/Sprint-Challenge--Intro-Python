@@ -54,3 +54,5 @@ There's a separate test file `test_stretch.py` for the stretch problem that you 
 | _Student can demonstrate applied knowledge of Object-Oriented Programming by completing `oop1.py` and `oop2.py`_ | OOP: (2 points per file, 4 max) | 0 points | 2 points | 4 points |  |
 | _Student can demonstrate applied research and language learning by completing `cityreader.py`_ | CSV: 6 points for `cityreader()`, 1 point for `cityreader_stretch()` | 0 points | 6 points | 7 points |  |
 | **FINAL SCORE** | | **0-13** | **14-18** | **19** |  |
+
+# Initial Commit
