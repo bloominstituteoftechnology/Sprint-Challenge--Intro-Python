@@ -56,3 +56,17 @@ There's a separate test file `test_stretch.py` for the stretch problem that you 
 | **FINAL SCORE** | | **0-13** | **14-18** | **19** |  |
 
 <!-- Initial Commit -->
+
+<br>
+<br>
+<br>
+<br>
+
+---
+
+<br>
+
+> # Questions for Anthony during my 1-on-1: 
+> 1. Should I have used "quote_numeric" (https://docs.python.org/3/library/csv.html) instead of declaring variables to be floats (line 33)?
+> 2. Should I be concerned about these "problems" in my `test_comp.py` file?
+![problems from vscode](problems.png "Logo Title Text 1")
