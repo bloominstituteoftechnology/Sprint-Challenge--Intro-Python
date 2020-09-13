@@ -45,10 +45,19 @@ print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
+
+# ****************************** Another way of doing it ********************************
+# c = []
+# first_letters = ("C", "D", "E", "F", "G")
+# for human in humans:
+#     if human.name.startswith(first_letters):
+#         c.append(human.name)
+# print("Starts between C and G, inclusive:")
+# print(c)
+
 c = []
-first_letters = ("C", "G")
 for human in humans:
-    if human.name.startswith(first_letters):
+    if any(human.name.startswith(x) for x in "CDEFG"):
         c.append(human.name)
 print("Starts between C and G, inclusive:")
 print(c)
@@ -72,9 +81,19 @@ print(e)
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
+
+# ****************************** Another way of doing it ********************************
+# f = []
+# for human.age in range(27 and 32):
+#     f.append(f"{human.name}, {human.age}")
+# print("Names and ages between 27 and 32:")
+# print(f)
+
 f = []
-for human.age in range(27 and 32):
-    f.append(f"{human.name}, {human.age}")
+for human in humans:
+    x = (human.name, human.age)
+    if human.age in range(27, 33):
+        f.append(x)
 print("Names and ages between 27 and 32:")
 print(f)
 
