@@ -1,0 +1,1 @@
+cityreader_stretch(40, -50, 12, -120, self.cities)
