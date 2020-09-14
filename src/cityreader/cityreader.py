@@ -50,7 +50,6 @@ def cityreader(cities=[]):
 
 
 cityreader(cities)
-print('len cities', len(cities))
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
@@ -89,7 +88,16 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
-    within = []
+    # within = []
+    if lat1 < lat2 and lon1 < lon2:
+        print('reverse!!!!')
+        lat1, lon1, lat2, lon2 = lat2, lon2, lat1, lon1
+        print(lat1, lat2, lon1, lon2)
+
+    within = [city for city in cities if city.lat <
+              lat1 and city.lon < lon1]
+    within = [city for city in within if city.lat >
+              lat2 and city.lon > lon2]
 
     # Go through each city and check to see if it falls within
     # the specified coordinates.
