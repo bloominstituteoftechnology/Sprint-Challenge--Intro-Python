@@ -1,12 +1,27 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    return f"city: {self.name}, lat: {self.lat}, lon: {self.lon}"
+
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
 # In the body of the `cityreader` function, use Python's built-in "csv" module 
-# to read this file so that each record is imported into a City instance. Then
+# to read this file so that each record is imported into a City instance.
+import os.path
+import csv
+
+cities_csv_path = os.path.join(os.path.dirname(__file__), 'cities.csv')
+#  Then
 # return the list with all the City instances from the function.
 # Google "python 3 csv" for references and use your Google-fu for other examples.
 #
@@ -21,14 +36,25 @@ def cityreader(cities=[]):
   # Ensure that the lat and lon valuse are all floats
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+
+  with open(cities_csv_path, 'r') as f:
+    reader = csv.reader(f)
+    next(reader)
+
+    for c in reader:
+      cities.append(City(c[0], float(c[3]), float(c[4])))
     
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
+
+# or
+
+[print(c) for c in cities]
 
 # STRETCH GOAL!
 #
@@ -61,11 +87,13 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+# lat1, lon1 = input('Enter Lat1, Lon1: ').split(',')
+# lat2, lon2 = input('Enter Lat2, Lon2: ').split(',')
+# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+  # within = []
   
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
-  return within
+  # return within
