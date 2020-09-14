@@ -34,4 +34,9 @@ vehicles = [
 
 # Go through the vehicles list and print the result of calling drive() on each.
 
-# TODO
+for v in vehicles:
+    print(v.drive())
+
+
+print(GroundVehicle().drive())
+print(Motorcycle().drive())
