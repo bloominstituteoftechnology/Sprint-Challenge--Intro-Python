@@ -1,5 +1,8 @@
 #  Sprint Challenge: Intro to Python
 
+Initial commit
+
+
 In this week's Sprint you explored the Python programming language as well as object-oriented design principles. This Sprint Challenge aims to assess your comfort in both of these areas through exercises similar to the ones you worked on at the beginning of this week in Intro to Python.
 
 ## Instructions
