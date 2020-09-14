@@ -26,7 +26,7 @@ cities = []
 
 
 def cityreader(cities=[]):
-    with open("cityreader/cities.csv", newline="") as csvfile:
+    with open("cities.csv", newline="") as csvfile:
         citylist = csv.reader(csvfile, delimiter=",", quotechar="|")
         for row in citylist:
             if "city" not in row[0]:
