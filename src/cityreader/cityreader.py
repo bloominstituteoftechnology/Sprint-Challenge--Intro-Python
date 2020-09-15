@@ -88,7 +88,7 @@ lon2 = float(lon2)
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # normalize input
   if lat1 > lat2:
-    lat1, lon1, lat2, lon2 = lat2, lon2, lat1, lon1
+    (lat1, lon1), (lat2, lon2) = (lat2, lon2), (lat1, lon1)
 
   # within will hold the cities that fall within the specified region
   within = []
