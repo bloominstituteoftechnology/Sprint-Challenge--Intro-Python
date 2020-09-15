@@ -84,7 +84,7 @@ print(f'Names and ages between 27 and 32: {f}')
 # The "humans" list should be unmodified.
 g = []
 for human in humans:
-    g.append(f"{human.name.upper()} - {human.age + 5}")
+    g.append(Human(human.name.upper(), human.age + 5)
 print(f"All names uppercase: {g}")
 
 # Write a list comprehension that contains the square root of all the ages.
