@@ -29,13 +29,10 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     with open("src/cityreader/cities.csv", newline='') as csvfile:
+      csvfile.readline() # Consume first line
       reader = csv.reader(csvfile)
 
-      skipFirst = True
       for city in reader:
-        if skipFirst:
-          skipFirst = False
-          continue
         name = city[0]
         lat = float(city[3])
         lon = float(city[4])
