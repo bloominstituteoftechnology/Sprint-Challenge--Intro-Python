@@ -31,11 +31,11 @@ def cityreader(cities=[]):
         reader = list(reader)
         reader.pop(0)
         for row in reader:
-          cities.append(City(row[0], row[3], row[4]))
+          cities.append(City(row[0], float(row[3]), float(row[4])))
         return cities 
 
 cityreader(cities)
-print(f'cities length', len(cities))
+
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
     print(c)
