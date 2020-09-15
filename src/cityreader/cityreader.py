@@ -17,7 +17,7 @@ import csv
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
 class City:
-      def _int_(self, name, lat, lon):
+      def __int__(self, name, lat, lon):
         self.name = name
         self.lat = lat
         self.lon = lon
@@ -76,12 +76,42 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+lat1 = input('Enter lat1: ')
+lon1 = input('Enter lon1: ')
 
+lat2 = input('Enter lat2: ')
+lon2 = input('Enter lon2: ')
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+    lat1 = float(lat1)
+    lon1 = float(lon1)
+    lat2 = float(lat2)
+    lon2 = float(lon2)
+
+    latVal1 = float(0)
+    latVal2 = float(0)
+    lonVal1 = float(0)
+    lonVal2 = float(0)
+
+    if lat1 > lat2:
+        latVal2 = lat1
+        latVal1 = lat2
+    else:
+        latVal1 = lat1
+        latVal2 = lat2
+
+    if lon1 > lon2:
+        lonVal2 = lon1
+        lonVal1 = lon2
+    else:
+        lonVal1 = lon1
+        lonVal2 = lon2
   # within will hold the cities that fall within the specified region
-  within = []
+  within = [city for city in cities if latVal1 <= 
+        city.lat <= latVal2 and lonVal1 <= city.lon <= lonVal2]
   
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
+    print(city)
