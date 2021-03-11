@@ -41,6 +41,13 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # iterate through vehicles list
-for vehicle in vehicles:
-    # print drive() call on each vehicle
-    print(vehicle.drive(vehicles[0]))
+# for vehicle in vehicles:
+#     # print drive() call on each vehicle
+#     print(drive(vehicles))
+
+# [drive(vehicle) for vehicle in vehicles]
+
+# print_drive = list(map(lambda x: x.drive(), vehicles))
+
+# print(print_drive)
+
