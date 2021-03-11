@@ -9,7 +9,7 @@ class GroundVehicle():
 
     # drive method
     def drive(self):
-        return (f'vroooom ')
+        return (f'vroooom')
 
 
 # Subclass Motorcycle from GroundVehicle.
@@ -27,7 +27,7 @@ class Motorcycle(GroundVehicle):
 
     # drive method
     def drive(self):
-        return (f'BRAAAP!! ')
+        return (f'BRAAAP!!')
 
 
 vehicles = [
