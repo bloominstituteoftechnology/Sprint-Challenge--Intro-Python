@@ -5,8 +5,11 @@
 
 class GroundVehicle():
     def __init__(self, num_wheels):
+        if not num_wheels:
+            return 4
         self.num_wheels = num_wheels
-
+    def drive():
+        return 'vrooooom'
     # TODO
 
 
@@ -16,6 +19,12 @@ class GroundVehicle():
 # of wheels to 2 by passing that to the constructor of its superclass.
 #
 # Override the drive() method in Motorcycle so that it returns "BRAAAP!!"
+
+class Motorcycle(GroundVehicle):
+    super().__init__(self, 2)
+    #something like that 
+    def drive(self):
+        return 'BRAAAP!!'
 
 # TODO
 
@@ -30,3 +39,4 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 # TODO
+
