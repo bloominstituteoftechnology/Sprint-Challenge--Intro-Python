@@ -5,8 +5,11 @@
 
 class GroundVehicle():
     def __init__(self, num_wheels):
+        if not num_wheels:
+            return 4
         self.num_wheels = num_wheels
-
+    def drive():
+        return 'vrooooom'
     # TODO
 
 
